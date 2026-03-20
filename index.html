@@ -45,7 +45,6 @@ body { font-family: var(--font-b); background: var(--navy); color: var(--white);
 @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
 
 #landing { display: block; }
-#funnel  { display: none; }
 
 /* ─── NAV ─── */
 nav {
@@ -352,7 +351,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 .footer-bottom p { font-size: 12px; color: var(--white-65); }
 
 /* ─── FUNNEL ─── */
-#funnel { min-height: 100vh; background: var(--navy-2); display: none; flex-direction: column; }
+#funnel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; background: var(--navy-2); display: none; flex-direction: column; overflow-y: auto; }
 .funnel-nav { background: rgba(8,14,26,0.97); border-bottom: 1px solid var(--border); padding: 0 52px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
 .funnel-logo { font-family: var(--font-d); font-size: 22px; letter-spacing: 3px; color: var(--white); }
 .funnel-logo span { color: var(--teal); }
@@ -991,6 +990,7 @@ function openFunnel(t) {
   ans.type=t;
   document.getElementById('landing').style.display='none';
   document.getElementById('funnel').style.display='flex';
+  document.body.style.overflow='hidden';
   // If a program type was passed, pre-select step 1 and skip to step 2
   if(t && t!=='purchase' && t!=='refinance') {
     // Highlight the matching option in step 1
@@ -1008,7 +1008,7 @@ function openFunnel(t) {
     show(1);
   }
 }
-function closeFunnel() { document.getElementById('funnel').style.display='none'; document.getElementById('landing').style.display='block'; }
+function closeFunnel() { document.getElementById('funnel').style.display='none'; document.getElementById('landing').style.display='block'; document.body.style.overflow=''; }
 function show(n) {
   document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step-'+n).classList.add('active'); cur=n;
