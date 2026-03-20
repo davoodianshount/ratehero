@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bank Statement Loans: How Self-Employed Borrowers Qualify for a Mortgage | Rate Hero Mortgage Blog</title>
-<meta name="description" content="Expert mortgage insight from Sean Davoodian, NMLS #1252107. Bank Statement Loans: How Self-Employed Borrowers Qualify for a Mortgage.">
+<title>Non-QM vs QM Loans: What's the Real Difference? | Rate Hero Mortgage Blog</title>
+<meta name="description" content="Expert mortgage insight from Sean Davoodian, NMLS #1252107. Non-QM vs QM Loans: What's the Real Difference?.">
 <meta name="author" content="Sean Davoodian">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
 <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#080F1E;--navy2:#0C1527;--navy3:#101D34;--card:#0E1A2E;--teal:#2563EB;--blue:#2563EB;--blue2:#3B82F6;--w:#FFFFFF;--w70:rgba(255,255,255,0.7);--w65:rgba(255,255,255,0.65);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
 html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
@@ -57,7 +131,124 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 footer{background:var(--navy);border-top:1px solid var(--bd)}
 .fbot-simple{padding:20px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .fbot-simple p{font-size:11px;color:var(--w65)}
-@media(max-width:760px){nav{padding:0 20px}.nlinks,.nphone{display:none}.post-hero{padding:36px 20px 32px}.post-body,.wrap{padding-left:20px;padding-right:20px}.fbot-simple{padding:16px 20px;flex-direction:column}}</style>
+@media(max-width:760px){nav{padding:0 20px}.nlinks,.nphone{display:none}.post-hero{padding:36px 20px 32px}.post-body,.wrap{padding-left:20px;padding-right:20px}.fbot-simple{padding:16px 20px;flex-direction:column}}
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
+}
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
+</style>
 </head>
 <body>
 <nav style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;">
@@ -95,28 +286,27 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 <div class="post-hero">
   <div class="post-hero-inner">
     <div class="post-cat" style="background:rgba(from #7C3AED r g b / 0.12);border-color:rgba(from #7C3AED r g b / 0.3);color:#7C3AED;">Non-QM</div>
-    <h1 class="post-title">Bank Statement Loans: How Self-Employed Borrowers Qualify for a Mortgage</h1>
+    <h1 class="post-title">Non-QM vs QM Loans: What's the Real Difference?</h1>
     <div class="post-meta">
       <div class="post-avatar">SD</div>
       <div>
         <div style="font-weight:700;color:var(--w);">Sean Davoodian</div>
-        <div>NMLS # 1252107 · February 14, 2026 · 5 min read</div>
+        <div>NMLS # 1252107 · February 19, 2026 · 5 min read</div>
       </div>
     </div>
   </div>
 </div>
 
 <article class="post-body">
-<p>Bank statement loans are the most common Non-QM product for self-employed borrowers. Instead of two years of tax returns showing write-off-reduced income, lenders analyze 12 or 24 months of deposits to establish what you actually earn. For business owners who are aggressive about deductions, this is often 2-5x more income than their tax return shows.</p>
-<h2>How Bank Statement Income Is Calculated</h2>
-<p>Business bank statements and personal bank statements are analyzed differently. For business statements, a percentage of total deposits is applied to arrive at qualifying income — this expense factor typically ranges from 50% to 90% depending on the business type and lender. A CPA letter documenting the business and its expense structure can support a higher factor.</p>
-<p>For personal bank statements, the full 100% of documented deposits may be used, net of any transfers from business accounts that have already been counted. Non-sufficient funds (NSF) events are reviewed carefully — excessive NSFs may raise questions about cash flow management.</p>
-<h2>12 Months vs 24 Months</h2>
-<p>Both 12-month and 24-month bank statement programs are available. Longer statement periods tend to qualify for better pricing and higher LTV options. Inconsistent deposit patterns across 12 months sometimes make a 24-month average more favorable — or vice versa. Your loan advisor should run both scenarios before committing to a documentation type.</p>
-<h2>Business Bank Statements: What Counts</h2>
-<p>The account must be in the name of the business. Borrower must be the owner or co-owner of the business. Large one-time deposits (asset sales, insurance proceeds) that aren't representative of ongoing income are typically excluded from the income calculation.</p>
-<h2>Personal Bank Statements: Common Issues</h2>
-<p>The most common issue with personal bank statement analysis is transfers between accounts. If the same dollar moves from a business account to a personal account, counting it in both places inflates income. Lenders track deposit sources carefully — be prepared to explain large or irregular deposits.</p>
+<p>If you've ever been turned down for a conventional mortgage despite having solid income and good credit, the issue may be that your income structure doesn't fit the QM framework — not that you're a risky borrower. Understanding the difference helps you pursue the right program from the start.</p>
+<h2>What QM Requires</h2>
+<p>Qualified Mortgages must meet the following: income fully documented with W-2s or tax returns; DTI ratio at or below 43% (with exceptions); no risky loan features like interest-only or negative amortization; and points and fees capped at 3% of the loan amount. Conforming conventional, FHA, VA, and USDA loans all fall under QM.</p>
+<h2>What Non-QM Allows</h2>
+<p>Non-QM loans can go above 43% DTI in some programs, accept alternative income documentation (bank statements, P&L, 1099, assets), include interest-only features, and are available to borrowers who don't fit conventional eligibility requirements. They are still subject to Ability-to-Repay rules — lenders must document a reasonable good-faith determination that the borrower can repay — but the methodology is more flexible.</p>
+<h2>Pricing Difference</h2>
+<p>Non-QM rates are typically 0.5-2.5% higher than comparable QM rates depending on the documentation type, LTV, credit score, and loan purpose. This premium reflects the additional underwriting complexity and secondary market dynamics. However, for borrowers who can't qualify for QM at all, the relevant comparison isn't rate to rate — it's mortgage vs no mortgage.</p>
+<h2>Regulatory Environment</h2>
+<p>Non-QM lenders are still required to comply with all applicable Fair Lending laws, state licensing requirements, and federal consumer protection regulations. The "Non-QM" label doesn't mean unregulated — it simply means outside the specific QM rule framework.</p>
 
 <div class="post-cta">
   <h3>Ready to Apply? Let's Talk.</h3>
@@ -128,11 +318,11 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 <div style="margin-top:40px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.08);">
   <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px">Keep Reading</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
-        <a href="non-qm-loan-guide.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📋</span>Non-QM Loan Guide</a>
-        <a href="pl-only-loans.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📋</span>P&L Only Loans</a>
-        <a href="../../pages/non-qm.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📋</span>Non-QM Programs</a>
-        <a href="non-qm-self-employed-rejection.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">🚫</span>Self-Employed Rejection</a>
-        <a href="non-qm-high-dti.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📊</span>High DTI Solutions</a>
+        <a href="../../dscr-loans/florida.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📈</span>DSCR Loans in Florida</a>
+        <a href="../../dscr-loans/texas.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">🤠</span>DSCR Loans in Texas</a>
+        <a href="../../pages/long-term-rental.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📈</span>DSCR Long-Term Rental</a>
+        <a href="../../pages/non-qm.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📋</span>Non-QM Loans</a>
+        <a href="../../pages/brrrr-loan.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">🔄</span>BRRRR Financing</a>
   </div>
 </div>
 
@@ -146,8 +336,8 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 </div>
 
 <div style="display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:32px;border-top:1px solid var(--bd);flex-wrap:wrap;">
-  <a href='pl-only-loans.html' style='text-decoration:none;color:var(--w65);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;'>← P&L Only Loans: Qualify With a CPA Letter Instead ...</a>
-  <a href='non-qm-loan-guide.html' style='text-decoration:none;color:var(--w65);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;'>What Is a Non-QM Loan? Everything You Need to Know... →</a>
+  <a href='itin-mortgage.html' style='text-decoration:none;color:var(--w65);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;'>← ITIN Mortgage Loans: Homeownership for Borrowers W...</a>
+  <a href='1099-mortgage-loans.html' style='text-decoration:none;color:var(--w65);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;'>1099 Loans: How Independent Contractors Can Qualif... →</a>
 </div>
 
 <div style="margin-top:32px;">
@@ -223,5 +413,22 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     </div>
   </div>
 </footer>
+<script>
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

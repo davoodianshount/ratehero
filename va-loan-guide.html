@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Avoid or Eliminate PMI on a Conventional Loan | Rate Hero Mortgage Blog</title>
-<meta name="description" content="Expert mortgage insight from Sean Davoodian, NMLS #1252107. How to Avoid or Eliminate PMI on a Conventional Loan.">
-<meta name="author" content="Sean Davoodian">
+<title>Mortgage Blog | DSCR, Non-QM, HELOC, Conventional & CES – Rate Hero</title>
+<meta name="description" content="Expert mortgage articles on DSCR loans, Non-QM, HELOCs, conventional mortgages, and closed-end seconds. Written by Sean Davoodian, NMLS #1252107.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
-<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#080F1E;--navy2:#0C1527;--navy3:#101D34;--card:#0E1A2E;--teal:#2563EB;--blue:#2563EB;--blue2:#3B82F6;--w:#FFFFFF;--w70:rgba(255,255,255,0.7);--w65:rgba(255,255,255,0.65);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
 html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
@@ -57,11 +131,145 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 footer{background:var(--navy);border-top:1px solid var(--bd)}
 .fbot-simple{padding:20px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .fbot-simple p{font-size:11px;color:var(--w65)}
-@media(max-width:760px){nav{padding:0 20px}.nlinks,.nphone{display:none}.post-hero{padding:36px 20px 32px}.post-body,.wrap{padding-left:20px;padding-right:20px}.fbot-simple{padding:16px 20px;flex-direction:column}}</style>
+@media(max-width:760px){nav{padding:0 20px}.nlinks,.nphone{display:none}.post-hero{padding:36px 20px 32px}.post-body,.wrap{padding-left:20px;padding-right:20px}.fbot-simple{padding:16px 20px;flex-direction:column}}
+.blog-hero{background:var(--navy);border-bottom:1px solid var(--bd);padding:64px 32px 52px;text-align:center}
+.blog-hero h1{font-family:var(--fb);font-size:clamp(32px,4.5vw,54px);font-weight:800;letter-spacing:-1.5px;color:var(--w);margin-bottom:10px}
+.blog-hero h1 em{font-style:italic;color:var(--teal)}
+.blog-hero p{font-size:17px;color:var(--w65);max-width:560px;margin:0 auto 24px;line-height:1.75}
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.filter-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--w65);padding:7px 16px;border-radius:99px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--fb)}
+.filter-btn:hover,.filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.blog-grid{max-width:1200px;margin:0 auto;padding:56px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.blog-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px 20px;text-decoration:none;transition:all .22s;display:flex;flex-direction:column;gap:10px}
+.blog-card:hover{border-color:var(--bdt);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.bc-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:99px;display:inline-block;width:fit-content}
+.bc-title{font-size:16px;font-weight:800;color:var(--w);line-height:1.3;flex:1}
+.bc-excerpt{font-size:14px;color:var(--w65);line-height:1.7}
+.bc-meta{font-size:12px;color:rgba(255,255,255,0.4);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:12px;border-top:1px solid var(--bd)}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;padding:32px 20px}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
+}
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
+</style>
 </head>
 <body>
 <nav style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;">
-  <a href="../../index.html" class="nlogo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0">
+  <a href="../index.html" class="nlogo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0">
   <defs>
     <linearGradient id="blt" x1="20%" y1="0%" x2="80%" y2="100%">
       <stop offset="0%" stop-color="#F5B731"/>
@@ -74,99 +282,717 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     <li>
       <a href="#" class="has-drop">DSCR</a>
       <div class="nav-dropdown">
-        <a href="../../pages/long-term-rental.html">
+        <a href="../pages/long-term-rental.html">
           <span class="nd-icon">📈</span>
           <span class="nd-text"><span class="nd-title">Long-Term Rental</span><span class="nd-sub">Qualify on lease or 1007 rent</span></span>
         </a>
-        <a href="../../pages/short-term-rental.html">
+        <a href="../pages/short-term-rental.html">
           <span class="nd-icon">🏖️</span>
           <span class="nd-text"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO — AirDNA accepted</span></span>
         </a>
       </div>
     </li>
-    <li><a href="../../pages/non-qm.html">Non-QM</a></li>
-    <li><a href="../../pages/conventional.html">Conventional / FHA / VA</a></li>
-    <li><a href="../../pages/heloc.html">HELOC</a></li>
-    <li><a href="../../pages/brrrr-loan.html">BRRRR / Hard Money Exit</a></li>
+    <li><a href="../pages/non-qm.html">Non-QM</a></li>
+    <li><a href="../pages/conventional.html">Conventional / FHA / VA</a></li>
+    <li><a href="../pages/heloc.html">HELOC</a></li>
+    <li><a href="../pages/brrrr-loan.html">BRRRR / Hard Money Exit</a></li>
   </ul>
-  <div class="nright"><a href="../pages/about.html" style="color:rgba(255,255,255,0.65);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;">About</a><div class="nphone">Call: <strong>(747) 308-1635</strong></div><a href="../../index.html" class="nbtn" onclick="sessionStorage.setItem('openFunnel','1');return true;">Apply Now</a></div>
+  <div class="nright"><a href="../pages/about.html" style="color:rgba(255,255,255,0.65);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;">About</a><div class="nphone">Call: <strong>(747) 308-1635</strong></div><a href="../index.html" class="nbtn" onclick="sessionStorage.setItem('openFunnel','1');return true;">Apply Now</a></div>
 </nav>
-<div class="post-hero">
-  <div class="post-hero-inner">
-    <div class="post-cat" style="color:#D97706;">Conventional</div>
-    <h1 class="post-title">How to Avoid or Eliminate PMI on a Conventional Loan</h1>
-    <div class="post-meta">
-      <div class="post-avatar">SD</div>
-      <div><div style="font-weight:700;color:var(--w);">Sean Davoodian</div><div>NMLS # 1252107 · April 21, 2026 · 5 min read</div></div>
-    </div>
+<div class="blog-hero">
+  <h1>Mortgage Insights.<br><em>Built for Investors.</em></h1>
+  <p>Expert guides on DSCR, Non-QM, HELOCs, conventional loans, and closed-end seconds — written by a licensed advisor who works these deals every day.</p>
+  <div style="font-size:13px;color:var(--w65);">By <strong style="color:var(--w);">Sean Davoodian</strong> · NMLS # 1252107 · 73 Articles</div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterPosts('all',this)">All (73)</button>
+    <button class="filter-btn" onclick="filterPosts('Closed-End Second',this)">🔐 Closed-End Second (14)</button><button class="filter-btn" onclick="filterPosts('Conventional',this)">🏠 Conventional (11)</button><button class="filter-btn" onclick="filterPosts('DSCR',this)">📈 DSCR (20)</button><button class="filter-btn" onclick="filterPosts('HELOC',this)">💰 HELOC (11)</button><button class="filter-btn" onclick="filterPosts('Non-QM',this)">📋 Non-QM (17)</button>
   </div>
 </div>
-<article class="post-body">
-<p>Private Mortgage Insurance adds $50–400/month to your conventional loan payment when LTV exceeds 80%. For many borrowers it's unavoidable at purchase, but there are strategies to minimize it, eliminate it early, or avoid it entirely depending on your financial position.</p>
-<h2>Strategy 1: Put 20% Down</h2>
-<p>The most straightforward approach. A 20% or greater down payment means no PMI from day one — ever. On a $450,000 purchase, 20% down is $90,000. If you have this capital, this is almost always the best option. The PMI savings over the loan life dwarf the opportunity cost of the larger down payment for most borrowers.</p>
-<h2>Strategy 2: Piggyback Loan (80/10/10)</h2>
-<p>Use a closed-end second mortgage to cover the gap between your down payment and 80% LTV, avoiding PMI on the first mortgage. With 10% down and a 10% CES, the first mortgage is exactly 80% LTV — no PMI triggered. Compare the blended cost (first lien rate + CES rate weighted by balance) against the first-lien-plus-PMI alternative to confirm which is cheaper over your expected hold period.</p>
-<h2>Strategy 3: Lender-Paid PMI</h2>
-<p>Some lenders offer "lender-paid PMI" (LPMI) where they absorb the PMI premium in exchange for a slightly higher interest rate. The rate increase is permanent — even after you'd reach 80% LTV through payments. LPMI makes sense for shorter expected hold periods where you won't reach 78–80% LTV before selling or refinancing.</p>
-<h2>Strategy 4: Cancel PMI Once Eligible</h2>
-<p>If you already have PMI and have reached 20% equity through payments or appreciation, you can request PMI cancellation. Lenders are required by the Homeowners Protection Act to cancel PMI automatically at 78% LTV based on the original amortization schedule — but you can request cancellation at 80% LTV with a formal request and potentially an appraisal to document current value. Don't wait for automatic cancellation if you've hit 80% sooner through appreciation.</p>
-<div class="post-cta">
-  <h3>Ready to Apply? Let's Talk.</h3>
-  <p>No SSN required. No credit pull. Get your best rate in 2 minutes.</p>
-  <a href="../../index.html">Check My Eligibility →</a>
-</div>
+<div class="blog-grid" id="grid">
 
-<div style="margin-top:40px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.08);">
-  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px">Keep Reading</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
-        <a href="../../dscr-loans/florida.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📈</span>DSCR Loans in Florida</a>
-        <a href="../../dscr-loans/texas.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">🤠</span>DSCR Loans in Texas</a>
-        <a href="../../pages/long-term-rental.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📈</span>DSCR Long-Term Rental</a>
-        <a href="../../pages/non-qm.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">📋</span>Non-QM Loans</a>
-        <a href="../../pages/brrrr-loan.html" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;text-decoration:none;transition:all .2s;font-size:14px;font-weight:600;color:rgba(255,255,255,0.65);" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(255,255,255,0.65)'"><span style="font-size:16px">🔄</span>BRRRR Financing</a>
-  </div>
+    <a href="posts/conventional-pmi-strategies.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">How to Avoid or Eliminate PMI on a Conventional Loan</h3>
+      <p class="bc-excerpt">Private Mortgage Insurance adds $50–400/month to your conventional loan payment when LTV exceeds 80%. For many borrowers it's unavoidable at purchase, but there are strategies to m...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 21, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-equity-math.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">How Much Can You Borrow with a HELOC? The CLTV Math Explained</h3>
+      <p class="bc-excerpt">The amount available through a HELOC is determined by three variables: your property's current appraised value, your existing first mortgage balance, and the maximum Combined Loan-...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 20, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-brrrr.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC and BRRRR: Using Home Equity to Fund Your Next Investment Deal</h3>
+      <p class="bc-excerpt">The BRRRR strategy — Buy, Rehab, Rent, Refinance, Repeat — is fundamentally about recycling capital. A HELOC is one of the most efficient tools for funding the Buy and Rehab stages...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 19, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-draw-to-repayment.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC Draw Period Ending: What Happens and How to Prepare</h3>
+      <p class="bc-excerpt">The draw period is when a HELOC works as intended — flexible access, interest-only minimums, and revolving availability. What happens when it ends catches many borrowers off guard....</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 18, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-self-employed.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC for Self-Employed Borrowers: Alt-Doc Home Equity Options</h3>
+      <p class="bc-excerpt">Self-employed borrowers face the same tax-return income problem with HELOCs as they do with first mortgages. Non-QM HELOC programs address this with alternative income documentatio...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 17, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-real-estate-investing.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">Using a HELOC to Fund Real Estate Investments: A Practical Strategy Guide</h3>
+      <p class="bc-excerpt">A HELOC on your primary residence or existing investment property provides flexible, revolving capital for real estate acquisitions. When used strategically with a clear repayment ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 16, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-guide.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC Guide: Everything You Need to Know About Home Equity Lines of Credit</h3>
+      <p class="bc-excerpt">A HELOC — Home Equity Line of Credit — is a revolving credit line secured by a lien on your property. Unlike a closed-end second that disburses a lump sum, a HELOC gives you a cred...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 15, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-reserves-assets.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">CES Reserve and Asset Documentation: What Lenders Verify at Closing</h3>
+      <p class="bc-excerpt">Closed-end second mortgages require post-closing reserve verification just like first lien loans. Understanding what constitutes eligible reserves and how to document them properly...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 14, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-standalone-rate-strategy.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Stand-Alone CES: The Best Way to Access Equity Without Refinancing Your First</h3>
+      <p class="bc-excerpt">For the millions of homeowners with first mortgages locked in at 3–4%, a cash-out refinance means replacing a historically low rate on the entire balance. A stand-alone closed-end ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 13, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-bank-statement.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Bank Statement Closed-End Second: Alt-Doc CES for Self-Employed Borrowers</h3>
+      <p class="bc-excerpt">Self-employed borrowers who qualify their first mortgage with bank statements can access the same income documentation flexibility for a closed-end second. This creates a complete ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 12, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-after-credit-event.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Closed-End Second After Bankruptcy or Foreclosure: What's Actually Possible</h3>
+      <p class="bc-excerpt">A past credit event doesn't permanently disqualify you from accessing home equity through a closed-end second. Seasoning requirements apply, but with the right profile and sufficie...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 11, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-investment-property.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Closed-End Second for Investment Properties: Accessing Equity Without Refinancing</h3>
+      <p class="bc-excerpt">A closed-end second on a rental property — qualifying on the property's cash flow through DSCR — is one of the most powerful equity access tools for real estate investors. It lets ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 10, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-piggyback.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Piggyback Loans: How a Closed-End Second Eliminates PMI at Purchase</h3>
+      <p class="bc-excerpt">A piggyback loan — using a closed-end second alongside a new first mortgage at purchase — is one of the most underused strategies in residential financing. Structured correctly, it...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 09, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-vs-heloc-detailed.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Closed-End Second vs HELOC: A Detailed Side-by-Side Comparison</h3>
+      <p class="bc-excerpt">Both products access home equity through a second lien, but their mechanics, pricing, and optimal use cases differ substantially. This comparison covers every dimension that should...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 08, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-asset-utilization.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Asset Depletion Mortgages: Qualify Based on Your Investment Portfolio</h3>
+      <p class="bc-excerpt">Asset utilization — also called asset depletion — lets high-net-worth borrowers qualify for a mortgage using their investment portfolio rather than traditional earned income. If yo...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 07, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-mixed-use.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Non-QM Loans for Mixed-Use Properties: What Investors Need to Know</h3>
+      <p class="bc-excerpt">Mixed-use properties — buildings combining residential units with commercial space — fall into a financing gap. Too residential for commercial lenders and too commercial for standa...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 06, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-rental-income.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Using Rental Income on a Non-QM Loan: Beyond the Schedule E</h3>
+      <p class="bc-excerpt">Conventional loans count rental income from Schedule E of your tax return — after depreciation, mortgage interest, and other deductions slash it. Non-QM programs have alternative m...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 05, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-credit-event-recovery.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Mortgage After Bankruptcy or Foreclosure: Non-QM Timelines and Options</h3>
+      <p class="bc-excerpt">A past credit event doesn't permanently close the door on mortgage lending. Non-QM programs have defined seasoning requirements — and some allow borrowers back in faster than you'd...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 04, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-self-employed-rejection.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Why Self-Employed Borrowers Get Rejected — and How Non-QM Solves It</h3>
+      <p class="bc-excerpt">Self-employment is one of the most common reasons creditworthy borrowers get turned down for conventional mortgages — not because they can't afford the payment, but because their t...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 03, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-foreign-nationals.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Non-QM Loans for Foreign Nationals: Financing US Real Estate Without an SSN</h3>
+      <p class="bc-excerpt">Foreign nationals — individuals who are not US citizens or permanent residents — can access Non-QM mortgage programs to purchase US real estate. The key is understanding which docu...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 02, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-high-dti.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">High DTI Mortgage Loans: Non-QM Solutions When Conventional Says No</h3>
+      <p class="bc-excerpt">A debt-to-income ratio above 43–50% typically disqualifies borrowers from conventional and FHA programs. Non-QM programs can accommodate higher DTI in exchange for documented compe...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>April 01, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-wvoe.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Written Verification of Employment (WVOE) Loans: Qualify Without Tax Returns</h3>
+      <p class="bc-excerpt">The Written Verification of Employment is a Non-QM income documentation option that qualifies borrowers through an employer verification letter instead of pay stubs, W-2s, and two ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 31, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-first-time-investor.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">First-Time Real Estate Investor DSCR Loans: What to Expect</h3>
+      <p class="bc-excerpt">You don't need a rental portfolio to get a DSCR loan. First-time investors — and even first-time homebuyers purchasing investment properties — are eligible. The qualification is ba...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 30, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-brrrr-refinance.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">Executing the DSCR Refinance in a BRRRR: Timing, Numbers, and Exit Strategy</h3>
+      <p class="bc-excerpt">The Refinance step is what separates BRRRR from a standard buy-and-hold. Done right, it recycles your acquisition and renovation capital for the next deal. Done wrong — or skipped ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 29, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-documentation-checklist.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loan Documents: The Complete Pre-Application Checklist</h3>
+      <p class="bc-excerpt">One of the DSCR program's biggest advantages is what you don't need to provide. But there's still a document list — and having everything organized before you apply shaves days off...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 28, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-reserves.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loan Reserve Requirements: How Much Cash Do You Need After Closing?</h3>
+      <p class="bc-excerpt">Reserve requirements are one of the most overlooked aspects of DSCR qualification. Many investors focus entirely on the DSCR ratio and credit score, then get caught off guard by ho...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 27, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-condos.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loans for Condominiums: Warrantable vs Non-Warrantable Projects</h3>
+      <p class="bc-excerpt">Condo financing under DSCR programs requires evaluating not just the unit — but the entire condominium project. Warrantable vs non-warrantable status significantly affects your rat...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 26, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-arm-programs.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR ARM Loans: When an Adjustable Rate Improves Your Investment Returns</h3>
+      <p class="bc-excerpt">Adjustable-rate DSCR mortgages offer lower initial rates in exchange for rate variability after the fixed period ends. For investors with defined hold strategies, ARM programs can ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 25, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-vacant-property.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">Can You Get a DSCR Loan on a Vacant Property? Yes — Here's How</h3>
+      <p class="bc-excerpt">One of the most common questions from DSCR borrowers: what if the property has no tenant at application? DSCR programs explicitly accommodate unleased properties — you are not requ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 24, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-purchase-vs-refi.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Purchase vs Refinance: Key Differences Every Investor Should Know</h3>
+      <p class="bc-excerpt">DSCR programs handle purchases and refinances similarly — but there are important differences in how rental income qualifies and what LTV you can access. Knowing these distinctions...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 23, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-dti.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Conventional Loan DTI Limits: Maximum Debt-to-Income Ratios Explained</h3>
+      <p class="bc-excerpt">Debt-to-income ratio is the second biggest qualifying factor in conventional lending after credit score. Understanding how DTI is calculated — and what the actual limits are — prev...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 22, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-appraisal.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Conventional Loan Appraisals: Everything Borrowers Need to Know</h3>
+      <p class="bc-excerpt">The appraisal is one of the most consequential steps in a conventional mortgage. It establishes the property's value, confirms it meets minimum standards, and determines whether th...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 21, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-credit-scores.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">How Your Credit Score Affects Your Conventional Mortgage Rate</h3>
+      <p class="bc-excerpt">Credit score has more direct impact on your conventional mortgage rate than any other single factor. Understanding the pricing tiers and what moves the needle can mean thousands in...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 20, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-jumbo.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Jumbo vs Conforming Loans: What Happens Above the Loan Limit</h3>
+      <p class="bc-excerpt">When your loan amount exceeds Fannie Mae and Freddie Mac's conforming limits, you enter jumbo territory. Jumbo loans operate under different underwriting standards, reserve require...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 19, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-first-time-buyer.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">3% Down Conventional Loans: HomeReady and Home Possible Explained</h3>
+      <p class="bc-excerpt">First-time homebuyers can access conventional financing with as little as 3% down through Fannie Mae HomeReady and Freddie Mac Home Possible — often with better long-term economics...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 18, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-refinance.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Conventional Refinancing: Rate-and-Term vs Cash-Out Explained</h3>
+      <p class="bc-excerpt">Refinancing a conventional loan means replacing your existing mortgage with a new one — to capture a lower rate, change the loan term, or access equity. The two primary types — rat...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 17, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-investment-property.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Conventional Loans for Investment Properties: Requirements and Limits</h3>
+      <p class="bc-excerpt">Financing an investment property with a conventional loan is significantly harder than financing a primary residence — stricter credit requirements, larger down payments, and less ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 16, 2026</span>
+      </div>
+    </a>
+    <a href="posts/va-loan-guide.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">VA Loans: The Complete Guide for Veterans and Active Service Members</h3>
+      <p class="bc-excerpt">The VA loan is one of the most powerful mortgage benefits available — zero down payment, no PMI, competitive rates, and flexible credit requirements. If you've served, this is almo...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 15, 2026</span>
+      </div>
+    </a>
+    <a href="posts/fha-vs-conventional.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">FHA vs Conventional: Which Loan Is Right for You?</h3>
+      <p class="bc-excerpt">FHA and conventional loans serve similar purposes — financing a primary residence — but they're built for different borrower profiles. Choosing the wrong one can cost you tens of t...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 14, 2026</span>
+      </div>
+    </a>
+    <a href="posts/conventional-loan-guide.html" class="blog-card" data-cat="Conventional">
+      <div class="bc-cat" style="color:#D97706;background:rgba(37,99,235,0.08);">🏠 Conventional</div>
+      <h3 class="bc-title">Conventional Loans Explained: Rates, Requirements & When to Use One</h3>
+      <p class="bc-excerpt">A conventional loan is any mortgage not insured or guaranteed by a federal agency — no FHA, VA, or USDA backing. Lenders originate them using their own funds and typically sell the...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 13, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-brrrr-strategy.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">How to Use a HELOC as Part of Your BRRRR Investment Strategy</h3>
+      <p class="bc-excerpt">The BRRRR method — Buy, Rehab, Rent, Refinance, Repeat — is fundamentally about recycling capital. A HELOC is one of the most efficient tools available for funding the Buy and Reha...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 12, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-vs-cashout-refi.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC vs Cash-Out Refinance: Which Makes More Sense Right Now?</h3>
+      <p class="bc-excerpt">The right answer depends entirely on what rate your existing first mortgage carries. In the current rate environment, this is one of the most important mortgage decisions homeowner...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 11, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-investment-property.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">Can You Get a HELOC on an Investment Property?</h3>
+      <p class="bc-excerpt">Yes — HELOCs and second lien products are available on investment properties, though the terms are more conservative than owner-occupied programs. For investors with significant eq...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 10, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-interest-rates.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">HELOC Interest Rates Explained: How They Work and What Affects Them</h3>
+      <p class="bc-excerpt">HELOC interest rates are among the most misunderstood elements of the product. Most borrowers focus on the initial rate — but HELOC rates are almost always variable, meaning what y...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 09, 2026</span>
+      </div>
+    </a>
+    <a href="posts/heloc-equity-requirements.html" class="blog-card" data-cat="HELOC">
+      <div class="bc-cat" style="color:#059669;background:rgba(37,99,235,0.08);">💰 HELOC</div>
+      <h3 class="bc-title">How Much Equity Do You Need for a HELOC?</h3>
+      <p class="bc-excerpt">The equity requirement for a HELOC isn't a fixed number — it depends on the program's maximum CLTV (combined loan-to-value) and your existing first mortgage balance. Understanding ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 06, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-debt-consolidation.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Using a Closed-End Second for Debt Consolidation: When It Makes Sense</h3>
+      <p class="bc-excerpt">A closed-end second mortgage can be a powerful tool for eliminating high-interest debt — but only when used strategically. Here's how to evaluate whether debt consolidation through...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 03, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-how-much-borrow.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">How Much Can You Borrow With a Closed-End Second Mortgage?</h3>
+      <p class="bc-excerpt">The amount you can borrow with a closed-end second depends on three variables: your property's current value, your existing first mortgage balance, and the maximum combined LTV all...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 02, 2026</span>
+      </div>
+    </a>
+    <a href="posts/standalone-ces.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Stand-Alone Closed-End Second: Access Equity Without Refinancing Your First Mortgage</h3>
+      <p class="bc-excerpt">If you have a first mortgage with an interest rate you'd hate to give up — locked in before rates moved higher — a stand-alone closed-end second lets you access your home equity wi...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>March 01, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-credit-requirements.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Closed-End Second Credit Requirements: What You Need to Qualify</h3>
+      <p class="bc-excerpt">Closed-end second mortgages have specific credit requirements that differ from first liens in important ways. Understanding these requirements before applying prevents surprises du...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 28, 2026</span>
+      </div>
+    </a>
+    <a href="posts/piggyback-ces-loans.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Piggyback Loans Explained: How CES Works with a First Mortgage</h3>
+      <p class="bc-excerpt">A piggyback loan — also called an 80/10/10 or 80/15/5 depending on the structure — uses a closed-end second mortgage alongside a new first mortgage at purchase. It's one of the mos...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 25, 2026</span>
+      </div>
+    </a>
+    <a href="posts/ces-vs-heloc.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">Closed-End Second vs HELOC: Which One Should You Get?</h3>
+      <p class="bc-excerpt">Both products tap your home equity, but they serve different purposes and carry different structures. Choosing the wrong one can cost you in interest, flexibility, or both. When a ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 24, 2026</span>
+      </div>
+    </a>
+    <a href="posts/closed-end-second-guide.html" class="blog-card" data-cat="Closed-End Second">
+      <div class="bc-cat" style="color:#0891B2;background:rgba(37,99,235,0.08);">🔐 Closed-End Second</div>
+      <h3 class="bc-title">What Is a Closed-End Second Mortgage? A Complete Guide</h3>
+      <p class="bc-excerpt">A closed-end second mortgage (CES) is a fixed loan secured by a second lien position on your home. Unlike a HELOC, it disburses a lump sum at closing with a defined repayment sched...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 23, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-investment-property.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Non-QM Loans for Investment Properties: What Investors Need to Know</h3>
+      <p class="bc-excerpt">Real estate investors often use Non-QM programs when their income structure doesn't fit conventional requirements. Understanding when to use Non-QM vs DSCR for investment property ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 22, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-credit-requirements.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Non-QM Loan Credit Requirements: What Score Do You Actually Need?</h3>
+      <p class="bc-excerpt">One of the biggest misconceptions about Non-QM loans is that they're for borrowers with bad credit. While Non-QM programs do accommodate some credit imperfections, most standard No...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 21, 2026</span>
+      </div>
+    </a>
+    <a href="posts/itin-mortgage.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">ITIN Mortgage Loans: Homeownership for Borrowers Without an SSN</h3>
+      <p class="bc-excerpt">An Individual Taxpayer Identification Number (ITIN) is issued by the IRS to individuals who are required to file US taxes but aren't eligible for a Social Security Number. For this...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 20, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-vs-qm.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Non-QM vs QM Loans: What's the Real Difference?</h3>
+      <p class="bc-excerpt">If you've ever been turned down for a conventional mortgage despite having solid income and good credit, the issue may be that your income structure doesn't fit the QM framework — ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 19, 2026</span>
+      </div>
+    </a>
+    <a href="posts/1099-mortgage-loans.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">1099 Loans: How Independent Contractors Can Qualify for a Mortgage</h3>
+      <p class="bc-excerpt">Independent contractors, gig workers, and commission-based salespeople face a unique mortgage challenge: W-2 income doesn't exist, and tax returns often show aggressive deductions....</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 18, 2026</span>
+      </div>
+    </a>
+    <a href="posts/asset-utilization-loans.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Asset Utilization Mortgages: Use Your Investment Portfolio to Qualify</h3>
+      <p class="bc-excerpt">Asset utilization — sometimes called asset depletion — is a Non-QM income calculation method that lets high-net-worth borrowers qualify for a mortgage using their investment portfo...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 17, 2026</span>
+      </div>
+    </a>
+    <a href="posts/pl-only-loans.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">P&L Only Loans: Qualify With a CPA Letter Instead of Tax Returns</h3>
+      <p class="bc-excerpt">For self-employed borrowers with complex financials, the P&L Only mortgage program offers a streamlined path to qualification. Instead of submitting tax returns, you provide a 12-m...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 15, 2026</span>
+      </div>
+    </a>
+    <a href="posts/bank-statement-loans.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">Bank Statement Loans: How Self-Employed Borrowers Qualify for a Mortgage</h3>
+      <p class="bc-excerpt">Bank statement loans are the most common Non-QM product for self-employed borrowers. Instead of two years of tax returns showing write-off-reduced income, lenders analyze 12 or 24 ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 14, 2026</span>
+      </div>
+    </a>
+    <a href="posts/non-qm-loan-guide.html" class="blog-card" data-cat="Non-QM">
+      <div class="bc-cat" style="color:#7C3AED;background:rgba(37,99,235,0.08);">📋 Non-QM</div>
+      <h3 class="bc-title">What Is a Non-QM Loan? Everything You Need to Know</h3>
+      <p class="bc-excerpt">Non-QM stands for Non-Qualified Mortgage. It's a broad category of home loan products that don't meet the standard "qualified mortgage" definition established by the Consumer Finan...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 13, 2026</span>
+      </div>
+    </a>
+    <a href="posts/first-time-investor-dscr.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">First-Time Real Estate Investors Can Get DSCR Loans — Here's How</h3>
+      <p class="bc-excerpt">You don't need a portfolio to get a DSCR loan. First-time investors — and even first-time homebuyers purchasing investment properties — are eligible under most DSCR programs. The q...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 12, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-multifamily.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loans for 5-10 Unit Multifamily: What Investors Need to Know</h3>
+      <p class="bc-excerpt">Investors scaling beyond single-family and small multifamily eventually discover that 5-10 unit properties fall in an awkward gap — too small for commercial lending, but too large ...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 11, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-foreign-nationals.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loans for Foreign Nationals: Invest in US Real Estate Without US Credit</h3>
+      <p class="bc-excerpt">Non-US residents can absolutely finance US investment properties — and DSCR loans are the primary vehicle. No US credit history required. No Social Security number. Just the proper...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 10, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-interest-only.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Interest-Only Loans: Lower Payments, Same Qualification</h3>
+      <p class="bc-excerpt">For investors focused on maximizing monthly cash flow, interest-only DSCR loans offer a compelling advantage: lower monthly payments that can improve your DSCR ratio and unlock dea...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 09, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-loan-llc.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loans in an LLC: How to Finance Investment Properties Through Your Entity</h3>
+      <p class="bc-excerpt">One of the most underutilized features of DSCR loan programs is the ability to close in the name of an LLC or business entity. For serious investors, this is a critical piece of po...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 08, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-cash-out-refinance.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Cash-Out Refinance: Pull Equity Without Showing Income</h3>
+      <p class="bc-excerpt">One of the most powerful applications of DSCR financing is the cash-out refinance. After you've built equity — through appreciation, loan paydown, or forced appreciation via renova...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 07, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-no-ratio-loans.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR No-Ratio Loans: Finance When the Numbers Don't Pencil</h3>
+      <p class="bc-excerpt">Sometimes a great investment property doesn't perfectly cover its mortgage payment at the moment of purchase. Maybe you're buying below market rent with a plan to raise rents, or a...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 06, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-short-term-rental.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loans for Short-Term Rentals: Airbnb and VRBO Financing</h3>
+      <p class="bc-excerpt">Short-term rental operators face a unique challenge with traditional financing: Airbnb income doesn't show up cleanly on tax returns, especially in the early years of a property. D...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 05, 2026</span>
+      </div>
+    </a>
+    <a href="posts/calculate-dscr-ratio.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">How to Calculate Your DSCR Ratio Before Applying</h3>
+      <p class="bc-excerpt">Before you pick up the phone to apply for a DSCR loan, take 10 minutes to run your own numbers. Knowing your DSCR ratio in advance tells you whether you qualify, what LTV you're li...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 04, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-vs-conventional.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loan vs Conventional: Which Is Right for Real Estate Investors?</h3>
+      <p class="bc-excerpt">For most real estate investors, the conventional mortgage approval process is a nightmare. Two years of tax returns, extensive employment history, and debt-to-income ratios that pu...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 03, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-loan-requirements.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">DSCR Loan Requirements: Credit, LTV, DSCR Ratio</h3>
+      <p class="bc-excerpt">Understanding what you actually need to qualify for a DSCR loan prevents wasted time and applications. Here's a breakdown of every key requirement from credit score to reserves. Mi...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 02, 2026</span>
+      </div>
+    </a>
+    <a href="posts/dscr-loan-guide.html" class="blog-card" data-cat="DSCR">
+      <div class="bc-cat" style="color:#2563EB;background:rgba(37,99,235,0.08);">📈 DSCR</div>
+      <h3 class="bc-title">What Is a DSCR Loan? The Complete Investor Guide</h3>
+      <p class="bc-excerpt">If you've been looking for investment property financing and keep running into walls because of your tax returns, a DSCR loan might be exactly what you need. DSCR stands for Debt S...</p>
+      <div class="bc-meta">
+        <span>Sean Davoodian</span>
+        <span>February 01, 2026</span>
+      </div>
+    </a>
 </div>
-
-<div class="post-author">
-  <div class="pa-avatar">SD</div>
-  <div>
-    <div class="pa-name">Sean Davoodian</div>
-    <div class="pa-title">Senior Loan Advisor · NMLS # 1252107</div>
-    <div class="pa-bio">Sean Davoodian is a licensed mortgage professional specializing in Non-QM, DSCR, and investor financing. With experience closing complex transactions for self-employed borrowers, real estate investors, and foreign nationals, Sean helps clients access programs the big banks don't offer.</div>
-  </div>
-</div>
-<div style="display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:32px;border-top:1px solid var(--bd);flex-wrap:wrap;">
-  <span></span>
-  <a href='heloc-equity-math.html' style='text-decoration:none;color:var(--w65);font-size:14px;font-weight:600;'>How Much Can You Borrow with a HELOC? The CLTV Math Exp... →</a>
-</div>
-<div style="margin-top:32px;"><a href="../index.html" style="color:var(--teal);font-size:14px;font-weight:600;text-decoration:none;">← Back to all articles</a></div>
-</article>
 <footer>
   <!-- DSCR States — SEO + visible lending area links -->
   <div style="background:var(--navy-card,#0F1B30);border-top:1px solid rgba(255,255,255,0.06);padding:32px 52px;">
     <div style="max-width:1260px;margin:0 auto">
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px">📈 DSCR Loans — States We Lend In</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px 6px">
-        <a href="../../dscr-loans/florida.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌴 Florida</a>
-        <a href="../../dscr-loans/texas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🤠 Texas</a>
-        <a href="../../dscr-loans/georgia.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🍑 Georgia</a>
-        <a href="../../dscr-loans/north-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ North Carolina</a>
-        <a href="../../dscr-loans/tennessee.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎸 Tennessee</a>
-        <a href="../../dscr-loans/south-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏖️ South Carolina</a>
-        <a href="../../dscr-loans/ohio.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Ohio</a>
-        <a href="../../dscr-loans/indiana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Indiana</a>
-        <a href="../../dscr-loans/kentucky.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🐴 Kentucky</a>
-        <a href="../../dscr-loans/missouri.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎵 Missouri</a>
-        <a href="../../dscr-loans/alabama.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🚀 Alabama</a>
-        <a href="../../dscr-loans/mississippi.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Mississippi</a>
-        <a href="../../dscr-loans/arkansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌿 Arkansas</a>
-        <a href="../../dscr-loans/kansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌾 Kansas</a>
-        <a href="../../dscr-loans/oklahoma.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Oklahoma</a>
-        <a href="../../dscr-loans/colorado.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Colorado</a>
-        <a href="../../dscr-loans/wyoming.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🦬 Wyoming</a>
-        <a href="../../dscr-loans/montana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Montana</a>
-        <a href="../../dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States →</a>
+        <a href="../dscr-loans/florida.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌴 Florida</a>
+        <a href="../dscr-loans/texas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🤠 Texas</a>
+        <a href="../dscr-loans/georgia.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🍑 Georgia</a>
+        <a href="../dscr-loans/north-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ North Carolina</a>
+        <a href="../dscr-loans/tennessee.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎸 Tennessee</a>
+        <a href="../dscr-loans/south-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏖️ South Carolina</a>
+        <a href="../dscr-loans/ohio.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Ohio</a>
+        <a href="../dscr-loans/indiana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Indiana</a>
+        <a href="../dscr-loans/kentucky.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🐴 Kentucky</a>
+        <a href="../dscr-loans/missouri.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎵 Missouri</a>
+        <a href="../dscr-loans/alabama.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🚀 Alabama</a>
+        <a href="../dscr-loans/mississippi.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Mississippi</a>
+        <a href="../dscr-loans/arkansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌿 Arkansas</a>
+        <a href="../dscr-loans/kansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌾 Kansas</a>
+        <a href="../dscr-loans/oklahoma.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Oklahoma</a>
+        <a href="../dscr-loans/colorado.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Colorado</a>
+        <a href="../dscr-loans/wyoming.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🦬 Wyoming</a>
+        <a href="../dscr-loans/montana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Montana</a>
+        <a href="../dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States →</a>
       </div>
     </div>
   </div>
@@ -178,21 +1004,21 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center">
       <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.25)">Programs</span>
-      <a href="../../pages/non-qm.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Non-QM</a>
-      <a href="../../pages/conventional.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Conventional / FHA / VA</a>
-      <a href="../../pages/long-term-rental.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">DSCR</a>
-      <a href="../../pages/heloc.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">HELOC</a>
-      <a href="../../pages/brrrr-loan.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">BRRRR</a>
+      <a href="../pages/non-qm.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Non-QM</a>
+      <a href="../pages/conventional.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Conventional / FHA / VA</a>
+      <a href="../pages/long-term-rental.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">DSCR</a>
+      <a href="../pages/heloc.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">HELOC</a>
+      <a href="../pages/brrrr-loan.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">BRRRR</a>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center">
       <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.25)">Resources</span>
-      <a href="../../quiz.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⚡ Quiz</a>
-      <a href="../../dscr-calculator.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📊 Calculator</a>
-      <a href="../../resources/str-playbook.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📘 STR Playbook</a>
-      <a href="../../resources/creative-financing-101.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📗 Creative Financing 101</a>
-      <a href="../../blog/index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a>
-      <a href="../../pages/about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
-      <a href="../../review.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⭐ Reviews</a>
+      <a href="../quiz.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⚡ Quiz</a>
+      <a href="../dscr-calculator.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📊 Calculator</a>
+      <a href="../resources/str-playbook.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📘 STR Playbook</a>
+      <a href="../resources/creative-financing-101.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📗 Creative Financing 101</a>
+      <a href="../blog/index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a>
+      <a href="../pages/about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+      <a href="../review.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⭐ Reviews</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;text-align:right">
       <a href="tel:7473081635" style="font-size:13px;font-weight:700;color:#3B82F6;text-decoration:none">(747) 308-1635</a>
@@ -204,10 +1030,37 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     <p style="font-size:11px;color:rgba(255,255,255,0.25)">© 2026 Rate Hero Mortgage, LLC. All rights reserved. NMLS #2822806. Equal Housing Lender. Not a commitment to lend.</p>
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <p style="font-size:11px;color:rgba(255,255,255,0.25)">Sean Davoodian · NMLS #1252107 · Not affiliated with any government agency.</p>
-      <a href="../../legal/privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
-      <a href="../../legal/terms-of-use.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+      <a href="../legal/privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+      <a href="../legal/terms-of-use.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
     </div>
   </div>
 </footer>
+<script>
+function filterPosts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(c => {
+    if (cat === 'all') { c.style.display = ''; return; }
+    c.style.display = c.dataset.cat === cat ? '' : 'none';
+  });
+}
+
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+
+</script>
 </body>
 </html>
