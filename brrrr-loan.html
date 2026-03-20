@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Self-employed? Qualify with bank statements, P&L, or assets instead of W-2s. Non-QM mortgage loans for business owners and investors. No tax returns needed.">
-<title>Non-QM Loans | Bank Statement & Self-Employed Mortgage – Rate Hero</title>
+<meta name="description" content="Finance your Airbnb or VRBO property using actual platform income or AirDNA projections. No rental history required. DSCR loans for STR investors.">
+<title>Airbnb & VRBO DSCR Loans | Short-Term Rental Financing – Rate Hero</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#080F1E;--navy2:#0C1527;--navy3:#101D34;--card:#0E1A2E;--navyL:#162240;--teal:#2563EB;--teal2:#2563EB;--tealP:rgba(37,99,235,0.12);--tealG:rgba(37,99,235,0.25);--blue:#2563EB;--blue2:#3B82F6;--w:#FFFFFF;--w70:rgba(255,255,255,0.7);--w65:rgba(255,255,255,0.65);--w08:rgba(255,255,255,0.05);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
 html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -102,6 +176,123 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 .fbot{border-top:1px solid var(--bd);padding:14px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px}.fbot p{font-size:11px;color:var(--w65)}
 @media(max-width:960px){nav{padding:0 20px}.nlinks,.nphone{display:none}.phero{padding:48px 20px 44px}.phero-inner{grid-template-columns:1fr}.vis-card{display:none}.sec{padding:48px 0}.cta-band{padding:52px 20px}.wrap{padding:0 20px}.pstats{grid-template-columns:1fr 1fr}.twocol{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr 1fr}.compare-grid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr;gap:28px;padding:32px 20px}.fcols{grid-template-columns:1fr 1fr}.fbot{padding:12px 20px;flex-direction:column}}
 @media(max-width:600px){.cgrid{grid-template-columns:1fr}}
+
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
+}
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
 </style>
 </head>
 <body>
@@ -139,80 +330,97 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 
 <section class="phero"><div class="phero-bg"></div><div class="phero-grid"></div>
 <div class="phero-inner"><div>
-  <div class="pbadge">Non-QM Loans</div>
-  <h1>Break Free From<br><em>Bank Rules.</em></h1>
-  <p class="phero-sub">Bank rejected you? Good. Non-QM loans are built for people who don't fit the traditional mold — self-employed, investors, high-net-worth borrowers, and more.</p>
-  <div class="phero-cta"><a href="../index.html" class="bhero">Check My Eligibility &rarr;</a><a href="tel:7473081635" class="boutline">Talk To An Advisor</a></div>
+  <div class="pbadge">Short-Term Rental Loans</div>
+  <h1>Finance Your<br>Airbnb.<br><em>The Right Way.</em></h1>
+  <p class="phero-sub">We qualify your STR loan using actual Airbnb and VRBO income — or AirDNA market projections. No W-2s. No tax returns. Just your property's earning potential.</p>
+  <div class="phero-cta"><a href="../index.html" class="bhero">Get My STR Quote &rarr;</a><a href="tel:7473081635" class="boutline">Talk To An Advisor</a></div>
   <p class="hpriv"><span>🔒</span> No SSN required &middot; No credit pull &middot; 100% confidential</p>
 </div>
-<div class="vis-card"><div class="vc-label">Non-QM vs Conventional</div>
-  <div class="vc-row"><span class="vc-k">Income Docs</span><span class="vc-v t">Bank Stmts / P&amp;L</span></div>
-  <div class="vc-row"><span class="vc-k">W-2 Required?</span><span class="vc-v t">No ✓</span></div>
-  <div class="vc-row"><span class="vc-k">Min Credit Score</span><span class="vc-v">580+</span></div>
-  <div class="vc-row"><span class="vc-k">Max Loan Amount</span><span class="vc-v">$5M</span></div>
-  <div class="vc-row"><span class="vc-k">Foreign Nationals</span><span class="vc-v t">Welcome ✓</span></div>
-  <div class="vc-row"><span class="vc-k">Max LTV</span><span class="vc-v">90%</span></div>
+<div class="vis-card"><div class="vc-label">STR Loan Snapshot</div>
+  <div class="vc-row"><span class="vc-k">Income Source</span><span class="vc-v t">Airbnb / AirDNA</span></div>
+  <div class="vc-row"><span class="vc-k">Min. DSCR</span><span class="vc-v">0.75</span></div>
+  <div class="vc-row"><span class="vc-k">Max Loan Amount</span><span class="vc-v">$3M+</span></div>
+  <div class="vc-row"><span class="vc-k">Max LTV</span><span class="vc-v">75–80%</span></div>
+  <div class="vc-row"><span class="vc-k">No History Needed</span><span class="vc-v t">Use AirDNA ✓</span></div>
+  <div class="vc-row"><span class="vc-k">LLC Lending</span><span class="vc-v t">Yes ✓</span></div>
 </div></div></section>
 <div class="pstats">
-  <div class="pstat"><span class="pstat-num">580+</span><span class="pstat-lbl">Min Credit Score</span></div>
-  <div class="pstat"><span class="pstat-num">$5M</span><span class="pstat-lbl">Max Loan Amount</span></div>
+  <div class="pstat"><span class="pstat-num">STR</span><span class="pstat-lbl">Income Accepted</span></div>
+  <div class="pstat"><span class="pstat-num">$3M+</span><span class="pstat-lbl">Max Loan Amount</span></div>
+  <div class="pstat"><span class="pstat-num">75%</span><span class="pstat-lbl">Max LTV</span></div>
   <div class="pstat"><span class="pstat-num">21 Days</span><span class="pstat-lbl">Avg. Close Time</span></div>
-  <div class="pstat"><span class="pstat-num">90%</span><span class="pstat-lbl">Max LTV</span></div>
 </div>
 <section class="sec"><div class="wrap"><div class="twocol"><div>
-  <div class="stag"><span class="dot"></span> What Is Non-QM?</div>
-  <h2 class="sh2">Loans Built For<br><em>Real Life</em></h2>
-  <p class="sp">A Non-QM loan doesn't follow the strict income documentation rules set by Fannie Mae and Freddie Mac. Instead of W-2s and pay stubs, we look at the full picture — bank statements, assets, rental income, or P&amp;L statements.</p>
+  <div class="stag"><span class="dot"></span> How We Qualify You</div>
+  <h2 class="sh2">Airbnb Income<br><em>Counts Here.</em></h2>
+  <p class="sp">Most lenders don't know what to do with short-term rental income. We built a process specifically for STR investors — using actual platform income, AirDNA projections, or market comparables.</p>
   <ul class="flist">
-    <li><span class="fci">✓</span>No W-2 or tax return required</li>
-    <li><span class="fci">✓</span>12 or 24-month bank statement programs</li>
-    <li><span class="fci">✓</span>Asset depletion qualification</li>
-    <li><span class="fci">✓</span>P&amp;L only — no bank statements needed</li>
-    <li><span class="fci">✓</span>Foreign national programs available</li>
-    <li><span class="fci">✓</span>Credit scores from 580+</li>
-    <li><span class="fci">✓</span>Loan amounts up to $5M</li>
+    <li><span class="fci">✓</span>Actual Airbnb / VRBO trailing 12-month income</li>
+    <li><span class="fci">✓</span>AirDNA projections for new or vacant properties</li>
+    <li><span class="fci">✓</span>Seasonal income averaged — no single bad month kills the deal</li>
+    <li><span class="fci">✓</span>No personal income verification required</li>
+    <li><span class="fci">✓</span>Purchase, refinance, and cash-out options</li>
+    <li><span class="fci">✓</span>Hold in LLC, trust, or personal name</li>
   </ul>
-  <a href="../index.html" class="bhero">Get Pre-Qualified &rarr;</a>
+  <a href="../index.html" class="bhero">Get My STR Quote &rarr;</a>
 </div><div>
-  <div class="stag"><span class="dot"></span> Conventional vs. Non-QM</div>
-  <table class="ctable" style="margin-top:14px">
-    <thead><tr><th></th><th>Conventional / FHA / VA</th><th>Non-QM</th></tr></thead>
-    <tbody>
-      <tr><td>Income Docs</td><td>W-2 / tax returns</td><td class="t-yes">Bank stmts OK</td></tr>
-      <tr><td>Max DTI</td><td>43%</td><td class="t-yes">Flexible</td></tr>
-      <tr><td>Min Credit</td><td>620+</td><td class="t-yes">580+</td></tr>
-      <tr><td>Foreign Nationals</td><td>No</td><td class="t-yes">Yes ✓</td></tr>
-      <tr><td>Max Loan</td><td>$806,500</td><td class="t-yes">$5M+</td></tr>
-    </tbody>
-  </table>
+  <div class="stag"><span class="dot"></span> Income Sources We Accept</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+    <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px"><span style="font-size:26px">🏠</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">Airbnb / VRBO History</div><div style="font-size:17px;color:var(--w65)">Trailing 12 or 24 months of actual platform income</div></div></div>
+    <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px"><span style="font-size:26px">📊</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">AirDNA Market Data</div><div style="font-size:17px;color:var(--w65)">For new purchases or properties without rental history</div></div></div>
+    <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px"><span style="font-size:26px">📋</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">Market Rent Appraisal</div><div style="font-size:17px;color:var(--w65)">Appraiser-determined STR income for your specific market</div></div></div>
+  </div>
 </div></div></div></section>
+
+<div style="background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.2);border-radius:14px;padding:22px 24px;margin:32px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+  <div>
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#3B82F6;margin-bottom:4px">📊 Free Tool</div>
+    <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:3px">DSCR Calculator</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.6)">Enter rent and PITIA — get your ratio instantly. No SSN required.</div>
+  </div>
+  <a href="../dscr-calculator.html" style="background:#2563EB;color:#fff;padding:11px 22px;border-radius:9px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0">Try the Calculator →</a>
+</div>
 <section class="sec alt"><div class="wrap">
-  <div class="stag"><span class="dot"></span> Our Programs</div>
-  <h2 class="sh2">Find Your <em>Fit</em></h2>
-  <p class="sp">We offer multiple Non-QM pathways depending on your income type and situation.</p>
+  <div class="stag"><span class="dot"></span> Know Your Options</div>
+  <h2 class="sh2">STR vs.<br><em>DSCR Long-Term Rental</em></h2>
+  <p class="sp">Not sure which loan fits your strategy? Here's how they stack up.</p>
+  <div class="compare-grid">
+    <div class="comp-card hi"><div class="comp-title">Short-Term Rental <span class="comp-tag">This Page</span></div>
+      <ul class="comp-list"><li>Income from Airbnb, VRBO, or AirDNA</li><li>Seasonal income averaged across 12 months</li><li>Higher gross income = stronger DSCR</li><li>Ideal: beach towns, ski resorts, urban markets</li><li>Slightly stricter LTV (75–80%)</li></ul>
+    </div>
+    <div class="comp-card"><div class="comp-title">DSCR Long-Term Rental</div>
+      <ul class="comp-list"><li>Income from signed lease or market rent</li><li>Stable, predictable monthly income</li><li>Easier to underwrite — less documentation</li><li>Ideal: suburban SFR, multifamily, buy-and-hold</li><li>Up to 80% LTV</li></ul>
+    </div>
+  </div>
+  <p style="font-size:18px;color:var(--w65);text-align:center">Not sure which fits? <a href="tel:7473081635" style="color:var(--teal);font-weight:700">Call us</a> — we'll tell you in 5 minutes.</p>
+</div></section>
+<section class="sec"><div class="wrap">
+  <div class="stag"><span class="dot"></span> Who It's For</div>
+  <h2 class="sh2">Built For <em>STR Investors</em></h2>
+  <p class="sp">If you're earning money on Airbnb or VRBO — or planning to — this is your loan.</p>
   <div class="cgrid">
-    <div class="ccard"><span class="ccard-ico">🏦</span><div class="ccard-title">Bank Statement</div><p class="ccard-desc">Qualify using 12 or 24 months of personal or business bank statements. Perfect for self-employed borrowers and entrepreneurs.</p></div>
-    <div class="ccard"><span class="ccard-ico">💰</span><div class="ccard-title">Asset Depletion</div><p class="ccard-desc">Use your liquid assets — savings, retirement accounts, investments — to qualify instead of monthly income. Great for high-net-worth retirees.</p></div>
-    <div class="ccard"><span class="ccard-ico">📄</span><div class="ccard-title">P&amp;L Only</div><p class="ccard-desc">Qualify with a 12-month profit &amp; loss statement prepared by a CPA. No bank statements or tax returns needed.</p></div>
-    <div class="ccard"><span class="ccard-ico">🌍</span><div class="ccard-title">Foreign National</div><p class="ccard-desc">Non-US residents can qualify for investment properties with alternative documentation. No US credit history required.</p></div>
-    <div class="ccard"><span class="ccard-ico">📊</span><div class="ccard-title">1099 Income</div><p class="ccard-desc">Gig workers, contractors, and freelancers can qualify using 1099 forms or a 12-month average of self-employment income.</p></div>
-    <div class="ccard"><span class="ccard-ico">🏠</span><div class="ccard-title">ITIN Loans</div><p class="ccard-desc">Don't have a Social Security Number? Qualify using your Individual Taxpayer Identification Number instead.</p></div>
+    <div class="ccard"><span class="ccard-ico">🏖️</span><div class="ccard-title">Vacation Rental Hosts</div><p class="ccard-desc">Beach houses, lake cabins, mountain retreats. We finance the properties generating the highest nightly rates.</p></div>
+    <div class="ccard"><span class="ccard-ico">🏙️</span><div class="ccard-title">Urban STR Investors</div><p class="ccard-desc">City condos earning above-market returns on Airbnb. We use your actual platform income to qualify.</p></div>
+    <div class="ccard"><span class="ccard-ico">📦</span><div class="ccard-title">Portfolio Expanders</div><p class="ccard-desc">Already have a few STRs performing? Scale without conventional limits. No cap on properties financed.</p></div>
+    <div class="ccard"><span class="ccard-ico">🏗️</span><div class="ccard-title">New STR Buyers</div><p class="ccard-desc">No rental history yet? We use AirDNA market data to project income and qualify your new purchase.</p></div>
+    <div class="ccard"><span class="ccard-ico">💼</span><div class="ccard-title">Business Owners</div><p class="ccard-desc">Low personal income on paper? We qualify on the property's short-term rental income — not yours.</p></div>
+    <div class="ccard"><span class="ccard-ico">🌍</span><div class="ccard-title">Foreign Nationals</div><p class="ccard-desc">Non-US residents investing in US vacation rental markets. Alternative documentation accepted.</p></div>
   </div>
 </div></section>
-<section class="sec"><div class="wrap" style="max-width:800px">
+<section class="sec alt"><div class="wrap" style="max-width:800px">
   <div class="stag"><span class="dot"></span> Common Questions</div>
-  <h2 class="sh2">Non-QM <em>FAQ</em></h2>
+  <h2 class="sh2">Short-Term Rental <em>FAQ</em></h2>
   <div class="faq-wrap">
-    <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">Do Non-QM loans have higher interest rates?<span class="faq-ico">+</span></div><div class="faq-a"><p>Typically yes — Non-QM rates are slightly higher than conventional loans due to the reduced documentation requirements. However, for borrowers who don't qualify conventionally, Non-QM is often the only path — and the rates are still highly competitive.</p></div></div>
-    <div class="faq-item" id="f2"><div class="faq-q" onclick="tog('f2')">How many months of bank statements do I need?<span class="faq-ico">+</span></div><div class="faq-a"><p>Most programs require 12 or 24 months of bank statements. We use either personal or business statements depending on your situation. 24-month programs often come with better rates.</p></div></div>
-    <div class="faq-item" id="f3"><div class="faq-q" onclick="tog('f3')">Can I get a Non-QM loan for an investment property?<span class="faq-ico">+</span></div><div class="faq-a"><p>Absolutely. Non-QM loans are available for primary residences, second homes, and investment properties. For investment properties, you can often combine Non-QM documentation with DSCR qualification for even more flexibility.</p></div></div>
-    <div class="faq-item" id="f4"><div class="faq-q" onclick="tog('f4')">Is there a prepayment penalty?<span class="faq-ico">+</span></div><div class="faq-a"><p>Some Non-QM programs include a soft or hard prepayment penalty for the first 1–3 years. We'll always disclose this upfront and walk you through your options before you commit.</p></div></div>
+    <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">Will you actually count my Airbnb income?<span class="faq-ico">+</span></div><div class="faq-a"><p>Yes — and this is what makes us different. We accept trailing 12 or 24-month Airbnb and VRBO income directly from your host dashboard. Seasonal fluctuations are averaged across the full period.</p></div></div>
+    <div class="faq-item" id="f2"><div class="faq-q" onclick="tog('f2')">What if my property has no rental history yet?<span class="faq-ico">+</span></div><div class="faq-a"><p>We use AirDNA — the industry standard for STR market data — to project income for your property. You can finance a brand-new STR purchase before you ever list it on Airbnb.</p></div></div>
+    <div class="faq-item" id="f3"><div class="faq-q" onclick="tog('f3')">How does seasonal income affect my qualification?<span class="faq-ico">+</span></div><div class="faq-a"><p>We average your income across 12 months, so a slow January doesn't kill your deal if August and September are strong. We look at the full picture, not a single snapshot month.</p></div></div>
+    <div class="faq-item" id="f4"><div class="faq-q" onclick="tog('f4')">Is the rate higher than a long-term rental loan?<span class="faq-ico">+</span></div><div class="faq-a"><p>Slightly — STR loans carry a small rate premium due to variable income. However, STRs often generate significantly higher gross income than long-term rentals, meaning the DSCR tends to be stronger, which can offset the rate difference.</p></div></div>
   </div>
 </div></section>
 <section class="cta-band"><div class="cta-inner">
-  <h2>Ready To Break<br><em>The Rules?</em></h2>
-  <p>Get your Non-QM rate quote in minutes. No SSN, no credit pull.</p>
-  <a href="../index.html" class="bcta">Check My Eligibility &rarr;</a>
+  <h2>Your Airbnb Can<br><em>Pay For Itself.</em></h2>
+  <p>We count your STR income. No W-2. No tax returns. Just your property's earning power.</p>
+  <a href="../index.html" class="bcta">Get My STR Quote &rarr;</a>
   <p class="cta-priv">100% confidential &middot; No credit pull &middot; No SSN required</p>
 </div></section>
 <footer>
@@ -282,5 +490,22 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     </div>
   </div>
 </footer>
-<script>function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}</script>
+<script>function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+
+</script>
 </body></html>

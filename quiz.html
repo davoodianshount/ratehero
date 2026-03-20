@@ -1,921 +1,633 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Financing 101 — Rate Hero</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<meta name="description" content="Find out which mortgage program fits your situation in 60 seconds. DSCR, Non-QM, Conventional, FHA, VA — Rate Hero matches you to the right program instantly.">
+<title>Which Loan Program Is Right for Me? | Rate Hero Quiz</title>
+<link rel="canonical" href="https://goratehero.com/quiz">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#080F1E;--navy2:#0C1527;--navy3:#0E1A2E;
-  --blue:#2563EB;--blue2:#3B82F6;--blue3:#1D4ED8;
-  --gold:#F59E0B;--gold2:#FBBF24;
-  --w:#FFFFFF;--w80:rgba(255,255,255,0.8);--w50:rgba(255,255,255,0.5);
-  --fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
 }
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:#f8f8f4;color:var(--navy);overflow-x:hidden}
+body{font-family:var(--fb);background:var(--navy);color:var(--w);min-height:100vh}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.3)}50%{box-shadow:0 0 0 12px rgba(37,99,235,0)}}
+@keyframes pop{from{opacity:0;transform:scale(0.96)}to{opacity:1;transform:scale(1)}}
 
-/* ── PAGE STRUCTURE ── */
-.page{width:850px;min-height:1100px;margin:0 auto 0;position:relative;overflow:hidden}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+.nlogo{font-family:var(--fd);font-size:21px;letter-spacing:4px;color:var(--w);text-decoration:none;display:inline-flex;align-items:center}.nlogo span{color:var(--blue2)}
+.nav-back{font-size:13px;color:var(--w65);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px}.nav-back:hover{color:var(--w)}
 
-/* ── COVER ── */
-.cover{background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:1100px;text-align:center;padding:80px 60px;position:relative}
-.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,235,0.25),transparent),radial-gradient(circle at 80% 80%,rgba(37,99,235,0.12),transparent);pointer-events:none}
-.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.06) 1px,transparent 1px);background-size:60px 60px}
-.cover-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--blue2);padding:8px 20px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:40px;position:relative;z-index:1}
-.cover-logo{font-family:var(--fd);font-size:52px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:8px}
-.cover-logo span{color:var(--blue2)}
-.cover-tagline{font-size:13px;color:var(--w50);letter-spacing:.2em;text-transform:uppercase;margin-bottom:64px;position:relative;z-index:1}
-.cover-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);margin:0 auto 40px;position:relative;z-index:1}
-.cover-title{font-family:var(--fd);font-size:72px;letter-spacing:3px;color:var(--w);line-height:.95;position:relative;z-index:1;margin-bottom:16px}
-.cover-subtitle{font-family:var(--fd);font-size:32px;letter-spacing:2px;color:var(--blue2);position:relative;z-index:1;margin-bottom:12px}
-.cover-byline{font-size:14px;color:var(--w50);position:relative;z-index:1;margin-bottom:60px}
-.cover-illustration{position:relative;z-index:1;margin:0 auto}
+.quiz-shell{max-width:680px;margin:0 auto;padding:56px 20px 80px}
 
-/* City skyline SVG illustration */
-.cover-city{width:100%;max-width:600px;margin:0 auto}
+.quiz-header{text-align:center;margin-bottom:44px;animation:fadeUp .4s ease both}
+.qbadge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.28);color:var(--blue2);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.quiz-header h1{font-family:var(--fd);font-size:clamp(32px,5vw,52px);letter-spacing:1px;color:var(--w);margin-bottom:10px;line-height:.95}
+.quiz-header h1 em{color:var(--blue2);font-style:normal}
+.quiz-header p{font-size:16px;color:var(--w65);line-height:1.75}
 
-/* ── TOC ── */
-.toc-page{background:var(--w);padding:80px 70px;min-height:1100px;display:flex;flex-direction:column;justify-content:center}
-.toc-tag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
-.toc-heading{font-family:var(--fd);font-size:64px;letter-spacing:2px;color:var(--navy);margin-bottom:50px;line-height:.9}
-.toc-item{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid #e8e8e8}
-.toc-item:last-child{border-bottom:none}
-.toc-num{font-family:var(--fd);font-size:32px;color:var(--blue);min-width:40px;line-height:1}
-.toc-label{font-size:18px;font-weight:700;color:var(--navy);flex:1}
-.toc-dot{flex:1;border-top:1px dashed #ddd;margin:0 16px}
-.toc-pg{font-family:var(--fd);font-size:22px;color:rgba(8,15,30,0.3)}
+.progress-wrap{margin-bottom:32px}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--w35);margin-bottom:8px;font-weight:600}
+.progress-bar{height:3px;background:rgba(255,255,255,0.07);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--blue2);border-radius:99px;transition:width .4s ease}
 
-/* ── INTRO ── */
-.intro-page{background:var(--navy2);padding:80px 70px;min-height:1100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden}
-.intro-page::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:rgba(37,99,235,0.08);pointer-events:none}
-.intro-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:16px}
-.intro-h1{font-family:var(--fd);font-size:72px;letter-spacing:2px;color:var(--w);line-height:.95;margin-bottom:24px}
-.intro-body{font-size:17px;color:var(--w80);line-height:1.85;margin-bottom:24px}
-.intro-pull{border-left:3px solid var(--blue);padding:20px 24px;background:rgba(37,99,235,0.08);border-radius:0 12px 12px 0}
-.intro-pull p{font-size:19px;font-weight:700;color:var(--w);font-style:italic;line-height:1.5}
-.intro-visual{position:relative}
+.step{display:none;animation:slideIn .3s ease both}
+.step.active{display:block}
 
-/* ── PROGRAM PAGES ── */
-.prog-page{min-height:1100px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.prog-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
-.prog-right{display:flex;align-items:center;justify-content:center;padding:60px;position:relative}
+.step-q{font-size:22px;font-weight:800;color:var(--w);margin-bottom:6px;line-height:1.3;letter-spacing:-.3px}
+.step-hint{font-size:14px;color:var(--w65);margin-bottom:22px;line-height:1.6}
 
-.prog-page.dark .prog-left{background:var(--navy)}
-.prog-page.dark .prog-right{background:var(--navy3)}
-.prog-page.light .prog-left{background:var(--w)}
-.prog-page.light .prog-right{background:#f0f4ff}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:var(--w12);border:1px solid var(--bd);border-radius:12px;cursor:pointer;transition:all .2s;text-align:left;width:100%;font-family:var(--fb)}
+.opt:hover{background:rgba(37,99,235,0.1);border-color:var(--bdb);transform:translateX(3px)}
+.opt.selected{background:rgba(37,99,235,0.15);border-color:var(--blue2)}
+.opt-icon{font-size:22px;flex-shrink:0;margin-top:1px}
+.opt-text{flex:1}
+.opt-title{font-size:15px;font-weight:700;color:var(--w);display:block;margin-bottom:2px}
+.opt-sub{font-size:13px;color:var(--w65);line-height:1.55}
+.opt-check{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--bd);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:12px}
+.opt.selected .opt-check{background:var(--blue2);border-color:var(--blue2);color:var(--w)}
 
-.prog-num{font-family:var(--fd);font-size:100px;color:rgba(37,99,235,0.12);line-height:1;margin-bottom:-20px}
-.prog-tag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px}
-.prog-page.light .prog-tag{color:var(--blue)}
-.prog-title{font-family:var(--fd);font-size:58px;letter-spacing:2px;line-height:.95;margin-bottom:20px}
-.prog-page.dark .prog-title{color:var(--w)}
-.prog-page.light .prog-title{color:var(--navy)}
-.prog-what{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px;margin-top:24px}
-.prog-page.light .prog-what{color:var(--blue)}
-.prog-desc{font-size:16px;line-height:1.8;margin-bottom:28px}
-.prog-page.dark .prog-desc{color:var(--w80)}
-.prog-page.light .prog-desc{color:#3a4a5c}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px}
+.btn-next{background:var(--blue);color:var(--w);border:none;padding:13px 32px;border-radius:10px;font-family:var(--fb);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;animation:pulse 3s ease-in-out infinite}
+.btn-next:hover{background:var(--blue2);transform:translateY(-1px)}
+.btn-next:disabled{background:rgba(37,99,235,0.3);cursor:not-allowed;animation:none;transform:none}
+.btn-back{background:transparent;color:var(--w65);border:1px solid var(--bd);padding:13px 22px;border-radius:10px;font-family:var(--fb);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-back:hover{color:var(--w);border-color:rgba(255,255,255,0.25)}
 
-.prog-uses-title{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2);margin-bottom:12px}
-.prog-page.light .prog-uses-title{color:var(--blue)}
-.prog-use{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
-.prog-use-icon{width:28px;height:28px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px}
-.prog-page.light .prog-use-icon{background:var(--blue)}
-.prog-use-text{}
-.prog-use-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-.prog-page.dark .prog-use-label{color:var(--w)}
-.prog-page.light .prog-use-label{color:var(--navy)}
-.prog-use-body{font-size:14px;line-height:1.6}
-.prog-page.dark .prog-use-body{color:var(--w50)}
-.prog-page.light .prog-use-body{color:#6b7a8d}
+.result{display:none;animation:pop .35s ease both}
+.result.show{display:block}
+.result-top{background:var(--card);border:1px solid var(--bdb);border-radius:20px;overflow:hidden;margin-bottom:20px}
+.result-top::before{content:'';display:block;height:4px;background:linear-gradient(90deg,var(--blue3),var(--blue2),#60A5FA)}
+.result-body{padding:32px 28px}
+.result-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--blue2);margin-bottom:10px}
+.result-prog{font-family:var(--fd);font-size:44px;letter-spacing:2px;color:var(--w);margin-bottom:4px;line-height:1}
+.result-tagline{font-size:16px;color:var(--blue2);font-weight:700;margin-bottom:16px}
+.result-why{font-size:15px;color:var(--w65);line-height:1.8;margin-bottom:24px}
+.result-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.rfeat{background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.rfeat-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:3px}
+.rfeat-val{font-size:14px;font-weight:700;color:var(--w)}
+.result-cta{background:var(--blue);color:var(--w);border:none;padding:15px 36px;border-radius:11px;font-family:var(--fb);font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;width:100%;text-align:center;animation:pulse 3s ease-in-out infinite}
+.result-cta:hover{background:var(--blue2);transform:translateY(-1px)}
+.result-other{margin-top:14px;text-align:center;font-size:13px;color:var(--w35)}
+.result-other a{color:var(--blue2);text-decoration:none;font-weight:600}.result-other a:hover{color:#60A5FA}
 
-.example-box{border-radius:16px;padding:24px;margin-top:0}
-.prog-page.dark .example-box{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25)}
-.prog-page.light .example-box{background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15)}
-.example-label{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px}
-.prog-page.light .example-label{color:var(--blue)}
-.example-text{font-size:15px;font-style:italic;line-height:1.7}
-.prog-page.dark .example-text{color:var(--w80)}
-.prog-page.light .example-text{color:var(--navy)}
+.alt-programs{margin-top:8px}
+.alt-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--w35);margin-bottom:12px}
+.alt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.alt-card{background:var(--w12);border:1px solid var(--bd);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;text-decoration:none;display:block}
+.alt-card:hover{border-color:var(--bdb);transform:translateY(-2px)}
+.alt-name{font-size:14px;font-weight:800;color:var(--w);margin-bottom:3px}
+.alt-sub{font-size:12px;color:var(--w65)}
 
-/* ── MISTAKES PAGE ── */
-.mistakes-page{background:var(--navy);min-height:1100px;padding:80px 70px;position:relative;overflow:hidden}
-.mistakes-page::before{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:rgba(37,99,235,0.07);pointer-events:none}
-.mistakes-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
-.mistake-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;position:relative;overflow:hidden}
-.mistake-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue)}
-.mistake-icon{font-size:28px;margin-bottom:12px}
-.mistake-title{font-size:15px;font-weight:800;color:var(--w);margin-bottom:8px}
-.mistake-body{font-size:14px;color:var(--w50);line-height:1.65}
+@media(max-width:560px){nav{padding:0 16px}.result-features{grid-template-columns:1fr}.alt-grid{grid-template-columns:1fr}}
 
-/* ── CONCLUSION ── */
-.conclusion-page{background:var(--blue3);min-height:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 70px;position:relative;overflow:hidden}
-.conclusion-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,255,255,0.08),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(8,15,30,0.3),transparent)}
-.conclusion-logo{font-family:var(--fd);font-size:48px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}
-.conclusion-logo span{color:rgba(255,255,255,0.5)}
-.conclusion-title{font-family:var(--fd);font-size:70px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:40px 0 24px}
-.conclusion-body{font-size:19px;color:rgba(255,255,255,0.85);line-height:1.8;max-width:540px;position:relative;z-index:1;margin-bottom:48px}
-.conclusion-cta{background:var(--w);color:var(--blue3);padding:18px 44px;border-radius:12px;font-size:16px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block;transition:all .2s}
-.conclusion-contact{margin-top:40px;position:relative;z-index:1}
-.conclusion-contact p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:6px}
-.conclusion-contact strong{color:var(--w);font-size:16px}
-
-/* ── SVG ILLUSTRATIONS ── */
-.illus{width:100%;max-width:320px;margin:0 auto}
-
-/* ── PRINT / SCREEN ── */
-@media print{
-  body{background:#fff}
-  .page{width:100%;margin:0;page-break-after:always}
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
 }
-@media screen{
-  body{padding:40px 20px;background:#e8e8e4}
-  .page{box-shadow:0 20px 80px rgba(0,0,0,0.25);margin-bottom:32px}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
 }
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
 </style>
 </head>
 <body>
 
+<nav>
+  <a href="../index.html" class="nlogo">
+    <svg width="14" height="20" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="margin-right:7px;flex-shrink:0"><defs><linearGradient id="b" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#b)"/></svg>
+    RATE <span>HERO</span>
+  </a>
+  <a href="../index.html" class="nav-back">← Back to Rate Hero</a>
+</nav>
 
-<!-- ═══════════════════════════════════════════════ COVER -->
-<div class="page cover">
-  <div class="cover-grid"></div>
-  <div class="cover-badge">📈 Investor Programs Made Simple</div>
-  <div class="cover-logo"><svg width="20" height="28" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px;flex-shrink:0">
-  <defs>
-    <linearGradient id="bltf" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#F5B731"/>
-      <stop offset="100%" stop-color="#E8920A"/>
-    </linearGradient>
-  </defs>
-  <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#bltf)"/>
-</svg>RATE <span>HERO</span></div>
-  <div class="cover-tagline">Financing Built for Investors · NMLS #2822806</div>
-  <div class="cover-divider"></div>
-  <div class="cover-title">CREATIVE<br>FINANCING<br>101</div>
-  <div class="cover-subtitle">Investor Programs Made Simple</div>
-  <div class="cover-byline">By Sean Davoodian · NMLS #1252107</div>
+<div class="quiz-shell">
 
-  <!-- City Skyline SVG -->
-  <div class="cover-city">
-    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <!-- Background glow -->
-      <ellipse cx="350" cy="200" rx="340" ry="60" fill="rgba(37,99,235,0.08)"/>
-      <!-- Building 1 - tallest center -->
-      <rect x="290" y="40" width="60" height="160" fill="rgba(37,99,235,0.3)" rx="3"/>
-      <rect x="295" y="30" width="50" height="20" fill="rgba(37,99,235,0.4)" rx="2"/>
-      <rect x="317" y="10" width="6" height="24" fill="rgba(37,99,235,0.6)"/>
-      <!-- windows center -->
-      <rect x="300" y="55" width="10" height="12" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="318" y="55" width="10" height="12" fill="rgba(255,255,255,0.2)" rx="1"/>
-      <rect x="336" y="55" width="10" height="12" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="300" y="78" width="10" height="12" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <rect x="318" y="78" width="10" height="12" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="336" y="78" width="10" height="12" fill="rgba(255,255,255,0.18)" rx="1"/>
-      <rect x="300" y="101" width="10" height="12" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="318" y="101" width="10" height="12" fill="rgba(255,255,255,0.2)" rx="1"/>
-      <rect x="336" y="101" width="10" height="12" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="300" y="124" width="10" height="12" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="318" y="124" width="10" height="12" fill="rgba(59,130,246,0.5)" rx="1"/>
-      <rect x="336" y="124" width="10" height="12" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <!-- Building 2 left tall -->
-      <rect x="200" y="80" width="50" height="120" fill="rgba(37,99,235,0.2)" rx="2"/>
-      <rect x="204" y="90" width="9" height="10" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="218" y="90" width="9" height="10" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <rect x="232" y="90" width="9" height="10" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="204" y="110" width="9" height="10" fill="rgba(59,130,246,0.4)" rx="1"/>
-      <rect x="218" y="110" width="9" height="10" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="232" y="110" width="9" height="10" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="204" y="130" width="9" height="10" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <rect x="218" y="130" width="9" height="10" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="232" y="130" width="9" height="10" fill="rgba(59,130,246,0.35)" rx="1"/>
-      <!-- Building 3 right -->
-      <rect x="400" y="70" width="55" height="130" fill="rgba(37,99,235,0.22)" rx="2"/>
-      <rect x="406" y="82" width="9" height="10" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="420" y="82" width="9" height="10" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="434" y="82" width="9" height="10" fill="rgba(59,130,246,0.45)" rx="1"/>
-      <rect x="406" y="102" width="9" height="10" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <rect x="420" y="102" width="9" height="10" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="434" y="102" width="9" height="10" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="406" y="122" width="9" height="10" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="420" y="122" width="9" height="10" fill="rgba(59,130,246,0.4)" rx="1"/>
-      <rect x="434" y="122" width="9" height="10" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <!-- Building 4 far left shorter -->
-      <rect x="120" y="110" width="44" height="90" fill="rgba(255,255,255,0.05)" rx="2"/>
-      <rect x="126" y="120" width="8" height="9" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="140" y="120" width="8" height="9" fill="rgba(59,130,246,0.3)" rx="1"/>
-      <rect x="154" y="120" width="8" height="9" fill="rgba(255,255,255,0.06)" rx="1"/>
-      <rect x="126" y="140" width="8" height="9" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="140" y="140" width="8" height="9" fill="rgba(255,255,255,0.07)" rx="1"/>
-      <!-- Building 5 far right shorter -->
-      <rect x="490" y="100" width="48" height="100" fill="rgba(255,255,255,0.06)" rx="2"/>
-      <rect x="496" y="112" width="9" height="9" fill="rgba(59,130,246,0.35)" rx="1"/>
-      <rect x="511" y="112" width="9" height="9" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="526" y="112" width="9" height="9" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="496" y="132" width="9" height="9" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="511" y="132" width="9" height="9" fill="rgba(59,130,246,0.3)" rx="1"/>
-      <!-- Building left medium -->
-      <rect x="155" y="95" width="38" height="105" fill="rgba(37,99,235,0.15)" rx="2"/>
-      <rect x="160" y="105" width="7" height="8" fill="rgba(255,255,255,0.1)" rx="1"/>
-      <rect x="172" y="105" width="7" height="8" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <rect x="184" y="105" width="7" height="8" fill="rgba(59,130,246,0.4)" rx="1"/>
-      <!-- Building right medium -->
-      <rect x="462" y="88" width="38" height="112" fill="rgba(37,99,235,0.17)" rx="2"/>
-      <rect x="467" y="98" width="7" height="8" fill="rgba(255,255,255,0.12)" rx="1"/>
-      <rect x="479" y="98" width="7" height="8" fill="rgba(59,130,246,0.4)" rx="1"/>
-      <rect x="467" y="116" width="7" height="8" fill="rgba(255,255,255,0.08)" rx="1"/>
-      <rect x="479" y="116" width="7" height="8" fill="rgba(255,255,255,0.15)" rx="1"/>
-      <!-- Ground line -->
-      <line x1="80" y1="200" x2="620" y2="200" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-      <!-- Reflection glow under buildings -->
-      <rect x="280" y="200" width="80" height="10" fill="rgba(37,99,235,0.15)" rx="2"/>
-      <rect x="195" y="200" width="60" height="8" fill="rgba(37,99,235,0.08)" rx="2"/>
-      <rect x="390" y="200" width="70" height="8" fill="rgba(37,99,235,0.1)" rx="2"/>
-    </svg>
+  <div class="quiz-header">
+    <div class="qbadge">⚡ 60-Second Quiz</div>
+    <h1>WHICH PROGRAM<br>IS RIGHT <em>FOR YOU?</em></h1>
+    <p>Answer 5 quick questions. We'll match you to the right loan program — and tell you exactly what you need to qualify.</p>
   </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span id="step-label">Question 1 of 5</span>
+      <span id="step-pct">20%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="pfill" style="width:20%"></div></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step active" id="s1">
+    <div class="step-q">What best describes your income situation?</div>
+    <div class="step-hint">Be honest — this is the most important factor in finding your program.</div>
+    <div class="options">
+      <button class="opt" onclick="pick(1,'w2',this)">
+        <span class="opt-icon">💼</span>
+        <span class="opt-text"><span class="opt-title">W-2 Employee</span><span class="opt-sub">I receive a regular paycheck with tax withholding. My income is easy to document.</span></span>
+        <span class="opt-check" id="c1-w2"></span>
+      </button>
+      <button class="opt" onclick="pick(1,'selfemployed',this)">
+        <span class="opt-icon">🏢</span>
+        <span class="opt-text"><span class="opt-title">Self-Employed / Business Owner</span><span class="opt-sub">I own a business or work for myself. My tax returns show less than I actually earn.</span></span>
+        <span class="opt-check" id="c1-selfemployed"></span>
+      </button>
+      <button class="opt" onclick="pick(1,'investor',this)">
+        <span class="opt-icon">📈</span>
+        <span class="opt-text"><span class="opt-title">Real Estate Investor</span><span class="opt-sub">I want to qualify on the property's rental income — not my personal income at all.</span></span>
+        <span class="opt-check" id="c1-investor"></span>
+      </button>
+      <button class="opt" onclick="pick(1,'retired',this)">
+        <span class="opt-icon">🏦</span>
+        <span class="opt-text"><span class="opt-title">Retired / Assets Only</span><span class="opt-sub">I live on investments, savings, or retirement accounts. I have no active paycheck.</span></span>
+        <span class="opt-check" id="c1-retired"></span>
+      </button>
+      <button class="opt" onclick="pick(1,'veteran',this)">
+        <span class="opt-icon">🎖️</span>
+        <span class="opt-text"><span class="opt-title">Active Military / Veteran</span><span class="opt-sub">I have VA loan eligibility and want to use my benefit.</span></span>
+        <span class="opt-check" id="c1-veteran"></span>
+      </button>
+    </div>
+    <div class="nav-btns"><div></div></div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="s2">
+    <div class="step-q">What type of property are you financing?</div>
+    <div class="step-hint">This determines which programs are eligible.</div>
+    <div class="options">
+      <button class="opt" onclick="pick(2,'primary',this)">
+        <span class="opt-icon">🏡</span>
+        <span class="opt-text"><span class="opt-title">Primary Residence</span><span class="opt-sub">I will live in this property as my main home.</span></span>
+        <span class="opt-check" id="c2-primary"></span>
+      </button>
+      <button class="opt" onclick="pick(2,'ltr',this)">
+        <span class="opt-icon">🏠</span>
+        <span class="opt-text"><span class="opt-title">Long-Term Rental (12-month lease)</span><span class="opt-sub">Investment property — tenants on annual leases.</span></span>
+        <span class="opt-check" id="c2-ltr"></span>
+      </button>
+      <button class="opt" onclick="pick(2,'str',this)">
+        <span class="opt-icon">🏖️</span>
+        <span class="opt-text"><span class="opt-title">Short-Term Rental (Airbnb / VRBO)</span><span class="opt-sub">Vacation rental listed on short-term platforms.</span></span>
+        <span class="opt-check" id="c2-str"></span>
+      </button>
+      <button class="opt" onclick="pick(2,'multifamily',this)">
+        <span class="opt-icon">🏢</span>
+        <span class="opt-text"><span class="opt-title">Multi-Family (2–10 units)</span><span class="opt-sub">Duplex, triplex, or small apartment building.</span></span>
+        <span class="opt-check" id="c2-multifamily"></span>
+      </button>
+    </div>
+    <div class="nav-btns"><button class="btn-back" onclick="back(2)">← Back</button><div></div></div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step" id="s3">
+    <div class="step-q">What's your credit score range?</div>
+    <div class="step-hint">Approximate is fine — this helps us identify the right program tier.</div>
+    <div class="options">
+      <button class="opt" onclick="pick(3,'740plus',this)">
+        <span class="opt-icon">⭐</span>
+        <span class="opt-text"><span class="opt-title">740 or above</span><span class="opt-sub">Excellent credit — qualifies for best rate tiers across all programs.</span></span>
+        <span class="opt-check" id="c3-740plus"></span>
+      </button>
+      <button class="opt" onclick="pick(3,'700',this)">
+        <span class="opt-icon">✅</span>
+        <span class="opt-text"><span class="opt-title">700 – 739</span><span class="opt-sub">Good credit — strong qualification on most programs.</span></span>
+        <span class="opt-check" id="c3-700"></span>
+      </button>
+      <button class="opt" onclick="pick(3,'660',this)">
+        <span class="opt-icon">📊</span>
+        <span class="opt-text"><span class="opt-title">660 – 699</span><span class="opt-sub">Fair credit — still qualifies for DSCR and most Non-QM programs.</span></span>
+        <span class="opt-check" id="c3-660"></span>
+      </button>
+      <button class="opt" onclick="pick(3,'620',this)">
+        <span class="opt-icon">⚠️</span>
+        <span class="opt-text"><span class="opt-title">620 – 659</span><span class="opt-sub">Minimum range — program selection is more limited but options exist.</span></span>
+        <span class="opt-check" id="c3-620"></span>
+      </button>
+      <button class="opt" onclick="pick(3,'below620',this)">
+        <span class="opt-icon">🔧</span>
+        <span class="opt-text"><span class="opt-title">Below 620</span><span class="opt-sub">Credit needs work — talk to us about a plan before applying.</span></span>
+        <span class="opt-check" id="c3-below620"></span>
+      </button>
+    </div>
+    <div class="nav-btns"><button class="btn-back" onclick="back(3)">← Back</button><div></div></div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step" id="s4">
+    <div class="step-q">What are you trying to do?</div>
+    <div class="step-hint">Purchase, refinance, or access equity — each has different options.</div>
+    <div class="options">
+      <button class="opt" onclick="pick(4,'purchase',this)">
+        <span class="opt-icon">🔑</span>
+        <span class="opt-text"><span class="opt-title">Buy a property</span><span class="opt-sub">I'm making an offer or under contract and need financing.</span></span>
+        <span class="opt-check" id="c4-purchase"></span>
+      </button>
+      <button class="opt" onclick="pick(4,'refi',this)">
+        <span class="opt-icon">🔄</span>
+        <span class="opt-text"><span class="opt-title">Refinance an existing loan</span><span class="opt-sub">Lower my rate, change my term, or switch programs on a property I own.</span></span>
+        <span class="opt-check" id="c4-refi"></span>
+      </button>
+      <button class="opt" onclick="pick(4,'cashout',this)">
+        <span class="opt-icon">💵</span>
+        <span class="opt-text"><span class="opt-title">Cash-out / access equity</span><span class="opt-sub">Pull cash from a property I own — for another purchase, renovation, or other use.</span></span>
+        <span class="opt-check" id="c4-cashout"></span>
+      </button>
+      <button class="opt" onclick="pick(4,'hardmoney',this)">
+        <span class="opt-icon">🔓</span>
+        <span class="opt-text"><span class="opt-title">Exit a hard money or bridge loan</span><span class="opt-sub">Done with the rehab — need a permanent loan to replace my short-term financing.</span></span>
+        <span class="opt-check" id="c4-hardmoney"></span>
+      </button>
+    </div>
+    <div class="nav-btns"><button class="btn-back" onclick="back(4)">← Back</button><div></div></div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step" id="s5">
+    <div class="step-q">How soon are you looking to close?</div>
+    <div class="step-hint">Timeline affects which lenders and programs we prioritize for you.</div>
+    <div class="options">
+      <button class="opt" onclick="pick(5,'asap',this)">
+        <span class="opt-icon">⚡</span>
+        <span class="opt-text"><span class="opt-title">ASAP — under 21 days</span><span class="opt-sub">I have a deadline. Speed is the priority.</span></span>
+        <span class="opt-check" id="c5-asap"></span>
+      </button>
+      <button class="opt" onclick="pick(5,'30',this)">
+        <span class="opt-icon">📅</span>
+        <span class="opt-text"><span class="opt-title">30 days</span><span class="opt-sub">Standard timeline — I want to move quickly but not rush.</span></span>
+        <span class="opt-check" id="c5-30"></span>
+      </button>
+      <button class="opt" onclick="pick(5,'60',this)">
+        <span class="opt-icon">🗓️</span>
+        <span class="opt-text"><span class="opt-title">60+ days</span><span class="opt-sub">I'm planning ahead — still comparing options.</span></span>
+        <span class="opt-check" id="c5-60"></span>
+      </button>
+    </div>
+    <div class="nav-btns"><button class="btn-back" onclick="back(5)">← Back</button><div></div></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result" id="result">
+    <div class="result-top">
+      <div class="result-body">
+        <div class="result-label">Your Best Match</div>
+        <div class="result-prog" id="r-prog">DSCR LOAN</div>
+        <div class="result-tagline" id="r-tagline">Qualify on rental income — no personal income required</div>
+        <div class="result-why" id="r-why"></div>
+        <div class="result-features" id="r-features"></div>
+        <a href="../index.html" class="result-cta" onclick="sessionStorage.setItem('openFunnel','1');return true;" id="r-cta">Get My Rate Quote — No SSN Required →</a>
+        <div class="result-other">No commitment · Takes 2 minutes · <a href="../dscr-calculator.html">Try the DSCR calculator first</a></div>
+      </div>
+    </div>
+    <div class="alt-programs" id="alt-wrap">
+      <div class="alt-title">Other programs that may also fit</div>
+      <div class="alt-grid" id="alt-grid"></div>
+    </div>
+  </div>
+
 </div>
 
+<script>
+const ans = {};
+const STEPS = 5;
 
-<div class="page toc-page">
-  <div>
-    <div class="toc-tag">What's Inside</div>
-    <div class="toc-heading">TABLE OF<br>CONTENTS</div>
-    <div class="toc-item"><div class="toc-num">01</div><div class="toc-label">Introduction</div><div class="toc-dot"></div><div class="toc-pg">03</div></div>
-    <div class="toc-item"><div class="toc-num">02</div><div class="toc-label">Bank Statement Loans</div><div class="toc-dot"></div><div class="toc-pg">04</div></div>
-    <div class="toc-item"><div class="toc-num">03</div><div class="toc-label">DSCR — Long-Term Rental (LTR)</div><div class="toc-dot"></div><div class="toc-pg">05</div></div>
-    <div class="toc-item"><div class="toc-num">04</div><div class="toc-label">DSCR — Short-Term Rental (STR)</div><div class="toc-dot"></div><div class="toc-pg">06</div></div>
-    <div class="toc-item"><div class="toc-num">05</div><div class="toc-label">LTR vs STR: Side-by-Side</div><div class="toc-dot"></div><div class="toc-pg">07</div></div>
-    <div class="toc-item"><div class="toc-num">06</div><div class="toc-label">Asset Utilization</div><div class="toc-dot"></div><div class="toc-pg">08</div></div>
-    <div class="toc-item"><div class="toc-num">07</div><div class="toc-label">Profit &amp; Loss (P&amp;L)</div><div class="toc-dot"></div><div class="toc-pg">09</div></div>
-    <div class="toc-item"><div class="toc-num">08</div><div class="toc-label">WVOE</div><div class="toc-dot"></div><div class="toc-pg">10</div></div>
-    <div class="toc-item"><div class="toc-num">09</div><div class="toc-label">Home Equity Loans</div><div class="toc-dot"></div><div class="toc-pg">11</div></div>
-    <div class="toc-item"><div class="toc-num">10</div><div class="toc-label">Common Mistakes Investors Make</div><div class="toc-dot"></div><div class="toc-pg">12</div></div>
-  </div>
-</div>
+function pick(step, val, el){
+  ans['s'+step] = val;
+  document.querySelectorAll('#s'+step+' .opt').forEach(o=>{
+    o.classList.remove('selected');
+    o.querySelector('.opt-check').textContent = '';
+  });
+  el.classList.add('selected');
+  el.querySelector('.opt-check').textContent = '\u2713';
+  setTimeout(function(){
+    if(step < 5){ next(step); }
+    else{ showResult(); }
+  }, 320);
+}
 
-<!-- ═══════════════════════════════════════════════ INTRO -->
-<div class="page intro-page">
-  <div>
-    <div class="intro-label">Introduction</div>
-    <div class="intro-h1">WHY<br>CREATIVE<br>FINANCING?</div>
-    <div class="intro-body">Whether you're buying your first rental, scaling your portfolio, or leveraging equity to expand — the right financing strategy makes all the difference. Traditional lenders often don't understand the unique challenges real estate investors face.</div>
-    <div class="intro-body">Rate Hero specializes in creative programs designed for investors, business owners, and anyone the big banks ignore. This guide walks you through our most powerful loan programs and shows you how to use them at every stage of your journey.</div>
-    <div class="intro-pull">
-      <p>"Equity is the new currency. The question is whether it's working for you — or sitting idle."</p>
-    </div>
-  </div>
-  <div class="intro-visual" style="display:flex;align-items:center;justify-content:center">
-    <!--
-      7 programs evenly at 360/7 ≈ 51.4° apart (clockwise from top).
-      Center: 150,150 | Dot ring: r=102 | Label ring: r=128
-      viewBox padded to -60,-55 460 410 so all labels fit inside.
-      Angles (θ, degrees from top CW):
-        0   → DSCR LTR   dot(150,48)    label(150,22)
-        51  → DSCR STR   dot(229,86)    label(250,66)
-        103 → BANK STMT  dot(249,173)   label(273,177)
-        154 → P&L        dot(194,242)   label(203,265)
-        206 → ASSET UTIL dot(106,242)   label(96,265)
-        257 → WVOE       dot(51,173)    label(26,177)
-        309 → HOME EQUITY dot(71,86)    label(49,66)
-    -->
-    <svg viewBox="-60 -55 420 390" xmlns="http://www.w3.org/2000/svg" fill="none"
-         style="width:100%;max-width:300px;display:block;overflow:visible">
-      <defs>
-        <radialGradient id="cg" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
-          <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
+function updateProgress(step){
+  const pct = Math.round((step/STEPS)*100);
+  document.getElementById('pfill').style.width = pct+'%';
+  document.getElementById('step-label').textContent = step < STEPS ? 'Question '+step+' of '+STEPS : 'Almost done!';
+  document.getElementById('step-pct').textContent = pct+'%';
+}
 
-      <!-- Outer glow halo -->
-      <circle cx="150" cy="150" r="140" fill="url(#cg)"/>
+function next(step){
+  if(!ans['s'+step]) return;
+  document.getElementById('s'+step).classList.remove('active');
+  document.getElementById('s'+(step+1)).classList.add('active');
+  updateProgress(step+1);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-      <!-- Orbit rings -->
-      <circle cx="150" cy="150" r="36"  stroke="rgba(37,99,235,0.35)" stroke-width="1"/>
-      <circle cx="150" cy="150" r="60"  stroke="rgba(37,99,235,0.22)" stroke-width="1"/>
-      <circle cx="150" cy="150" r="82"  stroke="rgba(37,99,235,0.16)" stroke-width="1"/>
-      <circle cx="150" cy="150" r="102" stroke="rgba(37,99,235,0.12)" stroke-width="1"/>
+function back(step){
+  document.getElementById('s'+step).classList.remove('active');
+  document.getElementById('s'+(step-1)).classList.add('active');
+  updateProgress(step-1);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-      <!-- Center core -->
-      <circle cx="150" cy="150" r="32" fill="rgba(37,99,235,0.25)"/>
-      <circle cx="150" cy="150" r="20" fill="rgba(37,99,235,0.45)"/>
-      <text x="150" y="157" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="26" fill="rgba(255,255,255,0.9)" filter="url(#glow)">$</text>
+function showResult(){
+  document.getElementById('s5').classList.remove('active');
+  document.getElementById('result').classList.add('show');
+  document.getElementById('pfill').style.width = '100%';
+  document.getElementById('step-label').textContent = 'Your match is ready';
+  document.getElementById('step-pct').textContent = '100%';
 
-      <!-- ── CONNECTING LINES (center to each dot) ── -->
-      <line x1="150" y1="150" x2="150" y2="48"   stroke="rgba(37,99,235,0.25)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="229" y2="86"   stroke="rgba(52,211,153,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="249" y2="173"  stroke="rgba(129,140,248,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="194" y2="242"  stroke="rgba(251,146,60,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="106" y2="242"  stroke="rgba(34,211,238,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="51"  y2="173"  stroke="rgba(244,114,182,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
-      <line x1="150" y1="150" x2="71"  y2="86"   stroke="rgba(167,139,250,0.2)" stroke-width="1" stroke-dasharray="3,4"/>
+  const income = ans.s1, prop = ans.s2, credit = ans.s3, goal = ans.s4, timeline = ans.s5;
 
-      <!-- ── DOTS ── -->
-      <!-- 1. DSCR LTR — top — blue -->
-      <circle cx="150" cy="48" r="7" fill="rgba(37,99,235,0.2)" stroke="#3B82F6" stroke-width="1.5"/>
-      <circle cx="150" cy="48" r="3.5" fill="#3B82F6"/>
-      <!-- 2. DSCR STR — top-right — green -->
-      <circle cx="229" cy="86" r="7" fill="rgba(52,211,153,0.15)" stroke="#34d399" stroke-width="1.5"/>
-      <circle cx="229" cy="86" r="3.5" fill="#34d399"/>
-      <!-- 3. BANK STMT — right — indigo -->
-      <circle cx="249" cy="173" r="7" fill="rgba(129,140,248,0.15)" stroke="#818cf8" stroke-width="1.5"/>
-      <circle cx="249" cy="173" r="3.5" fill="#818cf8"/>
-      <!-- 4. P&L — bottom-right — amber -->
-      <circle cx="194" cy="242" r="7" fill="rgba(251,146,60,0.15)" stroke="#fb923c" stroke-width="1.5"/>
-      <circle cx="194" cy="242" r="3.5" fill="#fb923c"/>
-      <!-- 5. ASSET UTIL — bottom-left — cyan -->
-      <circle cx="106" cy="242" r="7" fill="rgba(34,211,238,0.15)" stroke="#22d3ee" stroke-width="1.5"/>
-      <circle cx="106" cy="242" r="3.5" fill="#22d3ee"/>
-      <!-- 6. WVOE — left — rose -->
-      <circle cx="51" cy="173" r="7" fill="rgba(244,114,182,0.15)" stroke="#f472b6" stroke-width="1.5"/>
-      <circle cx="51" cy="173" r="3.5" fill="#f472b6"/>
-      <!-- 7. HOME EQUITY — top-left — violet -->
-      <circle cx="71" cy="86" r="7" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="1.5"/>
-      <circle cx="71" cy="86" r="3.5" fill="#a78bfa"/>
+  let prog, tagline, why, features, alts = [];
 
-      <!-- ── PILL LABELS ── -->
-      <!-- 1. DSCR LTR — top (150, 22) anchor middle, pill width≈70 -->
-      <rect x="115" y="8" width="70" height="18" rx="9" fill="rgba(37,99,235,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-      <text x="150" y="21" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#93c5fd">DSCR LTR</text>
+  // VETERAN → VA
+  if(income === 'veteran'){
+    prog = 'VA LOAN';
+    tagline = 'No down payment required · Your earned benefit';
+    why = 'As a veteran or active military member, the VA loan is almost certainly your best option. Zero down payment, no PMI, and rates consistently lower than conventional loans. Rate Hero works with VA-approved lenders to get you the best VA rate available.';
+    features = [['Down Payment','0% required'],['PMI','None — ever'],['Qualification','VA entitlement + income'],['Best for','Purchase or refi of primary home']];
+    alts = [['Conventional','Strong credit? May compete with VA','pages/conventional.html'],['FHA','Lower credit options','pages/conventional.html']];
+  }
+  // RETIRED / ASSETS → Asset Utilization
+  else if(income === 'retired'){
+    prog = 'ASSET UTILIZATION';
+    tagline = 'Your portfolio qualifies you — no paycheck needed';
+    why = 'You have accumulated wealth but no active paycheck — which means conventional income documentation won\'t work. Asset utilization programs divide your eligible assets over a loan term to produce qualifying income. No job required, no W-2, no tax returns.';
+    features = [['Income Doc','Eligible assets ÷ 84 months'],['Min Assets','Varies by loan amount'],['Credit','680+ recommended'],['Down Payment','20–25%']];
+    alts = [['Non-QM','Bank stmt or P&L if you have business income','pages/non-qm.html'],['DSCR','If buying investment property','pages/long-term-rental.html']];
+  }
+  // INVESTOR + LTR/STR/MULTIFAMILY → DSCR
+  else if(income === 'investor' || prop === 'ltr' || prop === 'str' || prop === 'multifamily'){
+    if(prop === 'str'){
+      prog = 'DSCR — SHORT-TERM RENTAL';
+      tagline = 'Qualify on Airbnb and VRBO income';
+      why = 'Your Airbnb or VRBO income is exactly what DSCR STR programs are built for. Lenders use AirDNA projections (for purchases) or 12-month platform history (for refinances) to calculate qualifying income. No W-2, no tax returns, no personal income needed.';
+      features = [['Income Source','AirDNA or platform history'],['Vacancy Factor','20% default applied'],['Down Payment','20–25%'],['Loan in LLC','Yes — available']];
+      alts = [['DSCR Long-Term','If converting to annual leases','pages/long-term-rental.html'],['BRRRR Refi','If exiting a rehab','pages/brrrr-loan.html']];
+    } else {
+      prog = 'DSCR LOAN';
+      tagline = 'The property qualifies itself — no personal income needed';
+      why = 'Based on your answers, DSCR is your strongest fit. Lenders look at one thing: does the rent cover the mortgage? If yes, you qualify — regardless of what your tax return shows, how many write-offs you have, or whether you\'re self-employed. No W-2s, no tax returns, no income limits.';
+      features = [['Income Required','None — property qualifies'],['Down Payment','20–25%'],['Loan in LLC','Yes — available'],['Close Time','21 days average']];
+      alts = [['Non-QM','If income docs needed','pages/non-qm.html'],['HELOC','To tap existing equity','pages/heloc.html']];
+    }
+  }
+  // HARD MONEY EXIT
+  else if(goal === 'hardmoney'){
+    prog = 'HARD MONEY EXIT';
+    tagline = 'Stop paying hard money rates — refinance into a 30-year DSCR';
+    why = 'You\'ve finished the rehab and the property is stabilized — now you need to get out of the hard money loan before the carrying cost kills your returns. A DSCR refinance replaces your hard money loan with a 30-year term based on the property\'s rental income. No W-2 or tax returns needed.';
+    features = [['Income Required','Rental income only'],['Down Payment','N/A — refinance'],['Seasoning','None required on most programs'],['Close Time','14–21 days']];
+    alts = [['BRRRR Refi','Cash-out to fund next deal','pages/brrrr-loan.html'],['DSCR LTR','Long-term hold strategy','pages/long-term-rental.html']];
+  }
+  // SELF-EMPLOYED → Non-QM
+  else if(income === 'selfemployed'){
+    prog = 'NON-QM LOAN';
+    tagline = 'Bank statements, P&L, or assets — skip the tax return problem';
+    why = 'As a self-employed borrower, your tax return likely shows far less than you actually earn after write-offs. Non-QM programs use 12–24 months of bank deposits, a CPA-prepared P&L, or asset utilization instead of tax returns. Your real income qualifies the loan — not the number your accountant optimized.';
+    features = [['Income Doc','Bank statements or P&L'],['No W-2 Needed','Correct'],['Property Type','Primary, second, or investment'],['Credit','620+ minimum']];
+    alts = [['DSCR','If buying investment property','pages/long-term-rental.html'],['Bank Statements','Most popular Non-QM method','pages/non-qm.html']];
+  }
+  // W-2 PRIMARY → Conventional/FHA
+  else {
+    if(credit === '740plus' || credit === '700'){
+      prog = 'CONVENTIONAL LOAN';
+      tagline = 'Strongest rates for documented W-2 borrowers';
+      why = 'With strong W-2 income and good credit, a conventional loan gives you access to the best rates on the market. Rate Hero shops multiple wholesale lenders to find the lowest conventional rate available — often better than what your bank or a retail lender quotes.';
+      features = [['Down Payment','3–20%'],['PMI','Required below 20% down'],['Best Rate','680+ credit gets top tier'],['Close Time','21 days average']];
+      alts = [['FHA','Lower down payment option','pages/conventional.html'],['VA Loan','If you have VA eligibility','pages/conventional.html']];
+    } else {
+      prog = 'FHA LOAN';
+      tagline = '3.5% down · More flexible qualification than conventional';
+      why = 'FHA loans are the strongest option when your credit score is below 680 or your down payment is limited. With as little as 3.5% down and more flexible DTI limits, FHA often approves borrowers who conventional programs decline. Rate Hero finds the best FHA lender in our network for your specific profile.';
+      features = [['Down Payment','3.5% minimum'],['Credit','580+ for 3.5% down'],['DTI Limit','More flexible than conventional'],['MIP','Required — monthly + upfront']];
+      alts = [['Conventional','Once credit improves','pages/conventional.html'],['Non-QM','If W-2 income is also complex','pages/non-qm.html']];
+    }
+  }
 
-      <!-- 2. DSCR STR — top-right (252, 66) anchor start, pill width≈68 -->
-      <rect x="249" y="52" width="68" height="18" rx="9" fill="rgba(5,150,105,0.12)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
-      <text x="283" y="65" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#6ee7b7">DSCR STR</text>
+  document.getElementById('r-prog').textContent = prog;
+  document.getElementById('r-tagline').textContent = tagline;
+  document.getElementById('r-why').textContent = why;
 
-      <!-- 3. BANK STMT — right (274, 168) anchor start, pill width≈74 -->
-      <rect x="270" y="162" width="74" height="18" rx="9" fill="rgba(99,102,241,0.12)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
-      <text x="307" y="175" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#c7d2fe">BANK STMT</text>
+  document.getElementById('r-features').innerHTML = features.map(([k,v])=>
+    `<div class="rfeat"><div class="rfeat-label">${k}</div><div class="rfeat-val">${v}</div></div>`
+  ).join('');
 
-      <!-- 4. P&L — bottom-right (200, 268) anchor middle, pill width≈34 -->
-      <rect x="183" y="263" width="34" height="18" rx="9" fill="rgba(249,115,22,0.12)" stroke="rgba(251,146,60,0.4)" stroke-width="1"/>
-      <text x="200" y="276" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#fed7aa">P&amp;L</text>
+  if(alts.length){
+    document.getElementById('alt-grid').innerHTML = alts.map(([name,desc,url])=>
+      `<a href="../${url}" class="alt-card"><div class="alt-name">${name}</div><div class="alt-sub">${desc}</div></a>`
+    ).join('');
+  } else {
+    document.getElementById('alt-wrap').style.display = 'none';
+  }
 
-      <!-- 5. ASSET UTIL — bottom-left (85, 268) anchor middle, pill width≈74 -->
-      <rect x="48" y="263" width="74" height="18" rx="9" fill="rgba(6,182,212,0.1)" stroke="rgba(34,211,238,0.4)" stroke-width="1"/>
-      <text x="85" y="276" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#a5f3fc">ASSET UTIL</text>
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-      <!-- 6. WVOE — left (-30, 168) anchor end, pill width≈46 -->
-      <rect x="-54" y="162" width="46" height="18" rx="9" fill="rgba(236,72,153,0.1)" stroke="rgba(244,114,182,0.4)" stroke-width="1"/>
-      <text x="-31" y="175" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#fbcfe8">WVOE</text>
+updateProgress(1);
 
-      <!-- 7. HOME EQUITY — top-left (-22, 66) anchor end, pill width≈82 -->
-      <rect x="-38" y="52" width="82" height="18" rx="9" fill="rgba(139,92,246,0.1)" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
-      <text x="3" y="65" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="#ddd6fe">HOME EQUITY</text>
-    </svg>
-  </div>
-</div>
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
 
-
-<!-- ═══════════════════════════════════════════════ BANK STATEMENTS -->
-<div class="page prog-page dark">
-  <div class="prog-left">
-    <div class="prog-num">02</div>
-    <div class="prog-tag">Income Documentation</div>
-    <div class="prog-title">BANK<br>STATEMENT<br>LOANS</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">Instead of relying on tax returns — which often show low income due to write-offs — bank statement loans use your actual bank deposits to determine qualifying income. 12 or 24 months of deposits replace the W-2.</div>
-    <div class="prog-uses-title">How investors use it</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🌱</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">New Investors</div>
-        <div class="prog-use-body">Buy your first property without waiting years for clean tax returns. Your deposits prove what you earn.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">📈</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Portfolio Builders</div>
-        <div class="prog-use-body">Qualify for additional rentals using business deposits — bypassing the write-off penalty entirely.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🏛</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Large Investors</div>
-        <div class="prog-use-body">Streamline approvals by bypassing the complex tax write-offs that slow down conventional financing.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right">
-    <div style="width:100%">
-      <!-- Bank illustration -->
-      <svg viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:260px;margin:0 auto;display:block;margin-bottom:28px">
-        <!-- Bank building -->
-        <rect x="40" y="100" width="200" height="180" fill="rgba(37,99,235,0.15)" rx="4"/>
-        <!-- Columns -->
-        <rect x="60" y="100" width="16" height="170" fill="rgba(37,99,235,0.25)" rx="2"/>
-        <rect x="90" y="100" width="16" height="170" fill="rgba(37,99,235,0.2)" rx="2"/>
-        <rect x="120" y="100" width="16" height="170" fill="rgba(37,99,235,0.25)" rx="2"/>
-        <rect x="154" y="100" width="16" height="170" fill="rgba(37,99,235,0.2)" rx="2"/>
-        <rect x="184" y="100" width="16" height="170" fill="rgba(37,99,235,0.25)" rx="2"/>
-        <rect x="214" y="100" width="16" height="170" fill="rgba(37,99,235,0.2)" rx="2"/>
-        <!-- Pediment -->
-        <polygon points="140,40 30,100 250,100" fill="rgba(37,99,235,0.3)"/>
-        <!-- Door -->
-        <rect x="110" y="190" width="60" height="90" fill="rgba(37,99,235,0.4)" rx="4"/>
-        <!-- Steps -->
-        <rect x="30" y="276" width="220" height="8" fill="rgba(37,99,235,0.2)" rx="1"/>
-        <rect x="20" y="284" width="240" height="8" fill="rgba(37,99,235,0.15)" rx="1"/>
-        <!-- Dollar signs floating -->
-        <text x="70" y="170" font-family="'Bebas Neue',sans-serif" font-size="18" fill="rgba(37,99,235,0.5)">$</text>
-        <text x="190" y="155" font-family="'Bebas Neue',sans-serif" font-size="14" fill="rgba(59,130,246,0.4)">$</text>
-        <text x="135" y="75" font-family="'Bebas Neue',sans-serif" font-size="22" fill="rgba(37,99,235,0.6)">$</text>
-      </svg>
-      <div class="example-box">
-        <div class="example-label">📋 Real Example</div>
-        <div class="example-text">"You deposit $20K/month into your business account. Even if your tax return shows little profit after deductions, 24 months of statements prove your real cash flow — and qualify you for a much larger loan."</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ DSCR LTR -->
-<div class="page prog-page light">
-  <div class="prog-left">
-    <div class="prog-num" style="color:rgba(37,99,235,0.1)">03</div>
-    <div class="prog-tag">Investment Property &middot; No Income Docs</div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);color:#2563EB;padding:4px 13px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">&#128200; Long-Term Rental</div>
-    <div class="prog-title">DSCR<br>LONG-TERM<br>RENTAL</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">The property qualifies itself. <strong>DSCR = Gross Rent &divide; PITIA</strong>. Qualifying rent is the higher of the Form 1007 market rent analysis or the current signed lease &mdash; as long as the variance is under 20%. No W-2s, no tax returns, no employment verification of any kind.</div>
-    <div class="prog-uses-title">Key Features</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">&#127968;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">No Income Documentation</div>
-        <div class="prog-use-body">The lease or 1007 market rent is the entire income case. No W-2s, no tax returns, no employment verification of any kind.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">&#127970;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">1&ndash;10 Unit Properties</div>
-        <div class="prog-use-body">SFR, 2&ndash;4 unit, and 5&ndash;10 unit multifamily all eligible. No portfolio cap &mdash; each property qualifies on its own cash flow independently.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">&#128273;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Vacant Properties OK</div>
-        <div class="prog-use-body">No tenant required at application. The appraiser&rsquo;s 1007 market rent qualifies at 100% &mdash; no vacancy factor applied on 1&ndash;4 unit properties.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">&#127983;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">LLC &amp; Entity Borrowing</div>
-        <div class="prog-use-body">Close in an LLC or limited partnership. Keeps investment debt off personal credit and provides liability protection across the portfolio.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right" style="background:#f0f4ff;flex-direction:column;gap:18px">
-    <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px">
-      <!-- Background card -->
-      <rect width="260" height="220" rx="14" fill="rgba(37,99,235,0.06)"/>
-      <!-- Row 1: Gross Rental Income -->
-      <rect x="18" y="14" width="224" height="64" rx="9" fill="white"/>
-      <text x="28" y="30" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(37,99,235,0.65)">GROSS RENTAL INCOME</text>
-      <text x="28" y="43" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(37,99,235,0.4)">Higher of Form 1007 or signed lease</text>
-      <text x="242" y="67" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#1D4ED8">$2,200<tspan font-size="14">/mo</tspan></text>
-      <!-- Divider label -->
-      <text x="130" y="96" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="800" fill="rgba(37,99,235,0.3)">&divide; PITIA</text>
-      <!-- Row 2: Monthly PITIA -->
-      <rect x="18" y="104" width="224" height="64" rx="9" fill="white"/>
-      <text x="28" y="120" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(37,99,235,0.65)">MONTHLY PITIA</text>
-      <text x="28" y="133" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(37,99,235,0.4)">Principal + Interest + Tax + Insurance + HOA</text>
-      <text x="242" y="157" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#1D4ED8">$1,700<tspan font-size="14">/mo</tspan></text>
-      <!-- Result bar -->
-      <rect x="18" y="180" width="224" height="28" rx="8" fill="rgba(37,99,235,0.15)"/>
-      <text x="130" y="199" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="17" fill="#1D4ED8">DSCR 1.29 &mdash; QUALIFIES &#10003;</text>
-    </svg>
-    <div class="example-box" style="width:100%">
-      <div class="example-label">&#128203; Example</div>
-      <div class="example-text">&ldquo;BRRRR investor &mdash; rehab complete, no tenant yet. Appraiser&rsquo;s 1007 projects $2,200/mo. PITIA $1,700. DSCR 1.29. Closed in LLC. Zero income documentation provided.&rdquo;</div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════ DSCR STR -->
-<div class="page prog-page dark">
-  <div class="prog-left">
-    <div class="prog-num">04</div>
-    <div class="prog-tag">Investment Property &middot; No Income Docs</div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.35);color:#34d399;padding:4px 13px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">&#127958; Short-Term Rental</div>
-    <div class="prog-title">DSCR<br>SHORT-TERM<br>RENTAL</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">Same DSCR structure &mdash; but income is documented differently for Airbnb and VRBO properties. STR income can be established through <strong>AirDNA projections, 12-month platform history, or bank deposit records</strong>. When multiple sources are provided, the <strong>lowest figure is used</strong> to qualify.</div>
-    <div class="prog-uses-title">Income Documentation Options</div>
-    <div class="prog-use">
-      <div class="prog-use-icon" style="background:#059669">&#128202;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">AirDNA Rentalizer</div>
-        <div class="prog-use-body">For purchase transactions. 12-month forecast required. Market score must be <strong>60 or higher</strong>. Minimum 3 comparable properties. 20% vacancy factor applied unless appraiser specifies occupancy rate.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon" style="background:#059669">&#128203;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">12-Month Platform History</div>
-        <div class="prog-use-body">Airbnb or VRBO statement covering the past 12 months, <strong>net of all management fees</strong>, identifying the subject property. Primary method for refinance transactions.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon" style="background:#059669">&#127968;</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Bank Statement Deposits</div>
-        <div class="prog-use-body">12 months of bank statements showing STR deposits, paired with rental records for the property. Always verify <strong>HOA documents permit STR</strong> before application.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right">
-    <div style="width:100%">
-      <svg viewBox="0 0 260 190" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto 20px;display:block">
-        <rect width="260" height="190" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(5,150,105,0.2)" stroke-width="1"/>
-        <text x="16" y="24" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(52,211,153,0.7)">STR INCOME CALCULATION</text>
-        <rect x="16" y="32" width="228" height="26" rx="7" fill="rgba(5,150,105,0.12)" stroke="rgba(5,150,105,0.25)" stroke-width="1"/>
-        <text x="24" y="50" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="rgba(52,211,153,0.9)">AirDNA Gross Projection</text>
-        <text x="238" y="50" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#34d399">$4,800/mo</text>
-        <text x="24" y="76" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="rgba(255,255,255,0.35)">Minus 20% default vacancy factor</text>
-        <text x="238" y="76" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="rgba(220,80,80,0.7)">-$960</text>
-        <line x1="16" y1="88" x2="244" y2="88" stroke="rgba(5,150,105,0.2)" stroke-width="1"/>
-        <text x="24" y="108" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(52,211,153,0.8)">Net Qualifying STR Income</text>
-        <text x="238" y="108" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#34d399">$3,840/mo</text>
-        <text x="24" y="130" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.35)">Monthly PITIA</text>
-        <text x="238" y="130" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)">$2,800</text>
-        <rect x="16" y="148" width="228" height="26" rx="8" fill="rgba(5,150,105,0.2)"/>
-        <text x="130" y="166" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#34d399">DSCR 1.37 &mdash; STR QUALIFIES &#10003;</text>
-      </svg>
-      <div class="example-box" style="background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.25)">
-        <div class="example-label" style="color:#34d399">&#128203; Example</div>
-        <div class="example-text">&ldquo;Beachfront condo purchase, zero rental history. AirDNA market score 74, projects $4,800/mo gross. After 20% vacancy: $3,840 qualifying income. PITIA $2,800. DSCR 1.37 &mdash; approved on projections alone.&rdquo;</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════ LTR VS STR -->
-<div class="page" style="background:#080F1E;min-height:1100px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;position:relative">
-  <div style="position:absolute;top:0;left:50%;width:1px;height:100%;background:rgba(37,99,235,0.18)"></div>
-  <div style="padding:52px 60px 0;position:relative;z-index:1">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B82F6">DSCR Comparison &middot; Section 05</div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;color:#fff;line-height:.9;margin:8px 0 10px">LTR vs STR &mdash;<br>KNOW THE DIFFERENCE</div>
-    <div style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:580px">Both qualify on rental income with zero personal income documentation. The distinction is how that income is proven and what thresholds apply.</div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;padding:32px 0 52px;position:relative;z-index:1">
-    <!-- LTR COLUMN -->
-    <div style="padding:28px 44px">
-      <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:#3B82F6;padding:5px 14px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">&#128200; Long-Term Rental</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1px;color:#fff;margin-bottom:10px;line-height:.93">STABLE.<br>SIMPLE.<br>SCALABLE.</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:16px">Traditional 12-month leases. Consistent monthly income. The most straightforward DSCR qualification path available.</div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">Income: <strong style="color:rgba(255,255,255,0.8)">Form 1007 or signed lease</strong> (higher, within 20%)</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55"><strong style="color:rgba(255,255,255,0.8)">No vacancy factor</strong> on unleased 1&ndash;4 unit properties</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55"><strong style="color:rgba(255,255,255,0.8)">No tenant required</strong> &mdash; 1007 market rent qualifies alone</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55"><strong style="color:rgba(255,255,255,0.8)">5&ndash;10 unit multifamily</strong> eligible with investor experience</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">Up to <strong style="color:rgba(255,255,255,0.8)">85% LTV</strong> on purchase &middot; LLC borrowing available</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#3B82F6;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55"><strong style="color:rgba(255,255,255,0.8)">No-ratio programs</strong> available when DSCR is below 0.75</div></div>
-      <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:11px;padding:16px;margin-top:16px">
-        <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#3B82F6;margin-bottom:6px">Typical Use Case</div>
-        <div style="font-size:12.5px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.65">BRRRR exit refi &mdash; rehab done, no tenant yet. 1007 projects $2,100/mo. PITIA $1,640. DSCR 1.28. Closes without a signed lease in hand.</div>
-      </div>
-    </div>
-    <!-- STR COLUMN -->
-    <div style="padding:28px 44px">
-      <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.4);color:#34d399;padding:5px 14px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">&#127958; Short-Term Rental</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1px;color:#fff;margin-bottom:10px;line-height:.93">HIGHER<br>INCOME.<br>MORE DOCS.</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:16px">Airbnb, VRBO, vacation rentals. Higher gross revenue potential &mdash; income documentation has more requirements and moving parts.</div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">Income: <strong style="color:rgba(255,255,255,0.8)">AirDNA, platform history, or bank deposits</strong> &mdash; lowest of multiple sources</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55"><strong style="color:rgba(255,255,255,0.8)">20% default vacancy</strong> unless appraiser specifies occupancy</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">AirDNA for purchases: <strong style="color:rgba(255,255,255,0.8)">market score 60+</strong>, 3 comparables, 12-month forecast</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">Platform history for refis: <strong style="color:rgba(255,255,255,0.8)">12-month statement net of all fees</strong></div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">LTV may be <strong style="color:rgba(255,255,255,0.8)">slightly more conservative</strong> than LTR on some programs</div></div>
-      <div style="display:flex;gap:9px;margin-bottom:9px"><div style="width:5px;height:5px;border-radius:50%;background:#34d399;flex-shrink:0;margin-top:5px"></div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55">Always verify <strong style="color:rgba(255,255,255,0.8)">HOA documents allow STR</strong> before application</div></div>
-      <div style="background:rgba(5,150,105,0.07);border:1px solid rgba(5,150,105,0.22);border-radius:11px;padding:16px;margin-top:16px">
-        <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#34d399;margin-bottom:6px">Typical Use Case</div>
-        <div style="font-size:12.5px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.65">Mountain cabin, no rental history. AirDNA market score 82, $5,200/mo gross. After 20% vacancy: $4,160. PITIA $2,950. DSCR 1.41 &mdash; approved on projections alone.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════ ASSET UTILIZATION -->
-<div class="page prog-page dark">
-  <div class="prog-left">
-    <div class="prog-num">04</div>
-    <div class="prog-tag">Wealth-Based Qualifying</div>
-    <div class="prog-title">ASSET<br>UTILIZATION</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">Asset utilization lets you use savings, investment accounts, retirement funds, or life insurance as qualifying income — even without a paycheck. Your portfolio value is divided over a loan term to establish monthly income.</div>
-    <div class="prog-uses-title">How investors use it</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🌱</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Retirees & High-Savers</div>
-        <div class="prog-use-body">Buy investment properties using accumulated wealth instead of active job income.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">📈</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Portfolio Builders</div>
-        <div class="prog-use-body">Use dormant assets to qualify for bigger loans without increasing taxable income.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🏛</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Large Investors</div>
-        <div class="prog-use-body">Leverage investment portfolios while keeping active cash flow free for new acquisitions.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right">
-    <div style="width:100%">
-      <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto;display:block;margin-bottom:20px">
-        <!-- Asset breakdown bars -->
-        <rect width="260" height="200" rx="16" fill="rgba(255,255,255,0.03)"/>
-        <text x="16" y="28" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)">QUALIFYING ASSETS</text>
-        <!-- Bar 1 -->
-        <rect x="16" y="40" width="228" height="24" rx="6" fill="rgba(255,255,255,0.06)"/>
-        <rect x="16" y="40" width="228" height="24" rx="6" fill="rgba(37,99,235,0.6)"/>
-        <text x="24" y="57" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="white">Checking/Savings</text>
-        <text x="238" y="57" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="white">100%</text>
-        <!-- Bar 2 -->
-        <rect x="16" y="74" width="160" height="24" rx="6" fill="rgba(37,99,235,0.4)"/>
-        <text x="24" y="91" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="white">Stocks & Bonds</text>
-        <text x="170" y="91" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="rgba(255,255,255,0.7)">70%</text>
-        <!-- Bar 3 -->
-        <rect x="16" y="108" width="160" height="24" rx="6" fill="rgba(37,99,235,0.35)"/>
-        <text x="24" y="125" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="white">Retirement (59½+)</text>
-        <text x="170" y="125" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="rgba(255,255,255,0.7)">70%</text>
-        <!-- Bar 4 -->
-        <rect x="16" y="142" width="115" height="24" rx="6" fill="rgba(37,99,235,0.25)"/>
-        <text x="24" y="159" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="white">Retirement (under 59½)</text>
-        <text x="125" y="159" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="rgba(255,255,255,0.6)">50%</text>
-        <!-- Total -->
-        <line x1="16" y1="178" x2="244" y2="178" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="16" y="195" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">Eligible balance ÷ 84 months = Monthly Qualifying Income</text>
-      </svg>
-      <div class="example-box">
-        <div class="example-label">📋 Real Example</div>
-        <div class="example-text">"You have $500K in stocks and retirement funds. Even without a W-2, lenders can count those assets as income — $500K ÷ 84 months = $5,952/month qualifying income."</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ P&L -->
-<div class="page prog-page light">
-  <div class="prog-left">
-    <div class="prog-num" style="color:rgba(37,99,235,0.1)">05</div>
-    <div class="prog-tag">Self-Employed</div>
-    <div class="prog-title">PROFIT<br>& LOSS<br>LOANS</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">Instead of full tax returns, your CPA prepares a Profit & Loss statement — typically 12 months — to verify your business income. The net profit on the P&L becomes your qualifying income, bypassing the write-off problem.</div>
-    <div class="prog-uses-title">How investors use it</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🌱</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">New Investors</div>
-        <div class="prog-use-body">Get approved with CPA support even if your business is newly structured with limited history.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">📈</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Portfolio Builders</div>
-        <div class="prog-use-body">Use P&L when you reinvest heavily in your business and tax returns look weaker than reality.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🏛</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Large Investors</div>
-        <div class="prog-use-body">Simplify approvals across multiple properties with streamlined documentation.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right" style="background:#f0f4ff;align-items:center;justify-content:center">
-    <div style="width:100%">
-      <svg viewBox="0 0 260 248" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto;display:block;margin-bottom:20px">
-        <rect x="28" y="8" width="204" height="234" rx="12" fill="white" stroke="rgba(37,99,235,0.18)" stroke-width="1.5"/>
-        <rect x="28" y="8" width="204" height="38" rx="12" fill="rgba(37,99,235,0.1)"/>
-        <rect x="28" y="33" width="204" height="13" fill="rgba(37,99,235,0.06)"/>
-        <text x="130" y="31" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#1D4ED8" letter-spacing="1">PROFIT &amp; LOSS</text>
-        <text x="46" y="66" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="#9ca3af">Gross Revenue</text>
-        <text x="224" y="66" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#374151">$420,000</text>
-        <text x="46" y="84" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="#9ca3af">Total Expenses</text>
-        <text x="224" y="84" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#6b7a8d">($270,000)</text>
-        <line x1="42" y1="94" x2="228" y2="94" stroke="rgba(37,99,235,0.15)" stroke-width="1"/>
-        <text x="46" y="112" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="800" fill="#1D4ED8">NET PROFIT</text>
-        <text x="224" y="112" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#1D4ED8">$150,000</text>
-        <rect x="42" y="122" width="176" height="46" rx="7" fill="rgba(37,99,235,0.04)" stroke="rgba(37,99,235,0.14)" stroke-width="1"/>
-        <text x="130" y="138" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" font-weight="700" fill="rgba(37,99,235,0.6)">TAX RETURN SHOWS:</text>
-        <text x="130" y="157" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="16" fill="rgba(200,50,50,0.75)">$22,000 &#8592; IGNORED</text>
-        <circle cx="184" cy="207" r="26" stroke="rgba(37,99,235,0.28)" stroke-width="1.5" stroke-dasharray="3,2"/>
-        <circle cx="184" cy="207" r="18" fill="rgba(37,99,235,0.05)"/>
-        <text x="184" y="204" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="11" fill="rgba(37,99,235,0.75)">CPA</text>
-        <text x="184" y="216" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="7" font-weight="700" fill="rgba(37,99,235,0.5)" letter-spacing="1">VERIFIED</text>
-      </svg>
-      <div class="example-box">
-        <div class="example-label">📋 Real Example</div>
-        <div class="example-text">"Your tax return shows $22K taxable profit after write-offs, but your CPA-prepared P&L shows $150K net income — the P&L is what we use to qualify you."</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ WVOE -->
-<div class="page prog-page dark">
-  <div class="prog-left">
-    <div class="prog-num">06</div>
-    <div class="prog-tag">Employment Verification</div>
-    <div class="prog-title">WVOE<br>LOANS</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">WVOE stands for Written Verification of Employment. The lender verifies your job and income directly with your employer — no tax returns, no pay stubs required. Simple, fast, and effective for W-2 employees who want to skip the paperwork.</div>
-    <div class="prog-uses-title">How investors use it</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🌱</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">New Investors</div>
-        <div class="prog-use-body">Buy your first property quickly if you're employed — the lender calls your employer directly.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">📈</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Portfolio Builders</div>
-        <div class="prog-use-body">Keep it simple when stacking new loans alongside your salary income without tax return complexity.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🏛</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Large Investors</div>
-        <div class="prog-use-body">Streamline approvals when combining W-2 income with investment financing in the same portfolio.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right">
-    <div style="width:100%">
-      <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto;display:block;margin-bottom:20px">
-        <!-- Process flow -->
-        <!-- Step 1 -->
-        <circle cx="50" cy="40" r="22" fill="rgba(37,99,235,0.2)" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
-        <text x="50" y="36" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="11" fill="rgba(37,99,235,0.9)">YOU</text>
-        <text x="50" y="48" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="7" fill="rgba(255,255,255,0.5)">Apply</text>
-        <!-- Arrow -->
-        <line x1="74" y1="40" x2="96" y2="40" stroke="rgba(37,99,235,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <!-- Step 2 -->
-        <circle cx="120" cy="40" r="22" fill="rgba(37,99,235,0.25)" stroke="rgba(37,99,235,0.5)" stroke-width="1.5"/>
-        <text x="120" y="36" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="9" fill="rgba(37,99,235,0.9)">RATE</text>
-        <text x="120" y="47" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="9" fill="rgba(37,99,235,0.9)">HERO</text>
-        <!-- Arrow down -->
-        <line x1="120" y1="64" x2="120" y2="86" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
-        <!-- Step 3 -->
-        <circle cx="120" cy="110" r="22" fill="rgba(37,99,235,0.2)" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
-        <text x="120" y="106" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="9" fill="rgba(37,99,235,0.9)">YOUR</text>
-        <text x="120" y="117" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="9" fill="rgba(37,99,235,0.9)">EMPLOYER</text>
-        <!-- Arrow right -->
-        <line x1="144" y1="110" x2="166" y2="110" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
-        <!-- Step 4 -->
-        <circle cx="190" cy="110" r="22" fill="rgba(37,99,235,0.35)" stroke="rgba(37,99,235,0.6)" stroke-width="1.5"/>
-        <text x="190" y="106" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="9" fill="white">APPROVED</text>
-        <text x="190" y="117" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="rgba(37,99,235,0.8)">✓</text>
-        <!-- Labels -->
-        <text x="50" y="72" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">No Pay Stubs</text>
-        <text x="50" y="82" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">No Tax Returns</text>
-        <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="rgba(37,99,235,0.6)"/></marker></defs>
-      </svg>
-      <div class="example-box">
-        <div class="example-label">📋 Real Example</div>
-        <div class="example-text">"You make $90K/year. Instead of digging through pay stubs and tax returns, Rate Hero confirms your salary directly with your employer — and you're approved."</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ HOME EQUITY -->
-<div class="page prog-page light">
-  <div class="prog-left">
-    <div class="prog-num" style="color:rgba(37,99,235,0.1)">07</div>
-    <div class="prog-tag">Equity Access</div>
-    <div class="prog-title">HOME<br>EQUITY<br>LOANS</div>
-    <div class="prog-what">What It Is</div>
-    <div class="prog-desc">Borrow against the equity in your current property without touching your low-rate first mortgage. A closed-end second or HELOC sits behind the existing first lien — giving you capital access while preserving your rate.</div>
-    <div class="prog-uses-title">How investors use it</div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🌱</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">New Investors</div>
-        <div class="prog-use-body">Pull equity from your primary home to fund your first rental down payment without selling.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">📈</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Portfolio Builders</div>
-        <div class="prog-use-body">Use equity from existing rentals to fund renovations or down payments on additional properties.</div>
-      </div>
-    </div>
-    <div class="prog-use">
-      <div class="prog-use-icon">🏛</div>
-      <div class="prog-use-text">
-        <div class="prog-use-label">Large Investors</div>
-        <div class="prog-use-body">Unlock millions in trapped equity across multiple properties without refinancing at current rates.</div>
-      </div>
-    </div>
-  </div>
-  <div class="prog-right" style="background:#f0f4ff">
-    <div style="width:100%">
-      <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto;display:block;margin-bottom:20px">
-        <!-- House value bar -->
-        <rect width="260" height="180" rx="12" fill="rgba(37,99,235,0.04)"/>
-        <text x="16" y="28" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#3a4a5c">HOME VALUE</text>
-        <text x="244" y="28" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="18" fill="#1D4ED8">$600,000</text>
-        <!-- Stacked bars -->
-        <rect x="16" y="38" width="228" height="32" rx="6" fill="rgba(37,99,235,0.08)" stroke="rgba(37,99,235,0.15)" stroke-width="1"/>
-        <text x="26" y="59" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" fill="#6b7a8d">First Mortgage</text>
-        <text x="238" y="59" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#3a4a5c">$300,000</text>
-
-        <rect x="16" y="76" width="114" height="32" rx="6" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-        <text x="26" y="97" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="#1D4ED8">Home Equity</text>
-        <text x="238" y="97" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#1D4ED8">$300,000</text>
-
-        <rect x="16" y="114" width="91" height="32" rx="6" fill="rgba(37,99,235,0.6)"/>
-        <text x="26" y="135" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="800" fill="white">Available to Use</text>
-        <text x="238" y="135" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#1D4ED8">$200K</text>
-
-        <text x="130" y="166" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" fill="rgba(37,99,235,0.6)" font-weight="700">Keep your 3% first mortgage rate intact ✓</text>
-      </svg>
-      <div class="example-box">
-        <div class="example-label">📋 Real Example</div>
-        <div class="example-text">"Your home is worth $600K and you owe $300K. You can access up to $200K in equity to fund your next rental — all while keeping your existing low first mortgage rate completely intact."</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ MISTAKES -->
-<div class="page mistakes-page">
-  <div class="prog-tag" style="color:var(--blue2);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase">What's Holding You Back</div>
-  <div style="font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--w);line-height:.9;margin:12px 0 0">COMMON<br>MISTAKES<br>INVESTORS MAKE</div>
-  <div class="mistakes-grid">
-    <div class="mistake-card">
-      <div class="mistake-icon">📄</div>
-      <div class="mistake-title">Believing they need "perfect" W-2 income to qualify</div>
-      <div class="mistake-body">Bank statements, P&L, DSCR, and WVOE programs all exist specifically for borrowers without clean W-2s. Your tax return isn't the only way to prove you can repay a loan.</div>
-    </div>
-    <div class="mistake-card">
-      <div class="mistake-icon">🏦</div>
-      <div class="mistake-title">Assuming banks won't lend because of tax returns</div>
-      <div class="mistake-body">Conventional banks rely on tax returns. Rate Hero and Non-QM programs were built specifically for borrowers whose write-offs make their income look artificially low on paper.</div>
-    </div>
-    <div class="mistake-card">
-      <div class="mistake-icon">💤</div>
-      <div class="mistake-title">Letting equity sit idle instead of using it to grow</div>
-      <div class="mistake-body">Equity locked in a property earning 0% return is a missed opportunity. A home equity loan or HELOC puts that capital to work for the next acquisition without selling or refinancing.</div>
-    </div>
-    <div class="mistake-card">
-      <div class="mistake-icon">🔍</div>
-      <div class="mistake-title">Not exploring creative programs built for investors</div>
-      <div class="mistake-body">Most investors get one conventional loan rejection and stop there. DSCR, bank statement, P&L, asset utilization — these programs exist and qualify borrowers every day. Know your options.</div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════ CONCLUSION -->
-<div class="page conclusion-page">
-  <div class="conclusion-logo"><svg width="20" height="28" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px;flex-shrink:0">
-  <defs>
-    <linearGradient id="bltf" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#F5B731"/>
-      <stop offset="100%" stop-color="#E8920A"/>
-    </linearGradient>
-  </defs>
-  <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#bltf)"/>
-</svg>RATE <span>HERO</span></div>
-  <p style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:.2em;text-transform:uppercase;position:relative;z-index:1;margin-bottom:0">Financing Built for Investors</p>
-  <div class="conclusion-title">LET'S FIND<br>YOUR<br>PROGRAM.</div>
-  <div class="conclusion-body">Real estate investing doesn't have to be complicated. With the right financing strategy, you can buy smarter, scale faster, and unlock equity to grow your portfolio. We're here to help you put it to work.</div>
-  <a href="tel:7473081635" class="conclusion-cta">Call (747) 308-1635 — No SSN Required</a>
-  <div class="conclusion-contact">
-    <p>Sean Davoodian · NMLS #1252107</p>
-    <strong><a href="mailto:hello@ratehero.com" class="__cf_email__" data-cfemail="6d05080101022d1f0c190805081f02430e0200">[email&#160;protected]</a> · goratehero.com</strong>
-    <p style="margin-top:24px;font-size:11px;opacity:.5">Rate Hero Mortgage · NMLS #2822806 �
-
-</div>
-</div>
+</script>
 </body>
 </html>

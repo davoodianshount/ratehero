@@ -1,57 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DSCR loans for real estate investors — 18 states with no income verification required. Rate Hero shops top-tier lenders. No W-2, no tax returns. NMLS #2822806.">
-<title>DSCR Loans by State | Investor Financing – Rate Hero</title>
-<link rel="canonical" href="https://goratehero.com/dscr-loans">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<meta name="description" content="DSCR loans in Florida for real estate investors. Qualify on rental income — no W-2, no tax returns. Tampa, Orlando, Jacksonville, Miami. Close in 21 days. Rate Hero NMLS #2822806.">
+<title>DSCR Loans Florida | Real Estate Investor Financing – Rate Hero</title>
+<link rel="canonical" href="https://goratehero.com/dscr-loans/florida">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<!-- Schema markup for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Rate Hero — DSCR Loans Florida",
+  "description": "DSCR mortgage loans for Florida real estate investors. No income verification required.",
+  "url": "https://goratehero.com/dscr-loans/florida",
+  "telephone": "(747) 308-1635",
+  "areaServed": { "@type": "State", "name": "Florida" },
+  "provider": { "@type": "Organization", "name": "Rate Hero Mortgage", "legalName": "Rate Hero Mortgage LLC" }
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#080F1E;--navy2:#0C1527;--card:#0E1A2E;--blue:#2563EB;--blue2:#3B82F6;--w:#FFFFFF;--w65:rgba(255,255,255,0.65);--w08:rgba(255,255,255,0.05);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--tealP:rgba(37,99,235,0.12);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
 html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.25)}50%{box-shadow:0 0 0 14px rgba(37,99,235,0)}}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--tealG)}50%{box-shadow:0 0 0 14px rgba(37,99,235,0)}}
+
+/* ── NAV ── */
 nav{position:sticky;top:0;z-index:200;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:0 56px;height:66px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
-.nlogo{font-family:var(--fd);font-size:21px;letter-spacing:4px;color:var(--w);text-decoration:none;display:inline-flex;align-items:center}.nlogo span{color:var(--blue2)}
+.nlogo{font-family:var(--fd);font-size:21px;letter-spacing:4px;color:var(--w);text-decoration:none;display:inline-flex;align-items:center}.nlogo span{color:var(--teal)}
 .nlinks{display:flex;gap:2px;list-style:none;align-items:center;justify-content:center}
+.nlinks>li{position:relative}
 .nlinks>li>a{text-decoration:none;color:var(--w65);font-size:13px;font-weight:600;transition:color .2s;padding:8px 13px;border-radius:8px;display:flex;align-items:center;gap:5px;white-space:nowrap}
-.nlinks>li>a:hover{color:var(--w);background:rgba(255,255,255,0.04)}
+.nlinks>li>a:hover,.nlinks>li>a.active{color:var(--w);background:rgba(255,255,255,0.04)}
+.nlinks>li>a.active{color:var(--teal)}
+.nlinks>li>a.has-drop::after{content:'▾';font-size:9px;color:var(--w65);transition:transform .2s;margin-left:2px}
+.nlinks>li:hover>a.has-drop::after{transform:rotate(180deg)}
+.nav-drop{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);background:#0B1628;border:1px solid rgba(37,99,235,0.25);border-radius:14px;padding:8px;min-width:220px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;box-shadow:0 24px 64px rgba(0,0,0,0.6)}
+.nlinks>li:hover .nav-drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-drop a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;text-decoration:none;color:var(--w65);font-size:13px;font-weight:600;transition:all .15s}
+.nav-drop a:hover{background:rgba(37,99,235,0.1);color:var(--w)}
+.nd-icon{font-size:15px;width:24px;text-align:center;flex-shrink:0}
+.nd-info{display:flex;flex-direction:column}
+.nd-title{font-size:13px;font-weight:700;color:var(--w);line-height:1.2}
+.nd-sub{font-size:11px;color:var(--w65);margin-top:1px}
 .nright{display:flex;align-items:center;gap:16px}
-.nphone{font-size:13px;color:var(--w65)}.nphone strong{color:var(--blue2)}
+.nphone{font-size:13px;color:var(--w65)}.nphone strong{color:var(--teal);font-weight:700}
 .nbtn{background:var(--blue);color:var(--w);border:none;padding:9px 20px;border-radius:8px;font-family:var(--fb);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
-.hero{position:relative;padding:80px 56px 72px;overflow:hidden;border-bottom:1px solid var(--bd);text-align:center}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(37,99,235,0.08),transparent 60%)}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--tealP);border:1px solid rgba(37,99,235,0.3);color:var(--blue2);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
-h1{font-family:var(--fb);font-size:clamp(36px,5vw,64px);font-weight:800;letter-spacing:-2px;color:var(--w);margin-bottom:14px;position:relative;z-index:1;line-height:1.05}
-h1 em{font-style:italic;color:var(--blue2)}
-.hero-sub{font-size:18px;color:var(--w65);line-height:1.8;max-width:620px;margin:0 auto 28px;position:relative;z-index:1}
-.bcta{background:var(--blue);color:var(--w);border:none;padding:15px 36px;border-radius:10px;font-family:var(--fb);font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;box-shadow:0 8px 24px rgba(37,99,235,.3);animation:pulse 3s ease-in-out infinite;position:relative;z-index:1}
-.bcta:hover{background:var(--blue2);transform:translateY(-2px)}
+.nbtn:hover{background:var(--blue2);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.phero{position:relative;padding:72px 56px 64px;overflow:hidden;border-bottom:1px solid var(--bd)}
+.phero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 75% at 15% 60%,rgba(37,99,235,0.08),transparent 55%),linear-gradient(135deg,var(--navy),var(--navy3))}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.025) 1px,transparent 1px);background-size:64px 64px}
+.phero-inner{position:relative;z-index:2;max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center}
+.pbadge{display:inline-flex;align-items:center;gap:8px;background:var(--tealP);border:1px solid rgba(37,99,235,0.3);color:var(--teal);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.phero h1{font-family:var(--fb);font-size:clamp(36px,4.5vw,62px);font-weight:800;line-height:1.02;letter-spacing:-2px;color:var(--w);margin-bottom:14px}
+.phero h1 em{font-style:italic;color:var(--teal)}
+.phero-sub{font-size:17px;color:var(--w70);line-height:1.8;max-width:520px;margin-bottom:26px}
+.phero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.bhero{background:var(--blue);color:var(--w);border:none;padding:14px 30px;border-radius:10px;font-family:var(--fb);font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 8px 24px rgba(37,99,235,.3);text-decoration:none;display:inline-block;animation:pulse 3s ease-in-out infinite}
+.bhero:hover{background:var(--blue2);transform:translateY(-2px)}
+.hpriv{font-size:12px;color:var(--w65);margin-top:10px}
+
+/* Hero card */
+.vis-card{background:var(--card);border:1px solid var(--bdt);border-radius:18px;padding:24px 20px;position:relative}
+.vis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);border-radius:18px 18px 0 0}
+.vc-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:12px}
+.vc-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}.vc-row:last-child{border-bottom:none}
+.vc-k{font-size:12px;color:var(--w65)}.vc-v{font-size:16px;font-weight:700;color:var(--w)}.vc-v.t{color:var(--teal)}
+
+/* ── STATS BAR ── */
+.pstats{background:var(--navy3);border-bottom:1px solid var(--bd);display:grid;grid-template-columns:repeat(4,1fr)}
+.pstat{padding:20px 24px;border-right:1px solid var(--bd);text-align:center}.pstat:last-child{border-right:none}
+.pstat-num{font-family:var(--fd);font-size:34px;color:var(--teal);letter-spacing:2px;display:block;line-height:1}
+.pstat-lbl{font-size:11px;color:var(--w65);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;font-weight:600;display:block}
+
+/* ── SECTIONS ── */
 .wrap{max-width:1260px;margin:0 auto;padding:0 56px}
-.sec{padding:72px 0}
-.stag{display:inline-flex;align-items:center;gap:8px;background:var(--w08);border:1px solid var(--bd);color:var(--w65);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.dot{width:6px;height:6px;background:var(--blue2);border-radius:50%}
-.sh2{font-family:var(--fb);font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.5px;color:var(--w);margin-bottom:10px;line-height:1.1}.sh2 em{font-style:italic;color:var(--blue2)}
-.sp{font-size:16px;color:var(--w65);line-height:1.8;margin-bottom:32px;max-width:600px}
-.state-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.state-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:26px;text-decoration:none;display:block;transition:all .22s;position:relative;overflow:hidden}
-.state-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .2s}
-.state-card:hover{border-color:var(--bdt);transform:translateY(-3px);box-shadow:0 12px 32px rgba(37,99,235,0.15)}
-.state-card:hover::before{opacity:1}
-.sc-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.sc-flag{font-size:24px}
-.sc-name{font-size:18px;font-weight:800;color:var(--w)}
-.sc-abbr{font-size:11px;font-weight:700;color:var(--blue2);background:var(--tealP);padding:2px 8px;border-radius:99px;letter-spacing:.08em}
-.sc-tag{font-size:12px;color:var(--blue2);font-weight:600;margin-bottom:6px}
-.sc-desc{font-size:13px;color:var(--w65);line-height:1.6}
-.sc-arrow{position:absolute;bottom:18px;right:20px;color:var(--blue2);font-size:16px;opacity:0;transition:opacity .2s}
-.state-card:hover .sc-arrow{opacity:1}
+.sec{padding:72px 0}.sec.alt{background:var(--navy2)}
+.stag{display:inline-flex;align-items:center;gap:8px;background:var(--w08);border:1px solid var(--bd);color:var(--w70);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.dot{width:6px;height:6px;background:var(--teal);border-radius:50%}
+.sh2{font-family:var(--fb);font-size:clamp(26px,3.5vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.5px;color:var(--w);margin-bottom:10px}.sh2 em{font-style:italic;color:var(--teal)}
+.sp{font-size:16px;color:var(--w65);line-height:1.8;max-width:560px;margin-bottom:28px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.flist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.flist li{display:flex;align-items:flex-start;gap:11px;font-size:15px;color:var(--w70);line-height:1.6}
+.fci{width:20px;height:20px;background:var(--tealP);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:10px;flex-shrink:0;margin-top:2px;font-weight:700}
+
+/* ── CITY CARDS ── */
+.city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.city-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px;text-align:center;transition:all .2s;cursor:pointer}
+.city-card:hover{border-color:var(--bdt);transform:translateY(-2px)}
+.city-icon{font-size:22px;margin-bottom:8px;display:block}
+.city-name{font-size:14px;font-weight:700;color:var(--w);margin-bottom:3px}
+.city-tag{font-size:11px;color:var(--teal);font-weight:600}
+
+/* ── SCENARIO CARDS ── */
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px}
+.scenario-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.scenario-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.sc-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.sc-title{font-size:16px;font-weight:800;color:var(--w);margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bd)}
+.sc-row:last-of-type{border-bottom:none}
+.sc-k{font-size:12px;color:var(--w65)}.sc-v{font-size:13px;font-weight:700;color:var(--w)}
+.sc-v.teal{color:var(--teal)}
+.sc-result{margin-top:12px;background:var(--tealP);border:1px solid var(--bdt);border-radius:8px;padding:10px 12px;text-align:center;font-size:13px;font-weight:700;color:var(--teal)}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+.faq-item{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--bdt)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:700;color:var(--w);gap:12px}
+.faq-q:hover{color:var(--blue2)}
+.faq-icon{font-size:18px;color:var(--w65);flex-shrink:0;transition:transform .2s;font-weight:400}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--teal)}
+.faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--w65);line-height:1.75}
+.faq-a.open{display:block}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--navy2);border-top:1px solid var(--bd);padding:80px 56px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(37,99,235,0.08),transparent 60%)}
+.cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta-inner h2{font-family:var(--fb);font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-1px;color:var(--w);margin-bottom:12px;line-height:1.1}
+.cta-inner h2 em{font-style:italic;color:var(--teal)}
+.cta-inner p{font-size:17px;color:var(--w65);margin-bottom:28px;line-height:1.7}
+.bcta{background:var(--blue);color:var(--w);border:none;padding:16px 40px;border-radius:12px;font-family:var(--fb);font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;box-shadow:0 8px 28px rgba(37,99,235,.35);animation:pulse 3s ease-in-out infinite}
+.bcta:hover{background:var(--blue2);transform:translateY(-2px)}
+.cta-priv{font-size:12px;color:var(--w65);margin-top:14px}
+
+/* ── FOOTER ── */
 footer{background:var(--navy);border-top:1px solid var(--bd)}
-.fbot{padding:24px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.ftop{display:grid;grid-template-columns:1.4fr 2fr;gap:48px;padding:48px 56px;max-width:1260px;margin:0 auto;align-items:start}
+.flogo{font-family:var(--fd);font-size:22px;letter-spacing:4px;color:var(--w);display:inline-flex;align-items:center}.flogo span{color:var(--teal)}
+.ftag2{font-size:13px;color:var(--teal);font-weight:700;margin:8px 0;letter-spacing:.05em}
+.fdesc{font-size:13px;color:var(--w65);line-height:1.75;max-width:280px}
+.fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fcol h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--w65);margin-bottom:10px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.fcol a{font-size:13px;color:var(--w65);text-decoration:none;transition:color .2s}.fcol a:hover{color:var(--w)}
+.fbot{border-top:1px solid var(--bd);padding:16px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .fbot p{font-size:11px;color:rgba(255,255,255,0.35)}
-@media(max-width:960px){nav{padding:0 20px;grid-template-columns:1fr auto}.nlinks{display:none}.hero{padding:52px 20px}.wrap{padding:0 20px}.state-grid{grid-template-columns:1fr 1fr}.fbot{padding:16px 20px}}
-@media(max-width:600px){.state-grid{grid-template-columns:1fr}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 20px;grid-template-columns:1fr auto}
+  .nlinks{display:none}
+  .phero{padding:48px 20px 40px}
+  .phero-inner{grid-template-columns:1fr}
+  .vis-card{display:none}
+  .wrap{padding:0 20px}
+  .sec{padding:48px 0}
+  .pstats{grid-template-columns:1fr 1fr}
+  .twocol{grid-template-columns:1fr}
+  .city-grid{grid-template-columns:1fr 1fr}
+  .scenario-grid{grid-template-columns:1fr}
+  .cta-band{padding:52px 20px}
+  .ftop{grid-template-columns:1fr;padding:32px 20px}
+  .fcols{grid-template-columns:1fr 1fr}
+  .fbot{padding:12px 20px;flex-direction:column}
+}
+
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
+}
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
 </style>
 </head>
 <body>
@@ -59,65 +361,286 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
 <nav>
   <a href="../index.html" class="nlogo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0"><defs><linearGradient id="blt" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt)"/></svg>RATE <span>HERO</span></a>
   <ul class="nlinks">
-    <li><a href="../pages/long-term-rental.html">DSCR</a></li>
+    <li>
+      <a href="../pages/long-term-rental.html" class="has-drop active">DSCR</a>
+      <div class="nav-drop">
+        <a href="../pages/long-term-rental.html"><span class="nd-icon">📈</span><span class="nd-info"><span class="nd-title">Long-Term Rental</span><span class="nd-sub">Qualify on lease or 1007 rent</span></span></a>
+        <a href="../pages/short-term-rental.html"><span class="nd-icon">🏖️</span><span class="nd-info"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO — AirDNA accepted</span></span></a>
+      </div>
+    </li>
     <li><a href="../pages/non-qm.html">Non-QM</a></li>
     <li><a href="../pages/conventional.html">Conventional / FHA / VA</a></li>
     <li><a href="../pages/heloc.html">HELOC</a></li>
     <li><a href="../pages/brrrr-loan.html">BRRRR / Hard Money Exit</a></li>
   </ul>
   <div class="nright">
-    <a href="../pages/about.html" style="color:rgba(255,255,255,0.65);font-size:13px;font-weight:600;text-decoration:none;">About</a>
+    <a href="../pages/about.html" style="color:var(--w65);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;">About</a>
     <div class="nphone">Call: <strong>(747) 308-1635</strong></div>
     <a href="../index.html" class="nbtn" onclick="sessionStorage.setItem('openFunnel','1');return true;">Apply Now</a>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="badge">📈 DSCR Loans by State</div>
-  <h1>DSCR Loans for<br><em>Real Estate Investors</em></h1>
-  <p class="hero-sub">Qualify on rental income — not your personal income. No W-2s, no tax returns, no income limits. We lend in 18 states across the country.</p>
-  <a href="../index.html" class="bcta" onclick="sessionStorage.setItem('openFunnel','1');return true;">Get My Rate Quote &rarr;</a>
-</div>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Tier 1 — Highest DSCR Volume</div>
-    <h2 class="sh2">Largest Investor <em>Markets</em></h2>
-    <p class="sp">These states produce the highest DSCR loan volume nationally and where we close the most deals.</p>
-    <div class="state-grid">
-      <a href="florida.html" class="state-card"><div class="sc-top"><span class="sc-flag">🌴</span><span class="sc-name">Florida</span><span class="sc-abbr">FL</span></div><div class="sc-tag">STR + LTR · Statewide</div><div class="sc-desc">Tampa, Orlando, Jacksonville, Miami, Sarasota. Top STR and LTR investor state in the country.</div><span class="sc-arrow">→</span></a>
-      <a href="texas.html" class="state-card"><div class="sc-top"><span class="sc-flag">🤠</span><span class="sc-name">Texas</span><span class="sc-abbr">TX</span></div><div class="sc-tag">#1 DSCR Volume Nationally</div><div class="sc-desc">Dallas, Houston, San Antonio, Austin. Largest DSCR lending state in the US by volume.</div><span class="sc-arrow">→</span></a>
-      <a href="georgia.html" class="state-card"><div class="sc-top"><span class="sc-flag">🍑</span><span class="sc-name">Georgia</span><span class="sc-abbr">GA</span></div><div class="sc-tag">Atlanta + Savannah STR</div><div class="sc-desc">Atlanta, Savannah, Augusta. Fast-growing Southeast investor market with strong rental demand.</div><span class="sc-arrow">→</span></a>
-      <a href="north-carolina.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏔️</span><span class="sc-name">North Carolina</span><span class="sc-abbr">NC</span></div><div class="sc-tag">Asheville + Charlotte + Outer Banks</div><div class="sc-desc">Charlotte, Raleigh, Asheville, Outer Banks. Top Southeast STR and LTR state.</div><span class="sc-arrow">→</span></a>
-      <a href="tennessee.html" class="state-card"><div class="sc-top"><span class="sc-flag">🎸</span><span class="sc-name">Tennessee</span><span class="sc-abbr">TN</span></div><div class="sc-tag">Gatlinburg + Nashville</div><div class="sc-desc">Nashville, Gatlinburg, Memphis. Smoky Mountain STR produces exceptional DSCR ratios.</div><span class="sc-arrow">→</span></a>
-      <a href="south-carolina.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏖️</span><span class="sc-name">South Carolina</span><span class="sc-abbr">SC</span></div><div class="sc-tag">Myrtle Beach + Charleston</div><div class="sc-desc">Myrtle Beach, Charleston, Hilton Head. East Coast beach STR with strong year-round demand.</div><span class="sc-arrow">→</span></a>
+<!-- HERO -->
+<section class="phero">
+  <div class="phero-bg"></div>
+  <div class="phero-grid"></div>
+  <div class="phero-inner">
+    <div>
+      <div class="pbadge">📈 Florida DSCR Loans</div>
+      <h1>DSCR Loans in Florida<br>for <em>Real Estate Investors</em></h1>
+      <p class="phero-sub">Qualify on your property's rental income — not your personal income. No W-2s, no tax returns, no income limits. Florida's top investor markets: Tampa, Orlando, Jacksonville, Miami.</p>
+      <div class="phero-cta">
+        <a href="../index.html" class="bhero" onclick="sessionStorage.setItem('openFunnel','1');return true;">Get My Florida Rate Quote →</a>
+      </div>
+      <p class="hpriv"><span>🔒</span> No SSN required · No credit pull · 100% confidential</p>
     </div>
-
-    <div class="stag" style="margin-top:52px"><span class="dot"></span> Tier 2 — Cash-Flow Investor States</div>
-    <h2 class="sh2">Best Rent-to-Price <em>Ratios</em></h2>
-    <p class="sp">These states consistently produce DSCR ratios of 1.3–1.5 due to affordable prices relative to rents.</p>
-    <div class="state-grid">
-      <a href="ohio.html" class="state-card"><div class="sc-top"><span class="sc-flag">🌊</span><span class="sc-name">Ohio</span><span class="sc-abbr">OH</span></div><div class="sc-tag">Columbus + Cleveland + Cincinnati</div><div class="sc-desc">Three major investor metros with strong rent ratios and consistent turnkey demand.</div><span class="sc-arrow">→</span></a>
-      <a href="indiana.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏙️</span><span class="sc-name">Indiana</span><span class="sc-abbr">IN</span></div><div class="sc-tag">#1 Cash-Flow City: Indianapolis</div><div class="sc-desc">Indianapolis, Fort Wayne, South Bend. BiggerPockets' top cash-flow state for multiple years.</div><span class="sc-arrow">→</span></a>
-      <a href="kentucky.html" class="state-card"><div class="sc-top"><span class="sc-flag">🐴</span><span class="sc-name">Kentucky</span><span class="sc-abbr">KY</span></div><div class="sc-tag">Louisville + Lexington</div><div class="sc-desc">Affordable prices, stable employment base, strong 1.3–1.4 DSCR ratios statewide.</div><span class="sc-arrow">→</span></a>
-      <a href="missouri.html" class="state-card"><div class="sc-top"><span class="sc-flag">🎵</span><span class="sc-name">Missouri</span><span class="sc-abbr">MO</span></div><div class="sc-tag">Kansas City + St. Louis</div><div class="sc-desc">Kansas City is a top-ranked DSCR city. St. Louis has deep BRRRR inventory.</div><span class="sc-arrow">→</span></a>
-      <a href="alabama.html" class="state-card"><div class="sc-top"><span class="sc-flag">🚀</span><span class="sc-name">Alabama</span><span class="sc-abbr">AL</span></div><div class="sc-tag">Huntsville Growth + Gulf Shores STR</div><div class="sc-desc">Huntsville's tech boom + Gulf Coast STR + affordable Birmingham cash-flow.</div><span class="sc-arrow">→</span></a>
-      <a href="mississippi.html" class="state-card"><div class="sc-top"><span class="sc-flag">🌊</span><span class="sc-name">Mississippi</span><span class="sc-abbr">MS</span></div><div class="sc-tag">Highest DSCR Ratios in the Country</div><div class="sc-desc">Entry-level prices, strong rents, minimal institutional competition. DSCR ratios of 1.4–1.6 common.</div><span class="sc-arrow">→</span></a>
-    </div>
-
-    <div class="stag" style="margin-top:52px"><span class="dot"></span> Tier 3 — Emerging &amp; Niche Markets</div>
-    <h2 class="sh2">Underserved Markets &amp;<br><em>Vacation Rental States</em></h2>
-    <p class="sp">Strong STR opportunities and affordable inland markets with minimal competition from institutional lenders.</p>
-    <div class="state-grid">
-      <a href="arkansas.html" class="state-card"><div class="sc-top"><span class="sc-flag">🌿</span><span class="sc-name">Arkansas</span><span class="sc-abbr">AR</span></div><div class="sc-tag">Little Rock + NW Arkansas Growth</div><div class="sc-desc">Underserved market with exceptional rent ratios. Bentonville corridor growing fast.</div><span class="sc-arrow">→</span></a>
-      <a href="kansas.html" class="state-card"><div class="sc-top"><span class="sc-flag">🌾</span><span class="sc-name">Kansas</span><span class="sc-abbr">KS</span></div><div class="sc-tag">Wichita + Overland Park</div><div class="sc-desc">Affordable entry prices, low insurance and taxes. Strong DSCR ratios in Wichita.</div><span class="sc-arrow">→</span></a>
-      <a href="oklahoma.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏙️</span><span class="sc-name">Oklahoma</span><span class="sc-abbr">OK</span></div><div class="sc-tag">OKC + Tulsa + Military Markets</div><div class="sc-desc">Energy sector + military + university markets create diverse rental demand.</div><span class="sc-arrow">→</span></a>
-      <a href="colorado.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏔️</span><span class="sc-name">Colorado</span><span class="sc-abbr">CO</span></div><div class="sc-tag">Ski Resort STR · Premium Markets</div><div class="sc-desc">Breckenridge, Vail, Steamboat STR produce 1.5–2.0+ DSCR. Colorado Springs LTR strong.</div><span class="sc-arrow">→</span></a>
-      <a href="wyoming.html" class="state-card"><div class="sc-top"><span class="sc-flag">🦬</span><span class="sc-name">Wyoming</span><span class="sc-abbr">WY</span></div><div class="sc-tag">Jackson Hole · Yellowstone STR</div><div class="sc-desc">Premium vacation rental market. Jackson Hole STR produces some of the highest ratios nationally.</div><span class="sc-arrow">→</span></a>
-      <a href="montana.html" class="state-card"><div class="sc-top"><span class="sc-flag">🏔️</span><span class="sc-name">Montana</span><span class="sc-abbr">MT</span></div><div class="sc-tag">Glacier &amp; Yellowstone STR</div><div class="sc-desc">Whitefish, Kalispell, Big Sky. National park proximity drives exceptional vacation rental income.</div><span class="sc-arrow">→</span></a>
+    <div class="vis-card">
+      <div class="vc-label">Florida DSCR Scenario</div>
+      <div class="vc-row"><span class="vc-k">Property (Tampa SFR)</span><span class="vc-v">$385,000</span></div>
+      <div class="vc-row"><span class="vc-k">Monthly Rent</span><span class="vc-v t">$2,800</span></div>
+      <div class="vc-row"><span class="vc-k">Monthly PITIA</span><span class="vc-v">$2,100</span></div>
+      <div class="vc-row"><span class="vc-k">DSCR Ratio</span><span class="vc-v t">1.33 ✓</span></div>
+      <div class="vc-row"><span class="vc-k">Down Payment</span><span class="vc-v">20%</span></div>
+      <div class="vc-row"><span class="vc-k">Income Docs Required</span><span class="vc-v t">None</span></div>
     </div>
   </div>
 </section>
+
+<!-- STATS BAR -->
+<div class="pstats">
+  <div class="pstat"><span class="pstat-num">50+</span><span class="pstat-lbl">Florida Lenders</span></div>
+  <div class="pstat"><span class="pstat-num">21</span><span class="pstat-lbl">Day Avg Close</span></div>
+  <div class="pstat"><span class="pstat-num">0</span><span class="pstat-lbl">Income Docs Needed</span></div>
+  <div class="pstat"><span class="pstat-num">85%</span><span class="pstat-lbl">Max LTV Available</span></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="twocol">
+      <div>
+        <div class="stag"><span class="dot"></span> How DSCR Works in Florida</div>
+        <h2 class="sh2">The Property<br>Qualifies <em>Itself</em></h2>
+        <p class="sp">Florida's rental market is one of the strongest in the country. DSCR lenders look at one thing: does the rent cover the mortgage? If yes — you qualify. It doesn't matter what you make, how many write-offs you have, or what your tax return shows.</p>
+        <p class="sp">DSCR stands for Debt Service Coverage Ratio. It's calculated as:</p>
+        <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:20px 24px;margin-bottom:24px;font-family:var(--fd);font-size:28px;letter-spacing:1px;color:var(--teal);text-align:center">Monthly Rent ÷ PITIA = DSCR</div>
+        <ul class="flist">
+          <li><span class="fci">✓</span>DSCR 1.25+ — strongest programs, best rates</li>
+          <li><span class="fci">✓</span>DSCR 1.0–1.24 — qualifies on standard programs</li>
+          <li><span class="fci">✓</span>DSCR 0.75–0.99 — sub-1.0 programs available</li>
+          <li><span class="fci">✓</span>No-ratio options for unique situations</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stag"><span class="dot"></span> What You Need to Qualify</div>
+        <h2 class="sh2">No W-2.<br>No Tax Returns.<br><em>No Problem.</em></h2>
+        <p class="sp">Unlike conventional loans, DSCR loans in Florida are evaluated entirely on the property — not the borrower's income history.</p>
+        <ul class="flist">
+          <li><span class="fci">✓</span>Credit score 620+ (680+ for best pricing)</li>
+          <li><span class="fci">✓</span>20–25% down payment on purchases</li>
+          <li><span class="fci">✓</span>Signed lease or Form 1007 market rent appraisal</li>
+          <li><span class="fci">✓</span>3–6 months reserves (varies by program)</li>
+          <li><span class="fci">✓</span>Property must be non-owner-occupied</li>
+          <li><span class="fci">✓</span>SFR, 2–4 unit, or condo (HOA STR rules apply)</li>
+          <li><span class="fci">✓</span>Available to LLC and entity borrowers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLORIDA CITIES -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="stag"><span class="dot"></span> Florida Investor Markets</div>
+    <h2 class="sh2">We Lend in Every<br>Florida <em>Market</em></h2>
+    <p class="sp">Florida leads the nation in investor activity. These eight markets are where we close the most DSCR deals — but we lend statewide.</p>
+    <div class="city-grid">
+      <div class="city-card">
+        <span class="city-icon">🌴</span>
+        <div class="city-name">Tampa</div>
+        <div class="city-tag">High rental demand</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🎡</span>
+        <div class="city-name">Orlando</div>
+        <div class="city-tag">STR + LTR both strong</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🌊</span>
+        <div class="city-name">Jacksonville</div>
+        <div class="city-tag">Cash-flow investor market</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🏙️</span>
+        <div class="city-name">Miami</div>
+        <div class="city-tag">High appreciation, strong STR</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🌅</span>
+        <div class="city-name">Fort Lauderdale</div>
+        <div class="city-tag">Coastal short-term rental</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">⛵</span>
+        <div class="city-name">Sarasota</div>
+        <div class="city-tag">Luxury vacation rental</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🌿</span>
+        <div class="city-name">Gainesville</div>
+        <div class="city-tag">Consistent student rental</div>
+      </div>
+      <div class="city-card">
+        <span class="city-icon">🔆</span>
+        <div class="city-name">Cape Coral</div>
+        <div class="city-tag">Affordable DSCR ratios</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL DEAL SCENARIOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stag"><span class="dot"></span> Real Deal Scenarios</div>
+    <h2 class="sh2">Florida DSCR Deals<br>We've <em>Closed</em></h2>
+    <p class="sp">Three real examples of how Florida investors used Rate Hero DSCR loans. Numbers are representative of typical transactions.</p>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="sc-label">Scenario 1 · Tampa Purchase</div>
+        <div class="sc-title">Buy-and-Hold Single Family</div>
+        <div class="sc-row"><span class="sc-k">Purchase Price</span><span class="sc-v">$385,000</span></div>
+        <div class="sc-row"><span class="sc-k">Down Payment (20%)</span><span class="sc-v">$77,000</span></div>
+        <div class="sc-row"><span class="sc-k">Loan Amount</span><span class="sc-v">$308,000</span></div>
+        <div class="sc-row"><span class="sc-k">Monthly Rent</span><span class="sc-v teal">$2,800</span></div>
+        <div class="sc-row"><span class="sc-k">PITIA</span><span class="sc-v">$2,100</span></div>
+        <div class="sc-row"><span class="sc-k">DSCR</span><span class="sc-v teal">1.33 ✓</span></div>
+        <div class="sc-result">No income docs · Closed in LLC · 21 days</div>
+      </div>
+      <div class="scenario-card">
+        <div class="sc-label">Scenario 2 · Orlando STR</div>
+        <div class="sc-title">Airbnb Near Theme Parks</div>
+        <div class="sc-row"><span class="sc-k">Purchase Price</span><span class="sc-v">$445,000</span></div>
+        <div class="sc-row"><span class="sc-k">Down Payment (25%)</span><span class="sc-v">$111,250</span></div>
+        <div class="sc-row"><span class="sc-k">Loan Amount</span><span class="sc-v">$333,750</span></div>
+        <div class="sc-row"><span class="sc-k">AirDNA Gross (mo.)</span><span class="sc-v teal">$5,200</span></div>
+        <div class="sc-row"><span class="sc-k">Net After Vacancy</span><span class="sc-v">$4,160</span></div>
+        <div class="sc-row"><span class="sc-k">DSCR</span><span class="sc-v teal">1.44 ✓</span></div>
+        <div class="sc-result">AirDNA accepted · No rental history needed</div>
+      </div>
+      <div class="scenario-card">
+        <div class="sc-label">Scenario 3 · Jacksonville BRRRR</div>
+        <div class="sc-title">Cash-Out Refi After Rehab</div>
+        <div class="sc-row"><span class="sc-k">After-Repair Value</span><span class="sc-v">$310,000</span></div>
+        <div class="sc-row"><span class="sc-k">Cash-Out (75% LTV)</span><span class="sc-v teal">$232,500</span></div>
+        <div class="sc-row"><span class="sc-k">Existing Loan Payoff</span><span class="sc-v">$165,000</span></div>
+        <div class="sc-row"><span class="sc-k">Cash to Investor</span><span class="sc-v teal">$67,500</span></div>
+        <div class="sc-row"><span class="sc-k">Market Rent (1007)</span><span class="sc-v">$2,100</span></div>
+        <div class="sc-row"><span class="sc-k">DSCR</span><span class="sc-v teal">1.31 ✓</span></div>
+        <div class="sc-result">Equity recycled · No personal income used</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY RATE HERO IN FL -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="twocol">
+      <div>
+        <div class="stag"><span class="dot"></span> Why Florida Investors Choose Rate Hero</div>
+        <h2 class="sh2">Top-Tier Lenders.<br>One <em>Advisor.</em></h2>
+        <p class="sp">Most lenders in Florida offer one DSCR program. Rate Hero shops the market to find the program that fits your property, your DSCR ratio, and your timeline.</p>
+        <ul class="flist">
+          <li><span class="fci">✓</span>Access to programs most retail banks don't offer</li>
+          <li><span class="fci">✓</span>Close in 21 days on average</li>
+          <li><span class="fci">✓</span>LLC and entity lending available statewide</li>
+          <li><span class="fci">✓</span>Short-term and long-term rental programs</li>
+          <li><span class="fci">✓</span>Sub-1.0 DSCR options for the right profile</li>
+          <li><span class="fci">✓</span>No SSN or credit pull to get started</li>
+        </ul>
+        <a href="../index.html" class="bhero" onclick="sessionStorage.setItem('openFunnel','1');return true;" style="display:inline-block">Get My Florida Rate Quote →</a>
+      </div>
+      <div>
+        <div class="stag"><span class="dot"></span> Florida Market Overview</div>
+        <h2 class="sh2">Why Florida<br>for <em>DSCR Investors</em></h2>
+        <p class="sp">Florida consistently ranks as one of the top three states for DSCR lending volume in the country.</p>
+        <ul class="flist">
+          <li><span class="fci">↑</span>Population growing faster than the national average — persistent rental demand across all markets</li>
+          <li><span class="fci">↑</span>No state income tax — landlord-friendly environment</li>
+          <li><span class="fci">↑</span>Year-round STR demand in coastal and tourist markets</li>
+          <li><span class="fci">↑</span>Strong rent-to-price ratios in secondary cities like Jacksonville, Cape Coral, and Gainesville</li>
+          <li><span class="fci">↑</span>Investor-friendly eviction process compared to other high-demand states</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap" style="max-width:800px">
+    <div class="stag"><span class="dot"></span> Common Questions</div>
+    <h2 class="sh2">Florida DSCR<br><em>FAQ</em></h2>
+    <div class="faq-list">
+      <div class="faq-item" id="fq1">
+        <div class="faq-q" onclick="tog('fq1')">Can I get a DSCR loan in Florida with no rental history on the property?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. For purchase transactions with no existing lease, the appraiser completes a Form 1007 market rent analysis. The projected market rent — not an actual lease — qualifies the loan. No tenant required at application.</div>
+      </div>
+      <div class="faq-item" id="fq2">
+        <div class="faq-q" onclick="tog('fq2')">Can I close a Florida DSCR loan in an LLC?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. LLC and entity borrowing is available on DSCR loans in Florida. This keeps investment debt off your personal credit profile and provides liability protection for your portfolio.</div>
+      </div>
+      <div class="faq-item" id="fq3">
+        <div class="faq-q" onclick="tog('fq3')">What's the minimum DSCR to qualify in Florida?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Most standard DSCR programs require a minimum ratio of 1.0 — meaning rent covers the full mortgage payment. We also have sub-1.0 programs down to 0.75 for borrowers with strong credit and reserves. No-ratio programs exist for certain scenarios below 0.75.</div>
+      </div>
+      <div class="faq-item" id="fq4">
+        <div class="faq-q" onclick="tog('fq4')">Does Rate Hero do DSCR loans for Airbnb properties in Florida?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. Short-term rental DSCR loans are available for Florida Airbnb and VRBO properties. Income can be documented via AirDNA projections (for purchases), 12-month platform history, or bank deposit records. Orlando, Miami, and Tampa are among our most active STR markets.</div>
+      </div>
+      <div class="faq-item" id="fq5">
+        <div class="faq-q" onclick="tog('fq5')">How fast can Rate Hero close a DSCR loan in Florida?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Our average close time on Florida DSCR loans is 21 days. Deals requiring a 1007 appraisal add a few days depending on appraiser availability in the market. We've closed as fast as 14 days on rate-and-term refinances with existing leases in place.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNAL LINKS (SEO + UX) -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="stag"><span class="dot"></span> More Investor Programs</div>
+    <h2 class="sh2">Not Just DSCR —<br>All Programs, <em>One Advisor</em></h2>
+    <p class="sp">Rate Hero works with Florida investors across every loan type. If DSCR isn't the right fit, we have a program that is.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px">
+      <a href="short-term-rental.html" style="text-decoration:none;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;display:block;transition:all .2s" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:20px;margin-bottom:8px">🏖️</div>
+        <div style="font-size:14px;font-weight:800;color:var(--w);margin-bottom:4px">DSCR Short-Term Rental</div>
+        <div style="font-size:13px;color:var(--w65);line-height:1.6">Airbnb and VRBO financing with AirDNA income qualification</div>
+      </a>
+      <a href="non-qm.html" style="text-decoration:none;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;display:block;transition:all .2s" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:20px;margin-bottom:8px">📋</div>
+        <div style="font-size:14px;font-weight:800;color:var(--w);margin-bottom:4px">Non-QM Loans</div>
+        <div style="font-size:13px;color:var(--w65);line-height:1.6">Bank statements, P&L, and asset utilization for self-employed borrowers</div>
+      </a>
+      <a href="hard-money-exit.html" style="text-decoration:none;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;display:block;transition:all .2s" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:20px;margin-bottom:8px">🔓</div>
+        <div style="font-size:14px;font-weight:800;color:var(--w);margin-bottom:4px">Hard Money Exit</div>
+        <div style="font-size:13px;color:var(--w65);line-height:1.6">Done flipping? Refinance out of hard money into a 30-year DSCR loan</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band"><div class="cta-inner">
+  <h2>Ready to Finance Your<br>Florida <em>Investment?</em></h2>
+  <p>No SSN. No credit pull. Tell us about your property and we'll show you exactly what you qualify for — across 50+ Florida lenders.</p>
+  <a href="../index.html" class="bcta" onclick="sessionStorage.setItem('openFunnel','1');return true;">Get My Florida Rate Quote →</a>
+  <p class="cta-priv">100% confidential · No credit pull · No SSN required</p>
+</div></section>
 
 <footer>
   <div style="max-width:1300px;margin:0 auto;padding:28px 52px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 28px;border-top:1px solid rgba(255,255,255,0.06)">
@@ -159,5 +682,39 @@ footer{background:var(--navy);border-top:1px solid var(--bd)}
     </div>
   </div>
 </footer>
+
+<script>
+function tog(id){
+  const i=document.getElementById(id);
+  const a=i.querySelector('.faq-a');
+  const o=i.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});
+  if(!o){i.classList.add('open');a.classList.add('open');}
+}
+// Auto-open funnel if navigated from homepage CTA
+window.addEventListener('DOMContentLoaded',()=>{
+  if(sessionStorage.getItem('openFunnel')==='1'){
+    sessionStorage.removeItem('openFunnel');
+    window.location.href='../index.html#apply';
+  }
+});
+
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+
+</script>
 </body>
 </html>

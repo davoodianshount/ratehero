@@ -1,156 +1,670 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use | Rate Hero</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>BRRRR Loan Financing | DSCR Refinance for BRRRR Investors – Rate Hero</title>
+<meta name="description" content="Finance every step of the BRRRR strategy. Cash-out DSCR refinance based on rental income — no W-2, no tax returns. Recycle your capital and scale.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#080F1E;color:#fff;min-height:100vh}
-.page{max-width:860px;margin:0 auto;padding:64px 40px 80px}
-h1{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;color:#fff;margin-bottom:8px;line-height:1}
-.subtitle{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:24px}
-h2{font-size:17px;font-weight:800;color:#fff;margin:36px 0 12px;text-transform:uppercase;letter-spacing:.06em}
-h3{font-size:15px;font-weight:700;color:#3B82F6;margin:24px 0 8px}
-p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.85;margin-bottom:14px}
-ul,ol{padding-left:22px;margin-bottom:14px}
-li{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.85;margin-bottom:6px}
-a{color:#3B82F6;text-decoration:none}
-a:hover{text-decoration:underline}
-strong{color:#fff;font-weight:700}
-.section{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:28px 32px;margin-bottom:16px}
-.section-num{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#3B82F6;margin-bottom:6px}
-.notice{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75}
-.contact-box{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:24px 28px;margin-top:40px}
-.contact-box h3{color:#3B82F6;margin-top:0}
-@media(max-width:640px){.page{padding:40px 20px}nav{padding:0 16px}footer{padding:16px 20px}}
+:root {
+  --navy:       #080E1A;
+  --navy-2:     #0D1526;
+  --navy-3:     #111D35;
+  --navy-4:     #162040;
+  --navy-card:  #0F1B30;
+  --blue:       #2563EB;
+  --blue-bright:#3B82F6;
+  --blue-light: #3B82F6;
+  --teal:       #2563EB;
+  --teal2:      #2563EB;
+  --tealP:      rgba(37,99,235,0.12);
+  --tealG:      rgba(37,99,235,0.25);
+  --bdt:        rgba(37,99,235,0.25);
+  --white:      #FFFFFF;
+  --white-70:   rgba(255,255,255,0.7);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-15:   rgba(255,255,255,0.08);
+  --white-08:   rgba(255,255,255,0.05);
+  --border:     rgba(255,255,255,0.08);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  /* ── THEME TOKENS ── */
+  --bg:         #080E1A;
+  --bg2:        #0D1526;
+  --bg3:        #111D35;
+  --surface:    #0F1B30;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-muted:     rgba(255,255,255,0.45);
+  --text-faint:     rgba(255,255,255,0.25);
+  --card-bg:    #0F1B30;
+  --nav-bg:     rgba(8,14,26,0.95);
+  --input-bg:   #111D35;
+  --opt-bg:     #111D35;
+  --opt-sel:    rgba(37,99,235,0.15);
+  --divider:    rgba(255,255,255,0.07);
+  --tbg:        rgba(37,99,235,0.2);
+  --body-bg:    #080E1A;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --navy:       #080E1A;
+  --navy-2:     #FFFFFF;
+  --navy-3:     #F1F5FD;
+  --navy-4:     #EEF2FF;
+  --navy-card:  #FFFFFF;
+  --white:      #0F172A;
+  --white-70:   #374151;
+  --white-65:   #4B5563;
+  --white-15:   rgba(0,0,0,0.06);
+  --white-08:   rgba(0,0,0,0.03);
+  --border:     rgba(0,0,0,0.09);
+  --tealP:      rgba(37,99,235,0.08);
+  --tealG:      rgba(37,99,235,0.15);
+  /* ── THEME TOKENS ── */
+  --bg:         #F8FAFF;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF2FF;
+  --surface:    #FFFFFF;
+  --text-primary:   #0F172A;
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+  --text-faint:     #9CA3AF;
+  --card-bg:    #FFFFFF;
+  --nav-bg:     rgba(248,250,255,0.95);
+  --input-bg:   #F8FAFF;
+  --opt-bg:     #F1F5FD;
+  --opt-sel:    rgba(37,99,235,0.08);
+  --divider:    rgba(0,0,0,0.07);
+  --tbg:        #E5E7EB;
+  --body-bg:    #F8FAFF;
+}
+
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulseRing{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.12);opacity:1}}
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.nlogo{font-family:var(--fd);font-size:21px;letter-spacing:4px;color:var(--w);text-decoration:none;display:inline-flex;align-items:center}.nlogo span{color:var(--teal)}
+.nlinks{display:flex;gap:2px;list-style:none;align-items:center}
+.nlinks>li{position:relative}
+.nlinks>li>a{text-decoration:none;color:var(--w65);font-size:13px;font-weight:600;transition:color .2s;padding:8px 13px;border-radius:8px;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.nlinks>li>a:hover{color:var(--w);background:rgba(255,255,255,0.04)}
+.nlinks>li>a.active{color:var(--teal)}
+.nlinks>li>a.has-drop::after{content:'▾';font-size:9px;color:var(--w65);transition:transform .2s;margin-left:2px}
+.nlinks>li:hover>a.has-drop::after{transform:rotate(180deg);color:var(--teal)}
+.nlinks>li:hover>a.has-drop{color:var(--w)}
+.nav-dropdown{position:absolute;top:calc(100% + 8px);left:0;background:#0B1628;border:1px solid rgba(37,99,235,0.25);border-radius:14px;padding:8px;min-width:240px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .18s ease,transform .18s ease;z-index:300;box-shadow:0 24px 64px rgba(0,0,0,0.6)}
+.nlinks>li:hover .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+.nav-dropdown a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:9px;text-decoration:none;color:var(--w65);font-size:13px;font-weight:600;transition:all .15s}
+.nav-dropdown a:hover{background:rgba(37,99,235,0.1);color:var(--w)}
+.nd-icon{font-size:16px;width:26px;text-align:center;flex-shrink:0}
+.nd-text{display:flex;flex-direction:column}
+.nd-title{font-size:13px;font-weight:700;color:var(--w);line-height:1.2}
+.nd-sub{font-size:11px;color:var(--w65);margin-top:2px}
+.nright{display:flex;align-items:center;gap:16px}.nphone{font-size:13px;color:var(--w65)}.nphone strong{color:var(--teal);font-weight:700}
+.nbtn{background:var(--blue);color:var(--w);border:none;padding:10px 20px;border-radius:8px;font-family:var(--fb);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}.nbtn:hover{background:var(--blue2);transform:translateY(-1px)}
+/* Hero */
+.phero{position:relative;padding:80px 56px 72px;overflow:hidden;border-bottom:1px solid var(--bd)}
+.phero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 75% at 20% 60%,rgba(37,99,235,0.07) 0%,transparent 55%),linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%)}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.025) 1px,transparent 1px);background-size:64px 64px}
+.phero-inner{position:relative;z-index:2;max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:center}
+.pbadge{display:inline-flex;align-items:center;gap:8px;background:var(--tealP);border:1px solid rgba(37,99,235,0.3);color:var(--teal);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;animation:fadeUp .5s ease both}
+.phero h1{font-family:var(--fb);font-size:clamp(40px,5.5vw,70px);font-weight:800;line-height:.98;letter-spacing:-2.5px;color:var(--w);margin-bottom:16px;animation:fadeUp .5s .05s ease both}.phero h1 em{font-style:italic;color:var(--teal)}
+.phero-sub{font-size:18px;color:var(--w70);line-height:1.75;max-width:520px;margin-bottom:28px;animation:fadeUp .5s .1s ease both}
+.phero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px;animation:fadeUp .5s .15s ease both}
+.bhero{background:var(--blue);color:var(--w);border:none;padding:14px 30px;border-radius:10px;font-family:var(--fb);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 8px 24px rgba(37,99,235,.3);text-decoration:none;display:inline-block}.bhero:hover{background:var(--blue2);transform:translateY(-2px)}
+.boutline{background:transparent;color:var(--w70);border:1px solid var(--bd);padding:14px 20px;border-radius:10px;font-family:var(--fb);font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}.boutline:hover{border-color:rgba(255,255,255,.3);color:var(--w)}
+.hpriv{font-size:12px;color:var(--w65);display:flex;align-items:center;gap:6px}
+.vis-card{background:var(--card);border:1px solid var(--bdt);border-radius:18px;padding:24px 20px;position:relative;animation:fadeUp .5s .2s ease both}
+.vis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);border-radius:18px 18px 0 0}
+.vc-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:12px}
+.vc-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--bd)}.vc-row:last-child{border-bottom:none}
+.vc-k{font-size:13px;color:var(--w65)}.vc-v{font-size:15px;font-weight:700;color:var(--w)}.vc-v.t{color:var(--teal)}
+/* Stats bar */
+.pstats{background:var(--navy3);border-bottom:1px solid var(--bd);display:grid;grid-template-columns:repeat(4,1fr)}
+.pstat{padding:22px 24px;border-right:1px solid var(--bd);text-align:center}.pstat:last-child{border-right:none}
+.pstat-num{font-family:var(--fd);font-size:36px;color:var(--teal);letter-spacing:2px;display:block;line-height:1}
+.pstat-lbl{font-size:11px;color:var(--w65);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;font-weight:600;display:block}
+/* Sections */
+.wrap{max-width:1260px;margin:0 auto;padding:0 56px}
+.sec{padding:72px 0}.sec.alt{background:var(--navy2)}
+.stag{display:inline-flex;align-items:center;gap:8px;background:var(--w08);border:1px solid var(--bd);color:var(--w70);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.dot{width:6px;height:6px;background:var(--teal);border-radius:50%}
+.sh2{font-family:var(--fb);font-size:clamp(28px,3.5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.5px;color:var(--w);margin-bottom:10px}.sh2 em{font-style:italic;color:var(--teal)}
+.sp{font-size:17px;color:var(--w65);line-height:1.8;max-width:600px;margin-bottom:32px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.flist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.flist li{display:flex;align-items:flex-start;gap:11px;font-size:16px;color:var(--w70);line-height:1.6}
+.fci{width:21px;height:21px;background:var(--tealP);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:10px;flex-shrink:0;margin-top:2px;font-weight:700}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ccard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px 20px;transition:all .2s}.ccard:hover{border-color:var(--bdt);transform:translateY(-3px)}
+.ccard-ico{font-size:26px;margin-bottom:12px;display:block}.ccard-title{font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px}.ccard-desc{font-size:15px;color:var(--w65);line-height:1.7}
+/* BRRRR timeline */
+.brrrr-track{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:8px}
+.bstep{flex:1;display:flex;flex-direction:column;align-items:center;min-width:130px}
+.bconnector{width:32px;height:3px;flex-shrink:0;align-self:center;margin-top:-52px}
+.bdisc{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;flex-shrink:0}
+.bdisc.done{background:rgba(255,255,255,0.03);border:2px solid rgba(255,255,255,0.1)}
+.bdisc.active{background:rgba(37,99,235,0.15);border:2px solid var(--teal);box-shadow:0 0 32px rgba(37,99,235,0.35)}
+.bdisc.future{background:rgba(255,255,255,0.01);border:2px dashed rgba(255,255,255,0.08)}
+.bdisc .bletter{font-family:var(--fd);font-size:32px;letter-spacing:1px}
+.bdisc.done .bletter{color:rgba(255,255,255,0.2)}
+.bdisc.active .bletter{color:var(--teal)}
+.bdisc.future .bletter{color:rgba(255,255,255,0.1)}
+.bpulse{position:absolute;width:92px;height:92px;border-radius:50%;border:2px solid rgba(37,99,235,0.3);animation:pulseRing 2s ease-in-out infinite}
+.byouhere{position:absolute;top:-30px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--teal);color:var(--navy);font-size:10px;font-weight:800;padding:4px 10px;border-radius:99px;letter-spacing:.08em;text-transform:uppercase}
+.bstep-body{margin-top:14px;text-align:center}
+.bstep-title{font-size:13px;font-weight:800;letter-spacing:.05em;margin-bottom:4px}
+.bstep-title.done{color:rgba(255,255,255,0.25)}
+.bstep-title.active{color:#fff}
+.bstep-title.future{color:rgba(255,255,255,0.15)}
+.bstep-desc{font-size:11px;line-height:1.5}
+.bstep-desc.done{color:rgba(255,255,255,0.18)}
+.bstep-desc.active{color:rgba(255,255,255,0.5)}
+.bstep-desc.future{color:rgba(255,255,255,0.12)}
+.bdone-badge{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:4px}
+/* FAQ */
+.faq-wrap{display:flex;flex-direction:column;gap:2px}
+.faq-item{background:var(--card);border:1px solid var(--bd);border-radius:10px;overflow:hidden;transition:border-color .2s}.faq-item.open{border-color:var(--bdt)}
+.faq-q{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:700;color:var(--w);gap:16px}.faq-q:hover{color:var(--teal)}
+.faq-ico{color:var(--teal);font-size:18px;transition:transform .25s;flex-shrink:0}.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}.faq-a.open{max-height:400px;padding:0 20px 18px}.faq-a p{font-size:16px;color:var(--w65);line-height:1.8}
+/* Calculator */
+.calc-wrap{background:var(--card);border:1px solid var(--bdt);border-radius:18px;padding:32px;position:relative}
+.calc-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);border-radius:18px 18px 0 0}
+.calc-title{font-size:16px;font-weight:800;color:var(--w);margin-bottom:6px}
+.calc-sub{font-size:14px;color:var(--w65);margin-bottom:24px;line-height:1.6}
+.calc-row{display:flex;flex-direction:column;gap:5px;margin-bottom:18px}
+.calc-label{font-size:12px;font-weight:700;color:var(--w65);text-transform:uppercase;letter-spacing:.08em}
+.calc-input{background:var(--navy);border:1px solid var(--bd);border-radius:9px;padding:12px 16px;color:var(--w);font-family:var(--fb);font-size:16px;font-weight:600;outline:none;transition:border-color .2s;width:100%}
+.calc-input:focus{border-color:var(--teal)}
+.calc-result{background:rgba(37,99,235,0.08);border:1px solid var(--bdt);border-radius:12px;padding:20px;margin-top:8px;text-align:center}
+.calc-dscr-num{font-family:var(--fd);font-size:52px;letter-spacing:2px;line-height:1}
+.calc-verdict{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+.calc-note{font-size:12px;color:var(--w65);margin-top:8px;line-height:1.6}
+/* CTA band */
+.cta-band{background:var(--navy2);border-top:1px solid var(--bd);padding:80px 56px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(37,99,235,0.08) 0%,transparent 60%)}
+.cta-inner{position:relative;z-index:1;max-width:580px;margin:0 auto}
+.cta-inner h2{font-family:var(--fb);font-size:clamp(32px,4.5vw,54px);font-weight:800;color:var(--w);line-height:1.08;letter-spacing:-1px;margin-bottom:10px}.cta-inner h2 em{font-style:italic;color:var(--teal)}
+.cta-inner p{font-size:17px;color:var(--w65);margin-bottom:26px;line-height:1.75}
+.bcta{background:var(--blue);color:var(--w);border:none;padding:15px 44px;border-radius:10px;font-family:var(--fb);font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 8px 28px rgba(37,99,235,.3);text-decoration:none;display:inline-block}.bcta:hover{background:var(--blue2);transform:translateY(-2px)}
+.cta-priv{font-size:12px;color:var(--w65);margin-top:10px}
+/* Footer */
+footer{background:var(--navy);border-top:1px solid var(--bd)}
+.ftop{max-width:1260px;margin:0 auto;padding:56px 56px 40px;display:grid;grid-template-columns:240px 1fr;gap:64px}
+.flogo{font-family:var(--fd);font-size:22px;letter-spacing:4px;color:var(--w)}.flogo span{color:var(--teal)}
+.ftag2{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin:5px 0 10px}
+.fdesc{font-size:15px;color:var(--w65);line-height:1.75;margin-bottom:16px}
+.fsoc{display:flex;gap:7px}.fsoc a{width:30px;height:30px;background:var(--w08);border:1px solid var(--bd);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--w65);text-decoration:none;font-size:11px;font-weight:700;transition:all .2s}.fsoc a:hover{background:var(--teal);color:var(--navy);border-color:var(--teal)}
+.fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--w65);margin-bottom:12px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}.fcol ul li a{text-decoration:none;color:var(--w70);font-size:15px;transition:color .2s}.fcol ul li a:hover{color:var(--teal)}
+.fbot{border-top:1px solid var(--bd);padding:14px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px}.fbot p{font-size:11px;color:var(--w65)}
+@media(max-width:960px){nav{padding:0 20px}.nlinks,.nphone{display:none}.phero{padding:48px 20px 44px}.phero-inner{grid-template-columns:1fr}.vis-card{display:none}.sec{padding:48px 0}.cta-band{padding:52px 20px}.wrap{padding:0 20px}.pstats{grid-template-columns:1fr 1fr}.twocol{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr 1fr}.brrrr-track{gap:4px}.bconnector{display:none}.ftop{grid-template-columns:1fr;gap:28px;padding:32px 20px}.fcols{grid-template-columns:1fr 1fr}.fbot{padding:12px 20px;flex-direction:column}}
+
+/* ── LIGHT / DARK THEME TRANSITIONS ── */
+body, nav, footer, .accordion-item, .program-card, .step-box,
+.funnel-wrap, .phero, .blog-post, .dscr-hero {
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* Light mode body + nav bg */
+[data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
+[data-theme="light"] nav  { background: var(--nav-bg); border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .nav-logo { color: var(--text-primary); }
+[data-theme="light"] .nav-links > li > a { color: #374151; }
+[data-theme="light"] .nav-links > li > a:hover { color: #0F172A; background: rgba(0,0,0,0.04); }
+[data-theme="light"] .nav-phone { color: #374151; }
+[data-theme="light"] .nav-drop { background: #fff; border-color: rgba(37,99,235,0.2); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+[data-theme="light"] .nd-title { color: #0F172A; }
+[data-theme="light"] .nd-sub   { color: #6B7280; }
+[data-theme="light"] .nlogo    { color: #0F172A; }
+[data-theme="light"] .nlinks > li > a { color: #374151; }
+[data-theme="light"] .nlinks > li > a:hover { color: #0F172A; }
+[data-theme="light"] .nphone { color: #374151; }
+
+/* Light mode section backgrounds */
+[data-theme="light"] .programs-bg,
+[data-theme="light"] .section { background: var(--bg) !important; }
+[data-theme="light"] section,
+[data-theme="light"] [style*="background:var(--navy)"],
+[data-theme="light"] [style*="background: var(--navy)"] { background: var(--bg) !important; }
+[data-theme="light"] [style*="background:var(--navy-2)"],
+[data-theme="light"] [style*="background: var(--navy-2)"] { background: #F1F5FD !important; }
+[data-theme="light"] [style*="background:var(--navy-card)"],
+[data-theme="light"] [style*="background: var(--navy-card)"] { background: #fff !important; }
+
+/* Light mode text */
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] .section-title { color: #0F172A; }
+[data-theme="light"] p, [data-theme="light"] li { color: #374151; }
+[data-theme="light"] .hero-badge { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); color: #2563EB; }
+
+/* Light mode cards */
+[data-theme="light"] .program-card,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .review-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item { background: #fff !important; border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .accordion-item.open { border-color: rgba(37,99,235,0.3) !important; }
+[data-theme="light"] .accordion-q { color: #0F172A; }
+[data-theme="light"] .accordion-a p { color: #4B5563; }
+[data-theme="light"] .section-tag { background: rgba(37,99,235,0.08); color: #2563EB; border-color: rgba(37,99,235,0.18); }
+[data-theme="light"] .section-tag .dot { background: #2563EB; }
+
+/* Light mode funnel */
+[data-theme="light"] #funnel { background: #F8FAFF !important; }
+[data-theme="light"] .funnel-wrap, [data-theme="light"] .funnel-card { background: #fff !important; }
+[data-theme="light"] .step-pill  { background: rgba(37,99,235,0.08); color: #2563EB; }
+[data-theme="light"] .opt-illus  { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt-illus:hover { border-color: #3B82F6; background: rgba(37,99,235,0.06); }
+[data-theme="light"] .opt-illus.selected { border-color: #2563EB; background: rgba(37,99,235,0.1); }
+[data-theme="light"] .illus-label { color: #0F172A; }
+[data-theme="light"] .opt,
+[data-theme="light"] .prog-option { background: #F1F5FD; border-color: rgba(0,0,0,0.09); }
+[data-theme="light"] .opt.selected,
+[data-theme="light"] .prog-option.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+[data-theme="light"] .funnel-input { background: #F8FAFF; border-color: rgba(0,0,0,0.12); color: #0F172A; }
+[data-theme="light"] .funnel-input:focus { border-color: #2563EB; }
+[data-theme="light"] select { background: #F8FAFF; color: #0F172A; border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .fbar-bg { background: rgba(0,0,0,0.08); }
+
+/* Light mode footer */
+[data-theme="light"] footer { background: #F1F5FD; border-top-color: rgba(0,0,0,0.08); }
+[data-theme="light"] footer a { color: #4B5563; }
+[data-theme="light"] footer a:hover { color: #0F172A; }
+[data-theme="light"] footer p { color: #6B7280; }
+
+/* Light mode trust / stats bar */
+[data-theme="light"] .trust-bar,
+[data-theme="light"] .stat-row { background: #EEF2FF !important; border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .stat-box-num { color: #0F172A; }
+[data-theme="light"] .stat-box-label { color: #6B7280; }
+
+/* Light mode loan-selector / hero buttons */
+[data-theme="light"] .loan-tab { background: #F1F5FD; border-color: rgba(0,0,0,0.09); color: #0F172A; }
+[data-theme="light"] .loan-tab:hover { border-color: #3B82F6; }
+[data-theme="light"] .loan-tab.active,
+[data-theme="light"] .loan-tab.selected { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+
+/* CTA section light */
+[data-theme="light"] .cta-section { background: #1A3A8F !important; }
+
+/* Blog light */
+[data-theme="light"] .post-hero { background: #F1F5FD !important; }
+[data-theme="light"] .post-body  { color: #1F2937; }
+[data-theme="light"] .post-tag   { background: rgba(37,99,235,0.1); color: #2563EB; }
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; margin-left: 4px;
+}
+.tt-track {
+  width: 38px; height: 21px;
+  background: var(--tbg);
+  border-radius: 99px; position: relative;
+  border: 1px solid var(--border);
+  transition: background .3s ease;
+  flex-shrink: 0;
+}
+.tt-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--blue);
+  transition: transform .25s ease;
+}
+[data-theme="light"] .tt-thumb { transform: translateX(17px); }
+.tt-icon { font-size: 14px; line-height: 1; }
+
 </style>
 </head>
 <body>
-<nav style="position:sticky;top:0;z-index:200;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 52px;height:64px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08)">
-  <a href="../index.html" style="font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:4px;color:#fff;text-decoration:none;display:inline-flex;align-items:center"><svg width="14" height="20" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:7px;flex-shrink:0"><defs><linearGradient id="b" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#b)"/></svg>RATE <span style="color:#3B82F6">HERO</span></a>
-  <div></div>
-  <a href="../index.html" style="background:#2563EB;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none">Apply Now</a>
+<nav style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;">
+  <a href="../index.html" class="nlogo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0">
+  <defs>
+    <linearGradient id="blt" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#F5B731"/>
+      <stop offset="100%" stop-color="#E8920A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt)"/>
+</svg>RATE <span>HERO</span></a>
+  <ul class="nlinks" style="justify-content:center;">
+    <li>
+      <a href="#" class="has-drop">DSCR</a>
+      <div class="nav-dropdown">
+        <a href="../pages/long-term-rental.html">
+          <span class="nd-icon">📈</span>
+          <span class="nd-text"><span class="nd-title">Long-Term Rental</span><span class="nd-sub">Qualify on lease or 1007 rent</span></span>
+        </a>
+        <a href="../pages/short-term-rental.html">
+          <span class="nd-icon">🏖️</span>
+          <span class="nd-text"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO — AirDNA accepted</span></span>
+        </a>
+      </div>
+    </li>
+    <li><a href="../pages/non-qm.html">Non-QM</a></li>
+    <li><a href="../pages/conventional.html">Conventional / FHA / VA</a></li>
+    <li><a href="../pages/heloc.html">HELOC</a></li>
+    <li><a href="../pages/brrrr-loan.html">BRRRR / Hard Money Exit</a></li>
+  </ul>
+  <div class="nright"><a href="../pages/about.html" style="color:rgba(255,255,255,0.65);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;">About</a><div class="nphone">Call: <strong>(747) 308-1635</strong></div><a href="../index.html" class="nbtn" onclick="sessionStorage.setItem('openFunnel','1');return true;">Apply Now</a></div>
 </nav>
-<div class="page">
-  <h1>Terms of Use</h1>
-  <p class="subtitle">Rate Hero, Inc. DBA Rate Hero &nbsp;·&nbsp; Last updated: 2026 &nbsp;·&nbsp; NMLS #2822806</p>
 
-  <div class="notice"><strong>Please read these Terms carefully.</strong> By using the Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. Please see Sections 9–11 regarding your legal rights in any dispute involving our Services, including an agreement to arbitrate and a waiver to bring any claim as a class action.</div>
-
-  <div class="section">
-    <div class="section-num">Section 1</div>
-    <h2>Acceptance of Terms of Use</h2>
-    <p>These Terms of Use ("Terms") incorporate Rate Hero, Inc. DBA Rate Hero ("Rate Hero", "us" or "we") and the accompanying Privacy Policy and together govern your use of our website, goratehero.com, and any related online services we provide (collectively, the "Services"). This includes any electronic content, functionality, features, and applications provided through the Services (collectively, "Materials"). By using our Services, you are agreeing to be bound by these Terms and our Privacy Policy.</p>
-    <p>We reserve the right, in our sole discretion, to modify, alter or otherwise update the Terms at any time, and by using the Services after the posting of a modification, you accept the modification. By using the Services, you represent and warrant that you are of legal age to form a binding contract with us and meet all of the eligibility requirements in these Terms.</p>
+<!-- HERO -->
+<section class="phero">
+  <div class="phero-bg"></div><div class="phero-grid"></div>
+  <div class="phero-inner">
+    <div>
+      <div class="pbadge">BRRRR Strategy Financing</div>
+      <h1>Buy. Rehab. Rent.<br>Refinance. <em>Repeat.</em></h1>
+      <p class="phero-sub">The BRRRR strategy is how serious investors scale portfolios fast. Rate Hero finances every stage — from acquisition to cash-out DSCR refinance. No W-2s. No tax returns. Just the deal.</p>
+      <div class="phero-cta">
+        <a href="../index.html" class="bhero" onclick="sessionStorage.setItem('openFunnel','1');return true;">Get My BRRRR Quote →</a>
+        <a href="tel:7473081635" class="boutline">Talk to an Investor Specialist</a>
+      </div>
+      <p class="hpriv"><span>🔒</span> No SSN required · No credit pull · 100% confidential</p>
+    </div>
+    <div class="vis-card">
+      <div class="vc-label">BRRRR Loan Snapshot</div>
+      <div class="vc-row"><span class="vc-k">Loan Type</span><span class="vc-v t">DSCR / Bridge</span></div>
+      <div class="vc-row"><span class="vc-k">Income Verification</span><span class="vc-v">None Required</span></div>
+      <div class="vc-row"><span class="vc-k">Qualifies On</span><span class="vc-v t">Rental Cash Flow</span></div>
+      <div class="vc-row"><span class="vc-k">Cash-Out Refi?</span><span class="vc-v t">Yes ✓</span></div>
+      <div class="vc-row"><span class="vc-k">LLC / Entity Lending</span><span class="vc-v t">Yes ✓</span></div>
+      <div class="vc-row"><span class="vc-k">Avg Close Time</span><span class="vc-v">21 Days</span></div>
+    </div>
   </div>
+</section>
 
-  <div class="section">
-    <div class="section-num">Section 2</div>
-    <h2>Your Responsibilities</h2>
-    <p>You are responsible for any activity that occurs through your use of the Services. All information you provide to us must be true, accurate, current and complete and you agree to update your information as necessary to maintain its truth and accuracy. Please exercise common sense and your best judgment when using the Services, including when you submit any personal or other information.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 3</div>
-    <h2>Prohibited Actions</h2>
-    <p>You agree not to:</p>
-    <ol type="a">
-      <li>Decompile, reverse engineer, disassemble, modify, or create derivative works based upon the Services or any part thereof</li>
-      <li>Disable any licensing or control features of the Services</li>
-      <li>Introduce any virus or other code intended to disrupt or damage the Services, or alter, damage or delete any Materials</li>
-      <li>Merge the Services or Materials with other materials or create derivative works based on the Services or Materials</li>
-      <li>Remove, obscure, or alter any copyright or other proprietary notices on the Services or Materials</li>
-      <li>Sublicense, assign, translate, rent, lease, lend, resell, distribute or otherwise assign or transfer the Materials or access to the Services to others</li>
-      <li>Use the Services in contravention of any federal, state, local, foreign or other applicable law, or rules or regulations of regulatory or administrative organizations</li>
-      <li>Act in a fraudulent, illegal, malicious or negligent manner when using the Services</li>
-      <li>Post violent, defamatory, indecent, sexually explicit, discriminatory, unlawful, infringing, hateful or other inappropriate content</li>
-      <li>Create, solicit, transmit, or procure the sending of any unsolicited or harassing communications without our prior written consent</li>
-    </ol>
-    <p>You may not access or use the Services by means of any automated program, electronic agent or "bot." You are prohibited from scraping, copying, republishing, licensing, or selling the data or information on the Services for commercial purposes.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 4</div>
-    <h2>Privacy Policy</h2>
-    <p>Your privacy is important to us. Our <a href="privacy-policy.html">Privacy Policy</a> provides information on our practices and the choices you can make about the way your information is collected and used by us.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 5</div>
-    <h2>Reporting Copyright Infringement and Other Violations</h2>
-    <p>We respect the intellectual property rights of others, and we prohibit users of our Services from submitting, uploading, posting or otherwise transmitting any materials that violate another person's intellectual property rights or these Terms. For allegations of copyright infringement or any other issues, please notify us via the contact information provided at the end of these Terms.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 6</div>
-    <h2>Our Intellectual Property Rights</h2>
-    <p>We grant you a limited, non-exclusive, non-sublicensable, non-transferable, revocable license to access and use the Services for lawful purposes in accordance with these Terms and our Privacy Policy. The Services contain Materials owned or licensed by us, including name, logo, text, images, audio/visual works, icons and scripts. Except as provided herein, none of the Materials may be copied, distributed, displayed, downloaded, licensed, modified, published, reproduced, reused, sold, or transmitted in any form without prior written permission from us or the third party owner.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 7</div>
-    <h2>Third-Party Links</h2>
-    <p>This website may provide you with links to other websites or third-party platforms. These third-party sites are not under our control and you acknowledge that we are not responsible for the accuracy, copyright compliance, legality, or any other aspect of the content of such third parties, and that your use of such sites or platforms is subject to their respective terms of use. The inclusion of a link to a third-party site does not imply our endorsement of any site.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 8</div>
-    <h2>Linking to Our Services</h2>
-    <p>You may link to our Services, provided you do so in a way that is fair and legal and does not damage our reputation or take advantage of it, but you must not establish a link in such a way as to suggest any form of association, approval, or endorsement on our part without our express written consent.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 9</div>
-    <h2>Disclaimer of Warranties; Limitation of Liability</h2>
-    <p>YOUR USE OF THE SERVICES AND MATERIALS ARE AT YOUR OWN RISK. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY US SHALL CREATE A WARRANTY. THE SERVICES AND ALL MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT OF THIRD PARTY RIGHTS.</p>
-    <p>WE DISCLAIM ALL LIABILITY, WHETHER BASED ON CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHERWISE, AND DO NOT ACCEPT ANY LIABILITY FOR ANY LOSS OR DAMAGE (DIRECT, INDIRECT, PUNITIVE, ACTUAL, CONSEQUENTIAL, INCIDENTAL, SPECIAL, EXEMPLARY, OR OTHERWISE) ARISING FROM THE SERVICES AND MATERIALS, REGARDLESS OF THE BASIS UPON WHICH LIABILITY IS CLAIMED AND EVEN IF RATE HERO HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS OR DAMAGE.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 10</div>
-    <h2>Indemnification</h2>
-    <p>You agree that you will be responsible for any damages resulting from your violation of these Terms. You further agree to indemnify and hold Rate Hero, Inc. DBA Rate Hero, and its owners, affiliates, officers, directors, agents and employees, contributors, franchisees and partners harmless from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of: (i) your breach of these Terms; (ii) your activities in connection with the Services, including any violation of any law or the rights of any third party; or (iii) information that you provided to us through the Services.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 11</div>
-    <h2>Governing Law; Arbitration and Class Action Waiver</h2>
-    <p>THE LAWS OF THE STATE OF CALIFORNIA WILL GOVERN THESE TERMS AND ANY DISPUTE RELATING TO THE SERVICES, WITHOUT GIVING EFFECT TO ANY PRINCIPLES OF CONFLICTS OF LAWS. EXCLUDING DISPUTES ADDRESSED THROUGH ARBITRATION AS PROVIDED BELOW, YOU AGREE TO SUBMIT TO THE EXCLUSIVE JURISDICTION OF THE COMPETENT STATE AND FEDERAL COURTS LOCATED IN CALIFORNIA IN RELATION TO ANY CLAIM, DISPUTE OR DIFFERENCE ARISING FROM THESE TERMS.</p>
-    <p>Excluding claims for injunctive or other equitable relief, any dispute or controversy arising out of or relating to the Services or these Terms shall be resolved by final and binding arbitration in accordance with the JAMS Inc. Comprehensive Arbitration Rules &amp; Procedures then in effect. There shall be no right or authority for any claims to be arbitrated on a class action basis.</p>
-    <p>TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, YOU AGREE THAT EACH PARTY TO A DISPUTE HEREUNDER MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE ACTION.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 12</div>
-    <h2>Entire Agreement; Severability</h2>
-    <p>You acknowledge that you have read and understood and agree to be bound by these Terms. You further agree that these Terms, together with our posted Privacy Policy which is incorporated herein by reference, constitute the complete and exclusive statement of the agreement between you and Rate Hero, Inc. DBA Rate Hero, and supersedes all other proposals or prior agreements oral or written. If any provision of these Terms is found unenforceable, it shall not affect the validity of the remainder of these Terms.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 13</div>
-    <h2>Updates to Terms</h2>
-    <p>We may update these Terms from time to time, in our sole discretion. When we do so, we will post the changes on this page and update the effective date. You consent to receive notices of updates through our posting of updated Terms. You should visit this page regularly to review the current Terms. If you do not agree to the updated Terms, you should stop using the Services.</p>
-  </div>
-
-  <div class="contact-box">
-    <h3>Contact Us</h3>
-    <p>If there are any questions regarding these Terms of Use, please contact us at:</p>
-    <p><a href="mailto:privacy@goratehero.com">privacy@goratehero.com</a><br>
-    Rate Hero, Inc. DBA Rate Hero<br>
-    5930 San Fernando Rd, Glendale, CA 91202<br>
-    NMLS #2822806<br>
-    (747) 308-1635<br>
-    goratehero.com</p>
-  </div>
+<div class="pstats">
+  <div class="pstat"><span class="pstat-num">0.75</span><span class="pstat-lbl">Min DSCR Ratio</span></div>
+  <div class="pstat"><span class="pstat-num">80%</span><span class="pstat-lbl">Max LTV on Refi</span></div>
+  <div class="pstat"><span class="pstat-num">$3M+</span><span class="pstat-lbl">Max Loan Amount</span></div>
+  <div class="pstat"><span class="pstat-num">∞</span><span class="pstat-lbl">No Property Cap</span></div>
 </div>
-<footer style="border-top:1px solid rgba(255,255,255,0.08);padding:20px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#080F1E">
-  <p style="font-size:11px;color:rgba(255,255,255,0.3)">© 2026 Rate Hero, Inc. DBA Rate Hero. All rights reserved. NMLS #2822806. Equal Housing Lender.</p>
-  <div style="display:flex;gap:20px">
-    <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">Privacy Policy</a>
-    <a href="terms-of-use.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">Terms of Use</a>
+
+<!-- BRRRR VISUAL -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stag"><span class="dot"></span> The BRRRR Method</div>
+    <h2 class="sh2">Five Steps.<br><em>One Repeating Machine.</em></h2>
+    <p class="sp">Each cycle of BRRRR recycles your capital — so you can acquire the next property without tying up all your cash. Rate Hero handles the refinance step, which unlocks everything else.</p>
+
+    <div class="brrrr-track" style="margin:40px 0 48px;">
+
+      <div class="bstep">
+        <div class="bdisc done"><span class="bletter">B</span></div>
+        <div class="bstep-body">
+          <div class="bstep-title done">BUY</div>
+          <div class="bstep-desc done">Find undervalued<br>property. Acquire it.</div>
+          <div class="bdone-badge"><span style="font-size:10px;color:rgba(255,255,255,0.25);font-weight:700;">Use savings or bridge loan</span></div>
+        </div>
+      </div>
+
+      <div class="bconnector" style="background:rgba(255,255,255,0.08);"></div>
+
+      <div class="bstep">
+        <div class="bdisc done"><span class="bletter">R</span></div>
+        <div class="bstep-body">
+          <div class="bstep-title done">REHAB</div>
+          <div class="bstep-desc done">Fix it up.<br>Force appreciation.</div>
+          <div class="bdone-badge"><span style="font-size:10px;color:rgba(255,255,255,0.25);font-weight:700;">Add value, raise rents</span></div>
+        </div>
+      </div>
+
+      <div class="bconnector" style="background:rgba(255,255,255,0.08);"></div>
+
+      <div class="bstep">
+        <div class="bdisc done"><span class="bletter">R</span></div>
+        <div class="bstep-body">
+          <div class="bstep-title done">RENT</div>
+          <div class="bstep-desc done">Place a tenant.<br>Stabilize cash flow.</div>
+          <div class="bdone-badge"><span style="font-size:10px;color:rgba(255,255,255,0.25);font-weight:700;">Property is now income-producing</span></div>
+        </div>
+      </div>
+
+      <div class="bconnector" style="background:linear-gradient(90deg,rgba(255,255,255,0.08),rgba(37,99,235,0.5));"></div>
+
+      <div class="bstep" style="position:relative;">
+        <div class="bdisc active" style="position:relative;">
+          <div class="bpulse"></div>
+          <span class="bletter">R</span>
+          <div class="byouhere">⚡ Rate Hero</div>
+        </div>
+        <div class="bstep-body">
+          <div class="bstep-title active">REFINANCE</div>
+          <div class="bstep-desc active">Cash-out DSCR refi.<br>Recycle your capital.</div>
+          <div style="margin-top:10px;"><a href="../index.html" style="font-size:11px;font-weight:700;color:var(--teal);text-decoration:none;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);padding:5px 12px;border-radius:99px;white-space:nowrap;" onclick="sessionStorage.setItem('openFunnel','1');return true;">Start Here →</a></div>
+        </div>
+      </div>
+
+      <div class="bconnector" style="background:rgba(255,255,255,0.05);"></div>
+
+      <div class="bstep">
+        <div class="bdisc future"><span class="bletter">R</span></div>
+        <div class="bstep-body">
+          <div class="bstep-title future">REPEAT</div>
+          <div class="bstep-desc future">Deploy capital again.<br>Scale your portfolio.</div>
+          <div class="bdone-badge"><span style="font-size:10px;color:rgba(255,255,255,0.15);font-weight:700;">The cycle continues</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Callout card -->
+    <div style="max-width:720px;margin:0 auto;background:var(--card);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:36px 40px;border-left:4px solid var(--teal);position:relative;">
+      <div style="position:absolute;top:-1px;left:40px;right:40px;height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.4),transparent);"></div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;">Why the Refinance Step Is Everything</div>
+      <p style="font-size:18px;font-weight:800;color:#fff;line-height:1.4;margin-bottom:12px;letter-spacing:-.3px;">Without the refi, BRRRR is just a buy-and-hold with expensive debt.</p>
+      <p style="font-size:16px;color:var(--w65);line-height:1.8;margin-bottom:24px;">A cash-out DSCR refinance pulls your equity back out so you can buy the next property. We qualify entirely on the rental income — no W-2s, no tax returns, no personal income at all. That's how investors go from one property to ten.</p>
+      <a href="../index.html" class="bhero" style="font-size:15px;" onclick="sessionStorage.setItem('openFunnel','1');return true;">Start My BRRRR Refi →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DSCR CALCULATOR -->
+
+<div style="background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.2);border-radius:14px;padding:22px 24px;margin:32px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+  <div>
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#3B82F6;margin-bottom:4px">📊 Free Tool</div>
+    <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:3px">DSCR Calculator</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.6)">Enter rent and PITIA — get your ratio instantly. No SSN required.</div>
+  </div>
+  <a href="../dscr-calculator.html" style="background:#2563EB;color:#fff;padding:11px 22px;border-radius:9px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0">Try the Calculator →</a>
+</div>
+<section class="sec alt">
+  <div class="wrap">
+    <div class="twocol">
+      <div>
+        <div class="stag"><span class="dot"></span> DSCR Calculator</div>
+        <h2 class="sh2">Can You Qualify?<br><em>Find Out in 10 Seconds.</em></h2>
+        <p class="sp">DSCR stands for Debt Service Coverage Ratio. It measures whether your rental property earns enough to cover its mortgage payment. Most lenders require 1.0 or higher. We have programs down to 0.75.</p>
+        <div style="background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px 20px;margin-top:8px;">
+          <div style="font-size:14px;font-weight:700;color:var(--w);margin-bottom:16px;">How DSCR Is Calculated</div>
+          <div style="font-family:var(--fd);font-size:28px;color:var(--teal);text-align:center;padding:16px;background:rgba(37,99,235,0.06);border-radius:10px;letter-spacing:2px;margin-bottom:12px;">DSCR = Rent ÷ PITIA</div>
+          <p style="font-size:14px;color:var(--w65);line-height:1.7;"><strong style="color:var(--w);">PITIA</strong> = Principal + Interest + Taxes + Insurance + Association dues. If your monthly rent divided by your PITIA is 1.0 or above, you qualify with most lenders. Rate Hero has options down to 0.75.</p>
+        </div>
+      </div>
+      <div>
+        <div class="calc-wrap">
+          <div class="calc-title">DSCR Quick Calculator</div>
+          <div class="calc-sub">Enter your numbers to see if you qualify for a DSCR loan.</div>
+          <div class="calc-row">
+            <label class="calc-label">Monthly Rent Income ($)</label>
+            <input class="calc-input" type="number" id="rent" placeholder="e.g. 2100" oninput="calcDSCR()">
+          </div>
+          <div class="calc-row">
+            <label class="calc-label">Estimated Mortgage Payment (PITIA) ($)</label>
+            <input class="calc-input" type="number" id="pitia" placeholder="e.g. 1500" oninput="calcDSCR()">
+          </div>
+          <div class="calc-result" id="calc-result" style="display:none;">
+            <div class="calc-dscr-num" id="dscr-num" style="color:var(--teal);">—</div>
+            <div class="calc-verdict" id="dscr-verdict"></div>
+            <div class="calc-note" id="dscr-note"></div>
+          </div>
+          <div style="margin-top:20px;">
+            <a href="../index.html" class="bhero" style="width:100%;text-align:center;display:block;" onclick="sessionStorage.setItem('openFunnel','1');return true;">Check My Eligibility →</a>
+            <p style="font-size:12px;color:var(--w65);margin-top:10px;text-align:center;">No SSN · No credit pull · Takes 2 minutes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stag"><span class="dot"></span> Who It's For</div>
+    <h2 class="sh2">Built for<br><em>Serious Investors</em></h2>
+    <p class="sp">If you're running the BRRRR strategy, you think in cycles — not single transactions. Here's how Rate Hero fits into each phase.</p>
+    <div class="cgrid">
+      <div class="ccard"><span class="ccard-ico">🔄</span><div class="ccard-title">Active BRRRR Investors</div><p class="ccard-desc">You're mid-cycle with a stabilized rental and need to pull cash out to fund your next acquisition. This is our bread and butter.</p></div>
+      <div class="ccard"><span class="ccard-ico">🏗️</span><div class="ccard-title">Fix-and-Hold Investors</div><p class="ccard-desc">Finished the rehab and placed a tenant? Refinance out of hard money or a personal loan into a 30-year DSCR. Lock in your equity.</p></div>
+      <div class="ccard"><span class="ccard-ico">📦</span><div class="ccard-title">Portfolio Builders</div><p class="ccard-desc">Scaling from 2 to 10+ properties? We close loans in LLCs and have no cap on how many properties you can finance with us.</p></div>
+      <div class="ccard"><span class="ccard-ico">💼</span><div class="ccard-title">Self-Employed Investors</div><p class="ccard-desc">Write-offs killing your qualifying income on paper? DSCR loans ignore your personal income entirely. The property qualifies itself.</p></div>
+      <div class="ccard"><span class="ccard-ico">🏖️</span><div class="ccard-title">STR Operators</div><p class="ccard-desc">Running Airbnb or VRBO properties? We use your actual platform income — or AirDNA projections — to qualify the DSCR refi.</p></div>
+      <div class="ccard"><span class="ccard-ico">🌍</span><div class="ccard-title">Foreign National Investors</div><p class="ccard-desc">Non-US residents building US rental portfolios can access DSCR refinancing with alternative documentation. No US credit needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec alt">
+  <div class="wrap" style="max-width:800px;">
+    <div class="stag"><span class="dot"></span> Common Questions</div>
+    <h2 class="sh2">BRRRR Financing <em>FAQ</em></h2>
+    <div class="faq-wrap">
+      <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">Do I need to show personal income to get a BRRRR refinance?<span class="faq-ico">+</span></div><div class="faq-a"><p>No. A DSCR loan qualifies based entirely on the rental property's income — not yours. No W-2s, no tax returns, no personal income verification. If the rent covers the mortgage payment (DSCR ≥ 1.0), you likely qualify.</p></div></div>
+      <div class="faq-item" id="f2"><div class="faq-q" onclick="tog('f2')">How soon after placing a tenant can I do the cash-out refi?<span class="faq-ico">+</span></div><div class="faq-a"><p>Most DSCR programs have no seasoning requirement on the tenant — you just need a signed lease or a market rent analysis from the appraisal. Some programs require 3–6 months of ownership, but we have options with minimal or no seasoning.</p></div></div>
+      <div class="faq-item" id="f3"><div class="faq-q" onclick="tog('f3')">Can I pull all my equity out in the refinance?<span class="faq-ico">+</span></div><div class="faq-a"><p>Up to 75–80% LTV on cash-out refinances. So if your property appraised at $300,000 and you owe $150,000, you could potentially pull out up to $90,000 cash — which goes toward your next BRRRR acquisition.</p></div></div>
+      <div class="faq-item" id="f4"><div class="faq-q" onclick="tog('f4')">Can I close the DSCR loan in an LLC?<span class="faq-ico">+</span></div><div class="faq-a"><p>Yes. We close DSCR loans in LLCs, partnerships, trusts, and other entity structures. This keeps investment properties off your personal credit and separates your portfolio liability from your personal assets.</p></div></div>
+      <div class="faq-item" id="f5"><div class="faq-q" onclick="tog('f5')">What if my DSCR is below 1.0?<span class="faq-ico">+</span></div><div class="faq-a"><p>We have programs down to 0.75 DSCR for strong borrower profiles. If you're below 0.75, we'll talk through options — sometimes a higher down payment or reduced loan amount can bridge the gap. We'll be straight with you about what's realistic before you waste any time.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-inner">
+    <h2>Ready to Recycle<br>Your Capital? <em>Let's Go.</em></h2>
+    <p>Cash-out DSCR refi. No income docs. Close in 21 days. Fund your next deal.</p>
+    <a href="../index.html" class="bcta" onclick="sessionStorage.setItem('openFunnel','1');return true;">Start My BRRRR Refi →</a>
+    <p class="cta-priv">100% confidential · No credit pull · No SSN required</p>
+  </div>
+</section>
+
+<footer>
+  <!-- DSCR States — SEO + visible lending area links -->
+  <div style="background:var(--navy-card,#0F1B30);border-top:1px solid rgba(255,255,255,0.06);padding:32px 52px;">
+    <div style="max-width:1260px;margin:0 auto">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px">📈 DSCR Loans — States We Lend In</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 6px">
+        <a href="../dscr-loans/florida.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌴 Florida</a>
+        <a href="../dscr-loans/texas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🤠 Texas</a>
+        <a href="../dscr-loans/georgia.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🍑 Georgia</a>
+        <a href="../dscr-loans/north-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ North Carolina</a>
+        <a href="../dscr-loans/tennessee.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎸 Tennessee</a>
+        <a href="../dscr-loans/south-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏖️ South Carolina</a>
+        <a href="../dscr-loans/ohio.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Ohio</a>
+        <a href="../dscr-loans/indiana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Indiana</a>
+        <a href="../dscr-loans/kentucky.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🐴 Kentucky</a>
+        <a href="../dscr-loans/missouri.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎵 Missouri</a>
+        <a href="../dscr-loans/alabama.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🚀 Alabama</a>
+        <a href="../dscr-loans/mississippi.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Mississippi</a>
+        <a href="../dscr-loans/arkansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌿 Arkansas</a>
+        <a href="../dscr-loans/kansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌾 Kansas</a>
+        <a href="../dscr-loans/oklahoma.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Oklahoma</a>
+        <a href="../dscr-loans/colorado.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Colorado</a>
+        <a href="../dscr-loans/wyoming.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🦬 Wyoming</a>
+        <a href="../dscr-loans/montana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Montana</a>
+        <a href="../dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States →</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1300px;margin:0 auto;padding:28px 52px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 28px;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+      <svg width="14" height="20" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><defs><linearGradient id="bltf" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#bltf)"/></svg>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:#fff">RATE <span style="color:#3B82F6">HERO</span></span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.28);margin-left:2px">NMLS #2822806</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center">
+      <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.25)">Programs</span>
+      <a href="../pages/non-qm.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Non-QM</a>
+      <a href="../pages/conventional.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Conventional / FHA / VA</a>
+      <a href="../pages/long-term-rental.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">DSCR</a>
+      <a href="../pages/heloc.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">HELOC</a>
+      <a href="../pages/brrrr-loan.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">BRRRR</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center">
+      <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.25)">Resources</span>
+      <a href="../quiz.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⚡ Quiz</a>
+      <a href="../dscr-calculator.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📊 Calculator</a>
+      <a href="../resources/str-playbook.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📘 STR Playbook</a>
+      <a href="../resources/creative-financing-101.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📗 Creative Financing 101</a>
+      <a href="../blog/index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a>
+      <a href="../pages/about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+      <a href="../review.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">⭐ Reviews</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;text-align:right">
+      <a href="tel:7473081635" style="font-size:13px;font-weight:700;color:#3B82F6;text-decoration:none">(747) 308-1635</a>
+      <a href="mailto:hello@ratehero.com" style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">hello@ratehero.com</a>
+      <span style="font-size:12px;color:rgba(255,255,255,0.28)">5930 San Fernando Rd, Glendale, CA 91202</span>
+    </div>
+  </div>
+  <div style="max-width:1300px;margin:0 auto;padding:12px 52px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <p style="font-size:11px;color:rgba(255,255,255,0.25)">© 2026 Rate Hero Mortgage, LLC. All rights reserved. NMLS #2822806. Equal Housing Lender. Not a commitment to lend.</p>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <p style="font-size:11px;color:rgba(255,255,255,0.25)">Sean Davoodian · NMLS #1252107 · Not affiliated with any government agency.</p>
+      <a href="../legal/privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+      <a href="../legal/terms-of-use.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+    </div>
   </div>
 </footer>
+
+<script>
+function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}
+
+function calcDSCR(){
+  const rent=parseFloat(document.getElementById('rent').value)||0;
+  const pitia=parseFloat(document.getElementById('pitia').value)||0;
+  const result=document.getElementById('calc-result');
+  const num=document.getElementById('dscr-num');
+  const verdict=document.getElementById('dscr-verdict');
+  const note=document.getElementById('dscr-note');
+  if(!rent||!pitia){result.style.display='none';return;}
+  const dscr=(rent/pitia).toFixed(2);
+  result.style.display='block';
+  num.textContent=dscr;
+  if(dscr>=1.25){num.style.color='#22C55E';verdict.style.color='#22C55E';verdict.textContent='Strong Qualification ✓';note.textContent='Excellent DSCR. You qualify for our best rates and highest LTV programs.';}
+  else if(dscr>=1.0){num.style.color='#2563EB';verdict.style.color='#2563EB';verdict.textContent='Qualifies ✓';note.textContent='You meet standard DSCR requirements. Talk to us about rate and term options.';}
+  else if(dscr>=0.75){num.style.color='#F59E0B';verdict.style.color='#F59E0B';verdict.textContent='May Qualify — Talk to Us';note.textContent='Below 1.0 but above our minimum. We have programs for sub-1.0 DSCR with the right profile.';}
+  else{num.style.color='#EF4444';verdict.style.color='#EF4444';verdict.textContent='Below Our Minimum';note.textContent='DSCR is below 0.75. You may need to increase rent, reduce the loan amount, or explore other programs.';}
+}
+
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('ttIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  try { localStorage.setItem('rh-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('rh-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch(e) {}
+})();
+
+</script>
 </body>
 </html>
