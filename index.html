@@ -513,18 +513,37 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 
       <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,0.32);margin-bottom:12px;text-align:center;">Select your program to get started</p>
 
-      <div class="loan-selector">
-        <button class="loan-tab" onclick="openFunnel('dscr')">
-          <span class="tab-icon">📈</span>DSCR
-          <span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500;margin-top:4px;">Rental income qualifies</span>
+      <p style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;">What best describes your situation?</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:4px;">
+        <button onclick="openFunnel('dscr')" style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(37,99,235,0.18)';this.style.borderColor='rgba(37,99,235,0.5)'" onmouseout="this.style.background='rgba(37,99,235,0.08)';this.style.borderColor='rgba(37,99,235,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">🏢</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">Real Estate Investor</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">DSCR · No income docs</div>
         </button>
-        <button class="loan-tab" onclick="openFunnel('nonqm')">
-          <span class="tab-icon">📋</span>Non-QM
-          <span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500;margin-top:4px;">Bank stmt &middot; P&amp;L &middot; Assets</span>
+        <button onclick="openFunnel('nonqm')" style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(37,99,235,0.18)';this.style.borderColor='rgba(37,99,235,0.5)'" onmouseout="this.style.background='rgba(37,99,235,0.08)';this.style.borderColor='rgba(37,99,235,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">💼</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">Self-Employed</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">Bank stmt · P&L · 1099</div>
         </button>
-        <button class="loan-tab" onclick="openFunnel('conventional')">
-          <span class="tab-icon">🏠</span>Conventional / FHA / VA
-          <span style="display:block;font-size:11px;color:rgba(255,255,255,0.45);font-weight:500;margin-top:4px;">Best rate for W-2 borrowers</span>
+        <button onclick="openFunnel('conventional')" style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(37,99,235,0.18)';this.style.borderColor='rgba(37,99,235,0.5)'" onmouseout="this.style.background='rgba(37,99,235,0.08)';this.style.borderColor='rgba(37,99,235,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">🏠</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">First-Time Buyer</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">Conv · FHA · VA</div>
+        </button>
+        <button onclick="openFunnel('purchase')" style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(37,99,235,0.18)';this.style.borderColor='rgba(37,99,235,0.5)'" onmouseout="this.style.background='rgba(37,99,235,0.08)';this.style.borderColor='rgba(37,99,235,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">💰</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">Cash-Out / HELOC</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">Tap equity · Up to 90% LTV</div>
+        </button>
+        <button onclick="openFunnel('brrrr')" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(245,158,11,0.18)';this.style.borderColor='rgba(245,158,11,0.5)'" onmouseout="this.style.background='rgba(245,158,11,0.08)';this.style.borderColor='rgba(245,158,11,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">🔥</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">Stuck in Hard Money</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">Exit fast · 21-day refi</div>
+        </button>
+        <button onclick="openFunnel('dscr')" style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:16px 12px;cursor:pointer;text-align:left;transition:all .2s;font-family:var(--font-b);" onmouseover="this.style.background='rgba(37,99,235,0.18)';this.style.borderColor='rgba(37,99,235,0.5)'" onmouseout="this.style.background='rgba(37,99,235,0.08)';this.style.borderColor='rgba(37,99,235,0.25)'">
+          <div style="font-size:20px;margin-bottom:5px;">📈</div>
+          <div style="font-size:13px;font-weight:800;color:var(--white);margin-bottom:2px;">Portfolio Investor</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.45);">10+ doors · LLC lending</div>
         </button>
       </div>
       <p style="font-size:14px;color:rgba(255,255,255,0.38);margin-top:22px;margin-bottom:10px;letter-spacing:.01em;">Not sure which program?</p>
@@ -546,6 +565,21 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     <div class="trust-item">⚡ <strong>21-Day</strong> Average Close &nbsp;<a href="#process" style="font-size:13px;color:rgba(59,130,246,0.8);text-decoration:none;font-weight:700;">How? →</a></div>
     <div class="trust-divider"></div>
     <div class="trust-item">🗺️ Available in <strong>30+ States</strong></div>
+  </div>
+</div>
+
+
+<!-- HARD MONEY BANNER -->
+<div style="background:linear-gradient(90deg,#7C2D12,#B45309);border-top:1px solid rgba(245,158,11,0.3);border-bottom:1px solid rgba(245,158,11,0.3);padding:18px 52px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="font-size:24px;">🔥</span>
+      <div>
+        <div style="font-weight:800;color:#fff;font-size:15px;">Stuck in Hard Money?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.75);">Refinance into a 30-year DSCR loan. Close in 21 days. No income docs required.</div>
+      </div>
+    </div>
+    <button onclick="openFunnel('brrrr')" style="background:#F59E0B;color:#1a1a1a;border:none;padding:12px 28px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;transition:all .2s;" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">Get Out of Hard Money →</button>
   </div>
 </div>
 
@@ -731,6 +765,68 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 </div>
 
 <!-- REVIEWS -->
+
+<!-- CASE STUDIES -->
+<div style="background:var(--navy-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section">
+    <div class="section-tag"><span class="dot"></span>Real Deal Math</div>
+    <h2>Case Studies. <span>Real Numbers.</span></h2>
+    <p class="section-sub">How Rate Hero structures deals for investors, self-employed borrowers, and homebuyers — from first call to close.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;">
+      <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(37,99,235,0.05));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);margin-bottom:8px;">DSCR Purchase · Texas</div>
+          <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$425,000</div>
+          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price · SFR</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;flex-direction:column;gap:0;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Monthly Rent</span><span style="color:var(--white);font-weight:700;">$3,400</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">PITIA</span><span style="color:var(--white);font-weight:700;">$2,580</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">DSCR Ratio</span><span style="color:#3B82F6;font-weight:700;">1.32 ✓</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;"><span style="color:var(--white-65);">Close Time</span><span style="color:#22C55E;font-weight:700;">19 Days</span></div>
+          </div>
+          <div style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--white-65);">No W-2. No tax returns. Qualified on rental income alone.</div>
+        </div>
+      </div>
+      <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(245,158,11,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div style="background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(245,158,11,0.04));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#F59E0B;margin-bottom:8px;">Bank Statement · Arizona</div>
+          <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$680,000</div>
+          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price · Primary</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;flex-direction:column;gap:0;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Monthly Deposits</span><span style="color:var(--white);font-weight:700;">$38,000</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Tax Return Said</span><span style="color:#f87171;font-weight:700;">$44K/yr ✗</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">We Qualified On</span><span style="color:#F59E0B;font-weight:700;">$19K/mo ✓</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;"><span style="color:var(--white-65);">Close Time</span><span style="color:#22C55E;font-weight:700;">23 Days</span></div>
+          </div>
+          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--white-65);">Bank denied. Rate Hero closed on 24-month deposits.</div>
+        </div>
+      </div>
+      <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div style="background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(34,197,94,0.04));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#22C55E;margin-bottom:8px;">BRRRR Exit · Georgia</div>
+          <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$268,000</div>
+          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">After-Repair Value</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;flex-direction:column;gap:0;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Hard Money Balance</span><span style="color:var(--white);font-weight:700;">$168,000</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">DSCR Refi (75% LTV)</span><span style="color:#22C55E;font-weight:700;">$201,000</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Cash Back</span><span style="color:#22C55E;font-weight:700;">+$33,000</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;"><span style="color:var(--white-65);">Close Time</span><span style="color:#22C55E;font-weight:700;">18 Days</span></div>
+          </div>
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--white-65);">Out of hard money 3 days before extension fee hit.</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <button onclick="openFunnel('purchase')" class="btn-cta">Run the Numbers on My Deal →</button>
+    </div>
+  </div>
+</div>
 <div style="background:var(--navy);">
   <div class="section">
     <div class="section-tag"><span class="dot"></span> Client Reviews</div>
@@ -769,6 +865,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 <!-- CTA -->
 <div class="cta-section">
   <div class="cta-inner">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCD34D;margin-bottom:20px;">⚡ Fast-Track Closings Available — Limited Capacity</div>
     <h2>Your Best Rate Is <span>Waiting.</span></h2>
     <p>Takes 2 minutes. No SSN. No credit pull. Just your best mortgage options — delivered fast.</p>
     <button class="btn-cta" onclick="openFunnel('purchase')">See My Loan Options →</button>
@@ -1083,5 +1180,36 @@ function toggleAcc(id) {
 }
 
 </script>
+
+<!-- STICKY FLOATING CTA -->
+<div id="stickyCTA" style="position:fixed;bottom:24px;right:24px;z-index:500;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;">
+  <button onclick="openFunnel('purchase')" aria-label="Get My Loan Options" style="background:var(--blue);color:#fff;border:none;padding:14px 24px;border-radius:14px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;gap:8px;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(37,99,235,0.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3)'">
+    <svg width="14" height="20" viewBox="0 0 28 40"><defs><linearGradient id="scblt" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#scblt)"/></svg>
+    Get My Loan Options
+  </button>
+</div>
+<script>
+(function(){
+  var sc = document.getElementById('stickyCTA');
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    if(!shown && window.scrollY > 400){
+      shown = true;
+      sc.style.transform = 'translateY(0)';
+      sc.style.opacity = '1';
+      sc.style.pointerEvents = 'auto';
+    }
+  }, {passive:true});
+  // Hide when funnel is open
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[onclick*="openFunnel"]')){
+      sc.style.opacity = '0';
+      sc.style.pointerEvents = 'none';
+      setTimeout(function(){ shown=false; }, 1000);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
