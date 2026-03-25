@@ -3,422 +3,1076 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rate Hero Programs — Product Suite</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<title>The Short-Term Rental Playbook — Rate Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#080F1E;--navy2:#0C1527;--navy3:#0E1A2E;
-  --blue:#2563EB;--blue2:#3B82F6;--blue3:#1D4ED8;
-  --w:#FFFFFF;--w80:rgba(255,255,255,0.8);--w50:rgba(255,255,255,0.5);--w20:rgba(255,255,255,0.2);
-  --fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;
+  --bg:     #F8FAFF;
+  --bg2:    #FFFFFF;
+  --bg3:    #EEF2FF;
+  --bg4:    #F1F5FD;
+  --navy:   #F8FAFF;
+  --navy2:  #EEF2FF;
+  --navy3:  #F1F5FD;
+  --dk:     #F8FAFF;
+  --dk2:    #EEF2FF;
+  --dk3:    #F1F5FD;
+  --blue:   #2563EB;
+  --blue2:  #3B82F6;
+  --blue3:  #1D4ED8;
+  --teal:   #2563EB;
+  --amber:  #E8920A;
+  --amber2: #FCD34D;
+  --gold:   #E8920A;
+  --gold2:  #F5B731;
+  --green:  #16a34a;
+  --green2: #4ade80;
+  --red:    #DC2626;
+  --w:      #0F172A;
+  --w80:    #374151;
+  --w55:    #6B7280;
+  --w50:    #6B7280;
+  --w25:    #9CA3AF;
+  --card:   rgba(37,99,235,0.04);
+  --cardb:  rgba(37,99,235,0.08);
+  --border: rgba(0,0,0,0.09);
+  --card-sh:0 4px 20px rgba(0,0,0,0.07),0 1px 4px rgba(0,0,0,0.04);
+  --fd:'Bebas Neue',sans-serif;
+  --fb:'Plus Jakarta Sans',sans-serif;
 }
-body{font-family:var(--fb);background:#e8e8e4;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
 
-.page{width:850px;margin:0 auto 32px;box-shadow:0 20px 80px rgba(0,0,0,0.25)}
+/* ── PAGE SHELL ── */
+.page{width:850px;min-height:1100px;margin:0 auto 0;position:relative;overflow:hidden}
+@media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.3);margin-bottom:32px}}
+@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
 
-/* ═══ COVER ═══ */
-.cover{background:var(--navy);min-height:1100px;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
-.cover-top{padding:56px 64px 0;position:relative;z-index:2}
-.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.05) 1px,transparent 1px);background-size:50px 50px}
-.cover-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(37,99,235,0.2),transparent 70%);pointer-events:none}
-.logo{font-family:var(--fd);font-size:42px;letter-spacing:7px;color:var(--w);line-height:1}
-.logo span{color:var(--blue2)}
-.tagline-sm{font-size:11px;letter-spacing:.2em;color:var(--w50);text-transform:uppercase;margin-top:4px}
-.cover-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 64px;position:relative;z-index:2;text-align:center}
-.cover-label{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.35);color:var(--blue2);padding:6px 18px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:28px}
-.cover-h1{font-family:var(--fd);font-size:88px;letter-spacing:3px;color:var(--w);line-height:.88;margin-bottom:20px}
-.cover-h2{font-family:var(--fd);font-size:36px;letter-spacing:4px;color:var(--blue2);margin-bottom:28px}
-.cover-desc{font-size:17px;color:var(--w50);max-width:520px;line-height:1.8;margin-bottom:40px}
-.cover-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:0}
-.cover-pill{background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);color:var(--blue2);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
-.cover-bottom{padding:32px 64px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:2}
-.cover-by{font-size:13px;color:var(--w50)}
-.cover-by strong{color:var(--w);font-weight:700}
-.cover-contact{text-align:right}
-.cover-contact p{font-size:12px;color:var(--w50)}
-.cover-contact strong{color:var(--blue2);font-size:14px}
+/* ── COVER ── */
+.cover{background:var(--dk);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.07) 1px,transparent 1px);background-size:55px 55px}
+.cv-glow1{position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.18),transparent 70%)}
+.cv-glow2{position:absolute;bottom:-100px;left:-60px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.1),transparent 70%)}
+.cv-top{padding:52px 60px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cv-logo{font-family:var(--fd);font-size:36px;letter-spacing:6px;color:var(--w)}
+.cv-logo span{color:var(--blue2)}
+.cv-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--blue2);padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cv-hero{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 60px 40px;position:relative;z-index:2}
+.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.cv-title{font-family:var(--fd);font-size:96px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:6px}
+.cv-title-em{color:var(--blue3)}
+.cv-sub{font-family:var(--fd);font-size:32px;letter-spacing:3px;color:var(--amber2);margin-bottom:28px}
+.cv-desc{font-size:17px;color:var(--w55);line-height:1.8;max-width:480px;margin-bottom:36px}
+.cv-pills{display:flex;gap:10px;flex-wrap:wrap}
+.cv-pill{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.28);color:var(--blue3);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
+.cv-pill.am{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--amber2)}
+.cv-bottom{padding:28px 60px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
+.cv-by{font-size:13px;color:var(--w55)}
+.cv-by strong{color:var(--w);font-weight:700}
+.cv-contact{text-align:right;font-size:12px;color:var(--w55)}
+.cv-contact strong{color:var(--blue2);font-size:14px}
 
-/* ═══ PROGRAMS PAGES ═══ */
-.progs-page{background:var(--navy2);min-height:1100px;padding:64px;position:relative;overflow:hidden}
-.progs-page::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,0.07),transparent 70%);pointer-events:none}
-.section-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px}
-.section-h{font-family:var(--fd);font-size:52px;letter-spacing:2px;color:var(--w);margin-bottom:40px;line-height:.9}
-.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.prog-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:border-color .2s}
-.prog-card:hover{border-color:rgba(37,99,235,0.4)}
-.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.prog-card.c-blue::before{background:linear-gradient(90deg,var(--blue),var(--blue2))}
-.prog-card.c-ind::before{background:linear-gradient(90deg,#6366f1,#818cf8)}
-.prog-card.c-cyan::before{background:linear-gradient(90deg,#0891b2,#22d3ee)}
-.prog-card.c-em::before{background:linear-gradient(90deg,#059669,#34d399)}
-.prog-card.c-orange::before{background:linear-gradient(90deg,#d97706,#fbbf24)}
-.prog-card.c-rose::before{background:linear-gradient(90deg,#e11d48,#fb7185)}
-.prog-card.c-violet::before{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
-.pc-num{font-family:var(--fd);font-size:42px;color:rgba(37,99,235,0.18);line-height:1;margin-bottom:2px}
-.pc-title{font-family:var(--fd);font-size:28px;letter-spacing:1px;color:var(--w);margin-bottom:12px;line-height:1}
-.pc-bullets{list-style:none;display:flex;flex-direction:column;gap:7px}
-.pc-bullets li{font-size:13px;color:var(--w50);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.pc-bullets li::before{content:'→';color:var(--blue2);font-size:12px;flex-shrink:0;margin-top:1px}
-.pc-bullets li strong{color:var(--w80);font-weight:700}
+/* ── TOC ── */
+.toc-page{background:var(--w);padding:80px 70px;min-height:1100px;display:flex;flex-direction:column;justify-content:center}
+.toc-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.toc-h{font-family:var(--fd);font-size:62px;letter-spacing:2px;color:var(--navy);margin-bottom:10px;line-height:.88}
+.toc-intro{font-size:15px;color:#6b7a8d;line-height:1.7;max-width:540px;margin-bottom:36px}
+.toc-item{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #e8eeec}
+.toc-item:last-child{border-bottom:none}
+.toc-num{font-family:var(--fd);font-size:28px;color:var(--blue);min-width:34px;line-height:1}
+.toc-info{flex:1}
+.toc-label{font-size:16px;font-weight:700;color:var(--navy)}
+.toc-sub{font-size:12px;color:#9ca3af;margin-top:1px}
+.toc-dot{flex:1;border-top:1px dashed #d1dcd8;margin:0 14px}
+.toc-pg{font-family:var(--fd);font-size:20px;color:rgba(7,20,18,0.25)}
 
-/* ═══ COMPARISON PAGE ═══ */
-.compare-page{background:var(--w);min-height:600px;padding:64px}
-.cmp-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.cmp-h{font-family:var(--fd);font-size:52px;letter-spacing:2px;color:var(--navy);margin-bottom:40px;line-height:.9}
-.cmp-table{width:100%;border-collapse:collapse}
-.cmp-table th{background:var(--navy);color:var(--w);padding:14px 18px;font-family:var(--fd);font-size:16px;letter-spacing:.5px;text-align:left}
-.cmp-table th:first-child{border-radius:10px 0 0 0}
-.cmp-table th:last-child{border-radius:0 10px 0 0}
-.cmp-table td{padding:13px 18px;font-size:13px;border-bottom:1px solid #eee;vertical-align:top}
-.cmp-table tr:last-child td{border-bottom:none}
-.cmp-table tr:nth-child(even) td{background:#f8faff}
-.cmp-table td:first-child{font-weight:700;color:var(--navy);font-size:13px}
-.check{color:#16a34a;font-weight:800}
-.dash{color:#9ca3af}
+/* ── INTRO ── */
+.intro-page{background:var(--dk2);min-height:1100px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:80px 64px;position:relative;overflow:hidden}
+.intro-page::after{content:'';position:absolute;top:-180px;right:-180px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.1),transparent 70%);pointer-events:none}
+.ilabel{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);margin-bottom:14px}
+.ih1{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;margin-bottom:22px}
+.ibody{font-size:16px;color:var(--w80);line-height:1.85;margin-bottom:20px}
+.ipull{border-left:3px solid var(--blue);padding:18px 22px;background:rgba(37,99,235,0.08);border-radius:0 12px 12px 0}
+.ipull p{font-size:18px;font-weight:700;color:var(--w);font-style:italic;line-height:1.5}
+.istat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.istat{background:rgba(255,255,255,0.04);border:1px solid rgba(37,99,235,0.2);border-radius:14px;padding:22px;text-align:center}
+.istat-val{font-family:var(--fd);font-size:42px;color:var(--blue2);line-height:1;margin-bottom:4px}
+.istat-label{font-size:12px;color:var(--w55);font-weight:600;line-height:1.4}
 
-/* ═══ CTA PAGE ═══ */
-.cta-page{background:var(--blue3);min-height:400px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden}
-.cta-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(255,255,255,0.06),transparent)}
-.cta-left{position:relative;z-index:1}
-.cta-h{font-family:var(--fd);font-size:58px;letter-spacing:2px;color:var(--w);line-height:.9;margin-bottom:20px}
-.cta-body{font-size:16px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:28px}
-.cta-btn{display:inline-block;background:var(--w);color:var(--blue3);padding:16px 36px;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none}
-.cta-right{position:relative;z-index:1}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.stat-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:20px;text-align:center}
-.stat-val{font-family:var(--fd);font-size:38px;color:var(--w);letter-spacing:1px;line-height:1;margin-bottom:4px}
-.stat-label{font-size:12px;color:rgba(255,255,255,0.55);font-weight:600;line-height:1.4}
+/* ── PROGRAM / SCENARIO PAGES ── */
+.prog-page{min-height:1100px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.pl{padding:68px 52px;display:flex;flex-direction:column;justify-content:center}
+.pr{display:flex;align-items:center;justify-content:center;padding:52px;position:relative}
+.dark .pl{background:var(--dk)}
+.dark .pr{background:var(--dk3)}
+.light .pl{background:var(--w)}
+.light .pr{background:#f0fdfb}
+.amber-bg .pl{background:var(--dk)}
+.amber-bg .pr{background:#080F1E}
 
-/* ═══ FOOTER ═══ */
-.doc-footer{background:var(--navy);padding:28px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.doc-footer p{font-size:11px;color:var(--w50)}
-.doc-footer .logo-sm{font-family:var(--fd);font-size:20px;letter-spacing:4px;color:var(--w)}
-.doc-footer .logo-sm span{color:var(--blue2)}
+.pnum{font-family:var(--fd);font-size:88px;color:rgba(37,99,235,0.1);line-height:1;margin-bottom:-14px}
+.ptag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:6px}
+.dark .ptag{color:var(--blue2)}
+.light .ptag{color:var(--blue)}
+.pbadge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.pbadge-blue{background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.35);color:var(--blue2)}
+.pbadge-amber{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35);color:var(--amber2)}
+.pbadge-green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#86efac}
+.ptitle{font-family:var(--fd);font-size:50px;letter-spacing:2px;line-height:.93;margin-bottom:16px}
+.dark .ptitle{color:var(--w)}
+.light .ptitle{color:var(--navy)}
+.pwhat{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:7px;margin-top:14px}
+.dark .pwhat{color:var(--blue2)}
+.light .pwhat{color:var(--blue)}
+.pdesc{font-size:14px;line-height:1.82;margin-bottom:20px}
+.dark .pdesc{color:var(--w80)}
+.light .pdesc{color:#374151}
+.pdesc strong{font-weight:700}
+.dark .pdesc strong{color:var(--w)}
+.light .pdesc strong{color:var(--navy)}
+.puses-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+.dark .puses-title{color:var(--blue2)}
+.light .puses-title{color:var(--blue)}
+.puse{display:flex;gap:10px;margin-bottom:11px;align-items:flex-start}
+.puse-icon{width:24px;height:24px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+.puse-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.dark .puse-label{color:var(--w)}
+.light .puse-label{color:var(--navy)}
+.puse-body{font-size:13px;line-height:1.55}
+.dark .puse-body{color:var(--w55)}
+.light .puse-body{color:#6b7a8d}
+.ex-box{border-radius:13px;padding:18px;margin-top:4px}
+.dark .ex-box{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.22)}
+.light .ex-box{background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.18)}
+.ex-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.dark .ex-label{color:var(--blue2)}
+.light .ex-label{color:var(--blue)}
+.ex-text{font-size:13px;font-style:italic;line-height:1.7}
+.dark .ex-text{color:var(--w80)}
+.light .ex-text{color:var(--navy)}
 
-@media screen{body{padding:40px 20px}}
-@media print{body{background:#fff;padding:0}.page{margin:0;box-shadow:none;page-break-after:always}}
+/* ── SCENARIO PAGES (full-width cards) ── */
+.scenario-page{background:var(--dk2);min-height:1100px;padding:72px 64px;position:relative;overflow:hidden}
+.scenario-page::before{content:'';position:absolute;bottom:-120px;right:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.08),transparent 70%);pointer-events:none}
+.sc-header{margin-bottom:40px}
+.sc-num{font-family:var(--fd);font-size:80px;color:rgba(37,99,235,0.1);line-height:1;margin-bottom:-10px}
+.sc-tag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:6px}
+.sc-title{font-family:var(--fd);font-size:54px;letter-spacing:2px;color:var(--w);line-height:.9;margin-bottom:10px}
+.sc-sub{font-size:16px;color:var(--w55);line-height:1.7;max-width:600px}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:36px}
+.sc-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.sc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue3))}
+.sc-card.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.sc-card.green::before{background:linear-gradient(90deg,#16a34a,#4ade80)}
+.sc-card-icon{font-size:22px;margin-bottom:10px}
+.sc-card-title{font-size:14px;font-weight:800;color:var(--w);margin-bottom:6px}
+.sc-card-body{font-size:13px;color:var(--w55);line-height:1.65}
+.sc-card-val{font-family:var(--fd);font-size:32px;color:var(--blue2);line-height:1;margin-top:8px}
+.sc-card.amber .sc-card-val{color:var(--amber2)}
+.sc-card.green .sc-card-val{color:#4ade80}
+
+/* ── SCENARIO DETAIL (2-col) ── */
+.sc-detail{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.sc-detail-box{background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.18);border-radius:14px;padding:22px}
+.sc-detail-box.amber-border{border-color:rgba(245,158,11,0.2)}
+.sc-d-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);margin-bottom:10px}
+.sc-d-label.amber{color:var(--amber2)}
+.sc-d-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.sc-d-row:last-child{border-bottom:none}
+.sc-d-key{font-size:12px;color:var(--w55)}
+.sc-d-val{font-size:13px;font-weight:700;color:var(--w80)}
+.sc-d-val.blue{color:var(--blue2)}
+.sc-d-val.amber{color:var(--amber2)}
+.sc-d-val.green{color:#4ade80}
+.sc-d-val.red{color:#f87171}
+.sc-result{background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:18px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.sc-result.amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25)}
+.sc-result-label{font-size:13px;font-weight:700;color:var(--blue2)}
+.sc-result.amber .sc-result-label{color:var(--amber2)}
+.sc-result-val{font-family:var(--fd);font-size:28px;color:var(--blue2);letter-spacing:1px}
+.sc-result.amber .sc-result-val{color:var(--amber2)}
+
+/* ── MISTAKES ── */
+.mistakes-page{background:var(--dk);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.mistakes-page::before{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:rgba(37,99,235,0.06);pointer-events:none}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.mc{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue)}
+.mc-icon{font-size:26px;margin-bottom:10px}
+.mc-title{font-size:14px;font-weight:800;color:var(--w);margin-bottom:7px}
+.mc-body{font-size:13px;color:var(--w55);line-height:1.65}
+
+/* ── CONCLUSION ── */
+.concl{background:var(--dk);min-height:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 70px;position:relative;overflow:hidden}
+.concl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(37,99,235,0.15),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.07),transparent)}
+.concl-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}
+.concl-logo span{color:var(--blue2)}
+.concl-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
+.concl-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.concl-cta{background:var(--blue);color:var(--w);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block}
+.concl-contact{margin-top:34px;position:relative;z-index:1}
+.concl-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}
+.concl-contact strong{color:var(--w);font-size:15px}
+
+/* ── LIGHT THEME: COVER ── */
+.cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.cv-grid{background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px) !important}
+.cv-logo{color:#fff !important}
+.cv-logo span{color:#FCD34D !important}
+.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.25) !important;color:#fff !important}
+.cv-eyebrow{color:rgba(255,255,255,0.7) !important}
+.cv-title{color:#fff !important}
+.cv-title em,.cv-title-em{color:#FCD34D !important}
+.cv-sub{color:rgba(255,255,255,0.65) !important}
+.cv-desc{color:rgba(255,255,255,0.78) !important}
+.cv-pill{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.22) !important;color:#fff !important}
+.cv-pill.am{background:rgba(245,183,49,0.15) !important;border-color:rgba(245,183,49,0.35) !important;color:#FCD34D !important}
+.cv-bottom{border-top-color:rgba(255,255,255,0.1) !important}
+.cv-by{color:rgba(255,255,255,0.55) !important}
+.cv-by strong{color:#fff !important}
+.cv-contact{color:rgba(255,255,255,0.55) !important}
+.cv-contact strong{color:#FCD34D !important}
+
+/* ── LIGHT THEME: BODY + BASE ── */
+body{background:var(--bg) !important;color:var(--w) !important}
+body::before{background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px) !important}
+
+/* ── LIGHT THEME: TOC ── */
+.toc-page{background:#fff !important}
+.toc-tag{color:var(--blue) !important}
+.toc-h{color:#0F172A !important}
+.toc-intro{color:#4B5563 !important}
+.toc-label{color:#0F172A !important}
+.toc-num{color:var(--blue) !important}
+.toc-item{border-bottom-color:#e5e7eb !important}
+
+/* ── LIGHT THEME: INTRO / TWO-COL PAGES ── */
+.intro-page{background:#fff !important}
+.intro-left{background:#F1F5FD !important}
+.intro-right{background:#fff !important}
+.ilabel{color:var(--blue) !important}
+.ih1{color:#0F172A !important}
+.ibody{color:#374151 !important}
+.ipull{background:rgba(37,99,235,0.06) !important;border-left-color:var(--blue) !important}
+.ipull p{color:#0F172A !important}
+.r-label{color:var(--blue) !important}
+.r-h2{color:#0F172A !important}
+.r-body{color:#374151 !important}
+.stat-box{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.stat-val{color:var(--blue) !important}
+.stat-lbl{color:#6B7280 !important}
+
+/* ── LIGHT THEME: DARK SECTION PAGES → LIGHT ── */
+.steps-page,.qualify-page,.programs-page,.road-page,.letters-page,
+.scenario-page,.sc-page,.mistakes-page,.exit-page,.switch-page,
+.numbers-page,.matrix-page,.progs-page,.dark-bg{
+  background:var(--bg3) !important
+}
+
+/* ── LIGHT THEME: WHITE/LIGHT PAGES ── */
+.what-page,.promise-page,.loans-page,.how-page,.compare-page,.voice-example{
+  background:#fff !important
+}
+
+/* ── LIGHT THEME: SECTION LABELS + HEADINGS ── */
+.pg-tag{color:var(--blue) !important}
+.pg-h1{color:#0F172A !important}
+.pg-sub{color:#374151 !important}
+.pg-tag-l{color:var(--blue) !important}
+.pg-h1-l{color:#0F172A !important}
+.pg-sub-l{color:#374151 !important}
+.wh-tag{color:var(--blue) !important}
+.wh-h1{color:#0F172A !important}
+.wh-intro{color:#374151 !important}
+h1,h2,h3{color:#0F172A}
+p{color:#374151}
+
+/* ── LIGHT THEME: CARDS ── */
+.sc-card,.prog-card,.req-card,.path-card,.how-card,
+.exit-card,.promise-card,.loan-card,.step-card,
+.mc,.story,.letter-row{
+  background:#fff !important;
+  border-color:rgba(0,0,0,0.09) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06) !important;
+}
+/* keep dark cards with colored borders */
+.sc-card::before,.prog-card::before,.req-card::before,.path-card::before,
+.how-card::before,.exit-card::before,.promise-card::before,.loan-card::before,
+.exit-card::before,.mc::before,.story::before{opacity:1 !important}
+
+/* Card text */
+.sc-icon,.prog-icon,.req-icon,.path-icon,.how-icon,.ec-icon,.mc-icon,.story-icon,.pc-icon,.lc-icon{color:inherit}
+.sc-title,.prog-name,.req-title,.path-name,.how-title,.ec-title,.mc-title,.story-title,.pc-title,.lc-name{color:#0F172A !important}
+.sc-body,.prog-desc,.req-body,.path-desc,.how-body,.ec-body,.mc-body,.story-body,.pc-body,.lc-body{color:#4B5563 !important}
+.prog-tag,.path-who,.ec-tag,.lc-tag{color:var(--blue) !important}
+.letter-word{color:#0F172A !important}
+.letter-body{color:#374151 !important}
+.letter-highlight{color:var(--blue) !important}
+
+/* Numeric values in cards */
+.req-val,.how-stat,.tier-score,.istat-val,.hsc-num,.pstat-num{color:var(--blue) !important}
+.sc-val,.df-val{color:#374151 !important}
+.sc-val.blue,.df-val.blue,.sc-rval,.sc-result-val{color:var(--blue) !important}
+.sc-val.amber,.df-val.amber{color:var(--amber) !important}
+.sc-val.green,.df-val.green{color:var(--green) !important}
+.sc-val.red,.df-val.red{color:var(--red) !important}
+.sc-key,.df-key{color:#6B7280 !important}
+.sc-row{border-bottom-color:rgba(0,0,0,0.07) !important}
+.sc-d-key{color:#6B7280 !important}
+.sc-d-val{color:#0F172A !important}
+
+/* Step rows */
+.step-row{background:transparent !important}
+.step-num{color:var(--blue) !important;opacity:.7}
+.step-title{color:#0F172A !important}
+.step-body{color:#4B5563 !important}
+.step-badge{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.step-divider{background:rgba(37,99,235,0.15) !important}
+.road-step{border-bottom-color:rgba(0,0,0,0.07) !important}
+.road-title{color:#0F172A !important}
+.road-body{color:#4B5563 !important}
+.road-tip{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.18) !important;color:var(--blue) !important}
+
+/* Formula box stays dark */
+.formula-box{background:#0F1E38 !important;border-color:rgba(37,99,235,0.2) !important}
+.formula-num{color:#fff !important}
+.formula-num span{color:rgba(255,255,255,0.55) !important}
+.formula-div,.formula-eq{color:var(--blue2) !important}
+.formula-result{color:var(--blue2) !important}
+.formula-result span{color:rgba(255,255,255,0.55) !important}
+.formula-label{color:var(--blue2) !important}
+
+/* BRRRR letters */
+.letter-big{color:var(--amber) !important}
+.letters-page .pg-h1{color:#0F172A !important}
+
+/* Deal flow box stays dark */
+.deal-flow{background:#0F1E38 !important}
+.df-label,.df-title{color:var(--blue2) !important}
+.df-row{border-bottom-color:rgba(255,255,255,0.06) !important}
+.df-key,.df-val{color:rgba(255,255,255,0.7) !important}
+.df-row.total .df-key{color:#fff !important}
+
+/* Key metrics */
+.key-metrics .km{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.km-val{color:var(--blue) !important}
+.km-val.green{color:var(--green) !important}
+.km-val.amber{color:var(--amber) !important}
+.km-lbl{color:#6B7280 !important}
+
+/* Tier boxes */
+.tier.green{background:rgba(22,163,74,0.06) !important;border-color:rgba(22,163,74,0.2) !important}
+.tier.blue{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tier.amber{background:rgba(232,146,10,0.06) !important;border-color:rgba(232,146,10,0.2) !important}
+.tier-label{color:#0F172A !important}
+.tier-body{color:#6B7280 !important}
+
+/* Section tags / badges */
+.section-tag,.stag,.pbadge,.step-pill{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-blue{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-amber{background:rgba(232,146,10,0.08) !important;border-color:rgba(232,146,10,0.2) !important;color:var(--amber) !important}
+.pbadge-green{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.2) !important;color:var(--green) !important}
+
+/* Scenario page dark accent boxes */
+.sc-result{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important}
+.sc-result-label{color:var(--blue) !important}
+.sc-result-val{color:var(--blue) !important}
+.sc-result.amber{background:rgba(232,146,10,0.07) !important;border-color:rgba(232,146,10,0.2) !important}
+.sc-result.amber .sc-result-label,.sc-result.amber .sc-result-val{color:var(--amber) !important}
+.sc-result.green{background:rgba(22,163,74,0.07) !important;border-color:rgba(22,163,74,0.2) !important}
+.sc-result.green .sc-result-label,.sc-result.green .sc-result-val{color:var(--green) !important}
+.sc-rlabel{color:var(--blue) !important}
+.sc-rval{color:var(--blue) !important}
+.sc-card.amber .sc-rlabel,.sc-card.amber .sc-rval{color:var(--amber) !important}
+.sc-card.green .sc-rlabel,.sc-card.green .sc-rval{color:var(--green) !important}
+
+/* Pull quotes */
+.pull-quote{background:#0F1E38 !important}
+.pq-text{color:#fff !important}
+.pq-attr{color:var(--blue2) !important}
+
+/* Comparison table */
+.compare-table{border-color:rgba(0,0,0,0.09) !important;box-shadow:0 4px 20px rgba(0,0,0,0.07) !important}
+.ct-header .ct-h:first-child{background:var(--bg3) !important;color:#6B7280 !important}
+.ct-h.rh{background:var(--blue) !important;color:#fff !important}
+.ct-h.bank{background:var(--bg4) !important;color:#9CA3AF !important}
+.ct-row:nth-child(even){background:#fff !important}
+.ct-row:nth-child(odd){background:var(--bg4) !important}
+.ct-label{color:#0F172A !important}
+.ct-rh{color:var(--green) !important;background:rgba(22,163,74,0.04) !important}
+.ct-bank{color:var(--red) !important}
+
+/* Prog matrix */
+.pm-header{background:#0F1E38 !important}
+.pm-row:nth-child(even){background:#f9fafb !important}
+.pm-row:nth-child(odd){background:#fff !important}
+.pm-name{color:#0F172A !important}
+.pm-sub{color:#6B7280 !important}
+.pm-cell{color:#374151 !important}
+.pm-cell.check{color:var(--green) !important}
+.pm-cell.x{color:var(--red) !important}
+.pm-cell.maybe{color:var(--amber) !important}
+
+/* Story cards */
+.story{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.story::before{background:var(--blue) !important}
+.story-title{color:#0F172A !important}
+.story-what{color:var(--blue) !important}
+.story-body{color:#374151 !important}
+.story-result{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.25) !important;color:var(--green) !important}
+
+/* Trust bar */
+.trust-bar{background:var(--bg3) !important;border-color:rgba(0,0,0,0.07) !important}
+
+/* Timing / warning box */
+.timing-box{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tb-label{color:var(--blue) !important}
+.tb-body{color:#374151 !important}
+
+/* STR playbook specific */
+.prog-page.dark .pl,.prog-page.dark .pr{background:var(--bg3) !important}
+.prog-page.light .pl{background:#fff !important}
+.prog-page.light .pr{background:#F0FDF8 !important}
+.dark .ptag,.dark .pnum,.dark .pwhat,.dark .puses-title,.dark .ex-label{color:var(--blue) !important}
+.dark .ptitle{color:#0F172A !important}
+.dark .pdesc{color:#374151 !important}
+.dark .pdesc strong{color:#0F172A !important}
+.dark .puse-label{color:#0F172A !important}
+.dark .puse-body{color:#6B7280 !important}
+.dark .ex-box{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.dark .ex-text{color:#0F172A !important}
+.light .ptag,.light .pwhat,.light .puses-title{color:var(--blue) !important}
+.light .ptitle{color:#0F172A !important}
+.sc-card,.sc-card.amber,.sc-card.green{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.sc-card-title{color:#0F172A !important}
+.sc-card-body{color:#6B7280 !important}
+.istat{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.istat-val{color:var(--blue) !important}
+.istat-label{color:#6B7280 !important}
+
+/* Creative financing sections */
+.sect-left{background:var(--bg3) !important}
+.sect-right{background:#fff !important}
+.prog-left{background:var(--bg4) !important}
+.prog-right{background:#fff !important}
+.white-bg{background:#fff !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) h2{color:#0F172A !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) p:not(.cv-desc):not(.cv-by){color:#374151}
+
+/* Footer / doc footer */
+.doc-footer{background:var(--bg3) !important;border-top-color:rgba(0,0,0,0.08) !important}
+.doc-footer p,.doc-footer a,.doc-footer span{color:#6B7280 !important}
+
+/* CONCLUSION / CTA PAGE stays blue gradient */
+.concl,.cta-page,.conclusion-page{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.concl::before,.cta-page::before{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px) !important}
+.concl-logo,.cta-logo{color:#fff !important}
+.concl-logo span,.cta-logo span{color:#FCD34D !important}
+.concl-title,.cta-title{color:#fff !important}
+.concl-body,.cta-body{color:rgba(255,255,255,0.78) !important}
+.concl-cta,.cta-btn{background:#fff !important;color:var(--blue) !important;box-shadow:0 8px 32px rgba(0,0,0,0.2) !important}
+.concl-contact p,.cta-contact p{color:rgba(255,255,255,0.5) !important}
+.concl-contact strong,.cta-contact strong{color:#fff !important}
+.cal-box{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.2) !important}
+.cal-box p{color:rgba(255,255,255,0.6) !important}
+.cal-box a{color:#FCD34D !important}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
 
-<!-- ═══════════════════════════════════════ COVER PAGE -->
-<div class="page">
-<div class="cover">
-  <div class="cover-grid"></div>
-  <div class="cover-glow"></div>
-  <div class="cover-top">
-    <div class="logo">RATE <span>HERO</span></div>
-    <div class="tagline-sm">Financing Built for the Way You Actually Earn · NMLS #2822806</div>
+<!-- ════════════════════════════════════════ COVER -->
+<div class="page cover">
+  <div class="cv-grid"></div>
+  <div class="cv-glow1"></div>
+  <div class="cv-glow2"></div>
+  <div class="cv-top">
+    <div class="cv-logo">RATE <span>HERO</span></div>
+    <div class="cv-badge">🏖️ Investor Financing Guide</div>
   </div>
-  <div class="cover-hero">
-    <div class="cover-label">📋 Full Program Suite</div>
-    <div class="cover-h1">OUR<br>PROGRAMS</div>
-    <div class="cover-h2">FINANCING BUILT FOR INVESTORS</div>
-    <div class="cover-desc">top-tier lenders. 7 documentation types. No SSN to start. We work with multiple wholesale lenders to find the right program for every borrower — no cookie-cutter approvals, no one-size-fits-all answers.</div>
-    <div class="cover-pills">
-      <div class="cover-pill">📈 DSCR</div>
-      <div class="cover-pill">📋 Bank Statement</div>
-      <div class="cover-pill">📊 Asset Utilization</div>
-      <div class="cover-pill">📄 Profit & Loss</div>
-      <div class="cover-pill">✉️ WVOE</div>
-      <div class="cover-pill">🏠 Full Doc</div>
-      <div class="cover-pill">💰 Home Equity</div>
+  <div class="cv-hero">
+    <div class="cv-eyebrow">The Investor's Complete Guide to</div>
+    <div class="cv-title">SHORT-<br>TERM<br><span class="cv-title-em">RENTAL</span></div>
+    <div class="cv-sub">THE PLAYBOOK</div>
+    <div class="cv-desc">Airbnb, VRBO, and vacation rental financing — how to qualify, what programs exist, and real scenarios that show exactly how the numbers work.</div>
+    <div class="cv-pills">
+      <div class="cv-pill">📊 AirDNA Qualification</div>
+      <div class="cv-pill">🏖️ DSCR STR Loans</div>
+      <div class="cv-pill am">💰 No Income Docs</div>
+      <div class="cv-pill">🔄 Portfolio Expansion</div>
+      <div class="cv-pill am">🏠 Bank Stmt + STR</div>
     </div>
   </div>
-  <div class="cover-bottom">
-    <div class="cover-by">By <strong>Sean Davoodian</strong> · NMLS #1252107</div>
-    <div class="cover-contact">
-      <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="19717c757576596b786d7c717c6b76377a7674">[email&#160;protected]</a></p>
-      <strong>(747) 308-1635</strong>
+
+  <!-- Wave / horizon illustration -->
+  <svg viewBox="0 0 850 140" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:56px;left:0;width:100%;opacity:0.4;z-index:1">
+    <path d="M0 80 Q212 20 425 80 Q637 140 850 80 L850 140 L0 140 Z" fill="rgba(37,99,235,0.15)"/>
+    <path d="M0 95 Q212 40 425 95 Q637 150 850 95 L850 140 L0 140 Z" fill="rgba(37,99,235,0.1)"/>
+    <!-- Palm / destination silhouettes -->
+    <rect x="120" y="60" width="4" height="50" fill="rgba(37,99,235,0.3)" rx="2"/>
+    <ellipse cx="122" cy="55" rx="18" ry="12" fill="rgba(37,99,235,0.25)"/>
+    <rect x="700" y="50" width="4" height="60" fill="rgba(37,99,235,0.3)" rx="2"/>
+    <ellipse cx="702" cy="44" rx="20" ry="13" fill="rgba(37,99,235,0.22)"/>
+    <!-- House silhouettes -->
+    <polygon points="350,70 370,50 390,70" fill="rgba(37,99,235,0.2)"/>
+    <rect x="352" y="70" width="36" height="22" fill="rgba(37,99,235,0.15)"/>
+    <polygon points="500,65 524,42 548,65" fill="rgba(37,99,235,0.18)"/>
+    <rect x="502" y="65" width="44" height="25" fill="rgba(37,99,235,0.12)"/>
+  </svg>
+
+  <div class="cv-bottom">
+    <div class="cv-by">By <strong>Sean Davoodian</strong> · NMLS #1252107</div>
+    <div class="cv-contact">
+      <p>hello@ratehero.com</p>
+      <strong>(747) 308-1635 · goratehero.com</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ TOC -->
+<div class="page toc-page">
+  <div>
+    <div class="toc-tag">What's Inside</div>
+    <div class="toc-h">TABLE OF<br>CONTENTS</div>
+    <div class="toc-intro">Everything you need to understand STR financing — from how lenders calculate income to real deal scenarios with exact numbers.</div>
+
+    <div class="toc-item">
+      <div class="toc-num">01</div>
+      <div class="toc-info"><div class="toc-label">Why STR Financing Is Different</div><div class="toc-sub">How lenders think about vacation rental income</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">03</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">02</div>
+      <div class="toc-info"><div class="toc-label">The 3 Ways to Document STR Income</div><div class="toc-sub">AirDNA · Platform history · Bank deposits</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">04</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">03</div>
+      <div class="toc-info"><div class="toc-label">DSCR STR Loans — How They Qualify</div><div class="toc-sub">The formula, the thresholds, the LTV options</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">05</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">04</div>
+      <div class="toc-info"><div class="toc-label">Scenario 1: First STR Purchase</div><div class="toc-sub">New host, no rental history, using AirDNA projections</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">06</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">05</div>
+      <div class="toc-info"><div class="toc-label">Scenario 2: Cash-Out Refinance on Existing STR</div><div class="toc-sub">12-month platform history, recycling equity for next deal</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">07</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">06</div>
+      <div class="toc-info"><div class="toc-label">Scenario 3: Self-Employed Host</div><div class="toc-sub">When STR income + bank statements work together</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">08</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">07</div>
+      <div class="toc-info"><div class="toc-label">Scenario 4: Portfolio Expansion</div><div class="toc-sub">Scaling from 1 STR to 5 — how each deal funds the next</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">09</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">08</div>
+      <div class="toc-info"><div class="toc-label">STR Financing Mistakes to Avoid</div><div class="toc-sub">The errors that kill deals before they start</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">10</div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">09</div>
+      <div class="toc-info"><div class="toc-label">Next Steps with Rate Hero</div><div class="toc-sub">How to get started today</div></div>
+      <div class="toc-dot"></div><div class="toc-pg">11</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ INTRO -->
+<div class="page intro-page">
+  <div>
+    <div class="ilabel">Section 01 · Introduction</div>
+    <div class="ih1">WHY STR<br>FINANCING<br>IS DIFFERENT</div>
+    <div class="ibody">Short-term rental income is real, documented, and often dramatically higher than long-term rent — but conventional lenders don't know how to evaluate it. They look at your tax return, see a rental property with aggressive depreciation and expenses, and reject the loan.</div>
+    <div class="ibody">DSCR programs for STR were built specifically for this scenario. The lender qualifies the property on its projected or actual short-term rental income — not your personal tax return, not your W-2, not your Schedule E.</div>
+    <div class="ipull">
+      <p>"The STR that generates $6,000/month on Airbnb can look like a $0 income property on a tax return. DSCR fixes that."</p>
+    </div>
+  </div>
+  <div class="istat-grid">
+    <div class="istat">
+      <div class="istat-val">2–3×</div>
+      <div class="istat-label">Typical STR gross revenue vs long-term rent on the same property</div>
+    </div>
+    <div class="istat">
+      <div class="istat-val">$0</div>
+      <div class="istat-label">Personal income required to qualify a DSCR STR loan</div>
+    </div>
+    <div class="istat">
+      <div class="istat-val">85%</div>
+      <div class="istat-label">Maximum LTV available on STR purchase transactions</div>
+    </div>
+    <div class="istat">
+      <div class="istat-val">21</div>
+      <div class="istat-label">Day average close time at Rate Hero on STR DSCR loans</div>
     </div>
   </div>
 </div>
-</div>
 
-<!-- ═══════════════════════════════════════ NON-QM PROGRAMS PAGE 1 -->
-<div class="page">
-<div class="progs-page">
-  <div class="section-label">Non-QM Programs</div>
-  <div class="section-h">PROGRAMS 1–4</div>
-  <div class="prog-grid">
-
-    <div class="prog-card c-blue">
-      <div class="pc-num">01</div>
-      <div class="pc-title">FULL DOC</div>
-      <ul class="pc-bullets">
-        <li><strong>1-year or 2-year</strong> full doc options available</li>
-        <li>Finance up to <strong>90% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li>Gift funds from <strong>ANY 3rd party</strong></li>
-        <li>Gift funds eligible to meet reserves</li>
-        <li>Large deposit not required to be sourced</li>
-        <li>Gift of equity for all occupancies</li>
-      </ul>
-    </div>
-
-    <div class="prog-card c-ind">
-      <div class="pc-num">02</div>
-      <div class="pc-title">BANK STATEMENTS</div>
-      <ul class="pc-bullets">
-        <li><strong>12 or 24-month</strong> options available</li>
-        <li>Finance up to <strong>90% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li>No tax returns or W-2s required</li>
-        <li><strong>1-year self-employed</strong> OK</li>
-        <li>Personal or business statements accepted</li>
-        <li>As low as <strong>10% expense factor</strong></li>
-        <li>Personal bank statement at <strong>100%</strong></li>
-        <li>Co-borrower fixed income OK</li>
-      </ul>
-    </div>
-
-    <div class="prog-card c-cyan">
-      <div class="pc-num">03</div>
-      <div class="pc-title">ASSET UTILIZATION</div>
-      <ul class="pc-bullets">
-        <li>Finance up to <strong>80% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li><strong>Interest-only</strong> option available</li>
-        <li>May be used as <strong>sole source</strong> of income</li>
-        <li>Only <strong>1 quarterly statement</strong> needed</li>
-        <li>Wide range of qualifying assets</li>
-        <li>Can supplement Full Doc, Bank Statement, P&L, WVOE, or 1099</li>
-      </ul>
-    </div>
-
-    <div class="prog-card c-em">
-      <div class="pc-num">04</div>
-      <div class="pc-title">DSCR</div>
-      <ul class="pc-bullets">
-        <li>Finance up to <strong>85% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li><strong>No income verification</strong> — no W-2s or tax returns</li>
-        <li><strong>First-time homebuyers OK</strong></li>
-        <li>True <strong>no-ratio</strong> available</li>
-        <li><strong>Short-term rental</strong> eligible (Airbnb, VRBO)</li>
-        <li>Use higher of <strong>1007 or lease</strong> for income</li>
-        <li><strong>5–10 unit</strong> multifamily properties allowed</li>
-        <li>Available on <strong>2nd liens</strong></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-</div>
-
-<!-- ═══════════════════════════════════════ NON-QM PROGRAMS PAGE 2 -->
-<div class="page">
-<div class="progs-page">
-  <div class="section-label">Non-QM Programs Continued</div>
-  <div class="section-h">PROGRAMS 5–7</div>
-  <div class="prog-grid">
-
-    <div class="prog-card c-orange">
-      <div class="pc-num">05</div>
-      <div class="pc-title">PROFIT & LOSS</div>
-      <ul class="pc-bullets">
-        <li>Finance up to <strong>85% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li><strong>12 or 24-month</strong> P&L options</li>
-        <li>Prepared by <strong>CPA / CTEC / EA</strong></li>
-        <li>Better pricing with <strong>2-month bank statements</strong></li>
-        <li>No bank statement required (P&L Only option)</li>
-        <li>Available on <strong>2nd liens</strong></li>
-      </ul>
-    </div>
-
-    <div class="prog-card c-rose">
-      <div class="pc-num">06</div>
-      <div class="pc-title">WVOE</div>
-      <ul class="pc-bullets">
-        <li>Finance up to <strong>80% LTV</strong></li>
-        <li>Up to <strong>$4M</strong> loan limit</li>
-        <li>As low as <strong>600 FICO</strong></li>
-        <li><strong>First-time homebuyers OK</strong></li>
-        <li><strong>Interest-only</strong> option available</li>
-        <li>Cash-out up to <strong>75% LTV</strong></li>
-        <li><strong>Unlimited cash in hand</strong></li>
-        <li><strong>2–4 unit</strong> properties eligible</li>
-      </ul>
-    </div>
-
-    <div class="prog-card c-violet" style="grid-column:1/-1">
-      <div class="pc-num">07</div>
-      <div class="pc-title">HOME EQUITY LOAN</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px">
-        <ul class="pc-bullets">
-          <li>Finance up to <strong>90% LTV</strong></li>
-          <li>Up to <strong>$750K</strong> loan limit</li>
-          <li>As low as <strong>660 FICO</strong></li>
-          <li><strong>All doc types</strong> accepted</li>
-        </ul>
-        <ul class="pc-bullets">
-          <li><strong>All occupancy types</strong> (primary, second, investment)</li>
-          <li><strong>12 or 24-month</strong> options available</li>
-          <li><strong>No appraisal option</strong> available</li>
-          <li>Can use <strong>rental income</strong> to qualify</li>
-        </ul>
+<!-- ════════════════════════════════════════ 3 WAYS TO DOCUMENT -->
+<div class="page prog-page dark">
+  <div class="pl">
+    <div class="pnum">02</div>
+    <div class="ptag">Income Documentation</div>
+    <div class="ptitle">THE 3 WAYS<br>TO PROVE<br>STR INCOME</div>
+    <div class="pwhat">Why This Matters</div>
+    <div class="pdesc">Lenders can't put "probably rents for $5K/month on Airbnb" on a loan. They need a documented, third-party verified income figure. Three approved methods exist — and when multiple sources are submitted, the <strong>lowest figure is used</strong> to qualify.</div>
+    <div class="puses-title">The Three Methods</div>
+    <div class="puse">
+      <div class="puse-icon">📊</div>
+      <div>
+        <div class="puse-label">Method 1 — AirDNA Rentalizer</div>
+        <div class="puse-body">For purchase transactions where no rental history exists. The AirDNA Property Earning Potential Report projects 12-month gross revenue. Requirements: market score <strong>60 or higher</strong>, minimum 3 comparable properties, forecast dated within 90 days. A 20% vacancy factor is applied unless the appraiser documents a specific occupancy rate.</div>
       </div>
     </div>
-
+    <div class="puse">
+      <div class="puse-icon">📋</div>
+      <div>
+        <div class="puse-label">Method 2 — 12-Month Platform History</div>
+        <div class="puse-body">The Airbnb, VRBO, or property management platform provides a 12-month statement identifying the property, showing rents collected, and itemizing all vendor or management fees. <strong>Qualifying income is net of all fees.</strong> Primary method for refinance transactions.</div>
+      </div>
+    </div>
+    <div class="puse">
+      <div class="puse-icon">🏦</div>
+      <div>
+        <div class="puse-label">Method 3 — Bank Statement Deposits</div>
+        <div class="puse-body">12 months of bank statements showing STR deposits, supported by rental records for the property. When used alongside AirDNA or platform history, the lowest of all income figures is the qualifying number.</div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-
-<!-- ═══════════════════════════════════════ COMPARISON MATRIX -->
-<div class="page">
-<div class="compare-page">
-  <div class="cmp-label">At a Glance</div>
-  <div class="cmp-h">PROGRAM<br>COMPARISON</div>
-  <table class="cmp-table">
-    <thead>
-      <tr>
-        <th style="width:160px">Program</th>
-        <th>Max LTV</th>
-        <th>Min FICO</th>
-        <th>Income Doc</th>
-        <th>Max Loan</th>
-        <th>1st-Time Buyer</th>
-        <th>2nd Lien</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Full Doc</td>
-        <td>90%</td>
-        <td>600</td>
-        <td>W-2 / Tax Returns</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-      <tr>
-        <td>Bank Statement</td>
-        <td>90%</td>
-        <td>600</td>
-        <td>12–24 mo deposits</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-      <tr>
-        <td>Asset Utilization</td>
-        <td>80%</td>
-        <td>600</td>
-        <td>Portfolio statements</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="dash">—</td>
-      </tr>
-      <tr>
-        <td>DSCR</td>
-        <td>85%</td>
-        <td>600</td>
-        <td>None required</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-      <tr>
-        <td>Profit & Loss</td>
-        <td>85%</td>
-        <td>600</td>
-        <td>CPA-prepared P&L</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-      <tr>
-        <td>WVOE</td>
-        <td>80%</td>
-        <td>600</td>
-        <td>Employer verification</td>
-        <td>$4M</td>
-        <td class="check">✓</td>
-        <td class="dash">—</td>
-      </tr>
-      <tr>
-        <td>Home Equity Loan</td>
-        <td>90%</td>
-        <td>660</td>
-        <td>All types accepted</td>
-        <td>$750K</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px">
-    <div style="background:#f0f4ff;border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:20px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px">Asset Qualifying %</div>
-      <div style="font-size:12px;color:#3a4a5c;line-height:1.8">
-        Checking/Savings: <strong>100%</strong><br>
-        Stocks & Bonds: <strong>70%</strong><br>
-        Retirement (59½+): <strong>70%</strong><br>
-        Retirement (under 59½): <strong>50%</strong><br>
-        Life Insurance CSV: <strong>100%</strong>
-      </div>
-    </div>
-    <div style="background:#f0f4ff;border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:20px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px">DSCR Highlights</div>
-      <div style="font-size:12px;color:#3a4a5c;line-height:1.8">
-        Short-term rental eligible<br>
-        AirDNA / Lease / 1007 accepted<br>
-        5–10 unit multifamily OK<br>
-        LLC entity lending available<br>
-        No-ratio programs available
-      </div>
-    </div>
-    <div style="background:#f0f4ff;border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:20px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px">Home Equity Highlights</div>
-      <div style="font-size:12px;color:#3a4a5c;line-height:1.8">
-        Stand-alone or piggyback<br>
-        All occupancy types<br>
-        All doc types accepted<br>
-        No appraisal option available<br>
-        Rental income may qualify
+  <div class="pr">
+    <div style="width:100%">
+      <!-- Income Source Comparison Visual -->
+      <svg viewBox="0 0 260 322" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px;margin:0 auto;display:block;margin-bottom:20px">
+        <rect width="260" height="322" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(37,99,235,0.2)" stroke-width="1"/>
+        <text x="130" y="22" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(59,130,246,0.7)" letter-spacing=".12em">INCOME SOURCE COMPARISON</text>
+        <!-- Property header -->
+        <rect x="16" y="30" width="228" height="26" rx="7" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+        <text x="130" y="47" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="10" font-weight="700" fill="rgba(59,130,246,0.9)">🏖️ Beachfront 3BR / Destin, FL</text>
+        <!-- Method 1: y=64, height=70 → title@79, sub@94, number@117 -->
+        <rect x="16" y="64" width="228" height="70" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="26" y="79" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(59,130,246,0.7)">METHOD 1 — AirDNA</text>
+        <text x="26" y="93" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">Market score 84 · 3 comps · 12-mo forecast</text>
+        <text x="242" y="121" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="24" fill="#60A5FA">$5,840/mo</text>
+        <!-- Method 2: y=142, height=70 → title@157, sub@171, number@199 -->
+        <rect x="16" y="142" width="228" height="70" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="26" y="157" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(59,130,246,0.7)">METHOD 2 — Airbnb 12-mo Statement</text>
+        <text x="26" y="171" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">Actual gross · net of 3% host fee</text>
+        <text x="242" y="199" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="24" fill="#60A5FA">$6,210/mo</text>
+        <!-- Method 3: y=220, height=70 → title@235, sub@249, number@277 -->
+        <rect x="16" y="220" width="228" height="70" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="26" y="235" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(59,130,246,0.7)">METHOD 3 — Bank Deposits</text>
+        <text x="26" y="249" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">12-mo deposits w/ rental records</text>
+        <text x="242" y="277" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="24" fill="#60A5FA">$6,050/mo</text>
+        <!-- Qualifying = lowest: y=298, height=16 -->
+        <rect x="16" y="298" width="228" height="16" rx="5" fill="rgba(37,99,235,0.2)"/>
+        <text x="22" y="310" font-family="'Plus Jakarta Sans',sans-serif" font-size="8.5" font-weight="700" fill="rgba(59,130,246,0.85)">QUALIFYING INCOME (lowest) →</text>
+        <text x="242" y="310" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#60A5FA">$5,840/mo</text>
+      </svg>
+      <div class="ex-box">
+        <div class="ex-label">📌 Key Rule</div>
+        <div class="ex-text">"When you submit multiple income sources, the lender always uses the lowest figure. Don't volunteer extra documentation that might lower your qualifying income — work with your advisor on which single method produces the best result."</div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-<!-- ═══════════════════════════════════════ CTA + FOOTER -->
-<div class="page">
-<div class="cta-page">
-  <div class="cta-left">
-    <div class="cta-h">GET YOUR<br>BEST RATE<br>TODAY.</div>
-    <div class="cta-body">No SSN required to start. No credit pull. Takes 2 minutes. Our advisors will identify exactly which program fits your situation and deliver competing quotes from top-tier lenders.</div>
-    <a href="https://goratehero.com" class="cta-btn">Start at goratehero.com →</a>
-    <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.5)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7a121f1616153a081b0e1f121f081554191517">[email&#160;protected]</a> · goratehero.com</div>
-  </div>
-  <div class="cta-right">
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-val">50+</div>
-        <div class="stat-label">Wholesale Lenders Competing for Your Rate</div>
+<!-- ════════════════════════════════════════ DSCR STR FORMULA -->
+<div class="page prog-page light">
+  <div class="pl">
+    <div class="pnum" style="color:rgba(37,99,235,0.1)">03</div>
+    <div class="ptag">DSCR STR Loan Structure</div>
+    <div class="ptitle">HOW DSCR<br>STR LOANS<br>QUALIFY</div>
+    <div class="pwhat">The Formula</div>
+    <div class="pdesc"><strong>DSCR = Net Qualifying STR Income ÷ PITIA</strong><br>The net qualifying income is the documented STR income after the vacancy factor is applied. A DSCR of 1.0 means rent exactly covers the payment. Above 1.0 means positive cash flow from the lender's perspective.</div>
+    <div class="puses-title">Program Parameters</div>
+    <div class="puse">
+      <div class="puse-icon" style="background:var(--blue)">📈</div>
+      <div>
+        <div class="puse-label">DSCR Thresholds</div>
+        <div class="puse-body"><strong>1.25+</strong> Strong — best rates, highest LTV. <strong>1.0–1.24</strong> Standard — qualifies at full program. <strong>0.75–0.99</strong> Sub-1.0 programs available. <strong>Below 0.75</strong> No-ratio option up to 80% LTV.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">21</div>
-        <div class="stat-label">Day Average Close — Even on Complex Files</div>
+    </div>
+    <div class="puse">
+      <div class="puse-icon" style="background:var(--blue)">🏠</div>
+      <div>
+        <div class="puse-label">Property Types</div>
+        <div class="puse-body">SFR, 2–4 units, and condominiums (must verify HOA allows STR). 5–10 unit multifamily not typically eligible for STR qualification. Condotels excluded.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">4.9★</div>
-        <div class="stat-label">Client Rating Across All Programs</div>
+    </div>
+    <div class="puse">
+      <div class="puse-icon" style="background:var(--blue)">⚠️</div>
+      <div>
+        <div class="puse-label">Vacancy Factor</div>
+        <div class="puse-body">A default <strong>20% vacancy factor</strong> is applied to STR income unless the appraiser provides a specific occupancy rate. AirDNA projections also use revenue = daily rate × occupancy rate from the report.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">$2.1B</div>
-        <div class="stat-label">Total Loan Volume Funded</div>
+    </div>
+    <div class="puse">
+      <div class="puse-icon" style="background:var(--blue)">🔍</div>
+      <div>
+        <div class="puse-label">HOA Due Diligence</div>
+        <div class="puse-body">Always review CC&Rs and HOA rules before applying. A condo or community that prohibits short-term rentals disqualifies the STR loan at the property level — no lender can override the HOA.</div>
       </div>
     </div>
   </div>
+  <div class="pr" style="background:#f0fdfb;flex-direction:column;gap:18px">
+    <!-- DSCR Calculator -->
+    <svg viewBox="0 0 260 268" xmlns="http://www.w3.org/2000/svg" fill="none" style="width:100%;max-width:240px">
+      <rect width="260" height="268" rx="14" fill="rgba(37,99,235,0.05)"/>
+      <!-- Row 1: y=14, height=86 — label@28, big number@58, vacancy row@74 -->
+      <rect x="18" y="14" width="224" height="86" rx="9" fill="white"/>
+      <text x="28" y="28" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(37,99,235,0.65)">GROSS STR INCOME (AirDNA)</text>
+      <text x="242" y="58" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#2563EB">$5,200<tspan font-size="14">/mo</tspan></text>
+      <line x1="18" y1="68" x2="242" y2="68" stroke="rgba(37,99,235,0.08)" stroke-width="1"/>
+      <text x="28" y="82" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(37,99,235,0.45)">Minus 20% vacancy factor</text>
+      <text x="242" y="82" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(200,50,50,0.65)">−$1,040</text>
+      <!-- Net income strip: y=108 height=22 -->
+      <rect x="18" y="108" width="224" height="22" rx="5" fill="rgba(37,99,235,0.07)"/>
+      <text x="28" y="123" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(37,99,235,0.65)">Net Qualifying Income</text>
+      <text x="242" y="123" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="17" fill="#2563EB">$4,160/mo</text>
+      <!-- Divider label -->
+      <text x="130" y="147" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="800" fill="rgba(37,99,235,0.28)">÷ PITIA</text>
+      <!-- Row 2: y=154, height=68 — label@169, sub@183, big number@208 -->
+      <rect x="18" y="154" width="224" height="68" rx="9" fill="white"/>
+      <text x="28" y="169" font-family="'Plus Jakarta Sans',sans-serif" font-size="9" font-weight="700" fill="rgba(37,99,235,0.65)">MONTHLY PITIA</text>
+      <text x="28" y="183" font-family="'Plus Jakarta Sans',sans-serif" font-size="8" fill="rgba(37,99,235,0.4)">Principal + Interest + Tax + Insurance + HOA</text>
+      <text x="242" y="208" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#2563EB">$2,950<tspan font-size="14">/mo</tspan></text>
+      <!-- Result bar: y=230 height=30 -->
+      <rect x="18" y="228" width="224" height="30" rx="9" fill="rgba(37,99,235,0.15)"/>
+      <text x="130" y="248" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="17" fill="#2563EB">DSCR 1.41 — STR QUALIFIES ✓</text>
+    </svg>
+    <div class="ex-box" style="width:100%">
+      <div class="ex-label">📋 Example</div>
+      <div class="ex-text">"Mountain cabin purchase. AirDNA market score 78, $5,200/mo gross. After 20% vacancy: $4,160. PITIA $2,950. DSCR 1.41 — strong approval, best program rates."</div>
+    </div>
+  </div>
 </div>
-<div class="doc-footer">
-  <div class="logo-sm">RATE <span>HERO</span></div>
+
+<!-- ════════════════════════════════════════ SCENARIO 1 -->
+<div class="page scenario-page">
+  <div class="sc-header">
+    <div class="sc-num">04</div>
+    <div class="sc-tag">Scenario 1 · New Purchase · No Rental History</div>
+    <div class="sc-title">FIRST STR PURCHASE<br>USING AIRDNA</div>
+    <div class="sc-sub">The most common STR financing scenario — buying a vacation rental property with no existing rental history. AirDNA projections carry the entire income qualification.</div>
+  </div>
+  <div class="sc-grid">
+    <div class="sc-card">
+      <div class="sc-card-icon">🏡</div>
+      <div class="sc-card-title">The Property</div>
+      <div class="sc-card-body">3-bedroom beach house, Gulf Coast, FL. No prior Airbnb listing. Appraiser orders AirDNA Rentalizer.</div>
+      <div class="sc-card-val">$520,000</div>
+    </div>
+    <div class="sc-card amber">
+      <div class="sc-card-icon">📊</div>
+      <div class="sc-card-title">AirDNA Result</div>
+      <div class="sc-card-body">Market score 81. $6,100/mo gross projection. After 20% vacancy factor: $4,880/mo net qualifying income.</div>
+      <div class="sc-card-val" style="color:var(--amber2)">$4,880/mo</div>
+    </div>
+    <div class="sc-card green">
+      <div class="sc-card-icon">✅</div>
+      <div class="sc-card-title">DSCR Result</div>
+      <div class="sc-card-body">PITIA: $3,240/mo. DSCR = 4,880 ÷ 3,240 = 1.51. Qualifies under best-rate program tier.</div>
+      <div class="sc-card-val">DSCR 1.51</div>
+    </div>
+  </div>
+  <div class="sc-detail">
+    <div class="sc-detail-box">
+      <div class="sc-d-label">Loan Structure</div>
+      <div class="sc-d-row"><div class="sc-d-key">Purchase Price</div><div class="sc-d-val">$520,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Down Payment (20%)</div><div class="sc-d-val">$104,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Loan Amount</div><div class="sc-d-val blue">$416,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Rate (30yr fixed)</div><div class="sc-d-val">7.875%</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Monthly P&I</div><div class="sc-d-val">$3,015</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Taxes + Insurance</div><div class="sc-d-val">$225</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Total PITIA</div><div class="sc-d-val blue">$3,240</div></div>
+    </div>
+    <div class="sc-detail-box amber-border">
+      <div class="sc-d-label amber">AirDNA Qualification</div>
+      <div class="sc-d-row"><div class="sc-d-key">AirDNA Market Score</div><div class="sc-d-val amber">81 / 100</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Gross Monthly Projection</div><div class="sc-d-val">$6,100</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Vacancy Factor Applied</div><div class="sc-d-val red">−20% (−$1,220)</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Net Qualifying Income</div><div class="sc-d-val green">$4,880</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">DSCR Ratio</div><div class="sc-d-val green">1.51 ✓</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Comparable Properties</div><div class="sc-d-val">4 (minimum 3)</div></div>
+    </div>
+  </div>
+  <div class="sc-result">
+    <div>
+      <div class="sc-result-label">Outcome</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:3px">No income docs. No W-2. No tax returns. Closed in LLC.</div>
+    </div>
+    <div class="sc-result-val">APPROVED — 21 DAYS</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ SCENARIO 2 -->
+<div class="page scenario-page">
+  <div class="sc-header">
+    <div class="sc-num">05</div>
+    <div class="sc-tag">Scenario 2 · Cash-Out Refinance · Existing STR</div>
+    <div class="sc-title">PULLING EQUITY FROM<br>AN ACTIVE AIRBNB</div>
+    <div class="sc-sub">The investor has been operating a profitable Airbnb for 2 years. The property has appreciated. They want to cash out equity and use it as a down payment on a second STR — without selling and without showing personal income.</div>
+  </div>
+  <div class="sc-grid">
+    <div class="sc-card">
+      <div class="sc-card-icon">📈</div>
+      <div class="sc-card-title">Property Today</div>
+      <div class="sc-card-body">Smoky Mountains cabin purchased 2 years ago for $380K. Current appraised value after appreciation.</div>
+      <div class="sc-card-val">$460,000</div>
+    </div>
+    <div class="sc-card amber">
+      <div class="sc-card-icon">📋</div>
+      <div class="sc-card-title">Income Documentation</div>
+      <div class="sc-card-body">12-month Airbnb host statement. Gross $72,480/year. Platform fee 3%: $2,174. Net qualifying annual: $70,306.</div>
+      <div class="sc-card-val" style="color:var(--amber2)">$5,859/mo</div>
+    </div>
+    <div class="sc-card green">
+      <div class="sc-card-icon">💰</div>
+      <div class="sc-card-title">Cash-Out Proceeds</div>
+      <div class="sc-card-body">75% LTV on refi = $345K. Current loan balance $285K. Cash out: $60K — enough for next STR down payment.</div>
+      <div class="sc-card-val">$60,000</div>
+    </div>
+  </div>
+  <div class="sc-detail">
+    <div class="sc-detail-box">
+      <div class="sc-d-label">Refinance Structure</div>
+      <div class="sc-d-row"><div class="sc-d-key">Current Appraised Value</div><div class="sc-d-val">$460,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Max LTV (cash-out, STR)</div><div class="sc-d-val">75%</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Max New Loan Amount</div><div class="sc-d-val blue">$345,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Existing Loan Payoff</div><div class="sc-d-val">$285,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Cash-Out Proceeds</div><div class="sc-d-val green">$60,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">New PITIA</div><div class="sc-d-val">$2,680</div></div>
+    </div>
+    <div class="sc-detail-box amber-border">
+      <div class="sc-d-label amber">DSCR Qualification</div>
+      <div class="sc-d-row"><div class="sc-d-key">12-mo Airbnb Gross</div><div class="sc-d-val">$72,480/yr</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Platform Fees (3%)</div><div class="sc-d-val red">−$2,174</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Net Annual Qualifying</div><div class="sc-d-val">$70,306</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Monthly Qualifying</div><div class="sc-d-val amber">$5,859</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">New PITIA</div><div class="sc-d-val">$2,680</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">DSCR Ratio</div><div class="sc-d-val green">2.19 ✓</div></div>
+    </div>
+  </div>
+  <div class="sc-result">
+    <div>
+      <div class="sc-result-label">What the $60K funds next</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:3px">20% down on a $300K STR purchase — Smoky Mtns cabin #2. Capital recycled, no money out of pocket.</div>
+    </div>
+    <div class="sc-result-val">EQUITY RECYCLED</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ SCENARIO 3 -->
+<div class="page scenario-page">
+  <div class="sc-header">
+    <div class="sc-num">06</div>
+    <div class="sc-tag">Scenario 3 · Self-Employed Host · Mixed Documentation</div>
+    <div class="sc-title">WHEN YOU OWN<br>THE STR AND THE BUSINESS</div>
+    <div class="sc-sub">Self-employed borrowers who also operate Airbnb properties face double documentation challenges. Bank statement income from the business + STR DSCR qualification from the rental — two programs working together on the same deal.</div>
+  </div>
+  <div class="sc-grid">
+    <div class="sc-card">
+      <div class="sc-card-icon">💼</div>
+      <div class="sc-card-title">Borrower Profile</div>
+      <div class="sc-card-body">Restaurant owner. Tax return shows $42K net income after write-offs. Business deposits: $28K/month. No W-2.</div>
+      <div class="sc-card-val">$28K/mo</div>
+    </div>
+    <div class="sc-card amber">
+      <div class="sc-card-icon">🏖️</div>
+      <div class="sc-card-title">STR Being Purchased</div>
+      <div class="sc-card-body">Lake house, $480K purchase. AirDNA: $4,600/mo gross. After 20% vacancy: $3,680/mo net STR income.</div>
+      <div class="sc-card-val" style="color:var(--amber2)">$3,680/mo</div>
+    </div>
+    <div class="sc-card green">
+      <div class="sc-card-icon">🔗</div>
+      <div class="sc-card-title">Two Programs, One Loan</div>
+      <div class="sc-card-body">Property qualifies under DSCR STR — no personal income needed. Bank statements used for a simultaneous personal refinance. Separate transactions, same week.</div>
+      <div class="sc-card-val">Both Closed</div>
+    </div>
+  </div>
+  <div class="sc-detail">
+    <div class="sc-detail-box">
+      <div class="sc-d-label">STR Purchase (DSCR)</div>
+      <div class="sc-d-row"><div class="sc-d-key">Purchase Price</div><div class="sc-d-val">$480,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Down Payment (20%)</div><div class="sc-d-val">$96,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Loan Amount</div><div class="sc-d-val blue">$384,000</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Net STR Income</div><div class="sc-d-val green">$3,680/mo</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">PITIA</div><div class="sc-d-val">$2,880</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">DSCR</div><div class="sc-d-val green">1.28 ✓</div></div>
+    </div>
+    <div class="sc-detail-box amber-border">
+      <div class="sc-d-label amber">Why DSCR Was the Right Call</div>
+      <div class="sc-d-row"><div class="sc-d-key">Tax return qualifying income</div><div class="sc-d-val red">$3,500/mo</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">At tax return income, DTI would be</div><div class="sc-d-val red">82% — rejected</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">DSCR qualification income used</div><div class="sc-d-val green">$0 (property only)</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Personal income required</div><div class="sc-d-val green">None</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Tax returns submitted</div><div class="sc-d-val green">None</div></div>
+      <div class="sc-d-row"><div class="sc-d-key">Result</div><div class="sc-d-val amber">Approved ✓</div></div>
+    </div>
+  </div>
+  <div class="sc-result amber">
+    <div>
+      <div class="sc-result-label" style="color:var(--amber2)">Key Insight</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:3px">DSCR completely sidesteps the self-employment income problem. The property qualified itself — the borrower's write-offs were irrelevant.</div>
+    </div>
+    <div class="sc-result-val" style="color:var(--amber2)">PROGRAM MATCH</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ SCENARIO 4 -->
+<div class="page scenario-page">
+  <div class="sc-header">
+    <div class="sc-num">07</div>
+    <div class="sc-tag">Scenario 4 · Portfolio Expansion · How Each Deal Funds the Next</div>
+    <div class="sc-title">SCALING FROM<br>1 STR TO 5</div>
+    <div class="sc-sub">The STR portfolio strategy: each property's equity — accessed through DSCR cash-out refinancing — funds the down payment on the next acquisition. No additional savings required. No income documentation needed at each step.</div>
+  </div>
+
+  <!-- Timeline flow -->
+  <div style="display:flex;gap:0;margin-top:28px;position:relative">
+    <!-- Connecting line -->
+    <div style="position:absolute;top:42px;left:32px;right:32px;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3));opacity:0.3;z-index:0"></div>
+
+    <!-- Deal 1 -->
+    <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 6px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white">1</div>
+      <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:14px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--blue2);margin-bottom:4px">PURCHASE</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px">Saved $80K down. Lake house. DSCR 1.38.</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--blue2)">$400K</div>
+      </div>
+    </div>
+    <!-- Deal 2 -->
+    <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 6px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white">2</div>
+      <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:14px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--blue2);margin-bottom:4px">CASH-OUT REFI</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px">18 mo later. Appraised $470K. Pulled $72K equity.</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--amber2)">$72K OUT</div>
+      </div>
+    </div>
+    <!-- Deal 3 -->
+    <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 6px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white">3</div>
+      <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:14px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--blue2);margin-bottom:4px">PURCHASE #2</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px">$72K funds 20% down on beach condo #2. DSCR 1.44.</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--blue2)">$360K</div>
+      </div>
+    </div>
+    <!-- Deal 4 -->
+    <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 6px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white">4</div>
+      <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:14px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--blue2);margin-bottom:4px">2X REFI</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px">Both properties appreciate. Dual cash-out pulls $140K.</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--amber2)">$140K OUT</div>
+      </div>
+    </div>
+    <!-- Deal 5 -->
+    <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 6px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white">5</div>
+      <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.22);border-radius:10px;padding:14px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--amber2);margin-bottom:4px">PROPERTIES 3–5</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px">$140K funds three more STRs at 20% down each. Portfolio = 5.</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--amber2)">5 PROPS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio summary -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px">
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.18);border-radius:12px;padding:20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue2);margin-bottom:8px">Total Portfolio Value</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--blue2)">$2.1M</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px">5 STR properties combined</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(245,158,11,0.18);border-radius:12px;padding:20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber2);margin-bottom:8px">Cash Out of Pocket</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--amber2)">$80K</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px">Original investment only — the rest was equity</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(34,197,94,0.18);border-radius:12px;padding:20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:8px">Monthly Gross Revenue</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:#4ade80">$28K</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px">Combined STR income across portfolio</div>
+    </div>
+  </div>
+
+  <div class="sc-result" style="margin-top:20px">
+    <div>
+      <div class="sc-result-label">The Key Principle</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:3px">Each DSCR STR loan qualifies on the property's own income. The portfolio grows without being limited by personal DTI, property count caps, or income documentation.</div>
+    </div>
+    <div class="sc-result-val">NO INCOME DOCS</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ MISTAKES -->
+<div class="page mistakes-page">
+  <div style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2)">Section 08</div>
+  <div style="font-family:var(--fd);font-size:58px;letter-spacing:2px;color:var(--w);line-height:.9;margin:12px 0 0">STR FINANCING<br>MISTAKES<br>TO AVOID</div>
+  <div class="mg">
+    <div class="mc">
+      <div class="mc-icon">📋</div>
+      <div class="mc-title">Submitting multiple income sources without thinking</div>
+      <div class="mc-body">When you submit AirDNA AND a platform statement AND bank deposits, the lender uses the lowest. If your AirDNA projection is lower than your actual history, don't volunteer AirDNA — it will reduce your qualifying income and potentially kill the deal.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🏢</div>
+      <div class="mc-title">Not checking HOA rules before applying</div>
+      <div class="mc-body">A condo with STR-prohibiting CC&Rs cannot be financed as a DSCR STR loan regardless of what the lender allows. This is a hard stop that costs you the appraisal fee if discovered late. Always review HOA governing documents before ordering an appraisal.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">📊</div>
+      <div class="mc-title">Using an AirDNA market with a score below 60</div>
+      <div class="mc-body">AirDNA projections are only acceptable when the market score is 60 or higher. A beautiful property in a thin vacation rental market with a score of 52 cannot use AirDNA for qualification — you'll need 12 months of actual rental history instead.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">🔢</div>
+      <div class="mc-title">Forgetting the 20% vacancy factor in the math</div>
+      <div class="mc-body">If AirDNA projects $6,000/month, you qualify on $4,800/month — not $6,000. Investors who run their DSCR math on gross projections and then discover the vacancy factor often find a deal they thought penciled at 1.25 actually comes in at 0.99.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">⏰</div>
+      <div class="mc-title">Letting the AirDNA report go stale</div>
+      <div class="mc-body">The AirDNA Rentalizer report must be dated within 90 days of the note date. If your closing gets delayed — an extended inspection period, title issues, lender backlog — you may need a fresh AirDNA report. Budget for this in your timeline.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-icon">💰</div>
+      <div class="mc-title">Treating all STR cash-out refis like LTR cash-out refis</div>
+      <div class="mc-body">STR cash-out refinances typically have a lower maximum LTV than LTR cash-out refis. A standard DSCR cash-out might go to 75% LTV on a long-term rental but only 70–72% on an STR. Run the numbers with STR-specific LTV caps before structuring the transaction.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ CONCLUSION -->
+<div class="page concl">
+  <div class="concl-logo">RATE <span>HERO</span></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">The Short-Term Rental Playbook</p>
+  <div class="concl-title">READY TO<br>RUN THE<br>NUMBERS?</div>
+  <div class="concl-body">Every STR deal starts with the same question: does the income support the loan? Let us run the AirDNA analysis, model the DSCR, and tell you exactly which program works — before you make an offer.</div>
+  <a href="https://goratehero.com" class="concl-cta">Start at goratehero.com →</a>
+  <div class="concl-contact">
+    <p>Sean Davoodian · NMLS #1252107</p>
+    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval. Terms and conditions apply.</p>
+  </div>
+
+  <!-- Wave decoration -->
+  <svg viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.3;z-index:0">
+    <path d="M0 60 Q212 10 425 60 Q637 110 850 60 L850 120 L0 120 Z" fill="rgba(37,99,235,0.2)"/>
+    <path d="M0 75 Q212 30 425 75 Q637 120 850 75 L850 120 L0 120 Z" fill="rgba(37,99,235,0.12)"/>
+  </svg>
+</div>
+
+</body>
+</html>

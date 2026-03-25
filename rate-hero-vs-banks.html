@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First-Time Real Estate Investor Guide — Rate Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:     #F8FAFF;
+  --bg2:    #FFFFFF;
+  --bg3:    #EEF2FF;
+  --bg4:    #F1F5FD;
+  --navy:   #F8FAFF;
+  --navy2:  #EEF2FF;
+  --navy3:  #F1F5FD;
+  --dk:     #F8FAFF;
+  --dk2:    #EEF2FF;
+  --dk3:    #F1F5FD;
+  --blue:   #2563EB;
+  --blue2:  #3B82F6;
+  --blue3:  #1D4ED8;
+  --teal:   #2563EB;
+  --amber:  #E8920A;
+  --amber2: #FCD34D;
+  --gold:   #E8920A;
+  --gold2:  #F5B731;
+  --green:  #16a34a;
+  --green2: #4ade80;
+  --red:    #DC2626;
+  --w:      #0F172A;
+  --w80:    #374151;
+  --w55:    #6B7280;
+  --w50:    #6B7280;
+  --w25:    #9CA3AF;
+  --card:   rgba(37,99,235,0.04);
+  --cardb:  rgba(37,99,235,0.08);
+  --border: rgba(0,0,0,0.09);
+  --card-sh:0 4px 20px rgba(0,0,0,0.07),0 1px 4px rgba(0,0,0,0.04);
+  --fd:'Bebas Neue',sans-serif;
+  --fb:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
+.page{width:850px;min-height:1100px;margin:0 auto;position:relative;overflow:hidden}
+@media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.3);margin-bottom:32px}}
+@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
+.cover{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.07) 1px,transparent 1px);background-size:55px 55px}
+.cv-glow1{position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.18),transparent 70%)}
+.cv-glow2{position:absolute;bottom:-80px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.09),transparent 70%)}
+.cv-top{padding:52px 60px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cv-logo{font-family:var(--fd);font-size:36px;letter-spacing:6px;color:var(--w)}.cv-logo span{color:var(--blue2)}
+.cv-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--blue2);padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cv-hero{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 60px 40px;position:relative;z-index:2}
+.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.cv-title{font-family:var(--fd);font-size:88px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:8px}
+.cv-title em{color:var(--blue2);font-style:normal}
+.cv-sub{font-family:var(--fd);font-size:28px;letter-spacing:3px;color:var(--amber2);margin-bottom:28px}
+.cv-desc{font-size:17px;color:var(--w55);line-height:1.8;max-width:500px;margin-bottom:36px}
+.cv-pills{display:flex;gap:10px;flex-wrap:wrap}
+.cv-pill{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.28);color:var(--blue2);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
+.cv-pill.am{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--amber2)}
+.cv-bottom{padding:28px 60px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
+.cv-by{font-size:13px;color:var(--w55)}.cv-by strong{color:var(--w);font-weight:700}
+.cv-contact{text-align:right;font-size:12px;color:var(--w55)}.cv-contact strong{color:var(--blue2);font-size:14px}
+
+/* ROADMAP */
+.road-page{background:var(--navy2);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.road-page::before{content:'';position:absolute;bottom:-80px;right:-80px;width:420px;height:420px;border-radius:50%;background:rgba(37,99,235,0.07);pointer-events:none}
+.pg-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);margin-bottom:10px;position:relative;z-index:1}
+.pg-h1{font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:14px;position:relative;z-index:1}
+.pg-sub{font-size:16px;color:var(--w55);line-height:1.7;max-width:600px;margin-bottom:44px;position:relative;z-index:1}
+.road-steps{display:flex;flex-direction:column;gap:0;position:relative;z-index:1}
+.road-step{display:flex;gap:24px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.road-step:last-child{border:none}
+.road-num{font-family:var(--fd);font-size:48px;color:var(--blue2);line-height:1;min-width:44px;opacity:.8}
+.road-content{flex:1;padding-top:6px}
+.road-title{font-size:15px;font-weight:800;color:var(--w);margin-bottom:6px}
+.road-body{font-size:13px;color:var(--w55);line-height:1.7;margin-bottom:8px}
+.road-tip{display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--blue2);padding:4px 11px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+
+/* LOAN OPTIONS */
+.loans-page{background:#fff;min-height:1100px;padding:80px 68px}
+.pg-tag-l{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.pg-h1-l{font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--navy);line-height:.88;margin-bottom:14px}
+.pg-sub-l{font-size:16px;color:#4b5563;line-height:1.7;max-width:600px;margin-bottom:40px}
+.loan-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.loan-card{border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.loan-card.dark{background:var(--navy);border:1px solid rgba(37,99,235,0.18)}
+.loan-card.light{background:#f0f4ff;border:1px solid rgba(37,99,235,0.15)}
+.loan-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.loan-card.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.loan-card.green::before{background:linear-gradient(90deg,var(--green),var(--green2))}
+.lc-icon{font-size:24px;margin-bottom:10px}
+.lc-name{font-size:14px;font-weight:800;margin-bottom:4px}
+.loan-card.dark .lc-name{color:var(--w)}
+.loan-card.light .lc-name{color:var(--navy)}
+.lc-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:10px}
+.loan-card.amber .lc-tag{color:var(--amber)}
+.loan-card.green .lc-tag{color:var(--green)}
+.lc-body{font-size:12px;line-height:1.65}
+.loan-card.dark .lc-body{color:var(--w55)}
+.loan-card.light .lc-body{color:#4b5563}
+.lc-specs{margin-top:12px;display:flex;flex-direction:column;gap:5px}
+.lc-spec{font-size:11px;display:flex;gap:6px}
+.lc-spec-k{color:#9ca3af;min-width:70px}
+.loan-card.dark .lc-spec-k{color:var(--w55)}
+.lc-spec-v{font-weight:700}
+.loan-card.light .lc-spec-v{color:var(--navy)}
+.loan-card.dark .lc-spec-v{color:var(--w80)}
+
+/* MISTAKES */
+.mistakes-page{background:var(--navy);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.mistakes-page::before{content:'';position:absolute;bottom:-100px;left:-80px;width:450px;height:450px;border-radius:50%;background:rgba(37,99,235,0.06);pointer-events:none}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;position:relative;z-index:1}
+.mc{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue)}
+.mc-icon{font-size:26px;margin-bottom:10px}
+.mc-title{font-size:14px;font-weight:800;color:var(--w);margin-bottom:7px}
+.mc-body{font-size:13px;color:var(--w55);line-height:1.65}
+
+.concl{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 70px;position:relative;overflow:hidden}
+.concl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(37,99,235,0.15),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.07),transparent)}
+.concl-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}.concl-logo span{color:var(--blue2)}
+.concl-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
+.concl-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.concl-cta{background:var(--blue);color:var(--w);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block}
+.concl-contact{margin-top:34px;position:relative;z-index:1}.concl-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}.concl-contact strong{color:var(--w);font-size:15px}
+
+/* ── LIGHT THEME: COVER ── */
+.cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.cv-grid{background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px) !important}
+.cv-logo{color:#fff !important}
+.cv-logo span{color:#FCD34D !important}
+.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.25) !important;color:#fff !important}
+.cv-eyebrow{color:rgba(255,255,255,0.7) !important}
+.cv-title{color:#fff !important}
+.cv-title em,.cv-title-em{color:#FCD34D !important}
+.cv-sub{color:rgba(255,255,255,0.65) !important}
+.cv-desc{color:rgba(255,255,255,0.78) !important}
+.cv-pill{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.22) !important;color:#fff !important}
+.cv-pill.am{background:rgba(245,183,49,0.15) !important;border-color:rgba(245,183,49,0.35) !important;color:#FCD34D !important}
+.cv-bottom{border-top-color:rgba(255,255,255,0.1) !important}
+.cv-by{color:rgba(255,255,255,0.55) !important}
+.cv-by strong{color:#fff !important}
+.cv-contact{color:rgba(255,255,255,0.55) !important}
+.cv-contact strong{color:#FCD34D !important}
+
+/* ── LIGHT THEME: BODY + BASE ── */
+body{background:var(--bg) !important;color:var(--w) !important}
+body::before{background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px) !important}
+
+/* ── LIGHT THEME: TOC ── */
+.toc-page{background:#fff !important}
+.toc-tag{color:var(--blue) !important}
+.toc-h{color:#0F172A !important}
+.toc-intro{color:#4B5563 !important}
+.toc-label{color:#0F172A !important}
+.toc-num{color:var(--blue) !important}
+.toc-item{border-bottom-color:#e5e7eb !important}
+
+/* ── LIGHT THEME: INTRO / TWO-COL PAGES ── */
+.intro-page{background:#fff !important}
+.intro-left{background:#F1F5FD !important}
+.intro-right{background:#fff !important}
+.ilabel{color:var(--blue) !important}
+.ih1{color:#0F172A !important}
+.ibody{color:#374151 !important}
+.ipull{background:rgba(37,99,235,0.06) !important;border-left-color:var(--blue) !important}
+.ipull p{color:#0F172A !important}
+.r-label{color:var(--blue) !important}
+.r-h2{color:#0F172A !important}
+.r-body{color:#374151 !important}
+.stat-box{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.stat-val{color:var(--blue) !important}
+.stat-lbl{color:#6B7280 !important}
+
+/* ── LIGHT THEME: DARK SECTION PAGES → LIGHT ── */
+.steps-page,.qualify-page,.programs-page,.road-page,.letters-page,
+.scenario-page,.sc-page,.mistakes-page,.exit-page,.switch-page,
+.numbers-page,.matrix-page,.progs-page,.dark-bg{
+  background:var(--bg3) !important
+}
+
+/* ── LIGHT THEME: WHITE/LIGHT PAGES ── */
+.what-page,.promise-page,.loans-page,.how-page,.compare-page,.voice-example{
+  background:#fff !important
+}
+
+/* ── LIGHT THEME: SECTION LABELS + HEADINGS ── */
+.pg-tag{color:var(--blue) !important}
+.pg-h1{color:#0F172A !important}
+.pg-sub{color:#374151 !important}
+.pg-tag-l{color:var(--blue) !important}
+.pg-h1-l{color:#0F172A !important}
+.pg-sub-l{color:#374151 !important}
+.wh-tag{color:var(--blue) !important}
+.wh-h1{color:#0F172A !important}
+.wh-intro{color:#374151 !important}
+h1,h2,h3{color:#0F172A}
+p{color:#374151}
+
+/* ── LIGHT THEME: CARDS ── */
+.sc-card,.prog-card,.req-card,.path-card,.how-card,
+.exit-card,.promise-card,.loan-card,.step-card,
+.mc,.story,.letter-row{
+  background:#fff !important;
+  border-color:rgba(0,0,0,0.09) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06) !important;
+}
+/* keep dark cards with colored borders */
+.sc-card::before,.prog-card::before,.req-card::before,.path-card::before,
+.how-card::before,.exit-card::before,.promise-card::before,.loan-card::before,
+.exit-card::before,.mc::before,.story::before{opacity:1 !important}
+
+/* Card text */
+.sc-icon,.prog-icon,.req-icon,.path-icon,.how-icon,.ec-icon,.mc-icon,.story-icon,.pc-icon,.lc-icon{color:inherit}
+.sc-title,.prog-name,.req-title,.path-name,.how-title,.ec-title,.mc-title,.story-title,.pc-title,.lc-name{color:#0F172A !important}
+.sc-body,.prog-desc,.req-body,.path-desc,.how-body,.ec-body,.mc-body,.story-body,.pc-body,.lc-body{color:#4B5563 !important}
+.prog-tag,.path-who,.ec-tag,.lc-tag{color:var(--blue) !important}
+.letter-word{color:#0F172A !important}
+.letter-body{color:#374151 !important}
+.letter-highlight{color:var(--blue) !important}
+
+/* Numeric values in cards */
+.req-val,.how-stat,.tier-score,.istat-val,.hsc-num,.pstat-num{color:var(--blue) !important}
+.sc-val,.df-val{color:#374151 !important}
+.sc-val.blue,.df-val.blue,.sc-rval,.sc-result-val{color:var(--blue) !important}
+.sc-val.amber,.df-val.amber{color:var(--amber) !important}
+.sc-val.green,.df-val.green{color:var(--green) !important}
+.sc-val.red,.df-val.red{color:var(--red) !important}
+.sc-key,.df-key{color:#6B7280 !important}
+.sc-row{border-bottom-color:rgba(0,0,0,0.07) !important}
+.sc-d-key{color:#6B7280 !important}
+.sc-d-val{color:#0F172A !important}
+
+/* Step rows */
+.step-row{background:transparent !important}
+.step-num{color:var(--blue) !important;opacity:.7}
+.step-title{color:#0F172A !important}
+.step-body{color:#4B5563 !important}
+.step-badge{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.step-divider{background:rgba(37,99,235,0.15) !important}
+.road-step{border-bottom-color:rgba(0,0,0,0.07) !important}
+.road-title{color:#0F172A !important}
+.road-body{color:#4B5563 !important}
+.road-tip{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.18) !important;color:var(--blue) !important}
+
+/* Formula box stays dark */
+.formula-box{background:#0F1E38 !important;border-color:rgba(37,99,235,0.2) !important}
+.formula-num{color:#fff !important}
+.formula-num span{color:rgba(255,255,255,0.55) !important}
+.formula-div,.formula-eq{color:var(--blue2) !important}
+.formula-result{color:var(--blue2) !important}
+.formula-result span{color:rgba(255,255,255,0.55) !important}
+.formula-label{color:var(--blue2) !important}
+
+/* BRRRR letters */
+.letter-big{color:var(--amber) !important}
+.letters-page .pg-h1{color:#0F172A !important}
+
+/* Deal flow box stays dark */
+.deal-flow{background:#0F1E38 !important}
+.df-label,.df-title{color:var(--blue2) !important}
+.df-row{border-bottom-color:rgba(255,255,255,0.06) !important}
+.df-key,.df-val{color:rgba(255,255,255,0.7) !important}
+.df-row.total .df-key{color:#fff !important}
+
+/* Key metrics */
+.key-metrics .km{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.km-val{color:var(--blue) !important}
+.km-val.green{color:var(--green) !important}
+.km-val.amber{color:var(--amber) !important}
+.km-lbl{color:#6B7280 !important}
+
+/* Tier boxes */
+.tier.green{background:rgba(22,163,74,0.06) !important;border-color:rgba(22,163,74,0.2) !important}
+.tier.blue{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tier.amber{background:rgba(232,146,10,0.06) !important;border-color:rgba(232,146,10,0.2) !important}
+.tier-label{color:#0F172A !important}
+.tier-body{color:#6B7280 !important}
+
+/* Section tags / badges */
+.section-tag,.stag,.pbadge,.step-pill{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-blue{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-amber{background:rgba(232,146,10,0.08) !important;border-color:rgba(232,146,10,0.2) !important;color:var(--amber) !important}
+.pbadge-green{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.2) !important;color:var(--green) !important}
+
+/* Scenario page dark accent boxes */
+.sc-result{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important}
+.sc-result-label{color:var(--blue) !important}
+.sc-result-val{color:var(--blue) !important}
+.sc-result.amber{background:rgba(232,146,10,0.07) !important;border-color:rgba(232,146,10,0.2) !important}
+.sc-result.amber .sc-result-label,.sc-result.amber .sc-result-val{color:var(--amber) !important}
+.sc-result.green{background:rgba(22,163,74,0.07) !important;border-color:rgba(22,163,74,0.2) !important}
+.sc-result.green .sc-result-label,.sc-result.green .sc-result-val{color:var(--green) !important}
+.sc-rlabel{color:var(--blue) !important}
+.sc-rval{color:var(--blue) !important}
+.sc-card.amber .sc-rlabel,.sc-card.amber .sc-rval{color:var(--amber) !important}
+.sc-card.green .sc-rlabel,.sc-card.green .sc-rval{color:var(--green) !important}
+
+/* Pull quotes */
+.pull-quote{background:#0F1E38 !important}
+.pq-text{color:#fff !important}
+.pq-attr{color:var(--blue2) !important}
+
+/* Comparison table */
+.compare-table{border-color:rgba(0,0,0,0.09) !important;box-shadow:0 4px 20px rgba(0,0,0,0.07) !important}
+.ct-header .ct-h:first-child{background:var(--bg3) !important;color:#6B7280 !important}
+.ct-h.rh{background:var(--blue) !important;color:#fff !important}
+.ct-h.bank{background:var(--bg4) !important;color:#9CA3AF !important}
+.ct-row:nth-child(even){background:#fff !important}
+.ct-row:nth-child(odd){background:var(--bg4) !important}
+.ct-label{color:#0F172A !important}
+.ct-rh{color:var(--green) !important;background:rgba(22,163,74,0.04) !important}
+.ct-bank{color:var(--red) !important}
+
+/* Prog matrix */
+.pm-header{background:#0F1E38 !important}
+.pm-row:nth-child(even){background:#f9fafb !important}
+.pm-row:nth-child(odd){background:#fff !important}
+.pm-name{color:#0F172A !important}
+.pm-sub{color:#6B7280 !important}
+.pm-cell{color:#374151 !important}
+.pm-cell.check{color:var(--green) !important}
+.pm-cell.x{color:var(--red) !important}
+.pm-cell.maybe{color:var(--amber) !important}
+
+/* Story cards */
+.story{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.story::before{background:var(--blue) !important}
+.story-title{color:#0F172A !important}
+.story-what{color:var(--blue) !important}
+.story-body{color:#374151 !important}
+.story-result{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.25) !important;color:var(--green) !important}
+
+/* Trust bar */
+.trust-bar{background:var(--bg3) !important;border-color:rgba(0,0,0,0.07) !important}
+
+/* Timing / warning box */
+.timing-box{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tb-label{color:var(--blue) !important}
+.tb-body{color:#374151 !important}
+
+/* STR playbook specific */
+.prog-page.dark .pl,.prog-page.dark .pr{background:var(--bg3) !important}
+.prog-page.light .pl{background:#fff !important}
+.prog-page.light .pr{background:#F0FDF8 !important}
+.dark .ptag,.dark .pnum,.dark .pwhat,.dark .puses-title,.dark .ex-label{color:var(--blue) !important}
+.dark .ptitle{color:#0F172A !important}
+.dark .pdesc{color:#374151 !important}
+.dark .pdesc strong{color:#0F172A !important}
+.dark .puse-label{color:#0F172A !important}
+.dark .puse-body{color:#6B7280 !important}
+.dark .ex-box{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.dark .ex-text{color:#0F172A !important}
+.light .ptag,.light .pwhat,.light .puses-title{color:var(--blue) !important}
+.light .ptitle{color:#0F172A !important}
+.sc-card,.sc-card.amber,.sc-card.green{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.sc-card-title{color:#0F172A !important}
+.sc-card-body{color:#6B7280 !important}
+.istat{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.istat-val{color:var(--blue) !important}
+.istat-label{color:#6B7280 !important}
+
+/* Creative financing sections */
+.sect-left{background:var(--bg3) !important}
+.sect-right{background:#fff !important}
+.prog-left{background:var(--bg4) !important}
+.prog-right{background:#fff !important}
+.white-bg{background:#fff !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) h2{color:#0F172A !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) p:not(.cv-desc):not(.cv-by){color:#374151}
+
+/* Footer / doc footer */
+.doc-footer{background:var(--bg3) !important;border-top-color:rgba(0,0,0,0.08) !important}
+.doc-footer p,.doc-footer a,.doc-footer span{color:#6B7280 !important}
+
+/* CONCLUSION / CTA PAGE stays blue gradient */
+.concl,.cta-page,.conclusion-page{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.concl::before,.cta-page::before{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px) !important}
+.concl-logo,.cta-logo{color:#fff !important}
+.concl-logo span,.cta-logo span{color:#FCD34D !important}
+.concl-title,.cta-title{color:#fff !important}
+.concl-body,.cta-body{color:rgba(255,255,255,0.78) !important}
+.concl-cta,.cta-btn{background:#fff !important;color:var(--blue) !important;box-shadow:0 8px 32px rgba(0,0,0,0.2) !important}
+.concl-contact p,.cta-contact p{color:rgba(255,255,255,0.5) !important}
+.concl-contact strong,.cta-contact strong{color:#fff !important}
+.cal-box{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.2) !important}
+.cal-box p{color:rgba(255,255,255,0.6) !important}
+.cal-box a{color:#FCD34D !important}
+</style></head><body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cv-grid"></div><div class="cv-glow1"></div><div class="cv-glow2"></div>
+  <div class="cv-top"><div class="cv-logo">RATE <span>HERO</span></div><div class="cv-badge">🏠 First-Time Investor Guide</div></div>
+  <div class="cv-hero">
+    <div class="cv-eyebrow">From First Deal to Financial Freedom</div>
+    <div class="cv-title">YOUR FIRST<br>RENTAL<br><em>PROPERTY.</em></div>
+    <div class="cv-sub">THE PLAYBOOK</div>
+    <div class="cv-desc">How to finance your first investment property without the confusion — which loan to use, what you need to qualify, and the mistakes first-time investors most commonly make.</div>
+    <div class="cv-pills">
+      <div class="cv-pill">🏠 DSCR for Investors</div>
+      <div class="cv-pill am">📊 No W-2 Required</div>
+      <div class="cv-pill">💰 20% Down Options</div>
+      <div class="cv-pill am">🔒 LLC Lending OK</div>
+      <div class="cv-pill">⚡ 21-Day Close</div>
+    </div>
+  </div>
+  <div class="cv-bottom">
+    <div class="cv-by">Prepared by <strong>Sean Davoodian</strong> · NMLS #1252107</div>
+    <div class="cv-contact"><div>(747) 308-1635</div><strong>hello@ratehero.com</strong></div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="page road-page">
+  <div class="pg-tag">Step by Step</div>
+  <div class="pg-h1">YOUR ROAD MAP<br>TO DEAL #1.</div>
+  <div class="pg-sub">Every first-time investor goes through the same sequence. Here's what that looks like — and where we fit in.</div>
+  <div class="road-steps">
+    <div class="road-step">
+      <div class="road-num">01</div>
+      <div class="road-content">
+        <div class="road-title">Know Your Numbers Before You Shop</div>
+        <div class="road-body">Before you look at a single property, know what you can afford. Down payment (typically 20%), closing costs (2–3%), and reserves (3–6 months PITIA). This determines your price range and loan size.</div>
+        <div class="road-tip">🎯 Talk to us first — we'll give you a real budget in 10 min</div>
+      </div>
+    </div>
+    <div class="road-step">
+      <div class="road-num">02</div>
+      <div class="road-content">
+        <div class="road-title">Choose the Right Loan Type for Your Situation</div>
+        <div class="road-body">W-2 income with good credit? Conventional investment loan is usually the move. Self-employed or want to qualify on rent alone? DSCR is your program. We'll tell you exactly which fits in the first conversation.</div>
+        <div class="road-tip">📋 No SSN needed for a loan type recommendation</div>
+      </div>
+    </div>
+    <div class="road-step">
+      <div class="road-num">03</div>
+      <div class="road-content">
+        <div class="road-title">Find the Property & Run the DSCR Math</div>
+        <div class="road-body">Once you have a target property, we run the DSCR calculation: Does the rent support the payment? We'll do this before you make an offer so you know if it qualifies. Most lenders won't do this — we do it every time.</div>
+        <div class="road-tip">📊 Free DSCR calculation — before you offer</div>
+      </div>
+    </div>
+    <div class="road-step">
+      <div class="road-num">04</div>
+      <div class="road-content">
+        <div class="road-title">Go Under Contract & Lock Your Rate</div>
+        <div class="road-body">Once you're under contract, we issue pre-approval and lock your rate within 24 hours. Your checklist is minimal compared to conventional financing — especially if you're using DSCR.</div>
+        <div class="road-tip">⚡ Rate lock within 24 hours of going under contract</div>
+      </div>
+    </div>
+    <div class="road-step">
+      <div class="road-num">05</div>
+      <div class="road-content">
+        <div class="road-title">Close in 21 Days or Less</div>
+        <div class="road-body">Our average close is 21 days. Sellers love it. If you're competing against other buyers, speed is a real competitive advantage. We've closed deals in 14 days when the deal required it.</div>
+        <div class="road-tip">🏁 Average close: 21 days</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOAN OPTIONS -->
+<div class="page loans-page">
+  <div class="pg-tag-l">Loan Programs</div>
+  <div class="pg-h1-l">WHICH LOAN<br>IS YOURS?</div>
+  <div class="pg-sub-l">First-time investors have more options than most people realize. Here are the four most common programs we use for deal #1.</div>
+  <div class="loan-cards">
+    <div class="loan-card dark">
+      <div class="lc-icon">📈</div>
+      <div class="lc-name">DSCR Loan</div>
+      <div class="lc-tag">Qualify on Rent — Not Your Income</div>
+      <div class="lc-body">The property's rental income pays the mortgage. Your W-2, tax returns, and personal income don't matter. If the rent covers the payment, you qualify.</div>
+      <div class="lc-specs">
+        <div class="lc-spec"><span class="lc-spec-k">Down</span><span class="lc-spec-v">20–25%</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Credit</span><span class="lc-spec-v">620+ (680 for best rates)</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Income docs</span><span class="lc-spec-v">None required</span></div>
+      </div>
+    </div>
+    <div class="loan-card light green">
+      <div class="lc-icon">🏠</div>
+      <div class="lc-name">Conventional Investment Loan</div>
+      <div class="lc-tag">Lowest Rates for W-2 Borrowers</div>
+      <div class="lc-body">If you have W-2 income and strong credit, conventional is usually the cheapest option. Up to 10 financed properties. Standard underwriting process.</div>
+      <div class="lc-specs">
+        <div class="lc-spec"><span class="lc-spec-k">Down</span><span class="lc-spec-v">15–25% (varies by property)</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Credit</span><span class="lc-spec-v">680+ preferred</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Income docs</span><span class="lc-spec-v">W-2 + 2 years returns</span></div>
+      </div>
+    </div>
+    <div class="loan-card light amber">
+      <div class="lc-icon">📋</div>
+      <div class="lc-name">Non-QM / Bank Statement</div>
+      <div class="lc-tag">Self-Employed Investors</div>
+      <div class="lc-body">Own a business? Your tax returns may show less than you actually earn. We use 12–24 months of bank deposits to establish your qualifying income instead.</div>
+      <div class="lc-specs">
+        <div class="lc-spec"><span class="lc-spec-k">Down</span><span class="lc-spec-v">10–20%</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Credit</span><span class="lc-spec-v">620+</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Income docs</span><span class="lc-spec-v">Bank statements only</span></div>
+      </div>
+    </div>
+    <div class="loan-card dark amber">
+      <div class="lc-icon">💰</div>
+      <div class="lc-name">HELOC / Cash-Out Refi</div>
+      <div class="lc-tag">Use Existing Equity for Down Payment</div>
+      <div class="lc-body">Already own your primary home? Tap the equity as a revolving credit line or lump-sum cash-out to fund the down payment on your investment property.</div>
+      <div class="lc-specs">
+        <div class="lc-spec"><span class="lc-spec-k">LTV</span><span class="lc-spec-v">Up to 90% on primary</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Credit</span><span class="lc-spec-v">680+</span></div>
+        <div class="lc-spec"><span class="lc-spec-k">Use for</span><span class="lc-spec-v">Down payment + reserves</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISTAKES -->
+<div class="page mistakes-page">
+  <div class="pg-tag" style="position:relative;z-index:1">Section 04</div>
+  <div class="pg-h1" style="position:relative;z-index:1;font-family:var(--fd);font-size:56px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:12px">FIRST-TIME INVESTOR<br>MISTAKES TO AVOID</div>
+  <div class="mg">
+    <div class="mc"><div class="mc-icon">📱</div><div class="mc-title">Going to your personal bank first</div><div class="mc-body">Your bank doesn't offer DSCR loans and may not have investment property programs at all. They'll underwrite it as a conventional loan against your personal income — which often kills the deal before it starts.</div></div>
+    <div class="mc"><div class="mc-icon">📊</div><div class="mc-title">Forgetting to include all PITIA costs</div><div class="mc-body">The DSCR calculation uses Principal, Interest, Taxes, Insurance, AND HOA. Investors who run a quick mortgage estimate and forget property taxes, insurance, or HOA often find their DSCR looks better than it actually is.</div></div>
+    <div class="mc"><div class="mc-icon">🏢</div><div class="mc-title">Waiting to set up the LLC</div><div class="mc-body">If you want to buy in an LLC, set it up before going under contract — not after. Changing vesting after rate lock can cause issues. Get your entity structure sorted before you make offers.</div></div>
+    <div class="mc"><div class="mc-icon">💳</div><div class="mc-title">Using credit cards to fund the down payment</div><div class="mc-body">Lenders verify that your down payment funds have been in your account for 60+ days ("seasoned"). Last-minute credit card advances or transfers from unknown sources can blow up your approval.</div></div>
+    <div class="mc"><div class="mc-icon">📋</div><div class="mc-title">Not accounting for reserves requirement</div><div class="mc-body">Most investment property loans require 3–6 months of PITIA in reserves after closing. Investors who spend every dollar on the down payment and closing costs often get surprised by the reserves check at closing.</div></div>
+    <div class="mc"><div class="mc-icon">⏰</div><div class="mc-title">Waiting until you're under contract to call a lender</div><div class="mc-body">Knowing your loan program, rate range, and down payment before you start shopping changes everything. You make better offers, negotiate from strength, and never lose a deal to a financing contingency.</div></div>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="page concl">
+  <div class="concl-logo">RATE <span>HERO</span></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">First-Time Investor Guide</p>
+  <div class="concl-title">DEAL #1<br>STARTS<br>HERE.</div>
+  <div class="concl-body">You don't need to have everything figured out before you call. Tell me your situation — how much you have for a down payment, what kind of property you're considering, and your income setup. I'll tell you exactly which program fits and what it will cost.</div>
+  <a href="https://goratehero.com" class="concl-cta">Start at goratehero.com →</a>
+  <div class="concl-contact">
+    <p>Sean Davoodian · NMLS #1252107</p>
+    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval.</p>
+  </div>
+  <svg viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.3;z-index:0"><path d="M0 60 Q212 10 425 60 Q637 110 850 60 L850 120 L0 120 Z" fill="rgba(37,99,235,0.2)"/><path d="M0 75 Q212 30 425 75 Q637 120 850 75 L850 120 L0 120 Z" fill="rgba(37,99,235,0.12)"/></svg>
+</div>
+</body></html>

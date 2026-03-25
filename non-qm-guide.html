@@ -1,0 +1,89 @@
+<svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+  <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  RATE HERO — LinkedIn Banner Template                    ║
+  ║  To personalize for a team member, edit these values:   ║
+  ║                                                          ║
+  ║  NAME:   "SEAN DAVOODIAN"  (line ~140)                   ║
+  ║  NMLS:   "NMLS #1252107"   (line ~140)                   ║
+  ║  EMAIL / SITE:             (line ~140)                   ║
+  ║                                                          ║
+  ╚══════════════════════════════════════════════════════════╝
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAECEF"/>
+      <stop offset="100%" stop-color="#E2E5E9"/>
+    </linearGradient>
+    <!-- Amber/gold bolt — matches uploaded logo exactly -->
+    <linearGradient id="boltGrad" x1="25%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0%" stop-color="#F5B731"/>
+      <stop offset="55%" stop-color="#F0A220"/>
+      <stop offset="100%" stop-color="#E8920A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean gray background -->
+  <rect width="1584" height="396" fill="url(#bg)"/>
+
+  <!-- Subtle dot texture -->
+  <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="14" cy="14" r="0.9" fill="#1A2E4A" opacity="0.05"/>
+  </pattern>
+  <rect width="1584" height="396" fill="url(#dots)"/>
+
+  <!--
+  ═══════════════════════════════════════════
+  LOGO — Golden lightning bolt, no tile/box
+  Centered top-left where profile photo sits
+  (LinkedIn profile photo is ~200px from left)
+  ═══════════════════════════════════════════
+  -->
+  <g transform="translate(148, 28) scale(1.05)">
+    <!-- Main bolt body — same shape as uploaded logo -->
+    <path d="
+      M 70,0
+      L 38,80
+      L 56,80
+      L 18,148
+      L 94,62
+      L 74,62
+      Z
+    " fill="url(#boltGrad)"/>
+  </g>
+
+  <!--
+  ═══════════════════════════════════════════
+  RATE HERO WORDMARK
+  Same color scheme as your existing brand:
+    RATE = dark navy  #1A2E4A
+    HERO = Rate Hero blue  #2563EB
+  Both same size, breathing room between
+  ═══════════════════════════════════════════
+  -->
+
+  <!-- RATE -->
+  <text x="840" y="190"
+    font-family="'Bebas Neue', Impact, 'Arial Narrow', sans-serif"
+    font-size="165" fill="#1A2E4A" letter-spacing="4">RATE</text>
+
+  <!-- HERO -->
+  <text x="840" y="360"
+    font-family="'Bebas Neue', Impact, 'Arial Narrow', sans-serif"
+    font-size="165" fill="#2563EB" letter-spacing="4">HERO</text>
+
+  <!-- Hairline rule -->
+  <line x1="840" y1="375" x2="1560" y2="375" stroke="#B8BCC4" stroke-width="0.8"/>
+
+  <!--
+  ═══════════════════════════════════════════
+  EDITABLE CREDENTIALS LINE
+  Change the text below to personalize for
+  any team member. Keep the · separators.
+  ═══════════════════════════════════════════
+  -->
+  <text x="843" y="392"
+    font-family="'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif"
+    font-size="14" font-weight="600" fill="#6B7A8F" letter-spacing="3">SEAN DAVOODIAN  ·  NMLS #1252107  ·  goratehero.com</text>
+
+</svg>

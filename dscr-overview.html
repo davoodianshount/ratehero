@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The BRRRR Strategy Guide — Rate Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:     #F8FAFF;
+  --bg2:    #FFFFFF;
+  --bg3:    #EEF2FF;
+  --bg4:    #F1F5FD;
+  --navy:   #F8FAFF;
+  --navy2:  #EEF2FF;
+  --navy3:  #F1F5FD;
+  --dk:     #F8FAFF;
+  --dk2:    #EEF2FF;
+  --dk3:    #F1F5FD;
+  --blue:   #2563EB;
+  --blue2:  #3B82F6;
+  --blue3:  #1D4ED8;
+  --teal:   #2563EB;
+  --amber:  #E8920A;
+  --amber2: #FCD34D;
+  --gold:   #E8920A;
+  --gold2:  #F5B731;
+  --green:  #16a34a;
+  --green2: #4ade80;
+  --red:    #DC2626;
+  --w:      #0F172A;
+  --w80:    #374151;
+  --w55:    #6B7280;
+  --w50:    #6B7280;
+  --w25:    #9CA3AF;
+  --card:   rgba(37,99,235,0.04);
+  --cardb:  rgba(37,99,235,0.08);
+  --border: rgba(0,0,0,0.09);
+  --card-sh:0 4px 20px rgba(0,0,0,0.07),0 1px 4px rgba(0,0,0,0.04);
+  --fd:'Bebas Neue',sans-serif;
+  --fb:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
+.page{width:850px;min-height:1100px;margin:0 auto;position:relative;overflow:hidden}
+@media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.3);margin-bottom:32px}}
+@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
+.cover{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.07) 1px,transparent 1px);background-size:55px 55px}
+.cv-glow1{position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.18),transparent 70%)}
+.cv-glow2{position:absolute;bottom:-80px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.09),transparent 70%)}
+.cv-top{padding:52px 60px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cv-logo{font-family:var(--fd);font-size:36px;letter-spacing:6px;color:var(--w)}.cv-logo span{color:var(--blue2)}
+.cv-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--blue2);padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cv-hero{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 60px 40px;position:relative;z-index:2}
+.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.cv-title{font-family:var(--fd);font-size:88px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:8px}
+.cv-title em{color:var(--amber2);font-style:normal}
+.cv-sub{font-family:var(--fd);font-size:28px;letter-spacing:3px;color:var(--blue2);margin-bottom:28px}
+.cv-desc{font-size:17px;color:var(--w55);line-height:1.8;max-width:500px;margin-bottom:36px}
+.cv-pills{display:flex;gap:10px;flex-wrap:wrap}
+.cv-pill{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.28);color:var(--blue2);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
+.cv-pill.am{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--amber2)}
+.cv-bottom{padding:28px 60px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
+.cv-by{font-size:13px;color:var(--w55)}.cv-by strong{color:var(--w);font-weight:700}
+.cv-contact{text-align:right;font-size:12px;color:var(--w55)}.cv-contact strong{color:var(--blue2);font-size:14px}
+
+/* BRRRR LETTERS */
+.letters-page{background:var(--navy2);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.letters-page::before{content:'';position:absolute;top:-80px;right:-80px;width:440px;height:440px;border-radius:50%;background:rgba(37,99,235,0.08);pointer-events:none}
+.pg-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);margin-bottom:10px;position:relative;z-index:1}
+.pg-h1{font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:14px;position:relative;z-index:1}
+.pg-sub{font-size:16px;color:var(--w55);line-height:1.7;max-width:600px;margin-bottom:44px;position:relative;z-index:1}
+.letters{display:flex;flex-direction:column;gap:4px;position:relative;z-index:1}
+.letter-row{display:flex;gap:20px;align-items:flex-start;padding:18px 22px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)}
+.letter-big{font-family:var(--fd);font-size:64px;color:var(--amber2);line-height:1;min-width:54px}
+.letter-content{flex:1;padding-top:8px}
+.letter-word{font-size:16px;font-weight:800;color:var(--w);margin-bottom:5px}
+.letter-body{font-size:13px;color:var(--w55);line-height:1.6}
+.letter-highlight{color:var(--blue2);font-weight:700}
+
+/* NUMBERS PAGE */
+.numbers-page{background:#fff;min-height:1100px;padding:80px 68px}
+.pg-tag-l{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.pg-h1-l{font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--navy);line-height:.88;margin-bottom:14px}
+.pg-sub-l{font-size:16px;color:#4b5563;line-height:1.7;max-width:600px;margin-bottom:40px}
+.deal-flow{background:var(--navy);border-radius:18px;padding:36px 40px;margin-bottom:30px}
+.df-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:20px}
+.df-title{font-family:var(--fd);font-size:18px;letter-spacing:1px;color:var(--w55);margin-bottom:18px}
+.df-rows{display:flex;flex-direction:column;gap:0}
+.df-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.df-row:last-child{border:none;padding-top:14px;margin-top:6px}
+.df-key{font-size:13px;color:var(--w55)}
+.df-val{font-size:14px;font-weight:700;color:var(--w80)}
+.df-val.blue{color:var(--blue2)}
+.df-val.amber{color:var(--amber2)}
+.df-val.green{color:var(--green2)}
+.df-val.red{color:#f87171}
+.df-row.total .df-key{font-size:14px;font-weight:800;color:var(--w)}
+.df-row.total .df-val{font-family:var(--fd);font-size:28px}
+.key-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.km{background:#f0f4ff;border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:18px;text-align:center}
+.km-val{font-family:var(--fd);font-size:32px;color:var(--blue);line-height:1;margin-bottom:4px}
+.km-val.green{color:var(--green)}
+.km-val.amber{color:var(--amber)}
+.km-lbl{font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* EXIT STRATEGIES */
+.exit-page{background:var(--navy);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.exit-page::before{content:'';position:absolute;bottom:-100px;left:-80px;width:420px;height:420px;border-radius:50%;background:rgba(37,99,235,0.06);pointer-events:none}
+.exit-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px;position:relative;z-index:1}
+.exit-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.exit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.exit-card.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.exit-card.green::before{background:linear-gradient(90deg,var(--green),var(--green2))}
+.ec-icon{font-size:24px;margin-bottom:10px}
+.ec-title{font-size:14px;font-weight:800;color:var(--w);margin-bottom:6px}
+.ec-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:10px}
+.exit-card.amber .ec-tag{color:var(--amber2)}
+.exit-card.green .ec-tag{color:var(--green2)}
+.ec-body{font-size:12px;color:var(--w55);line-height:1.65}
+.timing-box{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:20px 24px;margin-top:30px;position:relative;z-index:1}
+.tb-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue2);margin-bottom:10px}
+.tb-body{font-size:14px;color:var(--w80);line-height:1.7}
+
+.concl{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 70px;position:relative;overflow:hidden}
+.concl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(37,99,235,0.15),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.07),transparent)}
+.concl-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}.concl-logo span{color:var(--blue2)}
+.concl-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
+.concl-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.concl-cta{background:var(--blue);color:var(--w);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block}
+.concl-contact{margin-top:34px;position:relative;z-index:1}.concl-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}.concl-contact strong{color:var(--w);font-size:15px}
+
+/* ── LIGHT THEME: COVER ── */
+.cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.cv-grid{background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px) !important}
+.cv-logo{color:#fff !important}
+.cv-logo span{color:#FCD34D !important}
+.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.25) !important;color:#fff !important}
+.cv-eyebrow{color:rgba(255,255,255,0.7) !important}
+.cv-title{color:#fff !important}
+.cv-title em,.cv-title-em{color:#FCD34D !important}
+.cv-sub{color:rgba(255,255,255,0.65) !important}
+.cv-desc{color:rgba(255,255,255,0.78) !important}
+.cv-pill{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.22) !important;color:#fff !important}
+.cv-pill.am{background:rgba(245,183,49,0.15) !important;border-color:rgba(245,183,49,0.35) !important;color:#FCD34D !important}
+.cv-bottom{border-top-color:rgba(255,255,255,0.1) !important}
+.cv-by{color:rgba(255,255,255,0.55) !important}
+.cv-by strong{color:#fff !important}
+.cv-contact{color:rgba(255,255,255,0.55) !important}
+.cv-contact strong{color:#FCD34D !important}
+
+/* ── LIGHT THEME: BODY + BASE ── */
+body{background:var(--bg) !important;color:var(--w) !important}
+body::before{background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px) !important}
+
+/* ── LIGHT THEME: TOC ── */
+.toc-page{background:#fff !important}
+.toc-tag{color:var(--blue) !important}
+.toc-h{color:#0F172A !important}
+.toc-intro{color:#4B5563 !important}
+.toc-label{color:#0F172A !important}
+.toc-num{color:var(--blue) !important}
+.toc-item{border-bottom-color:#e5e7eb !important}
+
+/* ── LIGHT THEME: INTRO / TWO-COL PAGES ── */
+.intro-page{background:#fff !important}
+.intro-left{background:#F1F5FD !important}
+.intro-right{background:#fff !important}
+.ilabel{color:var(--blue) !important}
+.ih1{color:#0F172A !important}
+.ibody{color:#374151 !important}
+.ipull{background:rgba(37,99,235,0.06) !important;border-left-color:var(--blue) !important}
+.ipull p{color:#0F172A !important}
+.r-label{color:var(--blue) !important}
+.r-h2{color:#0F172A !important}
+.r-body{color:#374151 !important}
+.stat-box{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.stat-val{color:var(--blue) !important}
+.stat-lbl{color:#6B7280 !important}
+
+/* ── LIGHT THEME: DARK SECTION PAGES → LIGHT ── */
+.steps-page,.qualify-page,.programs-page,.road-page,.letters-page,
+.scenario-page,.sc-page,.mistakes-page,.exit-page,.switch-page,
+.numbers-page,.matrix-page,.progs-page,.dark-bg{
+  background:var(--bg3) !important
+}
+
+/* ── LIGHT THEME: WHITE/LIGHT PAGES ── */
+.what-page,.promise-page,.loans-page,.how-page,.compare-page,.voice-example{
+  background:#fff !important
+}
+
+/* ── LIGHT THEME: SECTION LABELS + HEADINGS ── */
+.pg-tag{color:var(--blue) !important}
+.pg-h1{color:#0F172A !important}
+.pg-sub{color:#374151 !important}
+.pg-tag-l{color:var(--blue) !important}
+.pg-h1-l{color:#0F172A !important}
+.pg-sub-l{color:#374151 !important}
+.wh-tag{color:var(--blue) !important}
+.wh-h1{color:#0F172A !important}
+.wh-intro{color:#374151 !important}
+h1,h2,h3{color:#0F172A}
+p{color:#374151}
+
+/* ── LIGHT THEME: CARDS ── */
+.sc-card,.prog-card,.req-card,.path-card,.how-card,
+.exit-card,.promise-card,.loan-card,.step-card,
+.mc,.story,.letter-row{
+  background:#fff !important;
+  border-color:rgba(0,0,0,0.09) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06) !important;
+}
+/* keep dark cards with colored borders */
+.sc-card::before,.prog-card::before,.req-card::before,.path-card::before,
+.how-card::before,.exit-card::before,.promise-card::before,.loan-card::before,
+.exit-card::before,.mc::before,.story::before{opacity:1 !important}
+
+/* Card text */
+.sc-icon,.prog-icon,.req-icon,.path-icon,.how-icon,.ec-icon,.mc-icon,.story-icon,.pc-icon,.lc-icon{color:inherit}
+.sc-title,.prog-name,.req-title,.path-name,.how-title,.ec-title,.mc-title,.story-title,.pc-title,.lc-name{color:#0F172A !important}
+.sc-body,.prog-desc,.req-body,.path-desc,.how-body,.ec-body,.mc-body,.story-body,.pc-body,.lc-body{color:#4B5563 !important}
+.prog-tag,.path-who,.ec-tag,.lc-tag{color:var(--blue) !important}
+.letter-word{color:#0F172A !important}
+.letter-body{color:#374151 !important}
+.letter-highlight{color:var(--blue) !important}
+
+/* Numeric values in cards */
+.req-val,.how-stat,.tier-score,.istat-val,.hsc-num,.pstat-num{color:var(--blue) !important}
+.sc-val,.df-val{color:#374151 !important}
+.sc-val.blue,.df-val.blue,.sc-rval,.sc-result-val{color:var(--blue) !important}
+.sc-val.amber,.df-val.amber{color:var(--amber) !important}
+.sc-val.green,.df-val.green{color:var(--green) !important}
+.sc-val.red,.df-val.red{color:var(--red) !important}
+.sc-key,.df-key{color:#6B7280 !important}
+.sc-row{border-bottom-color:rgba(0,0,0,0.07) !important}
+.sc-d-key{color:#6B7280 !important}
+.sc-d-val{color:#0F172A !important}
+
+/* Step rows */
+.step-row{background:transparent !important}
+.step-num{color:var(--blue) !important;opacity:.7}
+.step-title{color:#0F172A !important}
+.step-body{color:#4B5563 !important}
+.step-badge{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.step-divider{background:rgba(37,99,235,0.15) !important}
+.road-step{border-bottom-color:rgba(0,0,0,0.07) !important}
+.road-title{color:#0F172A !important}
+.road-body{color:#4B5563 !important}
+.road-tip{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.18) !important;color:var(--blue) !important}
+
+/* Formula box stays dark */
+.formula-box{background:#0F1E38 !important;border-color:rgba(37,99,235,0.2) !important}
+.formula-num{color:#fff !important}
+.formula-num span{color:rgba(255,255,255,0.55) !important}
+.formula-div,.formula-eq{color:var(--blue2) !important}
+.formula-result{color:var(--blue2) !important}
+.formula-result span{color:rgba(255,255,255,0.55) !important}
+.formula-label{color:var(--blue2) !important}
+
+/* BRRRR letters */
+.letter-big{color:var(--amber) !important}
+.letters-page .pg-h1{color:#0F172A !important}
+
+/* Deal flow box stays dark */
+.deal-flow{background:#0F1E38 !important}
+.df-label,.df-title{color:var(--blue2) !important}
+.df-row{border-bottom-color:rgba(255,255,255,0.06) !important}
+.df-key,.df-val{color:rgba(255,255,255,0.7) !important}
+.df-row.total .df-key{color:#fff !important}
+
+/* Key metrics */
+.key-metrics .km{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.km-val{color:var(--blue) !important}
+.km-val.green{color:var(--green) !important}
+.km-val.amber{color:var(--amber) !important}
+.km-lbl{color:#6B7280 !important}
+
+/* Tier boxes */
+.tier.green{background:rgba(22,163,74,0.06) !important;border-color:rgba(22,163,74,0.2) !important}
+.tier.blue{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tier.amber{background:rgba(232,146,10,0.06) !important;border-color:rgba(232,146,10,0.2) !important}
+.tier-label{color:#0F172A !important}
+.tier-body{color:#6B7280 !important}
+
+/* Section tags / badges */
+.section-tag,.stag,.pbadge,.step-pill{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-blue{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-amber{background:rgba(232,146,10,0.08) !important;border-color:rgba(232,146,10,0.2) !important;color:var(--amber) !important}
+.pbadge-green{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.2) !important;color:var(--green) !important}
+
+/* Scenario page dark accent boxes */
+.sc-result{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important}
+.sc-result-label{color:var(--blue) !important}
+.sc-result-val{color:var(--blue) !important}
+.sc-result.amber{background:rgba(232,146,10,0.07) !important;border-color:rgba(232,146,10,0.2) !important}
+.sc-result.amber .sc-result-label,.sc-result.amber .sc-result-val{color:var(--amber) !important}
+.sc-result.green{background:rgba(22,163,74,0.07) !important;border-color:rgba(22,163,74,0.2) !important}
+.sc-result.green .sc-result-label,.sc-result.green .sc-result-val{color:var(--green) !important}
+.sc-rlabel{color:var(--blue) !important}
+.sc-rval{color:var(--blue) !important}
+.sc-card.amber .sc-rlabel,.sc-card.amber .sc-rval{color:var(--amber) !important}
+.sc-card.green .sc-rlabel,.sc-card.green .sc-rval{color:var(--green) !important}
+
+/* Pull quotes */
+.pull-quote{background:#0F1E38 !important}
+.pq-text{color:#fff !important}
+.pq-attr{color:var(--blue2) !important}
+
+/* Comparison table */
+.compare-table{border-color:rgba(0,0,0,0.09) !important;box-shadow:0 4px 20px rgba(0,0,0,0.07) !important}
+.ct-header .ct-h:first-child{background:var(--bg3) !important;color:#6B7280 !important}
+.ct-h.rh{background:var(--blue) !important;color:#fff !important}
+.ct-h.bank{background:var(--bg4) !important;color:#9CA3AF !important}
+.ct-row:nth-child(even){background:#fff !important}
+.ct-row:nth-child(odd){background:var(--bg4) !important}
+.ct-label{color:#0F172A !important}
+.ct-rh{color:var(--green) !important;background:rgba(22,163,74,0.04) !important}
+.ct-bank{color:var(--red) !important}
+
+/* Prog matrix */
+.pm-header{background:#0F1E38 !important}
+.pm-row:nth-child(even){background:#f9fafb !important}
+.pm-row:nth-child(odd){background:#fff !important}
+.pm-name{color:#0F172A !important}
+.pm-sub{color:#6B7280 !important}
+.pm-cell{color:#374151 !important}
+.pm-cell.check{color:var(--green) !important}
+.pm-cell.x{color:var(--red) !important}
+.pm-cell.maybe{color:var(--amber) !important}
+
+/* Story cards */
+.story{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.story::before{background:var(--blue) !important}
+.story-title{color:#0F172A !important}
+.story-what{color:var(--blue) !important}
+.story-body{color:#374151 !important}
+.story-result{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.25) !important;color:var(--green) !important}
+
+/* Trust bar */
+.trust-bar{background:var(--bg3) !important;border-color:rgba(0,0,0,0.07) !important}
+
+/* Timing / warning box */
+.timing-box{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tb-label{color:var(--blue) !important}
+.tb-body{color:#374151 !important}
+
+/* STR playbook specific */
+.prog-page.dark .pl,.prog-page.dark .pr{background:var(--bg3) !important}
+.prog-page.light .pl{background:#fff !important}
+.prog-page.light .pr{background:#F0FDF8 !important}
+.dark .ptag,.dark .pnum,.dark .pwhat,.dark .puses-title,.dark .ex-label{color:var(--blue) !important}
+.dark .ptitle{color:#0F172A !important}
+.dark .pdesc{color:#374151 !important}
+.dark .pdesc strong{color:#0F172A !important}
+.dark .puse-label{color:#0F172A !important}
+.dark .puse-body{color:#6B7280 !important}
+.dark .ex-box{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.dark .ex-text{color:#0F172A !important}
+.light .ptag,.light .pwhat,.light .puses-title{color:var(--blue) !important}
+.light .ptitle{color:#0F172A !important}
+.sc-card,.sc-card.amber,.sc-card.green{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.sc-card-title{color:#0F172A !important}
+.sc-card-body{color:#6B7280 !important}
+.istat{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.istat-val{color:var(--blue) !important}
+.istat-label{color:#6B7280 !important}
+
+/* Creative financing sections */
+.sect-left{background:var(--bg3) !important}
+.sect-right{background:#fff !important}
+.prog-left{background:var(--bg4) !important}
+.prog-right{background:#fff !important}
+.white-bg{background:#fff !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) h2{color:#0F172A !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) p:not(.cv-desc):not(.cv-by){color:#374151}
+
+/* Footer / doc footer */
+.doc-footer{background:var(--bg3) !important;border-top-color:rgba(0,0,0,0.08) !important}
+.doc-footer p,.doc-footer a,.doc-footer span{color:#6B7280 !important}
+
+/* CONCLUSION / CTA PAGE stays blue gradient */
+.concl,.cta-page,.conclusion-page{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.concl::before,.cta-page::before{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px) !important}
+.concl-logo,.cta-logo{color:#fff !important}
+.concl-logo span,.cta-logo span{color:#FCD34D !important}
+.concl-title,.cta-title{color:#fff !important}
+.concl-body,.cta-body{color:rgba(255,255,255,0.78) !important}
+.concl-cta,.cta-btn{background:#fff !important;color:var(--blue) !important;box-shadow:0 8px 32px rgba(0,0,0,0.2) !important}
+.concl-contact p,.cta-contact p{color:rgba(255,255,255,0.5) !important}
+.concl-contact strong,.cta-contact strong{color:#fff !important}
+.cal-box{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.2) !important}
+.cal-box p{color:rgba(255,255,255,0.6) !important}
+.cal-box a{color:#FCD34D !important}
+</style></head><body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cv-grid"></div><div class="cv-glow1"></div><div class="cv-glow2"></div>
+  <div class="cv-top"><div class="cv-logo">RATE <span>HERO</span></div><div class="cv-badge">🔄 Investor Strategy Guide</div></div>
+  <div class="cv-hero">
+    <div class="cv-eyebrow">How Smart Investors Scale Without New Capital</div>
+    <div class="cv-title">THE<br><em>BRRRR</em><br>STRATEGY.</div>
+    <div class="cv-sub">THE PLAYBOOK</div>
+    <div class="cv-desc">Buy, Rehab, Rent, Refinance, Repeat. How to recycle your down payment across multiple deals — and how the DSCR loan makes the refinance step work without income documentation.</div>
+    <div class="cv-pills">
+      <div class="cv-pill">🔄 Recycle Capital</div>
+      <div class="cv-pill am">📈 DSCR Refinance</div>
+      <div class="cv-pill">⚡ 21-Day Refi Close</div>
+      <div class="cv-pill am">💰 Cash-Out at Refi</div>
+      <div class="cv-pill">🏢 LLC Compatible</div>
+    </div>
+  </div>
+  <div class="cv-bottom">
+    <div class="cv-by">Prepared by <strong>Sean Davoodian</strong> · NMLS #1252107</div>
+    <div class="cv-contact"><div>(747) 308-1635</div><strong>hello@ratehero.com</strong></div>
+  </div>
+</div>
+
+<!-- BRRRR LETTERS -->
+<div class="page letters-page">
+  <div class="pg-tag">The Framework</div>
+  <div class="pg-h1">WHAT BRRRR<br>ACTUALLY MEANS.</div>
+  <div class="pg-sub">Each letter is a step. The magic is that if you execute the Refinance step correctly, you get most or all of your initial capital back — and repeat.</div>
+  <div class="letters">
+    <div class="letter-row">
+      <div class="letter-big">B</div>
+      <div class="letter-content">
+        <div class="letter-word">Buy — Distressed Property Below Market Value</div>
+        <div class="letter-body">You purchase a property that needs work — ideally 20–30% below its post-repair value. This can be financed with <span class="letter-highlight">hard money, private money, or cash</span>. The discount is where your profit gets built in.</div>
+      </div>
+    </div>
+    <div class="letter-row">
+      <div class="letter-big">R</div>
+      <div class="letter-content">
+        <div class="letter-word">Rehab — Renovate to Force Appreciation</div>
+        <div class="letter-body">Renovate the property to increase its market value (ARV — After Repair Value). The renovation is what justifies the higher appraised value at the refinance step. <span class="letter-highlight">Good rehab = higher appraisal = more cash back.</span></div>
+      </div>
+    </div>
+    <div class="letter-row">
+      <div class="letter-big">R</div>
+      <div class="letter-content">
+        <div class="letter-word">Rent — Place a Tenant & Establish Income</div>
+        <div class="letter-body">Get a tenant in place before refinancing. The rent income is what the DSCR calculation uses to qualify. <span class="letter-highlight">No W-2, no tax returns — the lease and rental income are your qualifiers.</span></div>
+      </div>
+    </div>
+    <div class="letter-row">
+      <div class="letter-big">R</div>
+      <div class="letter-content">
+        <div class="letter-word">Refinance — Pull Your Capital Back Out</div>
+        <div class="letter-body">This is where Rate Hero comes in. We refinance you out of the hard money loan into a permanent DSCR loan at <span class="letter-highlight">75–80% of the new appraised value</span>. The cash-out pays back your renovation costs and often your down payment.</div>
+      </div>
+    </div>
+    <div class="letter-row">
+      <div class="letter-big">R</div>
+      <div class="letter-content">
+        <div class="letter-word">Repeat — Do It Again With Recycled Capital</div>
+        <div class="letter-body">Use the cash you pulled out of the refinance to fund the next deal's down payment and rehab. <span class="letter-highlight">The same $80,000 can fuel multiple deals</span> when the BRRRR math works.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE NUMBERS -->
+<div class="page numbers-page">
+  <div class="pg-tag-l">Real Deal Math</div>
+  <div class="pg-h1-l">A BRRRR DEAL<br>BY THE NUMBERS.</div>
+  <div class="pg-sub-l">How a $180K purchase turns into a rented property with $12K back in your pocket and a long-term tenant paying down the mortgage.</div>
+  <div class="deal-flow">
+    <div class="df-label">Deal Summary — Memphis, TN · Single Family</div>
+    <div class="df-title">BUY PHASE</div>
+    <div class="df-rows">
+      <div class="df-row"><div class="df-key">Purchase Price</div><div class="df-val">$128,000</div></div>
+      <div class="df-row"><div class="df-key">Hard Money Loan (70% of purchase)</div><div class="df-val">$89,600</div></div>
+      <div class="df-row"><div class="df-key">Rehab Budget</div><div class="df-val">$42,000</div></div>
+      <div class="df-row"><div class="df-key">All-In Cost</div><div class="df-val amber">$170,000</div></div>
+    </div>
+    <div class="df-title" style="margin-top:20px">REFINANCE PHASE</div>
+    <div class="df-rows">
+      <div class="df-row"><div class="df-key">After-Repair Appraisal</div><div class="df-val blue">$245,000</div></div>
+      <div class="df-row"><div class="df-key">DSCR Refi (75% LTV)</div><div class="df-val blue">$183,750</div></div>
+      <div class="df-row"><div class="df-key">Hard Money Payoff</div><div class="df-val red">-$89,600</div></div>
+      <div class="df-row"><div class="df-key">Rehab Recoup</div><div class="df-val red">-$42,000</div></div>
+      <div class="df-row total"><div class="df-key">Cash Back to Investor</div><div class="df-val green">+$52,150</div></div>
+    </div>
+  </div>
+  <div class="key-metrics">
+    <div class="km"><div class="km-val green">$52K</div><div class="km-lbl">Cash Back Out</div></div>
+    <div class="km"><div class="km-val">1.28</div><div class="km-lbl">DSCR (rent $2,200/mo)</div></div>
+    <div class="km"><div class="km-val amber">$0</div><div class="km-lbl">Net Capital Left In</div></div>
+  </div>
+</div>
+
+<!-- EXIT STRATEGIES & TIMING -->
+<div class="page exit-page">
+  <div class="pg-tag" style="position:relative;z-index:1">The Refinance Step</div>
+  <div class="pg-h1" style="position:relative;z-index:1;font-family:var(--fd);font-size:54px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:12px">HOW WE CLOSE<br>YOUR BRRRR REFI.</div>
+  <div style="font-size:15px;color:var(--w55);line-height:1.7;max-width:600px;margin-bottom:10px;position:relative;z-index:1">The refinance is the step that makes or breaks the BRRRR. Here's exactly how we execute it — and what can go wrong at each stage if you're not prepared.</div>
+  <div class="exit-grid">
+    <div class="exit-card">
+      <div class="ec-icon">📊</div>
+      <div class="ec-title">DSCR Qualification — Property Not You</div>
+      <div class="ec-tag">No Income Documentation</div>
+      <div class="ec-body">The DSCR refi qualifies on the property's rental income divided by the new payment. We need the lease agreement (or market rent from the appraisal), not your W-2 or tax returns. Standard minimum: 0.75 DSCR, 620 credit score.</div>
+    </div>
+    <div class="exit-card amber">
+      <div class="ec-icon">🏠</div>
+      <div class="ec-title">Seasoning — How Long Must You Wait?</div>
+      <div class="ec-tag">Timing Matters</div>
+      <div class="ec-body">Most DSCR lenders require 3–6 months of ownership before refinancing. Some have no seasoning requirement if using a DSCR program from day one. We'll tell you exactly what applies to your deal and timeline.</div>
+    </div>
+    <div class="exit-card green">
+      <div class="ec-icon">💰</div>
+      <div class="ec-title">Cash-Out LTV — How Much Can You Pull?</div>
+      <div class="ec-tag">Typically 70–80% LTV</div>
+      <div class="ec-body">Cash-out DSCR refis typically go to 75% LTV. Some programs reach 80%. The higher the DSCR and credit score, the better the LTV available. This is the number that determines how much capital you recycle.</div>
+    </div>
+    <div class="exit-card">
+      <div class="ec-icon">⚡</div>
+      <div class="ec-title">Speed — How Fast Can We Close?</div>
+      <div class="ec-tag">21-Day Average</div>
+      <div class="ec-body">Hard money extensions cost 1–2% per month. Our average DSCR refi close is 21 days — which means you get out before the extension hits in most cases. We prioritize BRRRR exits for exactly this reason.</div>
+    </div>
+  </div>
+  <div class="timing-box">
+    <div class="tb-label">⚠️ The Most Common BRRRR Mistake</div>
+    <div class="tb-body">Waiting too long to contact a lender about the refinance. You should be in contact with Rate Hero before the rehab is finished — not after the tenant moves in and the hard money deadline is looming. Start the conversation 6–8 weeks before you need to close.</div>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="page concl">
+  <div class="concl-logo">RATE <span>HERO</span></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">The BRRRR Strategy Guide</p>
+  <div class="concl-title">READY TO<br>RUN YOUR<br>EXIT?</div>
+  <div class="concl-body">If you're in a hard money loan and need to refinance out — or you're planning your first BRRRR and want to know the numbers before you start — call us. We do DSCR refinances every week and know exactly how to make the math work.</div>
+  <a href="https://goratehero.com" class="concl-cta">Start at goratehero.com →</a>
+  <div class="concl-contact">
+    <p>Sean Davoodian · NMLS #1252107</p>
+    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval.</p>
+  </div>
+  <svg viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.3;z-index:0"><path d="M0 60 Q212 10 425 60 Q637 110 850 60 L850 120 L0 120 Z" fill="rgba(37,99,235,0.2)"/><path d="M0 75 Q212 30 425 75 Q637 120 850 75 L850 120 L0 120 Z" fill="rgba(37,99,235,0.12)"/></svg>
+</div>
+</body></html>

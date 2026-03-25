@@ -1,29 +1,608 @@
-[build]
-  publish = "."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-QM & Self-Employed Borrower Guide — Rate Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:     #F8FAFF;
+  --bg2:    #FFFFFF;
+  --bg3:    #EEF2FF;
+  --bg4:    #F1F5FD;
+  --navy:   #F8FAFF;
+  --navy2:  #EEF2FF;
+  --navy3:  #F1F5FD;
+  --dk:     #F8FAFF;
+  --dk2:    #EEF2FF;
+  --dk3:    #F1F5FD;
+  --blue:   #2563EB;
+  --blue2:  #3B82F6;
+  --blue3:  #1D4ED8;
+  --teal:   #2563EB;
+  --amber:  #E8920A;
+  --amber2: #FCD34D;
+  --gold:   #E8920A;
+  --gold2:  #F5B731;
+  --green:  #16a34a;
+  --green2: #4ade80;
+  --red:    #DC2626;
+  --w:      #0F172A;
+  --w80:    #374151;
+  --w55:    #6B7280;
+  --w50:    #6B7280;
+  --w25:    #9CA3AF;
+  --card:   rgba(37,99,235,0.04);
+  --cardb:  rgba(37,99,235,0.08);
+  --border: rgba(0,0,0,0.09);
+  --card-sh:0 4px 20px rgba(0,0,0,0.07),0 1px 4px rgba(0,0,0,0.04);
+  --fd:'Bebas Neue',sans-serif;
+  --fb:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
+.page{width:850px;min-height:1100px;margin:0 auto;position:relative;overflow:hidden}
+@media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.3);margin-bottom:32px}}
+@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    Cache-Control = "public, max-age=0, must-revalidate"
+.cover{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.07) 1px,transparent 1px);background-size:55px 55px}
+.cv-glow1{position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.18),transparent 70%)}
+.cv-glow2{position:absolute;bottom:-80px;left:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.09),transparent 70%)}
+.cv-top{padding:52px 60px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cv-logo{font-family:var(--fd);font-size:36px;letter-spacing:6px;color:var(--w)}.cv-logo span{color:var(--blue2)}
+.cv-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--blue2);padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cv-hero{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 60px 40px;position:relative;z-index:2}
+.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.cv-title{font-family:var(--fd);font-size:88px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:8px}
+.cv-title em{color:var(--blue2);font-style:normal}
+.cv-sub{font-family:var(--fd);font-size:28px;letter-spacing:3px;color:var(--amber2);margin-bottom:28px}
+.cv-desc{font-size:17px;color:var(--w55);line-height:1.8;max-width:500px;margin-bottom:36px}
+.cv-pills{display:flex;gap:10px;flex-wrap:wrap}
+.cv-pill{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.28);color:var(--blue2);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
+.cv-pill.am{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--amber2)}
+.cv-bottom{padding:28px 60px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
+.cv-by{font-size:13px;color:var(--w55)}.cv-by strong{color:var(--w);font-weight:700}
+.cv-contact{text-align:right;font-size:12px;color:var(--w55)}.cv-contact strong{color:var(--blue2);font-size:14px}
 
-[[redirects]]
-  from = "/dscr-loans"
-  to = "/dscr-loans/index.html"
-  status = 200
+/* PROGRAMS MATRIX */
+.matrix-page{background:#fff;min-height:1100px;padding:80px 68px}
+.pg-tag-l{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.pg-h1-l{font-family:var(--fd);font-size:60px;letter-spacing:2px;color:var(--navy);line-height:.88;margin-bottom:14px}
+.pg-sub-l{font-size:16px;color:#4b5563;line-height:1.7;max-width:600px;margin-bottom:40px}
+.prog-matrix{display:flex;flex-direction:column;gap:3px}
+.pm-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:0;background:var(--navy);border-radius:10px 10px 0 0;padding:12px 18px}
+.pm-h{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w55)}
+.pm-h:first-child{color:var(--w)}
+.pm-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:0;padding:14px 18px;border-bottom:1px solid #e5e7eb}
+.pm-row:last-child{border:none;border-radius:0 0 10px 10px}
+.pm-row:nth-child(even){background:#f9fafb}
+.pm-row:nth-child(odd){background:#fff}
+.pm-name{font-size:13px;font-weight:700;color:var(--navy)}
+.pm-sub{font-size:11px;color:#6b7280;margin-top:2px}
+.pm-cell{font-size:12px;color:#374151;display:flex;align-items:center}
+.pm-cell.check{color:var(--green);font-weight:700}
+.pm-cell.x{color:#ef4444}
+.pm-cell.maybe{color:var(--amber)}
+.pull-quote{background:var(--navy);border-radius:14px;padding:28px 32px;margin-top:32px}
+.pq-text{font-size:18px;font-weight:700;color:var(--w);font-style:italic;line-height:1.5;margin-bottom:10px}
+.pq-attr{font-size:12px;color:var(--blue2)}
 
-[[redirects]]
-  from = "/quiz"
-  to = "/quiz.html"
-  status = 200
+/* HOW WE QUALIFY YOU */
+.qualify-page{background:var(--navy2);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.qualify-page::before{content:'';position:absolute;top:-100px;right:-100px;width:450px;height:450px;border-radius:50%;background:rgba(37,99,235,0.08);pointer-events:none}
+.pg-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);margin-bottom:10px;position:relative;z-index:1}
+.pg-h1{font-family:var(--fd);font-size:58px;letter-spacing:2px;color:var(--w);line-height:.88;margin-bottom:14px;position:relative;z-index:1}
+.pg-sub{font-size:15px;color:var(--w55);line-height:1.7;max-width:600px;margin-bottom:40px;position:relative;z-index:1}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1}
+.path-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.path-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.path-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.path-card.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.path-card.green::before{background:linear-gradient(90deg,var(--green),var(--green2))}
+.path-card.purple::before{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.path-icon{font-size:24px;margin-bottom:10px}
+.path-name{font-size:14px;font-weight:800;color:var(--w);margin-bottom:5px}
+.path-who{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:10px}
+.path-card.amber .path-who{color:var(--amber2)}
+.path-card.green .path-who{color:var(--green2)}
+.path-card.purple .path-who{color:#a78bfa}
+.path-desc{font-size:12px;color:var(--w55);line-height:1.65;margin-bottom:12px}
+.path-need{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--w80);margin-bottom:6px}
+.path-docs{font-size:12px;color:var(--blue2);line-height:1.6}
+.path-card.amber .path-docs{color:var(--amber2)}
+.path-card.green .path-docs{color:var(--green2)}
+.path-card.purple .path-docs{color:#a78bfa}
 
-[[redirects]]
-  from = "/review"
-  to = "/review.html"
-  status = 200
+/* SCENARIOS */
+.sc-page{background:var(--navy);min-height:1100px;padding:80px 68px;position:relative;overflow:hidden}
+.sc-page::before{content:'';position:absolute;bottom:-100px;right:-100px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.08),transparent 70%);pointer-events:none}
+.sc-cards{display:flex;flex-direction:column;gap:20px;margin-top:40px;position:relative;z-index:1}
+.sc-card-full{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;position:relative;overflow:hidden}
+.sc-card-full::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.sc-card-full.amber::before{background:linear-gradient(90deg,var(--amber),var(--amber2))}
+.sc-card-full.green::before{background:linear-gradient(90deg,var(--green),var(--green2))}
+.sc-left .sc-icon{font-size:22px;margin-bottom:8px}
+.sc-left .sc-title{font-size:14px;font-weight:800;color:var(--w);margin-bottom:6px}
+.sc-left .sc-who{font-size:11px;color:var(--blue2);font-weight:700;margin-bottom:10px}
+.sc-card-full.amber .sc-who{color:var(--amber2)}
+.sc-card-full.green .sc-who{color:var(--green2)}
+.sc-left .sc-body{font-size:13px;color:var(--w55);line-height:1.6}
+.sc-right .sc-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.sc-right .sc-row:last-child{border:none}
+.sc-key{font-size:12px;color:var(--w55)}
+.sc-val{font-size:12px;font-weight:700;color:var(--w80)}
+.sc-val.blue{color:var(--blue2)}.sc-val.amber{color:var(--amber2)}.sc-val.green{color:var(--green2)}
 
-[[redirects]]
-  from = "/dscr-calculator"
-  to = "/dscr-calculator.html"
-  status = 200
+.concl{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 70px;position:relative;overflow:hidden}
+.concl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(37,99,235,0.15),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.07),transparent)}
+.concl-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}.concl-logo span{color:var(--blue2)}
+.concl-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
+.concl-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.concl-cta{background:var(--blue);color:var(--w);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block}
+.concl-contact{margin-top:34px;position:relative;z-index:1}.concl-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}.concl-contact strong{color:var(--w);font-size:15px}
+
+/* ── LIGHT THEME: COVER ── */
+.cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.cv-grid{background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px) !important}
+.cv-logo{color:#fff !important}
+.cv-logo span{color:#FCD34D !important}
+.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.25) !important;color:#fff !important}
+.cv-eyebrow{color:rgba(255,255,255,0.7) !important}
+.cv-title{color:#fff !important}
+.cv-title em,.cv-title-em{color:#FCD34D !important}
+.cv-sub{color:rgba(255,255,255,0.65) !important}
+.cv-desc{color:rgba(255,255,255,0.78) !important}
+.cv-pill{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.22) !important;color:#fff !important}
+.cv-pill.am{background:rgba(245,183,49,0.15) !important;border-color:rgba(245,183,49,0.35) !important;color:#FCD34D !important}
+.cv-bottom{border-top-color:rgba(255,255,255,0.1) !important}
+.cv-by{color:rgba(255,255,255,0.55) !important}
+.cv-by strong{color:#fff !important}
+.cv-contact{color:rgba(255,255,255,0.55) !important}
+.cv-contact strong{color:#FCD34D !important}
+
+/* ── LIGHT THEME: BODY + BASE ── */
+body{background:var(--bg) !important;color:var(--w) !important}
+body::before{background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px) !important}
+
+/* ── LIGHT THEME: TOC ── */
+.toc-page{background:#fff !important}
+.toc-tag{color:var(--blue) !important}
+.toc-h{color:#0F172A !important}
+.toc-intro{color:#4B5563 !important}
+.toc-label{color:#0F172A !important}
+.toc-num{color:var(--blue) !important}
+.toc-item{border-bottom-color:#e5e7eb !important}
+
+/* ── LIGHT THEME: INTRO / TWO-COL PAGES ── */
+.intro-page{background:#fff !important}
+.intro-left{background:#F1F5FD !important}
+.intro-right{background:#fff !important}
+.ilabel{color:var(--blue) !important}
+.ih1{color:#0F172A !important}
+.ibody{color:#374151 !important}
+.ipull{background:rgba(37,99,235,0.06) !important;border-left-color:var(--blue) !important}
+.ipull p{color:#0F172A !important}
+.r-label{color:var(--blue) !important}
+.r-h2{color:#0F172A !important}
+.r-body{color:#374151 !important}
+.stat-box{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.stat-val{color:var(--blue) !important}
+.stat-lbl{color:#6B7280 !important}
+
+/* ── LIGHT THEME: DARK SECTION PAGES → LIGHT ── */
+.steps-page,.qualify-page,.programs-page,.road-page,.letters-page,
+.scenario-page,.sc-page,.mistakes-page,.exit-page,.switch-page,
+.numbers-page,.matrix-page,.progs-page,.dark-bg{
+  background:var(--bg3) !important
+}
+
+/* ── LIGHT THEME: WHITE/LIGHT PAGES ── */
+.what-page,.promise-page,.loans-page,.how-page,.compare-page,.voice-example{
+  background:#fff !important
+}
+
+/* ── LIGHT THEME: SECTION LABELS + HEADINGS ── */
+.pg-tag{color:var(--blue) !important}
+.pg-h1{color:#0F172A !important}
+.pg-sub{color:#374151 !important}
+.pg-tag-l{color:var(--blue) !important}
+.pg-h1-l{color:#0F172A !important}
+.pg-sub-l{color:#374151 !important}
+.wh-tag{color:var(--blue) !important}
+.wh-h1{color:#0F172A !important}
+.wh-intro{color:#374151 !important}
+h1,h2,h3{color:#0F172A}
+p{color:#374151}
+
+/* ── LIGHT THEME: CARDS ── */
+.sc-card,.prog-card,.req-card,.path-card,.how-card,
+.exit-card,.promise-card,.loan-card,.step-card,
+.mc,.story,.letter-row{
+  background:#fff !important;
+  border-color:rgba(0,0,0,0.09) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06) !important;
+}
+/* keep dark cards with colored borders */
+.sc-card::before,.prog-card::before,.req-card::before,.path-card::before,
+.how-card::before,.exit-card::before,.promise-card::before,.loan-card::before,
+.exit-card::before,.mc::before,.story::before{opacity:1 !important}
+
+/* Card text */
+.sc-icon,.prog-icon,.req-icon,.path-icon,.how-icon,.ec-icon,.mc-icon,.story-icon,.pc-icon,.lc-icon{color:inherit}
+.sc-title,.prog-name,.req-title,.path-name,.how-title,.ec-title,.mc-title,.story-title,.pc-title,.lc-name{color:#0F172A !important}
+.sc-body,.prog-desc,.req-body,.path-desc,.how-body,.ec-body,.mc-body,.story-body,.pc-body,.lc-body{color:#4B5563 !important}
+.prog-tag,.path-who,.ec-tag,.lc-tag{color:var(--blue) !important}
+.letter-word{color:#0F172A !important}
+.letter-body{color:#374151 !important}
+.letter-highlight{color:var(--blue) !important}
+
+/* Numeric values in cards */
+.req-val,.how-stat,.tier-score,.istat-val,.hsc-num,.pstat-num{color:var(--blue) !important}
+.sc-val,.df-val{color:#374151 !important}
+.sc-val.blue,.df-val.blue,.sc-rval,.sc-result-val{color:var(--blue) !important}
+.sc-val.amber,.df-val.amber{color:var(--amber) !important}
+.sc-val.green,.df-val.green{color:var(--green) !important}
+.sc-val.red,.df-val.red{color:var(--red) !important}
+.sc-key,.df-key{color:#6B7280 !important}
+.sc-row{border-bottom-color:rgba(0,0,0,0.07) !important}
+.sc-d-key{color:#6B7280 !important}
+.sc-d-val{color:#0F172A !important}
+
+/* Step rows */
+.step-row{background:transparent !important}
+.step-num{color:var(--blue) !important;opacity:.7}
+.step-title{color:#0F172A !important}
+.step-body{color:#4B5563 !important}
+.step-badge{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.step-divider{background:rgba(37,99,235,0.15) !important}
+.road-step{border-bottom-color:rgba(0,0,0,0.07) !important}
+.road-title{color:#0F172A !important}
+.road-body{color:#4B5563 !important}
+.road-tip{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.18) !important;color:var(--blue) !important}
+
+/* Formula box stays dark */
+.formula-box{background:#0F1E38 !important;border-color:rgba(37,99,235,0.2) !important}
+.formula-num{color:#fff !important}
+.formula-num span{color:rgba(255,255,255,0.55) !important}
+.formula-div,.formula-eq{color:var(--blue2) !important}
+.formula-result{color:var(--blue2) !important}
+.formula-result span{color:rgba(255,255,255,0.55) !important}
+.formula-label{color:var(--blue2) !important}
+
+/* BRRRR letters */
+.letter-big{color:var(--amber) !important}
+.letters-page .pg-h1{color:#0F172A !important}
+
+/* Deal flow box stays dark */
+.deal-flow{background:#0F1E38 !important}
+.df-label,.df-title{color:var(--blue2) !important}
+.df-row{border-bottom-color:rgba(255,255,255,0.06) !important}
+.df-key,.df-val{color:rgba(255,255,255,0.7) !important}
+.df-row.total .df-key{color:#fff !important}
+
+/* Key metrics */
+.key-metrics .km{background:#F1F5FD !important;border-color:rgba(37,99,235,0.15) !important}
+.km-val{color:var(--blue) !important}
+.km-val.green{color:var(--green) !important}
+.km-val.amber{color:var(--amber) !important}
+.km-lbl{color:#6B7280 !important}
+
+/* Tier boxes */
+.tier.green{background:rgba(22,163,74,0.06) !important;border-color:rgba(22,163,74,0.2) !important}
+.tier.blue{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tier.amber{background:rgba(232,146,10,0.06) !important;border-color:rgba(232,146,10,0.2) !important}
+.tier-label{color:#0F172A !important}
+.tier-body{color:#6B7280 !important}
+
+/* Section tags / badges */
+.section-tag,.stag,.pbadge,.step-pill{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-blue{background:rgba(37,99,235,0.08) !important;border-color:rgba(37,99,235,0.2) !important;color:var(--blue) !important}
+.pbadge-amber{background:rgba(232,146,10,0.08) !important;border-color:rgba(232,146,10,0.2) !important;color:var(--amber) !important}
+.pbadge-green{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.2) !important;color:var(--green) !important}
+
+/* Scenario page dark accent boxes */
+.sc-result{background:rgba(37,99,235,0.07) !important;border-color:rgba(37,99,235,0.2) !important}
+.sc-result-label{color:var(--blue) !important}
+.sc-result-val{color:var(--blue) !important}
+.sc-result.amber{background:rgba(232,146,10,0.07) !important;border-color:rgba(232,146,10,0.2) !important}
+.sc-result.amber .sc-result-label,.sc-result.amber .sc-result-val{color:var(--amber) !important}
+.sc-result.green{background:rgba(22,163,74,0.07) !important;border-color:rgba(22,163,74,0.2) !important}
+.sc-result.green .sc-result-label,.sc-result.green .sc-result-val{color:var(--green) !important}
+.sc-rlabel{color:var(--blue) !important}
+.sc-rval{color:var(--blue) !important}
+.sc-card.amber .sc-rlabel,.sc-card.amber .sc-rval{color:var(--amber) !important}
+.sc-card.green .sc-rlabel,.sc-card.green .sc-rval{color:var(--green) !important}
+
+/* Pull quotes */
+.pull-quote{background:#0F1E38 !important}
+.pq-text{color:#fff !important}
+.pq-attr{color:var(--blue2) !important}
+
+/* Comparison table */
+.compare-table{border-color:rgba(0,0,0,0.09) !important;box-shadow:0 4px 20px rgba(0,0,0,0.07) !important}
+.ct-header .ct-h:first-child{background:var(--bg3) !important;color:#6B7280 !important}
+.ct-h.rh{background:var(--blue) !important;color:#fff !important}
+.ct-h.bank{background:var(--bg4) !important;color:#9CA3AF !important}
+.ct-row:nth-child(even){background:#fff !important}
+.ct-row:nth-child(odd){background:var(--bg4) !important}
+.ct-label{color:#0F172A !important}
+.ct-rh{color:var(--green) !important;background:rgba(22,163,74,0.04) !important}
+.ct-bank{color:var(--red) !important}
+
+/* Prog matrix */
+.pm-header{background:#0F1E38 !important}
+.pm-row:nth-child(even){background:#f9fafb !important}
+.pm-row:nth-child(odd){background:#fff !important}
+.pm-name{color:#0F172A !important}
+.pm-sub{color:#6B7280 !important}
+.pm-cell{color:#374151 !important}
+.pm-cell.check{color:var(--green) !important}
+.pm-cell.x{color:var(--red) !important}
+.pm-cell.maybe{color:var(--amber) !important}
+
+/* Story cards */
+.story{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.story::before{background:var(--blue) !important}
+.story-title{color:#0F172A !important}
+.story-what{color:var(--blue) !important}
+.story-body{color:#374151 !important}
+.story-result{background:rgba(22,163,74,0.08) !important;border-color:rgba(22,163,74,0.25) !important;color:var(--green) !important}
+
+/* Trust bar */
+.trust-bar{background:var(--bg3) !important;border-color:rgba(0,0,0,0.07) !important}
+
+/* Timing / warning box */
+.timing-box{background:rgba(37,99,235,0.06) !important;border-color:rgba(37,99,235,0.2) !important}
+.tb-label{color:var(--blue) !important}
+.tb-body{color:#374151 !important}
+
+/* STR playbook specific */
+.prog-page.dark .pl,.prog-page.dark .pr{background:var(--bg3) !important}
+.prog-page.light .pl{background:#fff !important}
+.prog-page.light .pr{background:#F0FDF8 !important}
+.dark .ptag,.dark .pnum,.dark .pwhat,.dark .puses-title,.dark .ex-label{color:var(--blue) !important}
+.dark .ptitle{color:#0F172A !important}
+.dark .pdesc{color:#374151 !important}
+.dark .pdesc strong{color:#0F172A !important}
+.dark .puse-label{color:#0F172A !important}
+.dark .puse-body{color:#6B7280 !important}
+.dark .ex-box{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.dark .ex-text{color:#0F172A !important}
+.light .ptag,.light .pwhat,.light .puses-title{color:var(--blue) !important}
+.light .ptitle{color:#0F172A !important}
+.sc-card,.sc-card.amber,.sc-card.green{background:#fff !important;border-color:rgba(0,0,0,0.09) !important}
+.sc-card-title{color:#0F172A !important}
+.sc-card-body{color:#6B7280 !important}
+.istat{background:rgba(37,99,235,0.05) !important;border-color:rgba(37,99,235,0.15) !important}
+.istat-val{color:var(--blue) !important}
+.istat-label{color:#6B7280 !important}
+
+/* Creative financing sections */
+.sect-left{background:var(--bg3) !important}
+.sect-right{background:#fff !important}
+.prog-left{background:var(--bg4) !important}
+.prog-right{background:#fff !important}
+.white-bg{background:#fff !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) h2{color:#0F172A !important}
+[class*="page"]:not(.cover):not(.cta-page):not(.concl) p:not(.cv-desc):not(.cv-by){color:#374151}
+
+/* Footer / doc footer */
+.doc-footer{background:var(--bg3) !important;border-top-color:rgba(0,0,0,0.08) !important}
+.doc-footer p,.doc-footer a,.doc-footer span{color:#6B7280 !important}
+
+/* CONCLUSION / CTA PAGE stays blue gradient */
+.concl,.cta-page,.conclusion-page{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
+.concl::before,.cta-page::before{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px) !important}
+.concl-logo,.cta-logo{color:#fff !important}
+.concl-logo span,.cta-logo span{color:#FCD34D !important}
+.concl-title,.cta-title{color:#fff !important}
+.concl-body,.cta-body{color:rgba(255,255,255,0.78) !important}
+.concl-cta,.cta-btn{background:#fff !important;color:var(--blue) !important;box-shadow:0 8px 32px rgba(0,0,0,0.2) !important}
+.concl-contact p,.cta-contact p{color:rgba(255,255,255,0.5) !important}
+.concl-contact strong,.cta-contact strong{color:#fff !important}
+.cal-box{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.2) !important}
+.cal-box p{color:rgba(255,255,255,0.6) !important}
+.cal-box a{color:#FCD34D !important}
+</style></head><body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cv-grid"></div><div class="cv-glow1"></div><div class="cv-glow2"></div>
+  <div class="cv-top"><div class="cv-logo">RATE <span>HERO</span></div><div class="cv-badge">📋 Self-Employed Borrower Guide</div></div>
+  <div class="cv-hero">
+    <div class="cv-eyebrow">For Business Owners, 1099 Earners & Complex Income</div>
+    <div class="cv-title">NON-QM<br>LOANS<br><em>DEMYSTIFIED.</em></div>
+    <div class="cv-sub">THE GUIDE</div>
+    <div class="cv-desc">Your tax returns say one thing. Your bank account says another. Non-QM loans are built for borrowers whose income doesn't fit the W-2 mold — and we close them every day.</div>
+    <div class="cv-pills">
+      <div class="cv-pill">📄 Bank Statement Loans</div>
+      <div class="cv-pill am">📊 P&L Only Loans</div>
+      <div class="cv-pill">🏦 Asset Depletion</div>
+      <div class="cv-pill am">1099 Income OK</div>
+      <div class="cv-pill">🔒 No Tax Returns</div>
+    </div>
+  </div>
+  <div class="cv-bottom">
+    <div class="cv-by">Prepared by <strong>Sean Davoodian</strong> · NMLS #1252107</div>
+    <div class="cv-contact"><div>(747) 308-1635</div><strong>hello@ratehero.com</strong></div>
+  </div>
+</div>
+
+<!-- PROGRAM MATRIX -->
+<div class="page matrix-page">
+  <div class="pg-tag-l">The Landscape</div>
+  <div class="pg-h1-l">EVERY<br>NON-QM OPTION.</div>
+  <div class="pg-sub-l">Non-QM isn't one product — it's a category. Here's how the main programs compare across the factors that matter most.</div>
+  <div class="prog-matrix">
+    <div class="pm-header">
+      <div class="pm-h">Program</div>
+      <div class="pm-h">Tax Returns?</div>
+      <div class="pm-h">Min Credit</div>
+      <div class="pm-h">Max LTV</div>
+      <div class="pm-h">Best For</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">Bank Statement (24 mo)</div><div class="pm-sub">Personal or business deposits</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">620+</div>
+      <div class="pm-cell check">85–90%</div>
+      <div class="pm-cell">Self-employed, S-corp owners</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">Bank Statement (12 mo)</div><div class="pm-sub">More flexible lookback period</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">640+</div>
+      <div class="pm-cell check">80–85%</div>
+      <div class="pm-cell">Business owners with strong recent income</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">P&L Only</div><div class="pm-sub">CPA-prepared profit & loss only</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">660+</div>
+      <div class="pm-cell">80%</div>
+      <div class="pm-cell">Business owners with complex deductions</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">1099 Income</div><div class="pm-sub">Independent contractors</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">620+</div>
+      <div class="pm-cell check">85%</div>
+      <div class="pm-cell">Gig workers, freelancers, consultants</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">Asset Depletion</div><div class="pm-sub">Qualify on liquid assets</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">680+</div>
+      <div class="pm-cell">75%</div>
+      <div class="pm-cell">High net worth, retired, or asset-rich</div>
+    </div>
+    <div class="pm-row">
+      <div><div class="pm-name">WVOE (Verbal VOE)</div><div class="pm-sub">Employer verification only</div></div>
+      <div class="pm-cell x">✗ No</div>
+      <div class="pm-cell">640+</div>
+      <div class="pm-cell">85%</div>
+      <div class="pm-cell">W-2 employees who prefer not to share docs</div>
+    </div>
+  </div>
+  <div class="pull-quote">
+    <div class="pq-text">"The banks said no because my write-offs make it look like I barely earn anything. Rate Hero looked at my actual deposits and closed in 19 days."</div>
+    <div class="pq-attr">— Business Owner, Bank Statement Loan, Arizona</div>
+  </div>
+</div>
+
+<!-- HOW WE QUALIFY YOU -->
+<div class="page qualify-page">
+  <div class="pg-tag">Income Qualification Paths</div>
+  <div class="pg-h1">FOUR WAYS<br>WE QUALIFY YOU.</div>
+  <div class="pg-sub">No W-2? No tax return? That's fine. Here are the four paths we use to document your income for a Non-QM loan — and the documents each one requires.</div>
+  <div class="path-grid">
+    <div class="path-card blue">
+      <div class="path-icon">🏦</div>
+      <div class="path-name">Bank Statement Method</div>
+      <div class="path-who">Best for: Self-Employed / Business Owners</div>
+      <div class="path-desc">We average 12–24 months of your personal or business bank deposits to establish qualifying income. Business accounts use an expense factor (typically 50%) to calculate net income.</div>
+      <div class="path-need">What we need:</div>
+      <div class="path-docs">24 months personal OR business bank statements · Business license or CPA letter confirming 2+ years self-employed</div>
+    </div>
+    <div class="path-card amber">
+      <div class="path-icon">📊</div>
+      <div class="path-name">P&L Only Method</div>
+      <div class="path-who">Best for: Complex deduction situations</div>
+      <div class="path-desc">A CPA-prepared profit & loss statement for the last 12–24 months. No bank statements, no tax returns. The P&L must be prepared by a licensed CPA or enrolled agent.</div>
+      <div class="path-need">What we need:</div>
+      <div class="path-docs">12–24 month P&L prepared by CPA · Business license · CPA attestation letter</div>
+    </div>
+    <div class="path-card green">
+      <div class="path-icon">📋</div>
+      <div class="path-name">1099 Income Method</div>
+      <div class="path-who">Best for: Independent contractors, 1099 earners</div>
+      <div class="path-desc">We use your 1099 forms as the income basis — without requiring full tax returns. The gross 1099 amount is used, not the net after deductions. Typically requires 2 years of 1099s.</div>
+      <div class="path-need">What we need:</div>
+      <div class="path-docs">2 years 1099 forms · Recent bank statements (2–3 months) · Basic employment/contract confirmation</div>
+    </div>
+    <div class="path-card purple">
+      <div class="path-icon">💎</div>
+      <div class="path-name">Asset Depletion Method</div>
+      <div class="path-who">Best for: Retired, high net worth, or income-light</div>
+      <div class="path-desc">We divide your liquid assets by the loan term (months) to establish a monthly qualifying income. Example: $1.5M in assets ÷ 360 months = $4,167/month qualifying income.</div>
+      <div class="path-need">What we need:</div>
+      <div class="path-docs">3 months statements for all qualifying accounts · Vesting documentation · No withdrawal penalty confirmation</div>
+    </div>
+  </div>
+</div>
+
+<!-- REAL SCENARIOS -->
+<div class="page sc-page">
+  <div class="pg-tag" style="position:relative;z-index:1">Real Client Outcomes</div>
+  <div class="pg-h1" style="position:relative;z-index:1">THREE BORROWERS.<br>THREE WINS.</div>
+  <div class="sc-cards">
+    <div class="sc-card-full">
+      <div class="sc-left">
+        <div class="sc-icon">💼</div>
+        <div class="sc-title">Restaurant Owner — Bank Statement Loan</div>
+        <div class="sc-who">Self-Employed · Phoenix, AZ</div>
+        <div class="sc-body">Owned two restaurants for 8 years. Tax returns showed $42K income after deductions — not enough to qualify conventionally. Business bank statements showed $28K/month in deposits. Used 50% expense factor = $14K qualifying income. Closed a $520K primary residence purchase in 23 days.</div>
+      </div>
+      <div class="sc-right">
+        <div class="sc-row"><div class="sc-key">Loan Type</div><div class="sc-val">24-Month Bank Statement</div></div>
+        <div class="sc-row"><div class="sc-key">Qualifying Income</div><div class="sc-val blue">$14,000/mo</div></div>
+        <div class="sc-row"><div class="sc-key">Tax Return Income</div><div class="sc-val">$3,500/mo</div></div>
+        <div class="sc-row"><div class="sc-key">Purchase Price</div><div class="sc-val">$650,000</div></div>
+        <div class="sc-row"><div class="sc-key">Down Payment</div><div class="sc-val">$130,000</div></div>
+        <div class="sc-row"><div class="sc-key">Close Time</div><div class="sc-val blue">23 days</div></div>
+      </div>
+    </div>
+    <div class="sc-card-full amber">
+      <div class="sc-left">
+        <div class="sc-icon">🎨</div>
+        <div class="sc-title">Freelance Creative Director — 1099 Loan</div>
+        <div class="sc-who">1099 Contractor · Austin, TX</div>
+        <div class="sc-body">Worked exclusively on 1099 contracts for 4 years. Previous lender required full tax returns showing high deductions — denied. We used gross 1099 income of $180K/year. No returns, no employer verification. Closed a $385K townhome purchase.</div>
+      </div>
+      <div class="sc-right">
+        <div class="sc-row"><div class="sc-key">Loan Type</div><div class="sc-val">1099 Income</div></div>
+        <div class="sc-row"><div class="sc-key">Gross 1099 Income</div><div class="sc-val amber">$180,000/yr</div></div>
+        <div class="sc-row"><div class="sc-key">Prior Bank Denial</div><div class="sc-val">Tax return method</div></div>
+        <div class="sc-row"><div class="sc-key">Purchase Price</div><div class="sc-val">$385,000</div></div>
+        <div class="sc-row"><div class="sc-key">Down Payment</div><div class="sc-val">$57,750 (15%)</div></div>
+        <div class="sc-row"><div class="sc-key">Close Time</div><div class="sc-val amber">19 days</div></div>
+      </div>
+    </div>
+    <div class="sc-card-full green">
+      <div class="sc-left">
+        <div class="sc-icon">💎</div>
+        <div class="sc-title">Retired Executive — Asset Depletion</div>
+        <div class="sc-who">Retired · Naples, FL</div>
+        <div class="sc-body">Retired at 62 with $2.1M in brokerage and IRA accounts. Social security income alone ($3,400/month) didn't support the mortgage payment. Asset depletion on $1.8M qualifying assets ($1.8M ÷ 360 = $5,000/month) pushed income to $8,400/month. Closed.</div>
+      </div>
+      <div class="sc-right">
+        <div class="sc-row"><div class="sc-key">Loan Type</div><div class="sc-val">Asset Depletion</div></div>
+        <div class="sc-row"><div class="sc-key">Qualifying Assets</div><div class="sc-val green">$1,800,000</div></div>
+        <div class="sc-row"><div class="sc-key">Monthly Income Added</div><div class="sc-val green">$5,000/mo</div></div>
+        <div class="sc-row"><div class="sc-key">Purchase Price</div><div class="sc-val">$925,000</div></div>
+        <div class="sc-row"><div class="sc-key">Down Payment</div><div class="sc-val">$277,500</div></div>
+        <div class="sc-row"><div class="sc-key">Close Time</div><div class="sc-val green">25 days</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="page concl">
+  <div class="concl-logo">RATE <span>HERO</span></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">Non-QM & Self-Employed Guide</p>
+  <div class="concl-title">THE BANK<br>SAID NO.<br>WE DON'T.</div>
+  <div class="concl-body">If you've been turned down because of how your income looks on paper, we likely have a program that works for your actual financial picture. Let's figure it out — no SSN, no credit pull, no obligation.</div>
+  <a href="https://goratehero.com" class="concl-cta">Get Matched at goratehero.com →</a>
+  <div class="concl-contact">
+    <p>Sean Davoodian · NMLS #1252107</p>
+    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval.</p>
+  </div>
+  <svg viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.3;z-index:0"><path d="M0 60 Q212 10 425 60 Q637 110 850 60 L850 120 L0 120 Z" fill="rgba(37,99,235,0.2)"/><path d="M0 75 Q212 30 425 75 Q637 120 850 75 L850 120 L0 120 Z" fill="rgba(37,99,235,0.12)"/></svg>
+</div>
+</body></html>

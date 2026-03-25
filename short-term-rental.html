@@ -3,199 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy | Rate Hero</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Lock in the sharpest rate in the market. Rate Hero shops top-tier lenders for conventional, FHA, and VA loans. As little as 3% down. Fast closings.">
+<title>Conventional, FHA & VA Loans | Rate Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#080F1E;color:#fff;min-height:100vh}
-.page{max-width:860px;margin:0 auto;padding:64px 40px 80px}
-h1{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;color:#fff;margin-bottom:8px;line-height:1}
-.subtitle{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:24px}
-h2{font-size:17px;font-weight:800;color:#fff;margin:36px 0 12px;text-transform:uppercase;letter-spacing:.06em}
-h3{font-size:15px;font-weight:700;color:#3B82F6;margin:24px 0 8px}
-p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.85;margin-bottom:14px}
-ul,ol{padding-left:22px;margin-bottom:14px}
-li{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.85;margin-bottom:6px}
-a{color:#3B82F6;text-decoration:none}
-a:hover{text-decoration:underline}
-strong{color:#fff;font-weight:700}
-.section{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:28px 32px;margin-bottom:16px}
-.section-num{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#3B82F6;margin-bottom:6px}
-.notice{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75}
-.contact-box{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:24px 28px;margin-top:40px}
-.contact-box h3{color:#3B82F6;margin-top:0}
-@media(max-width:640px){.page{padding:40px 20px}nav{padding:0 16px}footer{padding:16px 20px}}
+:root{--navy:#080F1E;--navy2:#0C1527;--navy3:#101D34;--card:#0E1A2E;--navyL:#162240;--teal:#2563EB;--teal2:#2563EB;--tealP:rgba(37,99,235,0.12);--tealG:rgba(37,99,235,0.25);--blue:#2563EB;--blue2:#3B82F6;--w:#FFFFFF;--w70:rgba(255,255,255,0.7);--w65:rgba(255,255,255,0.65);--w08:rgba(255,255,255,0.05);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--navy);color:var(--w);overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--tealG)}50%{box-shadow:0 0 0 14px rgba(37,99,235,0)}}
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.nlogo{font-family:var(--fd);font-size:21px;letter-spacing:4px;color:var(--w);text-decoration:none;display:inline-flex;align-items:center}.nlogo span{color:var(--teal)}
+.nlinks{display:flex;gap:2px;list-style:none;align-items:center}
+.nlinks>li{position:relative}
+.nlinks>li>a{text-decoration:none;color:var(--w65);font-size:17px;font-weight:600;transition:color .2s;padding:8px 13px;border-radius:8px;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.nlinks>li>a:hover{color:var(--w);background:rgba(255,255,255,0.04)}
+.nlinks>li>a.active{color:var(--teal)}
+.nlinks>li>a.has-drop::after{content:'▾';font-size:9px;color:var(--w65);transition:transform .2s;margin-left:2px}
+.nlinks>li:hover>a.has-drop::after{transform:rotate(180deg);color:var(--teal)}
+.nlinks>li:hover>a.has-drop{color:var(--w)}
+.nav-dropdown{position:absolute;top:calc(100% + 8px);left:0;background:#0B1628;border:1px solid rgba(37,99,235,0.25);border-radius:14px;padding:8px;min-width:240px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .18s ease,transform .18s ease;z-index:300;box-shadow:0 24px 64px rgba(0,0,0,0.6)}
+.nlinks>li:hover .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+.nav-dropdown a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:9px;text-decoration:none;color:var(--w65);font-size:17px;font-weight:600;transition:all .15s}
+.nav-dropdown a:hover{background:rgba(37,99,235,0.1);color:var(--w)}
+.nd-icon{font-size:18px;width:26px;text-align:center;flex-shrink:0}
+.nd-text{display:flex;flex-direction:column}
+.nd-title{font-size:17px;font-weight:700;color:var(--w);line-height:1.2}
+.nd-sub{font-size:11px;color:var(--w65);margin-top:2px}
+.nright{display:flex;align-items:center;gap:16px}.nphone{font-size:17px;color:var(--w65)}.nphone strong{color:var(--teal);font-weight:700}
+.nbtn{background:var(--blue);color:var(--w);border:none;padding:10px 20px;border-radius:8px;font-family:var(--fb);font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}.nbtn:hover{background:var(--blue2);transform:translateY(-1px)}
+.phero{position:relative;padding:72px 56px 64px;overflow:hidden;border-bottom:1px solid var(--bd)}
+.phero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 75% at 20% 60%,rgba(37,99,235,0.07) 0%,transparent 55%),linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%)}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.025) 1px,transparent 1px);background-size:64px 64px}
+.phero-inner{position:relative;z-index:2;max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center}
+.pbadge{display:inline-flex;align-items:center;gap:8px;background:var(--tealP);border:1px solid rgba(37,99,235,0.3);color:var(--teal);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;animation:fadeUp .5s ease both}
+.phero h1{font-family:var(--fb);font-size:clamp(38px,5vw,66px);font-weight:800;line-height:1.0;letter-spacing:-2px;color:var(--w);margin-bottom:14px;animation:fadeUp .5s .05s ease both}.phero h1 em{font-style:italic;color:var(--teal)}
+.phero-sub{font-size:18px;color:var(--w70);line-height:1.75;max-width:520px;margin-bottom:26px;animation:fadeUp .5s .1s ease both}
+.phero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;animation:fadeUp .5s .15s ease both}
+.bhero{background:var(--blue);color:var(--w);border:none;padding:14px 30px;border-radius:10px;font-family:var(--fb);font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 8px 24px rgba(37,99,235,.3);text-decoration:none;display:inline-block}.bhero:hover{background:var(--blue2);transform:translateY(-2px)}
+.boutline{background:transparent;color:var(--w70);border:1px solid var(--bd);padding:14px 20px;border-radius:10px;font-family:var(--fb);font-size:18px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}.boutline:hover{border-color:rgba(255,255,255,.3);color:var(--w)}
+.hpriv{font-size:12px;color:var(--w65);margin-top:12px}.hpriv span{color:var(--teal)}
+.vis-card{background:var(--card);border:1px solid var(--bdt);border-radius:18px;padding:24px 20px;position:relative;animation:fadeUp .5s .2s ease both}
+.vis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);border-radius:18px 18px 0 0}
+.vc-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:12px}
+.vc-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--bd)}.vc-row:last-child{border-bottom:none}
+.vc-k{font-size:12px;color:var(--w65)}.vc-v{font-size:17px;font-weight:700;color:var(--w)}.vc-v.t{color:var(--teal)}
+.pstats{background:var(--navy3);border-bottom:1px solid var(--bd);display:grid;grid-template-columns:repeat(4,1fr)}
+.pstat{padding:22px 24px;border-right:1px solid var(--bd);text-align:center}.pstat:last-child{border-right:none}
+.pstat-num{font-family:var(--fd);font-size:36px;color:var(--teal);letter-spacing:2px;display:block;line-height:1}
+.pstat-lbl{font-size:11px;color:var(--w65);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;font-weight:600;display:block}
+.wrap{max-width:1260px;margin:0 auto;padding:0 56px}
+.sec{padding:72px 0}.sec.alt{background:var(--navy2)}
+.stag{display:inline-flex;align-items:center;gap:8px;background:var(--w08);border:1px solid var(--bd);color:var(--w70);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.dot{width:6px;height:6px;background:var(--teal);border-radius:50%}
+.sh2{font-family:var(--fb);font-size:clamp(28px,3.5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.5px;color:var(--w);margin-bottom:10px}.sh2 em{font-style:italic;color:var(--teal)}
+.sp{font-size:17px;color:var(--w65);line-height:1.8;max-width:560px;margin-bottom:32px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.flist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.flist li{display:flex;align-items:flex-start;gap:11px;font-size:18px;color:var(--w70);line-height:1.6}
+.fci{width:21px;height:21px;background:var(--tealP);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:10px;flex-shrink:0;margin-top:2px;font-weight:700}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ccard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px 20px;transition:all .2s}.ccard:hover{border-color:var(--bdt);transform:translateY(-3px)}
+.ccard-ico{font-size:24px;margin-bottom:10px;display:block}.ccard-title{font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px}.ccard-desc{font-size:17px;color:var(--w65);line-height:1.7}
+.psteps{display:flex;flex-direction:column}
+.pstep{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--bd);align-items:flex-start}.pstep:last-child{border-bottom:none}
+.pstep-num{width:40px;height:40px;background:var(--tealP);border:1px solid var(--bdt);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:19px;color:var(--teal);flex-shrink:0}
+.pstep-title{font-size:17px;font-weight:700;color:var(--w);margin-bottom:4px}.pstep-desc{font-size:17px;color:var(--w65);line-height:1.7}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.comp-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px 20px}.comp-card.hi{border-color:var(--bdt);background:rgba(37,99,235,0.04)}
+.comp-title{font-size:17px;font-weight:800;color:var(--w);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.comp-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);background:var(--tealP);padding:3px 9px;border-radius:99px}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:8px}.comp-list li{font-size:17px;color:var(--w65);display:flex;gap:8px;line-height:1.6}.comp-list li::before{content:'→';color:var(--teal);flex-shrink:0;font-weight:700}
+.ctable{width:100%;border-collapse:collapse}.ctable th{background:var(--navyL);padding:12px 16px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--w65);border-bottom:2px solid var(--bdt)}
+.ctable td{padding:12px 16px;border-bottom:1px solid var(--bd);font-size:17px;color:var(--w70);line-height:1.6}.ctable tr:last-child td{border-bottom:none}.ctable tr:hover td{background:var(--w08)}.ctable td:first-child{font-weight:700;color:var(--w)}.t-yes{color:var(--teal);font-weight:700}
+.faq-wrap{display:flex;flex-direction:column;gap:2px}
+.faq-item{background:var(--card);border:1px solid var(--bd);border-radius:10px;overflow:hidden;transition:border-color .2s}.faq-item.open{border-color:var(--bdt)}
+.faq-q{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:700;color:var(--w);gap:16px}.faq-q:hover{color:var(--teal)}
+.faq-ico{color:var(--teal);font-size:18px;transition:transform .25s;flex-shrink:0}.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}.faq-a.open{max-height:300px;padding:0 20px 18px}.faq-a p{font-size:17px;color:var(--w65);line-height:1.8}
+.cta-band{background:var(--navy2);border-top:1px solid var(--bd);padding:80px 56px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(37,99,235,0.08) 0%,transparent 60%)}
+.cta-inner{position:relative;z-index:1;max-width:580px;margin:0 auto}
+.cta-inner h2{font-family:var(--fb);font-size:clamp(32px,4.5vw,54px);font-weight:800;color:var(--w);line-height:1.08;letter-spacing:-1px;margin-bottom:10px}.cta-inner h2 em{font-style:italic;color:var(--teal)}
+.cta-inner p{font-size:18px;color:var(--w65);margin-bottom:26px;line-height:1.75}
+.bcta{background:var(--blue);color:var(--w);border:none;padding:15px 44px;border-radius:10px;font-family:var(--fb);font-size:18px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 8px 28px rgba(37,99,235,.3);text-decoration:none;display:inline-block}.bcta:hover{background:var(--blue2);transform:translateY(-2px)}
+.cta-priv{font-size:12px;color:var(--w65);margin-top:10px}
+footer{background:var(--navy);border-top:1px solid var(--bd)}
+.ftop{max-width:1260px;margin:0 auto;padding:56px 56px 40px;display:grid;grid-template-columns:240px 1fr;gap:64px}
+.flogo{font-family:var(--fd);font-size:22px;letter-spacing:4px;color:var(--w)}.flogo span{color:var(--teal)}
+.ftag2{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin:5px 0 10px}
+.fdesc{font-size:17px;color:var(--w65);line-height:1.75;margin-bottom:16px}
+.fsoc{display:flex;gap:7px}.fsoc a{width:30px;height:30px;background:var(--w08);border:1px solid var(--bd);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--w65);text-decoration:none;font-size:11px;font-weight:700;transition:all .2s}.fsoc a:hover{background:var(--teal);color:var(--navy);border-color:var(--teal)}
+.fcols{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.fcol h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--w65);margin-bottom:12px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}.fcol ul li a{text-decoration:none;color:var(--w70);font-size:17px;transition:color .2s}.fcol ul li a:hover{color:var(--teal)}
+.fbot{border-top:1px solid var(--bd);padding:14px 56px;max-width:1260px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px}.fbot p{font-size:11px;color:var(--w65)}
+@media(max-width:960px){nav{padding:0 20px}.nlinks,.nphone{display:none}.phero{padding:48px 20px 44px}.phero-inner{grid-template-columns:1fr}.vis-card{display:none}.sec{padding:48px 0}.cta-band{padding:52px 20px}.wrap{padding:0 20px}.pstats{grid-template-columns:1fr 1fr}.twocol{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr 1fr}.compare-grid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr;gap:28px;padding:32px 20px}.fcols{grid-template-columns:1fr 1fr}.fbot{padding:12px 20px;flex-direction:column}}
+@media(max-width:600px){.cgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav style="position:sticky;top:0;z-index:200;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 52px;height:64px;background:rgba(8,15,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08)">
-  <a href="../index.html" style="font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:4px;color:#fff;text-decoration:none;display:inline-flex;align-items:center"><svg width="14" height="20" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:7px;flex-shrink:0"><defs><linearGradient id="b" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#b)"/></svg>RATE <span style="color:#3B82F6">HERO</span></a>
-  <div></div>
-  <a href="../index.html" style="background:#2563EB;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none">Apply Now</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+<nav style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;">
+  <a href="../index.html" class="nlogo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0">
+  <defs>
+    <linearGradient id="blt" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#F5B731"/>
+      <stop offset="100%" stop-color="#E8920A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt)"/>
+</svg>RATE <span>HERO</span></a>
+  <ul class="nlinks" style="justify-content:center;">
+    <li>
+      <a href="#" class="has-drop">DSCR</a>
+      <div class="nav-dropdown">
+        <a href="../pages/long-term-rental.html">
+          <span class="nd-icon">📈</span>
+          <span class="nd-text"><span class="nd-title">Long-Term Rental</span><span class="nd-sub">Qualify on lease or 1007 rent</span></span>
+        </a>
+        <a href="../pages/short-term-rental.html">
+          <span class="nd-icon">🏖️</span>
+          <span class="nd-text"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO — AirDNA accepted</span></span>
+        </a>
+      </div>
+    </li>
+    <li><a href="../pages/non-qm.html">Non-QM</a></li>
+    <li><a href="../pages/conventional.html">Conventional / FHA / VA</a></li>
+    <li><a href="../pages/heloc.html">HELOC</a></li>
+    <li><a href="../pages/brrrr-loan.html">BRRRR / Hard Money Exit</a></li>
+  </ul>
+  <div class="nright"><a href="../pages/about.html" style="color:rgba(255,255,255,0.65);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;">About</a><div class="nphone">Call: <strong>(747) 308-1635</strong></div><a href="../index.html" class="nbtn" onclick="sessionStorage.setItem('openFunnel','1');return true;">Apply Now</a></div>
 </nav>
-<div class="page">
-  <h1>Privacy Policy</h1>
-  <p class="subtitle">Rate Hero, Inc. DBA Rate Hero &nbsp;·&nbsp; Last updated: 2026 &nbsp;·&nbsp; NMLS #2822806</p>
 
-  <p>This Privacy Policy describes how Rate Hero, Inc. DBA Rate Hero ("Rate Hero", "us", or "our") collects, uses, and discloses personal information we receive through any of our websites and mobile applications (the "Site") that connect to this Privacy Policy and through any other online services we offer (collectively, the "Services"). This Policy also describes the choices you have concerning our use of your information.</p>
-
-  <p>By using the Site, you agree to the collection and use of your information in accordance with this Privacy Policy and our Terms of Use.</p>
-
-  <div class="notice">Please note that if you are, or apply to become, our customer with respect to products or services to be used primarily for personal, family or household purposes, you have certain additional privacy rights, as reflected in our customer privacy notice, available at: <a href="https://www.ftc.gov/enforcement/statutes/gramm-leach-bliley-act" target="_blank">https://www.ftc.gov/enforcement/statutes/gramm-leach-bliley-act</a></div>
-
-  <div class="section">
-    <div class="section-num">Section 1</div>
-    <h2>What Does This Privacy Policy Apply To?</h2>
-    <p>The Site and Services are operated by Rate Hero, Inc. DBA Rate Hero. This Privacy Policy applies to the Site and our Services only. The Privacy Policy does not cover the privacy practices of any other company.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 2</div>
-    <h2>What Information Do We Collect?</h2>
-    <p>In order to better provide you with our Services, we may collect the following categories of information:</p>
-    <ul>
-      <li><strong>Profile and contact information</strong> such as your name, date of birth, email address, telephone number and profile preferences</li>
-      <li><strong>Account and payment-related information</strong> as needed to make and process payments in connection with your Rate Hero financial products</li>
-      <li><strong>Other information you provide</strong> such as by filling out forms on our Services or when reporting a problem or issue to us</li>
-      <li><strong>Communications</strong> between you and us, such as via email, online or other channels</li>
-      <li><strong>Publicly-available information</strong> from public access sources and other third parties in accordance with the law</li>
-      <li><strong>Online User Activity</strong> as described in the next section</li>
-    </ul>
-
-    <h3>Online User Activity, Cookies, and Automated Means</h3>
-    <p>We, our service providers and advertising partners may collect certain information about your device and use of our Services by automated means, including cookies and other similar technologies. Cookies are commonly used to allow websites and apps to store and retrieve certain information on a user's system and track users' online activities.</p>
-    <p>When you use the Services, the information we may collect by automated means includes:</p>
-    <ul>
-      <li><strong>Usage Details</strong> about your interaction with our Services (such as date, time, length of visits, and specific pages accessed, search terms, frequency of visits, referring website addresses)</li>
-      <li><strong>Device Information</strong> including the IP address and other details of a device you use to connect with our Services (such as device type, unique device identifier, operating system, browser type, mobile network information)</li>
-      <li><strong>Location information</strong>, where you choose to provide us with information about your device's location</li>
-    </ul>
-    <p>Because there is not yet a consensus on how companies should respond to web browser-based do-not-track ("DNT") mechanisms, we do not respond to web browser-based DNT signals at this time.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 3</div>
-    <h2>What Do We Use Your Information For?</h2>
-    <p>Any of the information we collect from you may be used in one or more of the following ways:</p>
-    <ul>
-      <li>To register you for an account with the Site or Services</li>
-      <li>To provide and improve customer service</li>
-      <li>To improve our Site and Services</li>
-      <li>To process transactions</li>
-      <li>To send periodic emails about your account, updates, and relevant information</li>
-      <li>To fulfill your requests to access, purchase, and use our Services</li>
-      <li>To provide you with notices about changes to our terms, conditions, and policies</li>
-      <li>To communicate with you via telephone, email, mail, SMS, or other means as required in the context of our business relationship</li>
-      <li>To prevent fraud and spam</li>
-      <li>For internal purposes such as auditing and analysis</li>
-      <li>For marketing purposes, limited to a reasonable and proportionate level</li>
-    </ul>
-    <p>You can stop email marketing at any time by following the unsubscribe link in any marketing email. You will still receive operational and service messages regarding your account.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 4</div>
-    <h2>How Do We Share Your Information?</h2>
-    <p>We may disclose your personal information to third parties in the following circumstances:</p>
-    <ul>
-      <li>With our corporate affiliates and service providers that we believe need the information to perform a technology, business, or other professional function for us</li>
-      <li>If you voluntarily share or submit any content through our Services, that content may become available to the public</li>
-      <li>If we are required to do so by law or legal process</li>
-      <li>When we believe disclosure is necessary to prevent harm or financial loss</li>
-      <li>In connection with an investigation of suspected or actual fraudulent or illegal activity</li>
-      <li>In aggregate, statistical form, non-personal information regarding visitors, traffic patterns, and usage with our partners and affiliates</li>
-      <li>In connection with a sale or transfer of all or a portion of our business or assets</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 5</div>
-    <h2>How Do We Protect Your Information?</h2>
-    <p>We take the security of the information we collect and maintain very seriously. To prevent unauthorized access or disclosures, we utilize physical, electronic, and procedural safeguards, including:</p>
-    <ul>
-      <li>Password protection, encryption, and SSL (Secure Socket Layering) to protect our Site and Services</li>
-      <li>128-bit encryption for all online access</li>
-      <li>Firewall protection to block unauthorized entry into our Site</li>
-      <li>Confidentiality requirements on our employees and service providers</li>
-      <li>Secure storage and disclosure procedures for your personal information</li>
-      <li>Physical access controls to our data centers</li>
-    </ul>
-    <p>Please be aware that no security system can prevent all potential security breaches. Any transmission of personal information over the internet is at your own risk.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 6</div>
-    <h2>How Long Do We Store Your Personal Information?</h2>
-    <p>We will store your personal information for as long as is reasonably necessary for the purposes for which it was collected. Where your information is no longer needed, we will ensure it is disposed of in a secure manner. In some circumstances we may store your personal information for longer periods of time where required to do so by legal, regulatory, tax, or accounting requirements.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 7</div>
-    <h2>Links to Third Party Sites</h2>
-    <p>Occasionally, at our discretion, the Site and our Services may contain links to third-party sites. Any information you provide to, or that is collected by, third-party sites may be subject to the privacy policies of those sites. We are not responsible for the content of the sites to which we link, and we encourage you to read the privacy statements of any other website that collects personal information.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 8</div>
-    <h2>Your Privacy Rights</h2>
-    <h3>California Residents</h3>
-    <p>California residents have certain rights in relation to their personal information pursuant to the California Consumer Privacy Act (CCPA). These include the right to:</p>
-    <ul>
-      <li>Request information about the personal information that we collect about you</li>
-      <li>Obtain the specific pieces of personal information that we have collected about you in the preceding 12 months</li>
-      <li>Request we delete certain personal information we have collected about you</li>
-      <li>Opt-out of disclosures of your personal information to third parties under certain circumstances</li>
-      <li>Not be discriminated against as a result of exercising any of the aforementioned rights</li>
-    </ul>
-    <p>Please note that this section does not apply to personal information covered by the Fair Credit Reporting Act, the Gramm-Leach-Bliley Act, the California Financial Information Privacy Act, or other applicable exemptions.</p>
-    <p>You may exercise your privacy rights by contacting us at <a href="mailto:privacy@goratehero.com">privacy@goratehero.com</a>.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 9</div>
-    <h2>Children's Online Privacy Protection</h2>
-    <p>We do not knowingly collect information online from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, please contact us at <a href="mailto:privacy@goratehero.com">privacy@goratehero.com</a>.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 10</div>
-    <h2>SMS Terms &amp; Conditions</h2>
-    <h3>Product Description</h3>
-    <p>By providing your mobile phone number, you consent to receive SMS messages from Rate Hero, Inc. DBA Rate Hero related to order updates or account notifications.</p>
-    <h3>Message Frequency</h3>
-    <p>Message frequency may vary.</p>
-    <h3>Message and Data Rates</h3>
-    <p>Standard message and data rates may apply.</p>
-    <h3>Opting Out</h3>
-    <p>You may opt out of receiving SMS messages at any time by replying with "STOP" to any SMS message you receive from us. After opting out, you will receive a confirmation message, and we will cease sending SMS messages to your number.</p>
-    <h3>Help and Support</h3>
-    <p>If you need assistance or have questions about our SMS service, reply with "HELP" to any SMS message, or contact us at <a href="mailto:privacy@goratehero.com">privacy@goratehero.com</a>.</p>
-    <h3>Privacy of SMS Data</h3>
-    <p>Your phone number will be handled in accordance with this Privacy Policy. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 11</div>
-    <h2>Changes to Our Privacy Policy</h2>
-    <p>We reserve the right to update and modify this Privacy Policy at any time. Your use of the Site constitutes your agreement to the policies and procedures set forth in this Privacy Policy. If our information practices change, we will post these changes on the Site. We encourage you to review our Privacy Policy periodically.</p>
-  </div>
-
-  <div class="contact-box">
-    <h3>Contact Us</h3>
-    <p>If there are any questions regarding this Privacy Policy, please contact us at:</p>
-    <p><a href="mailto:privacy@goratehero.com">privacy@goratehero.com</a><br>
-    Rate Hero, Inc. DBA Rate Hero<br>
-    5930 San Fernando Rd, Glendale, CA 91202<br>
-    NMLS #2822806<br>
-    (747) 308-1635</p>
-  </div>
+<main id="main-content">
+<section class="phero"><div class="phero-bg"></div><div class="phero-grid"></div>
+<div class="phero-inner"><div>
+  <div class="pbadge">Conventional Loans</div>
+  <h1>The Gold Standard.<br><em>Better Rates.</em></h1>
+  <p class="phero-sub">Conventional loans offer the lowest rates and best terms for borrowers with strong credit and documented income. Let Rate Hero find you the sharpest rate in the market.</p>
+  <div class="phero-cta"><a onclick="sessionStorage.setItem('openFunnel','1')" href="../index.html" class="bhero">Get My Rate &rarr;</a><a href="tel:7473081635" class="boutline">Talk To An Advisor</a></div>
+  <p class="hpriv"><span>🔒</span> No SSN required &middot; No credit pull &middot; 100% confidential</p>
 </div>
-<footer style="border-top:1px solid rgba(255,255,255,0.08);padding:20px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#080F1E">
-  <p style="font-size:11px;color:rgba(255,255,255,0.3)">© 2026 Rate Hero, Inc. DBA Rate Hero. All rights reserved. NMLS #2822806. Equal Housing Lender.</p>
-  <div style="display:flex;gap:20px">
-    <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">Privacy Policy</a>
-    <a href="terms-of-use.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none">Terms of Use</a>
+<div class="vis-card"><div class="vc-label">Loan Snapshot</div>
+  <div class="vc-row"><span class="vc-k">Min. Down Payment</span><span class="vc-v t">3%</span></div>
+  <div class="vc-row"><span class="vc-k">Min. Credit Score</span><span class="vc-v">620</span></div>
+  <div class="vc-row"><span class="vc-k">Conforming Limit</span><span class="vc-v">$806,500</span></div>
+  <div class="vc-row"><span class="vc-k">Max DTI</span><span class="vc-v">50%</span></div>
+  <div class="vc-row"><span class="vc-k">PMI Required</span><span class="vc-v">Below 20% down</span></div>
+  <div class="vc-row"><span class="vc-k">Jumbo Available</span><span class="vc-v t">Up to $3M+ ✓</span></div>
+</div></div></section>
+<div class="pstats">
+  <div class="pstat"><span class="pstat-num">3%</span><span class="pstat-lbl">Min Down Payment</span></div>
+  <div class="pstat"><span class="pstat-num">620+</span><span class="pstat-lbl">Min Credit Score</span></div>
+  <div class="pstat"><span class="pstat-num">$3M+</span><span class="pstat-lbl">Jumbo Available</span></div>
+  <div class="pstat"><span class="pstat-num">21 Days</span><span class="pstat-lbl">Avg. Close Time</span></div>
+</div>
+<section class="sec"><div class="wrap"><div class="twocol"><div>
+  <div class="stag"><span class="dot"></span> Why Conventional?</div>
+  <h2 class="sh2">Low Rates.<br><em>No Surprises.</em></h2>
+  <p class="sp">Conventional loans are backed by Fannie Mae and Freddie Mac, offering the most competitive interest rates for qualified borrowers. With as little as 3% down and no upfront mortgage insurance, they're the benchmark for a reason.</p>
+  <ul class="flist">
+    <li><span class="fci">✓</span>Down payments as low as 3%</li>
+    <li><span class="fci">✓</span>Fixed and adjustable rate options</li>
+    <li><span class="fci">✓</span>No upfront mortgage insurance premium</li>
+    <li><span class="fci">✓</span>PMI removed once you reach 20% equity</li>
+    <li><span class="fci">✓</span>Loan amounts up to $806,500 (conforming)</li>
+    <li><span class="fci">✓</span>Jumbo options above conforming limits</li>
+  </ul>
+  <a onclick="sessionStorage.setItem('openFunnel','1')" href="../index.html" class="bhero">See My Rate &rarr;</a>
+</div><div>
+  <div class="stag"><span class="dot"></span> Loan Types</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 18px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:22px">🔒</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">30-Year Fixed</div><div style="font-size:17px;color:var(--w65)">Lock in your rate for the full 30 years — predictable payments, maximum stability.</div></div></div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 18px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:22px">⚡</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">15-Year Fixed</div><div style="font-size:17px;color:var(--w65)">Pay off your home faster and save tens of thousands in interest.</div></div></div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 18px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:22px">📈</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">5/1 ARM</div><div style="font-size:17px;color:var(--w65)">Lower fixed rate for 5 years, then adjusts. Perfect if you plan to sell or refinance within 5–7 years.</div></div></div>
+    <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:18px 18px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:22px">🏔️</span><div><div style="font-size:18px;font-weight:700;color:var(--w);margin-bottom:3px">Jumbo Loans</div><div style="font-size:17px;color:var(--w65)">Above the conforming limit? Our jumbo program goes up to $3M+ with competitive rates.</div></div></div>
   </div>
+</div></div></div></section>
+<section class="sec alt"><div class="wrap" style="max-width:800px">
+  <div class="stag"><span class="dot"></span> Common Questions</div>
+  <h2 class="sh2">Conventional <em>FAQ</em></h2>
+  <div class="faq-wrap">
+    <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">What credit score do I need?<span class="faq-ico">+</span></div><div class="faq-a"><p>Most conventional loans require a minimum credit score of 620. However, to get the best rates and avoid heavy PMI costs, a score of 740+ is ideal. The higher your score, the better your rate.</p></div></div>
+    <div class="faq-item" id="f2"><div class="faq-q" onclick="tog('f2')">How much do I need for a down payment?<span class="faq-ico">+</span></div><div class="faq-a"><p>As little as 3% for first-time homebuyers. Repeat buyers typically need 5% down. Putting down 20% eliminates PMI, which can save you $100–$300/month on average.</p></div></div>
+    <div class="faq-item" id="f3"><div class="faq-q" onclick="tog('f3')">How is a conventional loan different from FHA?<span class="faq-ico">+</span></div><div class="faq-a"><p>Conventional loans have stricter credit requirements but lower long-term costs — especially if you have 20% down (no PMI). FHA loans are more flexible on credit but require mortgage insurance for the life of the loan in many cases.</p></div></div>
+    <div class="faq-item" id="f4"><div class="faq-q" onclick="tog('f4')">Can I use gift funds for my down payment?<span class="faq-ico">+</span></div><div class="faq-a"><p>Yes. Conventional loans allow gift funds from family members for down payment and closing costs. We'll walk you through the documentation required to properly source and accept gift funds.</p></div></div>
+  </div>
+</div></section>
+<section class="cta-band"><div class="cta-inner">
+  <h2>Your Best Rate<br>Is <em>Waiting.</em></h2>
+  <p>Takes 2 minutes. No SSN. No credit pull. Just answers.</p>
+  <a onclick="sessionStorage.setItem('openFunnel','1')" href="../index.html" class="bcta">Check My Eligibility &rarr;</a>
+  <p class="cta-priv">100% confidential &middot; No credit pull &middot; No SSN required</p>
+</div></section>
+<footer>
+  <div class="ftop"><div>
+    <div class="flogo"><svg width="20" height="28" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px;flex-shrink:0">
+  <defs>
+    <linearGradient id="bltf" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#F5B731"/>
+      <stop offset="100%" stop-color="#E8920A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#bltf)"/>
+</svg>RATE <span>HERO</span></div>
+    <div class="ftag2">Strategic Financing. Lightning-Fast Closings.</div>
+    <p class="fdesc">Rate Hero is a licensed mortgage lender helping business owners, investors, and homebuyers access the best loan programs in the country — fast.</p>
+    <div class="fsoc"><a href="#">f</a><a href="#">in</a><a href="#">li</a></div>
+  </div>
+  <div class="fcols">
+    <div class="fcol"><h4>Loan Programs</h4><ul>
+      <li><a href="../pages/non-qm.html">Non-QM Loans</a></li>
+      <li><a href="../pages/conventional.html">Conventional / FHA / VA</a></li>
+      <li><a href="../pages/long-term-rental.html">DSCR Long-Term Rental</a></li>
+      <li><a href="../pages/short-term-rental.html">DSCR Short-Term Rental</a></li>
+      <li><a href="../pages/heloc.html">HELOC</a></li>
+    </ul></div>
+    <div class="fcol"><h4>Company</h4><ul>
+      <li><a href="../pages/about.html">About Us</a></li>
+      <li><a href="../pages/about.html">Careers</a></li><li><a href="../blog/index.html">Blog</a></li>
+    </ul></div>
+    <div class="fcol"><h4>Support</h4><ul>
+      <li><a href="../dscr-calculator.html">FAQ</a></li><li><a href="mailto:hello@ratehero.com">Contact Us</a></li>
+      <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+    </ul></div>
+    <div class="fcol"><h4>Free Resources</h4><ul>
+      <li><a href="../quiz.html">⚡ Which Program Fits?</a></li>
+      <li><a href="../dscr-calculator.html">📊 DSCR Calculator</a></li>
+      <li><a href="../resources/str-playbook.html">📘 STR Playbook</a></li>
+      <li><a href="../resources/creative-financing-101.html">📗 Creative Financing 101</a></li>
+    </ul></div>
+    <div class="fcol"><h4>Contact</h4><ul>
+      <li><a href="tel:7473081635">(747) 308-1635</a></li>
+      <li><a href="mailto:hello@ratehero.com">hello@ratehero.com</a></li>
+      <li style="color:var(--w65);font-size:12px;line-height:1.7;">Mon–Fri 8am–8pm ET<br>Sat 9am–5pm ET</li>
+    </ul></div>
+  </div></div>
+  <div class="fbot">
+    <p>© 2025 Rate Hero, Inc.. All rights reserved. NMLS #2822806. Equal Housing Lender.</p>
+    <p>Not affiliated with any government agency. Rates subject to change without notice.</p>
+  </div>
+  <!-- DSCR States — SEO + visible lending area links -->
+  <div style="background:var(--navy-card,#0F1B30);border-top:1px solid rgba(255,255,255,0.06);padding:32px 52px;">
+    <div style="max-width:1260px;margin:0 auto">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px">📈 DSCR Loans — States We Lend In</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 6px">
+        <a href="../dscr-loans/florida.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌴 Florida</a>
+        <a href="../dscr-loans/texas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🤠 Texas</a>
+        <a href="../dscr-loans/georgia.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🍑 Georgia</a>
+        <a href="../dscr-loans/north-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ North Carolina</a>
+        <a href="../dscr-loans/tennessee.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎸 Tennessee</a>
+        <a href="../dscr-loans/south-carolina.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏖️ South Carolina</a>
+        <a href="../dscr-loans/ohio.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Ohio</a>
+        <a href="../dscr-loans/indiana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Indiana</a>
+        <a href="../dscr-loans/kentucky.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🐴 Kentucky</a>
+        <a href="../dscr-loans/missouri.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🎵 Missouri</a>
+        <a href="../dscr-loans/alabama.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🚀 Alabama</a>
+        <a href="../dscr-loans/mississippi.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌊 Mississippi</a>
+        <a href="../dscr-loans/arkansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌿 Arkansas</a>
+        <a href="../dscr-loans/kansas.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🌾 Kansas</a>
+        <a href="../dscr-loans/oklahoma.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏙️ Oklahoma</a>
+        <a href="../dscr-loans/colorado.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Colorado</a>
+        <a href="../dscr-loans/wyoming.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🦬 Wyoming</a>
+        <a href="../dscr-loans/montana.html" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;transition:all .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(37,99,235,0.4)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.08)'">🏔️ Montana</a>
+        <a href="../dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States →</a>
+      </div>
+    </div>
+  </div>
+</main>
 </footer>
-</body>
-</html>
+<script>function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}</script>
+</body></html>
