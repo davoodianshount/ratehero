@@ -125,7 +125,67 @@ body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
 .doc-footer .logo-sm span{color:var(--blue2)}
 
 @media screen{body{padding:40px 20px}}
-@media print{body{background:#fff;padding:0}.page{margin:0;box-shadow:none;page-break-after:always}}
+@media print {
+  /* Page setup — Letter size, no margins so content fills page */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  /* Hide browser UI artifacts */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Each .page div becomes one printed page */
+  .page {
+    width: 850px !important;
+    min-height: 1100px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Last page — no trailing blank page */
+  .page:last-of-type {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Never break inside a page */
+  .page * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Hide nav, skip links, and any screen-only UI */
+  nav,
+  .skip-link,
+  .doc-nav,
+  footer,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Force background colors and images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Remove screen padding on body wrapper */
+  body > .page:first-child {
+    margin-top: 0 !important;
+  }
+}.page{margin:0;box-shadow:none;page-break-after:always}}
 
 /* ── LIGHT THEME: COVER ── */
 .cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}

@@ -45,7 +45,67 @@ html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--bg);overflow-x:hidden}
 .page{width:850px;min-height:1100px;margin:0 auto;position:relative;overflow:hidden}
 @media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.3);margin-bottom:32px}}
-@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
+@media print {
+  /* Page setup — Letter size, no margins so content fills page */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  /* Hide browser UI artifacts */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Each .page div becomes one printed page */
+  .page {
+    width: 850px !important;
+    min-height: 1100px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Last page — no trailing blank page */
+  .page:last-of-type {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Never break inside a page */
+  .page * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Hide nav, skip links, and any screen-only UI */
+  nav,
+  .skip-link,
+  .doc-nav,
+  footer,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Force background colors and images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Remove screen padding on body wrapper */
+  body > .page:first-child {
+    margin-top: 0 !important;
+  }
+}.page{width:100%;margin:0;page-break-after:always}}
 
 /* COVER */
 .cover{background:var(--navy);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
@@ -442,7 +502,7 @@ p{color:#374151}
     <div class="cv-by">Prepared by <strong>Sean Davoodian</strong> · NMLS #1252107</div>
     <div class="cv-contact">
       <div>(747) 308-1635</div>
-      <strong>hello@ratehero.com</strong>
+      <strong>hello@goratehero.com</strong>
     </div>
   </div>
 </div>
@@ -627,7 +687,7 @@ p{color:#374151}
   </div>
   <div class="concl-contact">
     <p>Sean Davoodian · NMLS #1252107</p>
-    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <strong>(747) 308-1635 · hello@goratehero.com</strong>
     <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval. Terms and conditions apply.</p>
   </div>
   <svg viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" fill="none" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.3;z-index:0">

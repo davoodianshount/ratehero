@@ -36,7 +36,67 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);overflow-x:hid
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:48px 48px}
 .page{width:850px;min-height:1100px;margin:0 auto;position:relative;overflow:hidden}
 @media screen{body{padding:40px 20px}.page{box-shadow:0 24px 80px rgba(0,0,0,0.12);margin-bottom:32px}}
-@media print{body{background:#fff}.page{width:100%;margin:0;page-break-after:always}}
+@media print {
+  /* Page setup — Letter size, no margins so content fills page */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  /* Hide browser UI artifacts */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Each .page div becomes one printed page */
+  .page {
+    width: 850px !important;
+    min-height: 1100px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Last page — no trailing blank page */
+  .page:last-of-type {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Never break inside a page */
+  .page * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Hide nav, skip links, and any screen-only UI */
+  nav,
+  .skip-link,
+  .doc-nav,
+  footer,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Force background colors and images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Remove screen padding on body wrapper */
+  body > .page:first-child {
+    margin-top: 0 !important;
+  }
+}.page{width:100%;margin:0;page-break-after:always}}
 
 /* COVER — hero blue gradient instead of dark navy */
 .cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 50%,#2563EB 100%);min-height:1100px;display:flex;flex-direction:column;position:relative;overflow:hidden}
@@ -155,7 +215,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
   </div>
   <div class="cv-bottom">
     <div class="cv-by">Prepared by <strong>Sean Davoodian</strong> · NMLS #1252107</div>
-    <div class="cv-contact"><div>(747) 308-1635</div><strong>hello@ratehero.com</strong></div>
+    <div class="cv-contact"><div>(747) 308-1635</div><strong>hello@goratehero.com</strong></div>
   </div>
 </div>
 
@@ -317,7 +377,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
   </div>
   <div class="cta-contact">
     <p>Sean Davoodian · NMLS #1252107</p>
-    <strong>(747) 308-1635 · hello@ratehero.com</strong>
+    <strong>(747) 308-1635 · hello@goratehero.com</strong>
     <p style="margin-top:24px;font-size:11px;opacity:.4">Rate Hero · NMLS #2822806 · Equal Housing Lender · Licensed in 30+ States<br>Not a commitment to lend. Programs subject to approval.</p>
   </div>
 </div>

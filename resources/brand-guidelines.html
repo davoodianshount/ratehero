@@ -21,7 +21,67 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
 /* ── PAGE LAYOUT ── */
 .page{width:850px;margin:0 auto 32px;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.18)}
 @media screen{body{padding:40px 20px;background:#e8e8e4}}
-@media print{body{background:#fff;padding:0}.page{margin:0;width:100%;box-shadow:none;page-break-after:always}}
+@media print {
+  /* Page setup — Letter size, no margins so content fills page */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  /* Hide browser UI artifacts */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Each .page div becomes one printed page */
+  .page {
+    width: 850px !important;
+    min-height: 1100px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Last page — no trailing blank page */
+  .page:last-of-type {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Never break inside a page */
+  .page * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Hide nav, skip links, and any screen-only UI */
+  nav,
+  .skip-link,
+  .doc-nav,
+  footer,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Force background colors and images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Remove screen padding on body wrapper */
+  body > .page:first-child {
+    margin-top: 0 !important;
+  }
+}.page{margin:0;width:100%;box-shadow:none;page-break-after:always}}
 
 /* ── SHARED ── */
 .section-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
@@ -183,7 +243,7 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
 
   <div class="cv-bottom">
     <p>Confidential · Internal & Partner Use Only</p>
-    <p>Sean Davoodian · NMLS #1252107 · (747) 308-1635 · goratehero.com</p>
+    <p>Rate Hero, Inc. · NMLS #2822806 · (747) 308-1635 · goratehero.com</p>
   </div>
 </div>
 
@@ -196,7 +256,7 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
     <div>
       <p style="font-size:17px;line-height:1.85;color:#374151;margin-bottom:20px">Rate Hero exists because the mortgage industry was built to serve banks — not borrowers. We built a different kind of lending experience: one that works for the self-employed, the investor, the business owner, and anyone the big banks ignore.</p>
-      <p style="font-size:17px;line-height:1.85;color:#374151;margin-bottom:28px">We access multiple lending partners to find the program that fits each individual — not the program that's easiest to approve. The lightning bolt isn't just a logo. It's a signal: fast, sharp, and built for people who don't have time for the ordinary.</p>
+      <p style="font-size:17px;line-height:1.85;color:#374151;margin-bottom:28px">We leverage our in-house expertise and deep lender relationships to find the right program for each individual — not the program that's easiest to approve. The lightning bolt isn't just a logo. It's a signal: fast, sharp, and built for people who don't have time for the ordinary.</p>
       <div style="border-left:3px solid var(--blue);padding:18px 22px;background:#f0f4ff;border-radius:0 12px 12px 0">
         <p style="font-size:18px;font-weight:700;font-style:italic;color:var(--navy);line-height:1.5">"Your Income. Your Rules. Our Rates."</p>
       </div>
@@ -479,7 +539,7 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
     <div class="type-row">
       <div class="type-sample">
         <div style="font-family:var(--fb);font-size:28px;font-weight:800;color:var(--navy);margin-bottom:6px">The mortgage industry was built to serve banks, not borrowers.</div>
-        <div style="font-family:var(--fb);font-size:17px;font-weight:400;color:#4b5563;line-height:1.8">Built for business owners, investors, and anyone the big banks ignore. We access multiple lending partners so you get the right program — not just the easiest one to approve.</div>
+        <div style="font-family:var(--fb);font-size:17px;font-weight:400;color:#4b5563;line-height:1.8">Built for business owners, investors, and anyone the big banks ignore. We find the right program for your situation — not just the easiest one to approve.</div>
       </div>
       <div class="type-meta">
         <div class="type-tag">Body Font <span>Plus Jakarta Sans</span></div>
@@ -720,20 +780,20 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
   <!-- Trust stats -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:14px;margin-top:32px;overflow:hidden">
     <div style="padding:24px;text-align:center;border-right:1px solid var(--bd)">
-      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">50+</div>
-      <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">WHOLESALE LENDERS</div>
+      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">$200M+</div>
+      <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">FUNDED</div>
     </div>
     <div style="padding:24px;text-align:center;border-right:1px solid var(--bd)">
       <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">21</div>
       <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">DAY AVG CLOSE</div>
     </div>
     <div style="padding:24px;text-align:center;border-right:1px solid var(--bd)">
-      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">40+</div>
+      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">30+</div>
       <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">STATES LICENSED</div>
     </div>
     <div style="padding:24px;text-align:center">
-      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">4.9★</div>
-      <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">CLIENT RATING</div>
+      <div style="font-family:var(--fd);font-size:46px;color:var(--w);line-height:1">5,000+</div>
+      <div style="font-size:11px;color:var(--w55);font-weight:600;letter-spacing:.05em;margin-top:4px">CLIENTS SERVED</div>
     </div>
   </div>
 </div>
@@ -757,10 +817,11 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
     </div>
     <div style="text-align:center">
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:4px">Email</div>
-      <div style="font-size:15px;font-weight:700;color:var(--w)">hello@ratehero.com</div>
+      <div style="font-size:15px;font-weight:700;color:var(--w)">Hello@goratehero.com</div>
     </div>
   </div>
-  <p style="font-size:11px;color:var(--w25);position:relative;z-index:1;line-height:1.8">Rate Hero, Inc. · NMLS #2822806 · Sean Davoodian NMLS #1252107<br>Equal Housing Lender · Licensed in 30+ States · Not a commitment to lend</p>
+  <p style="font-size:11px;color:var(--w25);position:relative;z-index:1;line-height:1.8">Rate Hero, Inc. · NMLS #2822806 · Equal Housing Lender · Not a commitment to lend. Licensed in 30+ states.
+  </p>
 </div>
 
 </body>
