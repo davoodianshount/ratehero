@@ -194,6 +194,51 @@ body{font-family:var(--fb);background:#f4f5f7;color:var(--navy);overflow-x:hidde
 /* ── CONTACT / BACK ── */
 .back{background:var(--navy2);min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px;position:relative;overflow:hidden}
 .back::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(37,99,235,0.12),transparent)}
+
+/* ── FIX: var(--navy) used as text color = now white on light bg ── */
+body { color: #0F172A !important; }
+.toc-heading, .toc-label, .toc-intro { color: #0F172A !important; }
+.toc-sub { color: #6B7280 !important; }
+.prog-page.light .prog-title { color: #0F172A !important; }
+.prog-page.light .prog-use-label { color: #0F172A !important; }
+.prog-page.light .example-text { color: #374151 !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: var(--w) used as background = now dark bg ── */
+.toc-page { background: #ffffff !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: intro section headings ── */
+.intro-h1 { color: #0F172A !important; }
+.intro-body { color: #374151 !important; }
+.intro-sub { color: #374151 !important; }
+
+/* ── FIX: mistakes/cards text ── */
+.mistake-title { color: #0F172A !important; }
+.mistake-body { color: #4B5563 !important; }
+.mc-title { color: #0F172A !important; }
+.mc-body { color: #4B5563 !important; }
+
+/* ── FIX: section headings on light pages ── */
+.sect h1, .sect h2, .sect h3 { color: #0F172A !important; }
+.sect p, .sect li { color: #374151 !important; }
+.sect-left h2, .sect-right h2 { color: #0F172A !important; }
+.sect-left p, .sect-right p { color: #374151 !important; }
+.sect-left li, .sect-right li { color: #374151 !important; }
+.prog-left h2, .prog-left p, .prog-left li { color: #0F172A !important; }
+.prog-right h2, .prog-right p { color: #0F172A !important; }
+
+/* TOC number and items */
+.toc-num { color: var(--blue) !important; }
+.toc-pg { color: #9CA3AF !important; }
+.toc-item { border-bottom-color: #E5E7EB !important; }
+
+/* Conclusion stays dark with white text */
+.conclusion-page { background: linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important; }
+.conclusion-page * { color: rgba(255,255,255,0.85) !important; }
+.conclusion-page h1, .conclusion-page h2, .conclusion-page strong { color: #ffffff !important; }
+.conclusion-cta { background: #ffffff !important; color: var(--blue) !important; }
+
 </style>
 </head>
 <body>

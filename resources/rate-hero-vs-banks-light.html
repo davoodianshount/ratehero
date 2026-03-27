@@ -107,18 +107,18 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .cv-logo span{color:#FCD34D}
 .cv-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:6px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .cv-hero{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 60px 40px;position:relative;z-index:2}
-.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:18px}
+.cv-eyebrow{font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#4B5563;margin-bottom:18px}
 .cv-title{font-family:var(--fd);font-size:80px;letter-spacing:2px;color:#fff;line-height:.88;margin-bottom:8px}
 .cv-title em{color:#FCD34D;font-style:normal}
-.cv-sub{font-family:var(--fd);font-size:28px;letter-spacing:3px;color:rgba(255,255,255,0.6);margin-bottom:28px}
-.cv-desc{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.8;max-width:500px;margin-bottom:36px}
+.cv-sub{font-family:var(--fd);font-size:28px;letter-spacing:3px;color:#4B5563;margin-bottom:28px}
+.cv-desc{font-size:17px;color:#374151;line-height:1.8;max-width:500px;margin-bottom:36px}
 .cv-pills{display:flex;gap:10px;flex-wrap:wrap}
 .cv-pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700}
 .cv-pill.am{background:rgba(245,183,49,0.15);border-color:rgba(245,183,49,0.35);color:#FCD34D}
 .cv-bottom{padding:28px 60px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
-.cv-by{font-size:13px;color:rgba(255,255,255,0.55)}
+.cv-by{font-size:13px;color:#6B7280}
 .cv-by strong{color:#fff;font-weight:700}
-.cv-contact{text-align:right;font-size:12px;color:rgba(255,255,255,0.55)}
+.cv-contact{text-align:right;font-size:12px;color:#6B7280}
 .cv-contact strong{color:#FCD34D;font-size:14px}
 
 /* COMPARISON TABLE */
@@ -167,7 +167,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .how-card.blue .how-title,.how-card.amber .how-title{color:#fff}
 .how-body{font-size:12px;line-height:1.65}
 .how-card.light .how-body{color:var(--text3)}
-.how-card.blue .how-body,.how-card.amber .how-body{color:rgba(255,255,255,0.8)}
+.how-card.blue .how-body,.how-card.amber .how-body{color:#374151}
 .how-stat{font-family:var(--fd);font-size:30px;line-height:1;margin-top:10px}
 .how-card.light .how-stat{color:var(--blue)}
 .how-card.blue .how-stat,.how-card.amber .how-stat{color:#fff}
@@ -178,19 +178,81 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .cta-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:#fff;position:relative;z-index:1;margin-bottom:6px}
 .cta-logo span{color:#FCD34D}
 .cta-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:#fff;line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
-.cta-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.cta-body{font-size:17px;color:#374151;line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
 .cta-btn{background:#fff;color:var(--blue);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
 .cta-btn:hover{transform:translateY(-2px)}
 .cta-contact{margin-top:34px;position:relative;z-index:1}
 .cta-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}
 .cta-contact strong{color:#fff;font-size:15px}
 .cal-box{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:20px 32px;display:inline-block;position:relative;z-index:1;margin-top:24px}
-.cal-box p{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px}
+.cal-box p{font-size:13px;color:#4B5563;margin-bottom:6px}
 .cal-box a{font-size:14px;font-weight:800;color:#FCD34D;text-decoration:none}
+
+/* ── FIX: var(--navy) used as text color = now white on light bg ── */
+body { color: #0F172A !important; }
+.toc-heading, .toc-label, .toc-intro { color: #0F172A !important; }
+.toc-sub { color: #6B7280 !important; }
+.prog-page.light .prog-title { color: #0F172A !important; }
+.prog-page.light .prog-use-label { color: #0F172A !important; }
+.prog-page.light .example-text { color: #374151 !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: var(--w) used as background = now dark bg ── */
+.toc-page { background: #ffffff !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: intro section headings ── */
+.intro-h1 { color: #0F172A !important; }
+.intro-body { color: #374151 !important; }
+.intro-sub { color: #374151 !important; }
+
+/* ── FIX: mistakes/cards text ── */
+.mistake-title { color: #0F172A !important; }
+.mistake-body { color: #4B5563 !important; }
+.mc-title { color: #0F172A !important; }
+.mc-body { color: #4B5563 !important; }
+
+/* ── FIX: section headings on light pages ── */
+.sect h1, .sect h2, .sect h3 { color: #0F172A !important; }
+.sect p, .sect li { color: #374151 !important; }
+.sect-left h2, .sect-right h2 { color: #0F172A !important; }
+.sect-left p, .sect-right p { color: #374151 !important; }
+.sect-left li, .sect-right li { color: #374151 !important; }
+.prog-left h2, .prog-left p, .prog-left li { color: #0F172A !important; }
+.prog-right h2, .prog-right p { color: #0F172A !important; }
+
+/* TOC number and items */
+.toc-num { color: var(--blue) !important; }
+.toc-pg { color: #9CA3AF !important; }
+.toc-item { border-bottom-color: #E5E7EB !important; }
+
+/* Conclusion stays dark with white text */
+.conclusion-page { background: linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important; }
+.conclusion-page, .conclusion-page * { color:#fff !important; }
+.conclusion-cta, .concl-cta, .cta-btn { background:#fff !important; color:var(--blue) !important; }
+.conclusion-cta { background: #ffffff !important; color: var(--blue) !important; }
+
+
+/* ── FORCE WHITE TEXT ON DARK CONCLUSION PAGES ── */
+.concl, .conclusion-page, .cta-page,
+.concl *, .conclusion-page *, .cta-page * {
+  color: #fff !important;
+}
+.concl-logo span, .conclusion-logo span { color: #FCD34D !important; }
+.concl-body, .conclusion-body { color: rgba(255,255,255,0.82) !important; }
+.concl-contact p, .conclusion-contact p { color: rgba(255,255,255,0.55) !important; }
+.concl-cta, .conclusion-cta, .cta-btn {
+  background: #fff !important;
+  color: var(--blue) !important;
+  color: #2563EB !important;
+}
+.cal-box a { color: #FCD34D !important; }
+.cal-box p { color: rgba(255,255,255,0.6) !important; }
+
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#0F172A;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
 
 <!-- COVER -->
 <div class="page cover">
@@ -367,7 +429,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 <!-- CTA -->
 <div class="page cta-page">
   <div class="cta-logo">RATE <span>HERO</span></div>
-  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">Rate Hero vs. Big Banks</p>
+  <p style="font-size:12px;color:#9CA3AF;letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">Rate Hero vs. Big Banks</p>
   <div class="cta-title">ONE CALL.<br>SEE THE<br>DIFFERENCE.</div>
   <div class="cta-body">You don't have to take my word for it. Call me, tell me what you're trying to do, and I'll tell you exactly which program fits and what it costs. No SSN, no credit pull, no pressure. Then you decide.</div>
   <a href="https://goratehero.com" class="cta-btn">Start at goratehero.com →</a>

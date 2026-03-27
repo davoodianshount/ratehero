@@ -133,9 +133,9 @@ html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--bg);over
 .compare-table{width:100%;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb}
 .ct-header{display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--navy)}
 .ct-h{padding:14px 18px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.ct-h:first-child{color:rgba(255,255,255,0.5)}
+.ct-h:first-child{color:#6B7280}
 .ct-h.rh{color:var(--blue2)}
-.ct-h.bank{color:rgba(255,255,255,0.5)}
+.ct-h.bank{color:#6B7280}
 .ct-row{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1px solid #e5e7eb}
 .ct-row:last-child{border:none}
 .ct-row:nth-child(even){background:#f9fafb}
@@ -175,27 +175,27 @@ html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--bg);over
 .concl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(37,99,235,0.15),transparent),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(245,158,11,0.07),transparent)}
 .concl-logo{font-family:var(--fd);font-size:44px;letter-spacing:8px;color:var(--w);position:relative;z-index:1;margin-bottom:6px}.concl-logo span{color:var(--blue2)}
 .concl-title{font-family:var(--fd);font-size:66px;letter-spacing:2px;color:var(--w);line-height:.9;position:relative;z-index:1;margin:36px 0 20px}
-.concl-body{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
+.concl-body{font-size:17px;color:#374151;line-height:1.82;max-width:500px;position:relative;z-index:1;margin-bottom:44px}
 .concl-cta{background:var(--blue);color:var(--w);padding:17px 42px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;position:relative;z-index:1;display:inline-block}
-.concl-contact{margin-top:34px;position:relative;z-index:1}.concl-contact p{font-size:13px;color:rgba(255,255,255,0.48);margin-bottom:4px}.concl-contact strong{color:var(--w);font-size:15px}
+.concl-contact{margin-top:34px;position:relative;z-index:1}.concl-contact p{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:4px}.concl-contact strong{color:var(--w);font-size:15px}
 
 /* ── LIGHT THEME: COVER ── */
 .cover{background:linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important}
 .cv-grid{background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px) !important}
 .cv-logo{color:#fff !important}
 .cv-logo span{color:#FCD34D !important}
-.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.25) !important;color:#fff !important}
-.cv-eyebrow{color:rgba(255,255,255,0.7) !important}
+.cv-badge{background:rgba(255,255,255,0.12) !important;border-color:#D1D5DB !important;color:#fff !important}
+.cv-eyebrow{color:#4B5563 !important}
 .cv-title{color:#fff !important}
 .cv-title em,.cv-title-em{color:#FCD34D !important}
-.cv-sub{color:rgba(255,255,255,0.65) !important}
+.cv-sub{color:#4B5563 !important}
 .cv-desc{color:rgba(255,255,255,0.78) !important}
 .cv-pill{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.22) !important;color:#fff !important}
 .cv-pill.am{background:rgba(245,183,49,0.15) !important;border-color:rgba(245,183,49,0.35) !important;color:#FCD34D !important}
-.cv-bottom{border-top-color:rgba(255,255,255,0.1) !important}
-.cv-by{color:rgba(255,255,255,0.55) !important}
+.cv-bottom{border-top-color:#F9FAFB !important}
+.cv-by{color:#6B7280 !important}
 .cv-by strong{color:#fff !important}
-.cv-contact{color:rgba(255,255,255,0.55) !important}
+.cv-contact{color:#6B7280 !important}
 .cv-contact strong{color:#FCD34D !important}
 
 /* ── LIGHT THEME: BODY + BASE ── */
@@ -301,10 +301,10 @@ p{color:#374151}
 /* Formula box stays dark */
 .formula-box{background:#0F1E38 !important;border-color:rgba(37,99,235,0.2) !important}
 .formula-num{color:#fff !important}
-.formula-num span{color:rgba(255,255,255,0.55) !important}
+.formula-num span{color:#6B7280 !important}
 .formula-div,.formula-eq{color:var(--blue2) !important}
 .formula-result{color:var(--blue2) !important}
-.formula-result span{color:rgba(255,255,255,0.55) !important}
+.formula-result span{color:#6B7280 !important}
 .formula-label{color:var(--blue2) !important}
 
 /* BRRRR letters */
@@ -315,7 +315,7 @@ p{color:#374151}
 .deal-flow{background:#0F1E38 !important}
 .df-label,.df-title{color:var(--blue2) !important}
 .df-row{border-bottom-color:rgba(255,255,255,0.06) !important}
-.df-key,.df-val{color:rgba(255,255,255,0.7) !important}
+.df-key,.df-val{color:#4B5563 !important}
 .df-row.total .df-key{color:#fff !important}
 
 /* Key metrics */
@@ -436,13 +436,75 @@ p{color:#374151}
 .concl-title,.cta-title{color:#fff !important}
 .concl-body,.cta-body{color:rgba(255,255,255,0.78) !important}
 .concl-cta,.cta-btn{background:#fff !important;color:var(--blue) !important;box-shadow:0 8px 32px rgba(0,0,0,0.2) !important}
-.concl-contact p,.cta-contact p{color:rgba(255,255,255,0.5) !important}
+.concl-contact p,.cta-contact p{color:#6B7280 !important}
 .concl-contact strong,.cta-contact strong{color:#fff !important}
-.cal-box{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.2) !important}
-.cal-box p{color:rgba(255,255,255,0.6) !important}
+.cal-box{background:rgba(255,255,255,0.1) !important;border-color:#E5E7EB !important}
+.cal-box p{color:#4B5563 !important}
 .cal-box a{color:#FCD34D !important}
+
+/* ── FIX: var(--navy) used as text color = now white on light bg ── */
+body { color: #0F172A !important; }
+.toc-heading, .toc-label, .toc-intro { color: #0F172A !important; }
+.toc-sub { color: #6B7280 !important; }
+.prog-page.light .prog-title { color: #0F172A !important; }
+.prog-page.light .prog-use-label { color: #0F172A !important; }
+.prog-page.light .example-text { color: #374151 !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: var(--w) used as background = now dark bg ── */
+.toc-page { background: #ffffff !important; }
+.prog-page.light .prog-left { background: #ffffff !important; }
+
+/* ── FIX: intro section headings ── */
+.intro-h1 { color: #0F172A !important; }
+.intro-body { color: #374151 !important; }
+.intro-sub { color: #374151 !important; }
+
+/* ── FIX: mistakes/cards text ── */
+.mistake-title { color: #0F172A !important; }
+.mistake-body { color: #4B5563 !important; }
+.mc-title { color: #0F172A !important; }
+.mc-body { color: #4B5563 !important; }
+
+/* ── FIX: section headings on light pages ── */
+.sect h1, .sect h2, .sect h3 { color: #0F172A !important; }
+.sect p, .sect li { color: #374151 !important; }
+.sect-left h2, .sect-right h2 { color: #0F172A !important; }
+.sect-left p, .sect-right p { color: #374151 !important; }
+.sect-left li, .sect-right li { color: #374151 !important; }
+.prog-left h2, .prog-left p, .prog-left li { color: #0F172A !important; }
+.prog-right h2, .prog-right p { color: #0F172A !important; }
+
+/* TOC number and items */
+.toc-num { color: var(--blue) !important; }
+.toc-pg { color: #9CA3AF !important; }
+.toc-item { border-bottom-color: #E5E7EB !important; }
+
+/* Conclusion stays dark with white text */
+.conclusion-page { background: linear-gradient(145deg,#0F1E38 0%,#1A3A8F 55%,#2563EB 100%) !important; }
+.conclusion-page, .conclusion-page * { color:#fff !important; }
+.conclusion-cta, .concl-cta, .cta-btn { background:#fff !important; color:var(--blue) !important; }
+.conclusion-cta { background: #ffffff !important; color: var(--blue) !important; }
+
+
+/* ── FORCE WHITE TEXT ON DARK CONCLUSION PAGES ── */
+.concl, .conclusion-page, .cta-page,
+.concl *, .conclusion-page *, .cta-page * {
+  color: #fff !important;
+}
+.concl-logo span, .conclusion-logo span { color: #FCD34D !important; }
+.concl-body, .conclusion-body { color: rgba(255,255,255,0.82) !important; }
+.concl-contact p, .conclusion-contact p { color: rgba(255,255,255,0.55) !important; }
+.concl-cta, .conclusion-cta, .cta-btn {
+  background: #fff !important;
+  color: var(--blue) !important;
+  color: #2563EB !important;
+}
+.cal-box a { color: #FCD34D !important; }
+.cal-box p { color: rgba(255,255,255,0.6) !important; }
+
 </style></head><body>
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#0F172A;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
 
 <!-- COVER -->
 <div class="page cover">
@@ -615,7 +677,7 @@ p{color:#374151}
 <!-- CONCLUSION -->
 <div class="page concl">
   <div class="concl-logo">RATE <span>HERO</span></div>
-  <p style="font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">Rate Hero vs. Big Banks</p>
+  <p style="font-size:12px;color:#9CA3AF;letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1">Rate Hero vs. Big Banks</p>
   <div class="concl-title">ONE CALL.<br>SEE THE<br>DIFFERENCE.</div>
   <div class="concl-body">You don't have to take my word for it. Call me, tell me what you're trying to do, and I'll tell you exactly which program fits and what it costs. No SSN, no credit pull, no pressure. Then you decide.</div>
   <a href="https://goratehero.com" class="concl-cta">Start at goratehero.com →</a>
