@@ -1056,7 +1056,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
         <span class="sit-sub">10+ doors · LLC lending</span>
       </button>
     </div>
-    <p style="font-size:13px;color:var(--white-35);margin-top:28px;text-align:center;">Not sure? <a href="quiz.html" style="color:var(--blue-bright);text-decoration:none;font-weight:600;">Take the 60-second quiz →</a></p>
+    <p style="font-size:13px;color:var(--white-35);margin-top:28px;text-align:center;" class="mobile-hide">Not sure? <a href="quiz.html" style="color:var(--blue-bright);text-decoration:none;font-weight:600;">Take the 60-second quiz →</a></p>
   </div>
 </div>
 
@@ -1068,7 +1068,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
       <h2>Find Your <span>Perfect Program</span></h2>
       <p class="section-sub" style="margin-bottom:24px;max-width:600px;margin-left:auto;margin-right:auto;">Whether you're buying your first home, expanding a rental portfolio, or pulling equity — we have a loan built for your exact situation.</p>
       <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;" class="mobile-hide">Ready to see your options?</div>
-      <button onclick="openFunnel('purchase')" style="background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" onmouseover="this.style.background='#3B82F6'" onmouseout="this.style.background='var(--blue)'">Show Me My Loan Options →</button>
+      <button class="mobile-hide" onclick="openFunnel('purchase')" style="background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" onmouseover="this.style.background='#3B82F6'" onmouseout="this.style.background='var(--blue)'">Show Me My Loan Options →</button>
     </div>
     <div class="programs-grid">
       <a href="pages/long-term-rental.html" class="program-card">
@@ -1341,7 +1341,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCD34D;margin-bottom:20px;">⚡ Fast-Track Closings Available — Limited Capacity</div>
     <h2>Your Best Rate Is <span>Waiting.</span></h2>
     <p>Takes 2 minutes. No SSN. No credit pull. Just your best mortgage options — delivered fast.</p>
-    <button class="btn-cta" onclick="openFunnel('purchase')">See My Loan Options →</button>
+    <button class="btn-cta mobile-hide" onclick="openFunnel('purchase')">See My Loan Options →</button>
     <p class="cta-privacy">100% confidential · No credit pull · No SSN required</p>
   </div>
 </div>
@@ -1661,7 +1661,7 @@ function toggleAcc(id) {
 <div id="stickyCTA" style="position:fixed;bottom:24px;right:24px;z-index:500;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;">
   <button onclick="openFunnel('purchase')" aria-label="Get My Loan Options" style="background:var(--blue);color:#fff;border:none;padding:14px 24px;border-radius:14px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;gap:8px;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(37,99,235,0.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3)'">
     <svg width="14" height="20" viewBox="0 0 28 40"><defs><linearGradient id="scblt" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#scblt)"/></svg>
-    Get My Loan Options
+    Find My Loan Options →
   </button>
 </div>
 <script>
