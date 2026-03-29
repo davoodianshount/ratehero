@@ -541,6 +541,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 
 
 
+.mobile-only-trust { display: none; }
 /* ════════════════════════════════════════════════════
    MOBILE OPTIMIZATIONS — max-width: 768px
    Desktop is completely unaffected
@@ -654,6 +655,48 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   }
   .footer-res-label { cursor: pointer !important; width: 100% !important; padding: 4px 0 !important; }
 
+
+  /* ─── HERO: cleaner mobile ─── */
+  .mobile-only-trust { display: block !important; }
+  .hero-badge.mobile-hide { display: none !important; }
+
+  /* ─── PROGRAMS: collapsible on mobile ─── */
+  .mobile-programs-section {
+    position: relative !important;
+  }
+  .mobile-programs-section .programs-grid {
+    display: none !important;
+  }
+  .mobile-programs-section .programs-grid.expanded {
+    display: grid !important;
+  }
+  /* Show a tap-to-expand hint */
+  .mobile-programs-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: rgba(37,99,235,0.1) !important;
+    border: 1px solid rgba(37,99,235,0.3) !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #3B82F6 !important;
+    cursor: pointer !important;
+    margin: 0 auto 8px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+  }
+  /* Hide the Show Me button inside programs on mobile */
+  .mobile-programs-section > .section > div:first-child { 
+    display: block !important;
+    text-align: center !important;
+  }
+  .mobile-programs-section > .section > div:first-child > div:last-child {
+    display: none !important;
+  }
+
   /* ─── FUNNEL: full width steps ─── */
   .funnel-body { padding: 20px 16px !important; }
   .opt-grid { gap: 8px !important; }
@@ -677,6 +720,129 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   /* ─── SCROLL HINT on case studies ─── */
   .case-studies-wrapper::-webkit-scrollbar { display: none; }
   .case-studies-wrapper { scrollbar-width: none; }
+}
+
+
+  /* ─── MOBILE ONLY TRUST LINE ─── */
+  .mobile-only-trust { display: block !important; }
+
+  /* ─── PROGRAMS: show as compact tap-to-expand on mobile ─── */
+  .mobile-programs-section { display: block !important; }
+  .mobile-programs-section .section { padding: 36px 16px !important; }
+  .programs-bg .section { padding: 36px 16px !important; }
+  .mobile-programs-section .programs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .mobile-programs-section .program-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 14px 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+  .mobile-programs-section .program-card:first-child { border-radius: 10px 10px 0 0 !important; }
+  .mobile-programs-section .program-card:last-child { border-radius: 0 0 10px 10px !important; border-bottom: 1px solid var(--border) !important; }
+  .mobile-programs-section .program-icon-wrap { font-size: 22px !important; flex-shrink: 0 !important; }
+  .mobile-programs-section .program-card h3 { font-size: 14px !important; margin-bottom: 2px !important; }
+  .mobile-programs-section .program-card p { display: none !important; }
+  .mobile-programs-section .prog-tag { font-size: 11px !important; margin-bottom: 0 !important; }
+  .mobile-programs-section .program-link { margin-top: 0 !important; font-size: 13px !important; margin-left: auto !important; }
+  .mobile-programs-section h2 { font-size: clamp(24px, 6vw, 36px) !important; margin-bottom: 16px !important; }
+  .mobile-programs-section .section-sub { margin-bottom: 14px !important; font-size: 15px !important; }
+
+  /* ─── BODY PADDING for sticky CTA ─── */
+  body { padding-bottom: 56px !important; }
+  #funnel { padding-bottom: 0 !important; }
+  /* ─── STICKY CTA: upgraded to full bottom bar ─── */
+  #stickyCTA {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    z-index: 9998 !important;
+  }
+  #stickyCTA button {
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 16px 20px !important;
+    font-size: 16px !important;
+    justify-content: center !important;
+    box-shadow: 0 -4px 24px rgba(37,99,235,0.4) !important;
+  }
+  /* Add safe area for iPhone home bar */
+  #stickyCTA button { padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important; }
+
+  /* ─── ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA ─── */
+  #funnel { z-index: 9999 !important; }
+
+  /* ─── HARD MONEY BANNER: padding fix ─── */
+  .hm-inner { padding: 16px !important; }
+
+
+  /* ─── MOBILE ONLY TRUST LINE ─── */
+  .mobile-only-trust { display: block !important; }
+
+  /* ─── PROGRAMS: show as compact tap-to-expand on mobile ─── */
+  .mobile-programs-section { display: block !important; }
+  .mobile-programs-section .section { padding: 36px 16px !important; }
+  .programs-bg .section { padding: 36px 16px !important; }
+  .mobile-programs-section .programs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .mobile-programs-section .program-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 14px 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+  .mobile-programs-section .program-card:first-child { border-radius: 10px 10px 0 0 !important; }
+  .mobile-programs-section .program-card:last-child { border-radius: 0 0 10px 10px !important; border-bottom: 1px solid var(--border) !important; }
+  .mobile-programs-section .program-icon-wrap { font-size: 22px !important; flex-shrink: 0 !important; }
+  .mobile-programs-section .program-card h3 { font-size: 14px !important; margin-bottom: 2px !important; }
+  .mobile-programs-section .program-card p { display: none !important; }
+  .mobile-programs-section .prog-tag { font-size: 11px !important; margin-bottom: 0 !important; }
+  .mobile-programs-section .program-link { margin-top: 0 !important; font-size: 13px !important; margin-left: auto !important; }
+  .mobile-programs-section h2 { font-size: clamp(24px, 6vw, 36px) !important; margin-bottom: 16px !important; }
+  .mobile-programs-section .section-sub { margin-bottom: 14px !important; font-size: 15px !important; }
+
+  /* ─── BODY PADDING for sticky CTA ─── */
+  body { padding-bottom: 56px !important; }
+  #funnel { padding-bottom: 0 !important; }
+  /* ─── STICKY CTA: upgraded to full bottom bar ─── */
+  #stickyCTA {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    z-index: 9998 !important;
+  }
+  #stickyCTA button {
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 16px 20px !important;
+    font-size: 16px !important;
+    justify-content: center !important;
+    box-shadow: 0 -4px 24px rgba(37,99,235,0.4) !important;
+  }
+  /* Add safe area for iPhone home bar */
+  #stickyCTA button { padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important; }
+
+  /* ─── ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA ─── */
+  #funnel { z-index: 9999 !important; }
+
+  /* ─── HARD MONEY BANNER: padding fix ─── */
+  .hm-inner { padding: 16px !important; }
 }
 
 @media (max-width: 480px) {
@@ -796,16 +962,17 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 15% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 85% 30%, rgba(59,130,246,0.07) 0%, transparent 50%);pointer-events:none;"></div>
   <div class="hero">
     <div style="width:100%;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;">
-      <div class="hero-badge">Strategic Financing &nbsp;·&nbsp; Zero Runaround &nbsp;·&nbsp; Lightning-Fast ⚡</div>
+      <div class="hero-badge mobile-hide">Strategic Financing &nbsp;·&nbsp; Zero Runaround &nbsp;·&nbsp; Lightning-Fast ⚡</div>
       <h1>Your Income.<br>Your Rules.<br><span>Our Rates.</span></h1>
       <p class="hero-sub" style="text-align:center;max-width:560px;">For homeowners, investors, and everyone in between.</p>
 
       <button onclick="openFunnel('purchase')" class="btn-hero" aria-label="Find My Ideal Loan - Start 60-second qualification" style="margin-bottom:14px;max-width:300px;">
         Find My Ideal Loan &rarr;
       </button>
-      <p style="font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:28px;letter-spacing:.04em;">⚡ 60-Second Qualification</p>
+      <p class="mobile-hide" style="font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:28px;letter-spacing:.04em;">⚡ 60-Second Qualification</p>
+      <p class="mobile-only-trust" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:28px;letter-spacing:.04em;">No SSN &nbsp;·&nbsp; No Credit Pull &nbsp;·&nbsp; 2 Minutes</p>
 
-      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:4px;" class="hero-trust-row">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:4px;" class="hero-trust-row mobile-hide">
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
           <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> No SSN Required</span>
           <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> No Credit Pull</span>
@@ -893,14 +1060,14 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   </div>
 </div>
 
-<!-- LOAN PROGRAMS --><div class="mobile-hide-section">
-<div class="programs-bg">
+<!-- LOAN PROGRAMS -->
+<div class="programs-bg mobile-programs-section">
   <div class="section">
     <div style="text-align:center;margin-bottom:36px;">
       <div class="section-tag" style="display:inline-flex;margin-bottom:14px;"><span class="dot"></span> Loan Programs</div>
       <h2>Find Your <span>Perfect Program</span></h2>
       <p class="section-sub" style="margin-bottom:24px;max-width:600px;margin-left:auto;margin-right:auto;">Whether you're buying your first home, expanding a rental portfolio, or pulling equity — we have a loan built for your exact situation.</p>
-      <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Ready to see your options?</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;" class="mobile-hide">Ready to see your options?</div>
       <button onclick="openFunnel('purchase')" style="background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" onmouseover="this.style.background='#3B82F6'" onmouseout="this.style.background='var(--blue)'">Show Me My Loan Options →</button>
     </div>
     <div class="programs-grid">
@@ -956,7 +1123,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   </div>
 </div>
 
-</div>
+
 <!-- HOW IT WORKS -->
 <div style="background:var(--navy);border-top:1px solid var(--border);">
   <div class="section">
@@ -965,7 +1132,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
         <div class="section-tag"><span class="dot"></span> How It Works</div>
         <h2>Four Steps.<br><span>21 Days.</span></h2>
         <p style="font-size:18px;color:var(--white-65);line-height:1.75;margin-top:12px;max-width:440px;">We've stripped the process down to the bare minimum. No unnecessary paperwork. No back-and-forth for docs you shouldn't need to provide.</p>
-        <div style="margin-top:28px">
+        <div style="margin-top:28px" class="mobile-hide">
           <button onclick="openFunnel('purchase')" style="background:transparent;color:var(--teal,#2563EB);border:1.5px solid rgba(37,99,235,0.5);padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:10px;" onmouseover="this.style.background='rgba(37,99,235,0.1)';this.style.borderColor='rgba(37,99,235,0.8)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(37,99,235,0.5)'">
             <svg width="14" height="20" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><defs><linearGradient id="bfc" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#bfc)"/></svg>
             Fast Closings Start Here
@@ -1048,7 +1215,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
             <div class="accordion-a"><p>Keep investments off your personal credit. We close loans in LLCs, partnerships, trusts, and other entity structures.</p></div>
           </div>
         </div>
-        <div style="margin-top:32px;text-align:center;">
+        <div style="margin-top:32px;text-align:center;" class="mobile-hide">
           <button class="btn-nav" onclick="openFunnel('purchase')" style="padding:14px 36px;font-size:17px;display:inline-flex;align-items:center;gap:8px;">Choose Rate Hero →</button>
         </div>
       </div>
@@ -1128,7 +1295,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
         </div>
       </div>
     </div></div>
-    <div style="text-align:center;margin-top:32px;">
+    <div style="text-align:center;margin-top:32px;" class="mobile-hide">
       <button onclick="openFunnel('purchase')" class="btn-cta">Run the Numbers on My Deal →</button>
     </div>
   </div>
@@ -1521,6 +1688,34 @@ function toggleAcc(id) {
 </script>
 
 
+
+<script>
+// Mobile programs toggle
+(function(){
+  if (window.innerWidth > 768) return;
+  var progSection = document.querySelector('.mobile-programs-section');
+  if (!progSection) return;
+  
+  var grid = progSection.querySelector('.programs-grid');
+  if (!grid) return;
+  
+  // Create toggle button
+  var toggle = document.createElement('button');
+  toggle.className = 'mobile-programs-toggle';
+  toggle.innerHTML = '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+  toggle.setAttribute('aria-expanded', 'false');
+  
+  grid.parentNode.insertBefore(toggle, grid);
+  
+  toggle.addEventListener('click', function() {
+    var expanded = grid.classList.toggle('expanded');
+    toggle.innerHTML = expanded 
+      ? '📋 Loan Programs <span style="font-size:12px;opacity:.7">tap to collapse</span>'
+      : '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+    toggle.setAttribute('aria-expanded', expanded);
+  });
+})();
+</script>
 <script>
 // Mobile footer resources toggle
 (function(){
