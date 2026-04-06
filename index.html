@@ -1497,7 +1497,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         <div style="text-align:center;"><div class="section-tag"><span class="dot"></span> Why Rate Hero</div>
         <h2 style="text-align:center;">We're In Your <span>Corner.</span></h2></div>
         <p style="font-size:18px;color:var(--white-65);line-height:1.75;margin-bottom:8px;">The mortgage industry was built to serve banks, not borrowers. We built Rate Hero to change that — with faster closings, better programs, and advisors who actually pick up the phone.</p>
-        <div <!-- MOBILE: Swipe cards (hidden on desktop) -->
+
+        <!-- MOBILE: Swipe cards (hidden on desktop via CSS) -->
         <div class="mobile-why-swipe" id="whySwipe">
           <div class="why-swipe-card" id="whyCard">
             <div class="why-card-ico" id="whyIco"></div>
@@ -1507,31 +1508,33 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
           <div class="why-dots" id="whyDots"></div>
           <p style="font-size:10px;color:rgba(255,255,255,0.2);text-align:center;margin-top:10px">Swipe for more reasons ›</p>
         </div>
-        <!-- DESKTOP: Accordion -->
+
+        <!-- DESKTOP: Accordion (hidden on mobile via CSS) -->
         <div class="mobile-why-accordion">
-        <div class="accordion" style="margin-top:28px;">>
-          <div class="accordion-item" id="acc-1">
-            <div class="accordion-q" onclick="toggleAcc('acc-1')">We Close Fast <span class="accordion-icon">+</span></div>
-            <div class="accordion-a"><p>21-day average close time. We move fast because our process is tight — not because we cut corners.</p></div>
-          </div>
-          <div class="accordion-item" id="acc-2">
-            <div class="accordion-q" onclick="toggleAcc('acc-2')">Strategic Lender Access <span class="accordion-icon">+</span></div>
-            <div class="accordion-a"><p>We leverage our in-house expertise and deep lender relationships to structure your loan for the best rate and terms.</p></div>
-          </div>
-          <div class="accordion-item" id="acc-3">
-            <div class="accordion-q" onclick="toggleAcc('acc-3')">Complex Borrowers Welcome <span class="accordion-icon">+</span></div>
-            <div class="accordion-a"><p>Self-employed, investors, foreign nationals, low credit — we have programs for borrowers the big banks turn away.</p></div>
-          </div>
-          <div class="accordion-item" id="acc-4">
-            <div class="accordion-q" onclick="toggleAcc('acc-4')">Radical Transparency <span class="accordion-icon">+</span></div>
-            <div class="accordion-a"><p>No bait-and-switch rates. No hidden fees. You'll know exactly what you're getting before you sign anything.</p></div>
-          </div>
-          <div class="accordion-item" id="acc-5">
-            <div class="accordion-q" onclick="toggleAcc('acc-5')">Loans in LLCs & layered entities <span class="accordion-icon">+</span></div>
-            <div class="accordion-a"><p>Keep investments off your personal credit. We close loans in LLCs, partnerships, trusts, and other entity structures.</p></div>
+          <div class="accordion" style="margin-top:28px;">
+            <div class="accordion-item" id="acc-1">
+              <div class="accordion-q" onclick="toggleAcc('acc-1')">We Close Fast <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>21-day average close time. We move fast because our process is tight — not because we cut corners.</p></div>
+            </div>
+            <div class="accordion-item" id="acc-2">
+              <div class="accordion-q" onclick="toggleAcc('acc-2')">Strategic Lender Access <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>We leverage our in-house expertise and deep lender relationships to structure your loan for the best rate and terms.</p></div>
+            </div>
+            <div class="accordion-item" id="acc-3">
+              <div class="accordion-q" onclick="toggleAcc('acc-3')">Complex Borrowers Welcome <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>Self-employed, investors, foreign nationals, low credit — we have programs for borrowers the big banks turn away.</p></div>
+            </div>
+            <div class="accordion-item" id="acc-4">
+              <div class="accordion-q" onclick="toggleAcc('acc-4')">Radical Transparency <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>No bait-and-switch rates. No hidden fees. You'll know exactly what you're getting before you sign anything.</p></div>
+            </div>
+            <div class="accordion-item" id="acc-5">
+              <div class="accordion-q" onclick="toggleAcc('acc-5')">Loans in LLCs &amp; layered entities <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>Keep investments off your personal credit. We close loans in LLCs, partnerships, trusts, and other entity structures.</p></div>
+            </div>
           </div>
         </div>
-        </div><!-- /mobile-why-accordion -->
+
         <div style="margin-top:32px;text-align:center;" class="mobile-hide">
           <button class="btn-nav" onclick="openFunnel('purchase')" style="padding:14px 36px;font-size:17px;display:inline-flex;align-items:center;gap:8px;">Choose Rate Hero →</button>
         </div>
@@ -2062,10 +2065,10 @@ function toggleAcc(id) {
 })();
 </script>
 
-<script>
-// Why Rate Hero swipe cards — mobile only
-(function(){
+<<script>
+document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth > 768) return;
+
   var cards = [
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>',
@@ -2095,12 +2098,13 @@ function toggleAcc(id) {
   ];
 
   var cur = 0;
-  var card = document.getElementById('whyCard');
-  var dotsEl = document.getElementById('whyDots');
-  var ico = document.getElementById('whyIco');
-  var title = document.getElementById('whyTitle');
-  var body = document.getElementById('whyBody');
-  if (!card) return;
+  var cardEl  = document.getElementById('whyCard');
+  var dotsEl  = document.getElementById('whyDots');
+  var icoEl   = document.getElementById('whyIco');
+  var titleEl = document.getElementById('whyTitle');
+  var bodyEl  = document.getElementById('whyBody');
+
+  if (!cardEl || !dotsEl) return;
 
   // Build dots
   cards.forEach(function(_, i) {
@@ -2111,30 +2115,33 @@ function toggleAcc(id) {
   });
 
   function show(n) {
-    cur = n;
-    ico.innerHTML = cards[n].icon;
-    title.textContent = cards[n].title;
-    body.innerHTML = cards[n].body;
-    dotsEl.querySelectorAll('.why-dot').forEach(function(d, i){ d.className = 'why-dot' + (i === n ? ' active' : ''); });
+    cur = (n + cards.length) % cards.length;
+    icoEl.innerHTML   = cards[cur].icon;
+    titleEl.textContent = cards[cur].title;
+    bodyEl.innerHTML  = cards[cur].body;
+    dotsEl.querySelectorAll('.why-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === cur);
+    });
   }
 
   // Touch swipe
   var startX = 0;
-  card.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
-  card.addEventListener('touchend', function(e){
+  cardEl.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+  }, {passive: true});
+  cardEl.addEventListener('touchend', function(e) {
     var dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) { show((cur + (dx < 0 ? 1 : -1) + cards.length) % cards.length); }
-  }, {passive:true});
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  }, {passive: true});
 
   show(0);
-})();
+});
 </script>
 
 
 <script>
 // Review swipe — mobile only
 (function(){
-  if (window.innerWidth > 768) return;
   var reviews = document.querySelectorAll('.review-card');
   var dotsEl = document.getElementById('revDots');
   if (!reviews.length || !dotsEl) return;
