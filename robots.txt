@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /legal/
+Allow: /legal/privacy-policy.html
+Allow: /legal/terms-of-use.html
+
 Sitemap: https://goratehero.com/sitemap.xml
