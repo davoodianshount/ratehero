@@ -1474,8 +1474,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         Find My Ideal Loan &rarr;
       </button>
       <p class="mobile-hide" style="font-size:12px;color:rgba(255,255,255,0.62);margin-bottom:28px;letter-spacing:.04em;" style="display:flex;align-items:center;justify-content:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.62)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> 60-Second Qualification</p>
-      <p class="mobile-only-trust" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:20px;letter-spacing:.04em;">No SSN &nbsp;&middot;&nbsp; No Credit Pull &nbsp;&middot;&nbsp; 2 Minutes</p>
-
+      <p class="mobile-only-trust" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:28px;letter-spacing:.04em;">No SSN &nbsp;·&nbsp; No Credit Pull &nbsp;·&nbsp; 2 Minutes</p>
+      
       <a href="biggerpockets.html" class="bp-hero-badge" style="display:inline-flex;align-items:center;justify-content:center;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:10px 18px;text-decoration:none;margin-bottom:24px;">
         <img src="BP_Featured-Lender-White_500W.png" alt="BiggerPockets Featured Lender" style="height:40px;opacity:0.95;">
       </a>
@@ -1501,7 +1501,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <div class="trust-bar">
   <div class="trust-inner">
 
-    <a href="biggerpockets.html" style="display:inline-flex;align-items:center;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:12px 20px;text-decoration:none;margin-bottom:16px;transition:border-color .2s,background .2s;">
+    <a href="biggerpockets.html" style="display:inline-flex;align-items:center;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:12px 20px;text-decoration:none;margin-bottom:16px;">
       <img src="BP_Featured-Lender-White_500W.png" alt="BiggerPockets Featured Lender" style="height:56px;opacity:0.95;">
     </a>
 
@@ -1543,7 +1543,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     </div>
 
     <p class="trust-disclaimer">Based on leadership experience prior to Rate Hero</p>
-
 
   </div>
 </div>
@@ -2110,3 +2109,546 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
           <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
         </select>
       </div>
+      <div class="input-group" style="margin-top:14px;margin-bottom:14px;">
+            <label style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px;display:block;">Property Address <span style="color:rgba(255,255,255,0.3);font-size:11px;">(optional)</span></label>
+            <input type="text" id="propAddress" placeholder="e.g. 123 Main St, Miami, FL 33101" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:var(--font-b);outline:none;box-sizing:border-box;" />
+          </div>
+          <button class="btn-continue" id="cont4" disabled onclick="ans.state=document.getElementById('stateSelect').value;ans.address=document.getElementById('propAddress').value||'Not provided';show(5);">Continue →</button>
+    </div>
+
+            <div class="step" id="step-5">
+      <div class="step-pill">Step 05 · Amount</div>
+      <h2>How Much Do <span>You Need?</span></h2>
+      <div class="opt-grid">
+        <button class="opt" onclick="selOpt('amount','u300k',this)"><span class="opt-title">Under $300K</span></button>
+        <button class="opt" onclick="selOpt('amount','300_500k',this)"><span class="opt-title">$300K – $500K</span></button>
+        <button class="opt" onclick="selOpt('amount','500_750k',this)"><span class="opt-title">$500K – $750K</span></button>
+        <button class="opt" onclick="selOpt('amount','750_1m',this)"><span class="opt-title">$750K – $1M</span></button>
+        <button class="opt" onclick="selOpt('amount','1_2m',this)"><span class="opt-title">$1M – $2M</span></button>
+        <button class="opt" onclick="selOpt('amount','2mplus',this)"><span class="opt-title">$2M+</span></button>
+      </div>
+    </div>
+
+    <div class="step" id="step-6">
+      <div class="step-pill">Step 06 · Credit</div>
+      <h2>Estimated <span>Credit Score?</span></h2>
+      <p class="step-sub">No hard pull. Helps us match you to the right program instantly.</p>
+      <div class="opt-grid">
+        <button class="opt" onclick="selOpt('credit','760plus',this)"><span class="opt-title">760+</span><span class="opt-sub">Excellent</span></button>
+        <button class="opt" onclick="selOpt('credit','720_759',this)"><span class="opt-title">720 – 759</span><span class="opt-sub">Very Good</span></button>
+        <button class="opt" onclick="selOpt('credit','680_719',this)"><span class="opt-title">680 – 719</span><span class="opt-sub">Good</span></button>
+        <button class="opt" onclick="selOpt('credit','640_679',this)"><span class="opt-title">640 – 679</span><span class="opt-sub">Fair</span></button>
+        <button class="opt" onclick="selOpt('credit','600_639',this)"><span class="opt-title">600 – 639</span><span class="opt-sub">Below Average</span></button>
+        <button class="opt" onclick="selOpt('credit','u600',this)"><span class="opt-title">Under 600</span><span class="opt-sub">Let's talk</span></button>
+      </div>
+    </div>
+
+    <div class="step" id="step-7">
+      <div class="step-pill">Step 07 · Timeline</div>
+      <h2>When Do You Want <span>To Close?</span></h2>
+      <div class="opt-grid" style="max-width:480px;">
+        <button class="opt" onclick="selOpt('timeline','asap',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span class="opt-title">ASAP</span><span class="opt-sub">Within 30 days</span></button>
+        <button class="opt" onclick="selOpt('timeline','1_3mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="opt-title">1 – 3 Months</span></button>
+        <button class="opt" onclick="selOpt('timeline','3_6mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="8 14 10 16 14 12"/></svg></span><span class="opt-title">3 – 6 Months</span></button>
+        <button class="opt" onclick="selOpt('timeline','research',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="opt-title">Just Researching</span></button>
+      </div>
+    </div>
+
+    
+        <div class="step" id="step-8">
+          <div class="step-pill">Step 08 · Experience</div>
+          <h2>How Many Properties Do You <span>Currently Own?</span></h2>
+          <p class="step-sub">Helps us identify the right program and entity structure for you.</p>
+          <div class="opt-grid">
+            <div class="opt" onclick="selOpt('properties','0',this)">
+              <span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></span>
+              <span class="opt-title">None — First Purchase</span>
+              <span class="opt-sub">First-time investor or homebuyer</span>
+            </div>
+            <div class="opt" onclick="selOpt('properties','1-2',this)">
+              <span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 22V11L8 4l7 7v11"/><path d="M15 22V13l4-4 4 4v9"/><path d="M1 22h22"/></svg></span>
+              <span class="opt-title">1–2 Properties</span>
+              <span class="opt-sub">Getting started</span>
+            </div>
+            <div class="opt" onclick="selOpt('properties','3-9',this)">
+              <span class="opt-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+              <span class="opt-title">3–9 Properties</span>
+              <span class="opt-sub">Growing portfolio</span>
+            </div>
+            <div class="opt" onclick="selOpt('properties','10+',this)">
+              <span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg></span>
+              <span class="opt-title">10+ Properties</span>
+              <span class="opt-sub">Experienced investor</span>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="back-btn" onclick="goBack()">‹</button></div>
+        </div>
+
+<div class="step" id="step-9">
+      <div class="step-pill">Step 09 · Your Info</div>
+      <h2>Almost <span>Done.</span></h2>
+      <p class="step-sub">A licensed Rate Hero advisor will reach out within 1 hour with your personalized options.</p>
+      <div class="input-row" style="max-width:480px;margin-bottom:16px;">
+        <div class="input-group" style="margin-bottom:0;"><label>First Name</label><input type="text" id="fn" placeholder="Jane" oninput="checkContact()"></div>
+        <div class="input-group" style="margin-bottom:0;"><label>Last Name</label><input type="text" id="ln" placeholder="Smith" oninput="checkContact()"></div>
+      </div>
+      <div class="input-group"><label>Email Address</label><input type="email" id="em" placeholder="jane@email.com" oninput="checkContact()"></div>
+      <div class="input-group"><label>Phone Number</label><input type="tel" id="ph" placeholder="(555) 000-0000" oninput="checkContact()"></div>
+      <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Check My Eligibility →</button>
+      <p class="f-privacy" style="max-width:480px;margin-top:14px;"><span>🔒</span> No SSN · No credit pull · Your data is never sold</p>
+    </div>
+
+    
+        <div class="step" id="step-10">
+      <div class="success-wrap">
+        <div class="success-icon">✓</div>
+        <h2>You're A <span>Hero.</span></h2>
+        <p>A Rate Hero specialist will contact you within 1 business hour with your personalized rate options.</p>
+        <div class="next-box">
+          <h3>What Happens Next</h3>
+          <div class="next-step"><div class="next-num">1</div><div class="next-text">A licensed advisor reviews your profile and finds the best programs for your situation.</div></div>
+          <div class="next-step"><div class="next-num">2</div><div class="next-text">You receive a personalized rate quote — no SSN, no credit pull.</div></div>
+          <div class="next-step"><div class="next-num">3</div><div class="next-text">If you love the terms, we move fast. Most deals close in 21 days or less.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const ans = {}; let cur = 1; const TOTAL = 9; const AUTO = [1,2,3,5,6,7,8];
+
+function openFunnel(t) {
+  ans.type=t;
+  document.getElementById('landing').style.display='none';
+  document.getElementById('funnel').style.display='flex';
+  document.body.style.overflow='hidden';
+  // If a program type was passed, pre-select step 1 and skip to step 2
+  if(t && t!=='purchase' && t!=='refinance') {
+    // Highlight the matching option in step 1
+    const opts = document.querySelectorAll('#step-1 .opt-illus');
+    opts.forEach(o => {
+      o.classList.remove('selected');
+      const lbl = o.querySelector('.illus-label').textContent.toLowerCase();
+      if(lbl.includes(t.toLowerCase()) || (t==='conventional' && lbl.includes('conventional'))) {
+        o.classList.add('selected');
+      }
+    });
+    ans.loanType = t;
+    show(2); // skip straight to step 2
+  } else {
+    show(1);
+  }
+}
+function closeFunnel() { document.getElementById('funnel').style.display='none'; document.getElementById('landing').style.display='block'; document.body.style.overflow=''; }
+function show(n) {
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step-'+n).classList.add('active'); cur=n;
+  var stepNum = (n==='4b') ? 4.5 : Number(n);
+  document.getElementById('fBar').style.width=(stepNum<=10?Math.max(5,Math.round(((stepNum-1)/TOTAL)*100)):100)+'%';
+  document.getElementById('backBtn').classList.toggle('hidden',n<=1);
+}
+function nextStep(){if(cur<10)show(cur+1);}
+function goBack(){
+  if(cur==='4b'){show(4);}
+  else if(cur===5){show(5);}
+  else if(cur>1){show(cur-1);}
+}
+function selIllus(k,v,el){ans[k]=v;document.querySelectorAll('#step-1 .opt-illus').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');setTimeout(nextStep,280);}
+function selOpt(k,v,el){ans[k]=v;el.closest('.opt-grid').querySelectorAll('.opt').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');if(AUTO.includes(cur))setTimeout(nextStep,280);}
+function enStep4(){const v=document.getElementById('stateSelect').value;document.getElementById('cont4').disabled=!v;if(v)ans.state=v;}
+function checkContact(){const ok=document.getElementById('fn').value.trim()&&document.getElementById('ln').value.trim()&&document.getElementById('em').value.includes('@')&&document.getElementById('ph').value.trim().length>6;document.getElementById('submitBtn').disabled=!ok;}
+function showStep9(){show(10);}
+function submitForm(){
+  ans.firstName = document.getElementById('fn').value.trim();
+  ans.lastName  = document.getElementById('ln').value.trim();
+  ans.email     = document.getElementById('em').value.trim();
+  ans.phone     = document.getElementById('ph').value.trim();
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  var body = new FormData();
+  body.append('access_key',   '544fd03b-53dd-4844-ae11-af8c8871adf8');
+  body.append('subject',      'New Rate Hero Lead — ' + (ans.loanType || 'Website'));
+  body.append('from_name',    'Rate Hero Website');
+  body.append('Name',         ans.firstName + ' ' + ans.lastName);
+  body.append('Email',        ans.email);
+  body.append('Phone',        ans.phone);
+  body.append('Loan Program', ans.loanType  || 'Not specified');
+  body.append('Borrower Type',ans.borrower  || 'Not specified');
+  body.append('Property Type',ans.property  || 'Not specified');
+  body.append('State',        ans.state     || 'Not specified');
+  body.append('Loan Amount',  ans.amount    || 'Not specified');
+  body.append('Credit Score', ans.credit    || 'Not specified');
+  body.append('Timeline',     ans.timeline  || 'Not specified');
+  body.append('Property Address', ans.address    || 'Not provided');
+  body.append('Properties',   ans.properties|| 'Not specified');
+  body.append('botcheck',     '');
+
+  fetch('https://api.web3forms.com/submit', {method:'POST', body: body})
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      showStep9();
+    })
+    .catch(function(){
+      // Still show success screen even if network error
+      showStep9();
+    });
+}
+
+function toggleAcc(id) {
+  const item = document.getElementById(id);
+  const body = item.querySelector('.accordion-a');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.accordion-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.accordion-a').classList.remove('open');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+</script>
+
+<!-- STICKY FLOATING CTA -->
+<div id="stickyCTA" style="position:fixed;bottom:24px;right:24px;z-index:500;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;">
+  <button onclick="openFunnel('purchase')" aria-label="Get My Loan Options" style="background:var(--blue);color:#fff;border:none;padding:14px 24px;border-radius:14px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;gap:8px;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(37,99,235,0.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3)'">
+    <svg width="14" height="20" viewBox="0 0 28 40"><defs><linearGradient id="scblt" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#scblt)"/></svg>
+    Find My Loan Options →
+  </button>
+</div>
+<script>
+(function(){
+  var sc = document.getElementById('stickyCTA');
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    if(!shown && window.scrollY > 400){
+      shown = true;
+      sc.style.transform = 'translateY(0)';
+      sc.style.opacity = '1';
+      sc.style.pointerEvents = 'auto';
+    }
+  }, {passive:true});
+  // Hide when funnel is open or when sit-cards are visible
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[onclick*="openFunnel"]')){
+      sc.style.opacity = '0';
+      sc.style.pointerEvents = 'none';
+      setTimeout(function(){ shown=false; }, 1000);
+    }
+  });
+  // Hide sticky CTA when situation grid or hero buttons are in viewport on mobile
+  function checkSitCards() {
+    var sitGrid = document.querySelector('.situation-grid');
+    var heroBtn = document.querySelector('.btn-hero');
+    if (!sitGrid) return;
+    var rect = sitGrid.getBoundingClientRect();
+    var heroRect = heroBtn ? heroBtn.getBoundingClientRect() : {top: 9999, bottom: 9999};
+    var inView = (rect.top < window.innerHeight && rect.bottom > 0) || (heroRect.top < window.innerHeight && heroRect.bottom > 0);
+    if (inView) {
+      sc.style.opacity = '0';
+      sc.style.pointerEvents = 'none';
+    } else if (shown) {
+      sc.style.opacity = '1';
+      sc.style.pointerEvents = 'auto';
+    }
+  }
+  window.addEventListener('scroll', checkSitCards, {passive: true});
+})();
+</script>
+
+
+
+<script>
+// Mobile programs toggle
+(function(){
+  if (window.innerWidth > 768) return;
+  var progSection = document.querySelector('.mobile-programs-section');
+  if (!progSection) return;
+  
+  var grid = progSection.querySelector('.programs-grid');
+  if (!grid) return;
+  
+  // Create toggle button
+  var toggle = document.createElement('button');
+  toggle.className = 'mobile-programs-toggle';
+  toggle.innerHTML = '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+  toggle.setAttribute('aria-expanded', 'false');
+  
+  grid.parentNode.insertBefore(toggle, grid);
+  
+  toggle.addEventListener('click', function() {
+    var expanded = grid.classList.toggle('expanded');
+    toggle.innerHTML = expanded 
+      ? '📋 Loan Programs <span style="font-size:12px;opacity:.7">tap to collapse</span>'
+      : '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+    toggle.setAttribute('aria-expanded', expanded);
+  });
+})();
+</script>
+<script>
+// Mobile footer resources toggle
+(function(){
+  if (window.innerWidth > 768) return;
+  var col = document.getElementById('footer-res-col');
+  if (!col) return;
+  
+  // Wrap all links after the label in a collapsible div
+  var label = col.querySelector('span');
+  if (!label) return;
+  
+  // Add toggle class to label
+  label.classList.add('footer-res-label');
+  
+  // Create collapsible wrapper for links
+  var links = Array.from(col.querySelectorAll('a'));
+  var wrapper = document.createElement('div');
+  wrapper.className = 'footer-res-links';
+  links.forEach(function(link) {
+    wrapper.appendChild(link.cloneNode(true));
+    link.remove();
+  });
+  col.appendChild(wrapper);
+  
+  label.addEventListener('click', function() {
+    col.classList.toggle('expanded');
+  });
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth > 768) return;
+
+  var cards = [
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>',
+      title: 'Close in 21 Days.',
+      body: 'We move fast because our process is tight — not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+      title: "We're In Your Corner.",
+      body: 'Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve.'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+      title: 'Complex Borrowers Welcome.',
+      body: '<b>Self-employed, investors, foreign nationals, low credit</b> — programs for borrowers the big banks turn away.'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+      title: 'Radical Transparency.',
+      body: '<b>No bait-and-switch rates. No hidden fees.</b> You will know exactly what you are getting before you sign anything.'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>',
+      title: 'LLC Lending Available.',
+      body: 'Keep investments off your personal credit. <b>We close loans in LLCs, partnerships, trusts,</b> and other entity structures.'
+    }
+  ];
+
+  var cur = 0;
+  var cardEl  = document.getElementById('whyCard');
+  var dotsEl  = document.getElementById('whyDots');
+  var icoEl   = document.getElementById('whyIco');
+  var titleEl = document.getElementById('whyTitle');
+  var bodyEl  = document.getElementById('whyBody');
+
+  if (!cardEl || !dotsEl) return;
+
+  // Build dots
+  cards.forEach(function(_, i) {
+    var d = document.createElement('div');
+    d.className = 'why-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', function(){ show(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function show(n) {
+    cur = (n + cards.length) % cards.length;
+    icoEl.innerHTML   = cards[cur].icon;
+    titleEl.textContent = cards[cur].title;
+    bodyEl.innerHTML  = cards[cur].body;
+    dotsEl.querySelectorAll('.why-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === cur);
+    });
+  }
+
+  // Touch swipe
+  var startX = 0;
+  cardEl.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+  }, {passive: true});
+  cardEl.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  }, {passive: true});
+
+  show(0);
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.innerWidth > 768) return;
+  var reviews = document.querySelectorAll(".review-card");
+  var dotsEl = document.getElementById("revDots");
+  if (!reviews.length || !dotsEl) return;
+  var cur = 0;
+
+  reviews.forEach(function(_, i) {
+    var d = document.createElement("div");
+    d.className = "review-swipe-dot" + (i === 0 ? " active" : "");
+    d.addEventListener("click", function() { showRev(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function showRev(n) {
+    reviews.forEach(function(r, i) { r.style.display = i === n ? "" : "none"; });
+    dotsEl.querySelectorAll(".review-swipe-dot").forEach(function(d, i) {
+      d.className = "review-swipe-dot" + (i === n ? " active" : "");
+    });
+    cur = n;
+  }
+
+  var grid = document.querySelector(".reviews-grid");
+  var sx = 0;
+  if (grid) {
+    grid.addEventListener("touchstart", function(e) { sx = e.touches[0].clientX; }, { passive: true });
+    grid.addEventListener("touchend", function(e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) { showRev((cur + (dx < 0 ? 1 : -1) + reviews.length) % reviews.length); }
+    }, { passive: true });
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.innerWidth > 768) return;
+  var ico = document.getElementById("whyIco");
+  var title = document.getElementById("whyTitle");
+  var body = document.getElementById("whyBody");
+  var dotsEl = document.getElementById("whyDots");
+  var card = document.getElementById("whyCard");
+  if (!card || !dotsEl) return;
+
+  var cards = [
+    {
+      icon: "clock",
+      title: "Close in 21 Days.",
+      body: "We move fast because our process is tight — not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>"
+    },
+    {
+      icon: "users",
+      title: "We’re In Your Corner.",
+      body: "Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve."
+    },
+    {
+      icon: "check",
+      title: "Complex Borrowers Welcome.",
+      body: "<b>Self-employed, investors, foreign nationals, low credit</b> — programs for borrowers the big banks turn away."
+    },
+    {
+      icon: "shield",
+      title: "Radical Transparency.",
+      body: "<b>No bait-and-switch rates. No hidden fees.</b> You will know exactly what you are getting before you sign anything."
+    },
+    {
+      icon: "briefcase",
+      title: "LLC Lending Available.",
+      body: "Keep investments off your personal credit. <b>We close loans in LLCs, partnerships, trusts,</b> and other entity structures."
+    }
+  ];
+
+  var svgIcons = {
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>',
+    users: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    briefcase: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>'
+  };
+
+  var cur = 0;
+
+  cards.forEach(function(_, i) {
+    var d = document.createElement("div");
+    d.className = "why-dot" + (i === 0 ? " active" : "");
+    d.addEventListener("click", function() { show(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function show(n) {
+    cur = n;
+    ico.innerHTML = svgIcons[cards[n].icon];
+    title.textContent = cards[n].title;
+    body.innerHTML = cards[n].body;
+    dotsEl.querySelectorAll(".why-dot").forEach(function(d, i) {
+      d.className = "why-dot" + (i === n ? " active" : "");
+    });
+  }
+
+  var startX = 0;
+  card.addEventListener("touchstart", function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  card.addEventListener("touchend", function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  }, {passive: true});
+
+  show(0);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get("funnel") === "1") {
+    openFunnel("purchase");
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.innerWidth > 768) return;
+  var reviews = document.querySelectorAll(".review-card");
+  var dotsEl = document.getElementById("revDots");
+  if (!reviews.length || !dotsEl) return;
+  var cur = 0;
+
+  reviews.forEach(function(_, i) {
+    var d = document.createElement("div");
+    d.className = "review-swipe-dot" + (i === 0 ? " active" : "");
+    d.addEventListener("click", function() { showRev(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function showRev(n) {
+    reviews.forEach(function(r, i) { r.style.display = i === n ? "" : "none"; });
+    dotsEl.querySelectorAll(".review-swipe-dot").forEach(function(d, i) {
+      d.className = "review-swipe-dot" + (i === n ? " active" : "");
+    });
+    cur = n;
+  }
+
+  var grid = document.querySelector(".reviews-grid");
+  var sx = 0;
+  if (grid) {
+    grid.addEventListener("touchstart", function(e) { sx = e.touches[0].clientX; }, { passive: true });
+    grid.addEventListener("touchend", function(e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) { showRev((cur + (dx < 0 ? 1 : -1) + reviews.length) % reviews.length); }
+    }, { passive: true });
+  }
+});
+</script>
+
+</body>
+</html>
