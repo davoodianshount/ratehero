@@ -141,70 +141,46 @@ async function logTurn(env, { sessionId, messages, ipHash, userAgent, referer, l
 
 /* ─────────────── submit_lead tool ─────────────── */
 
-async function submitLead(input, sourcePage, sessionId) {
+// Build the web3forms payload as plain name/value pairs the browser widget
+// will submit. (We can't submit this server-side — see notes above.)
+function buildWeb3FormsPayload(input, sourcePage, sessionId) {
   const fullName = [input.first_name, input.last_name].filter(Boolean).join(' ').trim();
-
-  // web3forms rejects submissions where "email" is not a valid address, so if
-  // Bolt didn't collect one, synthesize a deterministic placeholder.
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((input.email || '').trim());
   const emailToSend = validEmail
     ? input.email.trim()
     : `bolt-${(sessionId || 'unknown').replace(/[^a-z0-9]/gi, '').slice(0, 16)}@leads.goratehero.com`;
 
-  // web3forms accepts JSON with `application/json` — more reliable from
-  // Cloudflare Workers than multipart FormData.
-  const payload = {
-    access_key:        WEB3FORMS_ACCESS_KEY,
-    subject:           'New Bolt Lead — ' + (input.loan_program || 'Chat'),
-    from_name:         'Rate Hero — Bolt AI',
-    Name:              fullName || 'Not provided',
-    email:             emailToSend,                             // lowercase — web3forms built-in field
-    Email:             emailToSend,                             // also expose in the email body
-    'Email Provided':  validEmail ? 'Yes' : 'No — phone-only lead from Bolt',
-    Phone:             input.phone            || 'Not provided',
-    'Loan Program':    input.loan_program     || 'Not specified',
-    'Borrower Type':   input.borrower_type    || 'Not specified',
-    'Property Type':   input.property_type    || 'Not specified',
-    State:             input.state            || 'Not specified',
-    'Loan Amount':     input.loan_amount      || 'Not specified',
-    'Credit Score':    input.credit_score     || 'Not specified',
-    Timeline:          input.timeline         || 'Not specified',
-    'Property Address':input.property_address || 'Not provided',
-    Properties:        input.property_count   || 'Not specified',
-    Source:            'Bolt AI Chat' + (sourcePage ? ` · ${sourcePage}` : ''),
-    Notes:             input.notes            || '',
-    botcheck:          '',
-  };
-
-  // web3forms sits behind Cloudflare. A vanilla Workers fetch gets flagged
-  // as bot traffic (error 1106 / 403). Sending browser-like headers and
-  // sourcing the request from the site origin lets it through.
-  const res = await fetch(WEB3FORMS_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type':    'application/json',
-      'Accept':          'application/json',
-      'User-Agent':      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36',
-      'Origin':          'https://goratehero.com',
-      'Referer':         'https://goratehero.com/',
-      'Accept-Language': 'en-US,en;q=0.9',
+  return {
+    url: WEB3FORMS_URL,
+    fields: {
+      access_key:        WEB3FORMS_ACCESS_KEY,
+      subject:           'New Bolt Lead — ' + (input.loan_program || 'Chat'),
+      from_name:         'Rate Hero — Bolt AI',
+      Name:              fullName || 'Not provided',
+      email:             emailToSend,
+      'Email Provided':  validEmail ? 'Yes' : 'No — phone-only lead from Bolt',
+      Phone:             input.phone            || 'Not provided',
+      'Loan Program':    input.loan_program     || 'Not specified',
+      'Borrower Type':   input.borrower_type    || 'Not specified',
+      'Property Type':   input.property_type    || 'Not specified',
+      State:             input.state            || 'Not specified',
+      'Loan Amount':     input.loan_amount      || 'Not specified',
+      'Credit Score':    input.credit_score     || 'Not specified',
+      Timeline:          input.timeline         || 'Not specified',
+      'Property Address':input.property_address || 'Not provided',
+      Properties:        input.property_count   || 'Not specified',
+      Source:            'Bolt AI Chat' + (sourcePage ? ` · ${sourcePage}` : ''),
+      Notes:             input.notes || '',
+      botcheck:          '',
     },
-    body: JSON.stringify(payload),
-  });
-
-  let data = null;
-  let raw = '';
-  try { raw = await res.text(); data = JSON.parse(raw); } catch {}
-
-  const ok = res.ok && (data?.success !== false);
-  const msg = ok
-    ? 'Lead submitted. A strategist will follow up.'
-    : `Submission failed (${res.status}): ${data?.message || raw || 'unknown error'}`;
-
-  // Log richer diagnostics so Worker tail / admin dashboard can show what happened.
-  console.log('submit_lead →', res.status, data || raw);
-  return { ok, message: msg, status: res.status, upstream: data };
+  };
 }
+
+// NOTE: No server-side web3forms POST. Cloudflare's bot protection in front
+// of web3forms blocks Worker-originated requests (error 1106 / 403) even with
+// full browser-style headers, because CF also checks TLS fingerprint. The
+// widget POSTs to web3forms directly from the user's browser instead —
+// same exact path as the main site's CTA funnel.
 
 async function fireAlertWebhook(env, { payload, sessionId, origin }) {
   const url = await loadAlertWebhook(env);
@@ -305,18 +281,14 @@ export default {
       // Execute the tool
       let toolResult;
       if (toolUse.name === 'submit_lead') {
-        try {
-          const r = await submitLead(toolUse.input || {}, referer, sessionId);
-          toolResult = JSON.stringify(r);
-          if (r.ok) {
-            leadCaptured = true;
-            leadPayload = toolUse.input || {};
-            // Fire alert webhook without blocking the response
-            ctx.waitUntil(fireAlertWebhook(env, { payload: leadPayload, sessionId, origin }));
-          }
-        } catch (err) {
-          toolResult = JSON.stringify({ ok: false, message: err.message });
-        }
+        // We mark the lead as captured and return the payload to the browser
+        // to POST to web3forms. Going browser-side avoids Cloudflare's bot
+        // filter that blocks Worker-originated requests (CF error 1106).
+        leadCaptured = true;
+        leadPayload = toolUse.input || {};
+        toolResult = JSON.stringify({ ok: true, message: 'Lead captured. A strategist will follow up shortly.' });
+        // Fire alert webhook without blocking the response
+        ctx.waitUntil(fireAlertWebhook(env, { payload: leadPayload, sessionId, origin }));
       } else {
         toolResult = JSON.stringify({ ok: false, message: 'Unknown tool' });
       }
@@ -338,10 +310,17 @@ export default {
       leadPayload,
     }));
 
-    return json({
+    // If a lead was captured, pass the web3forms payload back to the widget
+    // so the browser can POST it (browser-originated requests pass CF's bot
+    // check, Worker-originated ones are blocked with error 1106).
+    const response = {
       reply: finalText || "I'm here — tell me about your property or loan situation.",
       lead_captured: leadCaptured,
-    }, 200, baseCors);
+    };
+    if (leadCaptured && leadPayload) {
+      response.lead_submission = buildWeb3FormsPayload(leadPayload, referer, sessionId);
+    }
+    return json(response, 200, baseCors);
   },
 };
 

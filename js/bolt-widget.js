@@ -356,6 +356,21 @@
         row.innerHTML = '<div class="bolt-bubble-avatar">✓</div><div class="bolt-bubble bot" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.35);color:#A7F3D0;">A strategist will reach out shortly. Text (747) 308-1635 if you need them sooner.</div>';
         msgsEl.appendChild(row);
         msgsEl.scrollTop = msgsEl.scrollHeight;
+
+        // Submit the lead to web3forms from the browser. Cloudflare blocks
+        // Worker-originated POSTs to web3forms (error 1106), but this fetch
+        // runs in the user's browser so it sails through — same path as the
+        // main site's CTA funnel.
+        if (data.lead_submission && data.lead_submission.url && data.lead_submission.fields) {
+          try {
+            const fd = new FormData();
+            Object.entries(data.lead_submission.fields).forEach(([k, v]) => {
+              fd.append(k, v == null ? '' : String(v));
+            });
+            fetch(data.lead_submission.url, { method: 'POST', body: fd })
+              .catch(() => { /* fire-and-forget */ });
+          } catch { /* noop */ }
+        }
       }
     } catch {
       hideTyping();
