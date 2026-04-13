@@ -139,42 +139,58 @@ async function submitLead(input, sourcePage, sessionId) {
   const fullName = [input.first_name, input.last_name].filter(Boolean).join(' ').trim();
 
   // web3forms rejects submissions where "email" is not a valid address, so if
-  // Bolt didn't collect one, synthesize a deterministic placeholder that's
-  // flagged clearly in the inbox.
+  // Bolt didn't collect one, synthesize a deterministic placeholder.
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((input.email || '').trim());
   const emailToSend = validEmail
     ? input.email.trim()
     : `bolt-${(sessionId || 'unknown').replace(/[^a-z0-9]/gi, '').slice(0, 16)}@leads.goratehero.com`;
 
-  const body = new FormData();
-  body.append('access_key',      WEB3FORMS_ACCESS_KEY);
-  body.append('subject',         'New Bolt Lead — ' + (input.loan_program || 'Chat'));
-  body.append('from_name',       'Rate Hero — Bolt AI');
-  body.append('Name',            fullName || 'Not provided');
-  body.append('Email',           emailToSend);
-  body.append('Email Provided',  validEmail ? 'Yes' : 'No — phone-only lead from Bolt');
-  body.append('Phone',           input.phone            || 'Not provided');
-  body.append('Loan Program',    input.loan_program     || 'Not specified');
-  body.append('Borrower Type',   input.borrower_type    || 'Not specified');
-  body.append('Property Type',   input.property_type    || 'Not specified');
-  body.append('State',           input.state            || 'Not specified');
-  body.append('Loan Amount',     input.loan_amount      || 'Not specified');
-  body.append('Credit Score',    input.credit_score     || 'Not specified');
-  body.append('Timeline',        input.timeline         || 'Not specified');
-  body.append('Property Address',input.property_address || 'Not provided');
-  body.append('Properties',      input.property_count   || 'Not specified');
-  body.append('Source',          'Bolt AI Chat' + (sourcePage ? ` · ${sourcePage}` : ''));
-  if (input.notes) body.append('Notes', input.notes);
-  body.append('botcheck', '');
+  // web3forms accepts JSON with `application/json` — more reliable from
+  // Cloudflare Workers than multipart FormData.
+  const payload = {
+    access_key:        WEB3FORMS_ACCESS_KEY,
+    subject:           'New Bolt Lead — ' + (input.loan_program || 'Chat'),
+    from_name:         'Rate Hero — Bolt AI',
+    Name:              fullName || 'Not provided',
+    email:             emailToSend,                             // lowercase — web3forms built-in field
+    Email:             emailToSend,                             // also expose in the email body
+    'Email Provided':  validEmail ? 'Yes' : 'No — phone-only lead from Bolt',
+    Phone:             input.phone            || 'Not provided',
+    'Loan Program':    input.loan_program     || 'Not specified',
+    'Borrower Type':   input.borrower_type    || 'Not specified',
+    'Property Type':   input.property_type    || 'Not specified',
+    State:             input.state            || 'Not specified',
+    'Loan Amount':     input.loan_amount      || 'Not specified',
+    'Credit Score':    input.credit_score     || 'Not specified',
+    Timeline:          input.timeline         || 'Not specified',
+    'Property Address':input.property_address || 'Not provided',
+    Properties:        input.property_count   || 'Not specified',
+    Source:            'Bolt AI Chat' + (sourcePage ? ` · ${sourcePage}` : ''),
+    Notes:             input.notes            || '',
+    botcheck:          '',
+  };
 
-  const res = await fetch(WEB3FORMS_URL, { method: 'POST', body });
-  const ok = res.ok;
-  let msg = ok ? 'Lead submitted. A strategist will follow up.' : 'Submission failed.';
-  try {
-    const data = await res.json();
-    if (data && data.message) msg = data.message;
-  } catch { /* non-JSON response */ }
-  return { ok, message: msg };
+  const res = await fetch(WEB3FORMS_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept':       'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  let data = null;
+  let raw = '';
+  try { raw = await res.text(); data = JSON.parse(raw); } catch {}
+
+  const ok = res.ok && (data?.success !== false);
+  const msg = ok
+    ? 'Lead submitted. A strategist will follow up.'
+    : `Submission failed (${res.status}): ${data?.message || raw || 'unknown error'}`;
+
+  // Log richer diagnostics so Worker tail / admin dashboard can show what happened.
+  console.log('submit_lead →', res.status, data || raw);
+  return { ok, message: msg, status: res.status, upstream: data };
 }
 
 async function fireAlertWebhook(env, { payload, sessionId, origin }) {
