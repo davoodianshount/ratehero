@@ -35,7 +35,13 @@ Programs: DSCR (rental income, up to 85% LTV, min DSCR 1.0–1.25), Non-QM (bank
 
 Style: 2–3 sentences max. Direct, warm, never pushy. Never quote specific rates — say rates depend on property / credit / structure and offer a personalized quote.
 
-Lead capture: when a user shares their situation AND shows intent (asks about getting started, a quote, a call, timing), offer to have a strategist reach out. If they agree, call the submit_lead tool with what you have — name + phone (or email) are required, everything else optional. After the tool succeeds, confirm in one sentence. Don't interrogate — collect naturally over the chat.`;
+Lead capture: when a user shares their situation AND shows intent (asks about getting started, a quote, a call, timing), offer to have a strategist reach out. If they agree, call the submit_lead tool with what you have — name + phone (or email) are required, everything else optional. After asking for the phone number, ALSO ask for their email in the same turn — email helps strategists follow up if the call is missed. If they decline email, proceed with phone only.
+
+After the submit_lead tool returns, read its result:
+- If "ok":true → confirm in ONE sentence that a strategist will reach out.
+- If "ok":false → do NOT claim success. Tell the user you hit a technical issue and give them the phone number (747) 308-1635 to call directly. Do not retry the tool with the same inputs.
+
+Don't interrogate — collect naturally over the chat.`;
 
 const SUBMIT_LEAD_TOOL = {
   name: 'submit_lead',
@@ -129,14 +135,24 @@ async function logTurn(env, { sessionId, messages, ipHash, userAgent, referer, l
 
 /* ─────────────── submit_lead tool ─────────────── */
 
-async function submitLead(input, sourcePage) {
+async function submitLead(input, sourcePage, sessionId) {
   const fullName = [input.first_name, input.last_name].filter(Boolean).join(' ').trim();
+
+  // web3forms rejects submissions where "email" is not a valid address, so if
+  // Bolt didn't collect one, synthesize a deterministic placeholder that's
+  // flagged clearly in the inbox.
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((input.email || '').trim());
+  const emailToSend = validEmail
+    ? input.email.trim()
+    : `bolt-${(sessionId || 'unknown').replace(/[^a-z0-9]/gi, '').slice(0, 16)}@leads.goratehero.com`;
+
   const body = new FormData();
   body.append('access_key',      WEB3FORMS_ACCESS_KEY);
   body.append('subject',         'New Bolt Lead — ' + (input.loan_program || 'Chat'));
   body.append('from_name',       'Rate Hero — Bolt AI');
   body.append('Name',            fullName || 'Not provided');
-  body.append('Email',           input.email            || 'Not provided');
+  body.append('Email',           emailToSend);
+  body.append('Email Provided',  validEmail ? 'Yes' : 'No — phone-only lead from Bolt');
   body.append('Phone',           input.phone            || 'Not provided');
   body.append('Loan Program',    input.loan_program     || 'Not specified');
   body.append('Borrower Type',   input.borrower_type    || 'Not specified');
@@ -261,7 +277,7 @@ export default {
       let toolResult;
       if (toolUse.name === 'submit_lead') {
         try {
-          const r = await submitLead(toolUse.input || {}, referer);
+          const r = await submitLead(toolUse.input || {}, referer, sessionId);
           toolResult = JSON.stringify(r);
           if (r.ok) {
             leadCaptured = true;

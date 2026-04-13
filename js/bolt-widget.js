@@ -63,10 +63,17 @@
         max-height: none;
         border-radius: 0;
         padding-bottom: env(safe-area-inset-bottom);
+        padding-top: env(safe-area-inset-top);
       }
       #bolt-fab { bottom: 20px; right: 16px; }
-      /* Hide the FAB while the fullscreen window is open — close button in header */
       body.bolt-open-mobile #bolt-fab { display: none; }
+      /* Lock the page under the widget so it can't scroll behind */
+      body.bolt-open-mobile { overflow: hidden; position: fixed; width: 100%; }
+      /* iOS auto-zooms on inputs with font-size < 16px — bump on mobile */
+      .bolt-input { font-size: 16px !important; }
+      /* Bigger, tappier close button on mobile */
+      .bolt-close { width: 36px !important; height: 36px !important; font-size: 18px !important; }
+      .bolt-header { padding: 14px 16px !important; }
     }
 
     .bolt-header {
