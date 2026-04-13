@@ -1,0 +1,48 @@
+name: Deploy bolt-proxy Worker
+
+on:
+  push:
+    branches:
+      - main
+      - claude/deploy-cloudflare-site-Wq2k6
+    paths:
+      - 'bolt-proxy/**'
+      - '.github/workflows/deploy-bolt-proxy.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install wrangler
+        run: npm install -g wrangler@4
+
+      # Uploads the Anthropic API key as a Worker secret.
+      # Idempotent — safe to run every deploy.
+      - name: Set ANTHROPIC_API_KEY secret
+        working-directory: bolt-proxy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          printf '%s' "$ANTHROPIC_API_KEY" | wrangler secret put ANTHROPIC_API_KEY
+
+      - name: Deploy Worker
+        working-directory: bolt-proxy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          wrangler deploy 2>&1 | tee deploy.log
+          echo ""
+          echo "=== Deployed URL ==="
+          grep -Eo 'https://bolt-proxy\.[a-z0-9._-]+\.workers\.dev' deploy.log | head -1 || true
