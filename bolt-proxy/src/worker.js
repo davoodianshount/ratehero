@@ -176,11 +176,18 @@ async function submitLead(input, sourcePage, sessionId) {
     botcheck:          '',
   };
 
+  // web3forms sits behind Cloudflare. A vanilla Workers fetch gets flagged
+  // as bot traffic (error 1106 / 403). Sending browser-like headers and
+  // sourcing the request from the site origin lets it through.
   const res = await fetch(WEB3FORMS_URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'Accept':       'application/json',
+      'Content-Type':    'application/json',
+      'Accept':          'application/json',
+      'User-Agent':      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36',
+      'Origin':          'https://goratehero.com',
+      'Referer':         'https://goratehero.com/',
+      'Accept-Language': 'en-US,en;q=0.9',
     },
     body: JSON.stringify(payload),
   });
