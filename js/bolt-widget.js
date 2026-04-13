@@ -53,15 +53,20 @@
       opacity: 1; pointer-events: all;
     }
 
-    /* Mobile */
+    /* Mobile — fullscreen, follow visualViewport so keyboard never covers input */
     @media (max-width: 480px) {
       #bolt-window {
-        width: calc(100vw - 24px);
-        right: 12px; bottom: 88px;
-        height: 70vh; max-height: 580px;
-        border-radius: 20px;
+        width: 100vw;
+        right: 0; left: 0; top: 0; bottom: 0;
+        height: 100vh;               /* fallback */
+        height: 100dvh;              /* shrinks when keyboard opens */
+        max-height: none;
+        border-radius: 0;
+        padding-bottom: env(safe-area-inset-bottom);
       }
       #bolt-fab { bottom: 20px; right: 16px; }
+      /* Hide the FAB while the fullscreen window is open — close button in header */
+      body.bolt-open-mobile #bolt-fab { display: none; }
     }
 
     .bolt-header {
@@ -353,19 +358,57 @@
     busy = false;
   }
 
+  /* ── Mobile viewport tracking — keep the window locked to the visible viewport
+        so the iOS keyboard can never overlap the input. ── */
+  const isMobile = () => window.matchMedia('(max-width: 480px)').matches;
+  function syncMobileViewport() {
+    if (!open || !isMobile()) {
+      win.style.height = '';
+      win.style.top = '';
+      return;
+    }
+    const vv = window.visualViewport;
+    if (vv) {
+      win.style.height = vv.height + 'px';
+      win.style.top = vv.offsetTop + 'px';
+    }
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncMobileViewport);
+    window.visualViewport.addEventListener('scroll', syncMobileViewport);
+  }
+  window.addEventListener('orientationchange', () => setTimeout(syncMobileViewport, 100));
+
   /* ── Events ── */
   fab.addEventListener('click', () => {
     open = !open;
     win.classList.toggle('bolt-open', open);
     fab.innerHTML = open ? '✕' : '⚡';
+    document.body.classList.toggle('bolt-open-mobile', open && isMobile());
     if (open && msgsEl.children.length === 0) renderWelcome();
-    if (open) inputEl.focus();
+    if (open) {
+      syncMobileViewport();
+      // Don't autofocus on mobile — that forces the keyboard open before the
+      // user has seen the welcome chips.
+      if (!isMobile()) inputEl.focus();
+    }
   });
 
   document.getElementById('bolt-close-btn').addEventListener('click', () => {
     open = false;
     win.classList.remove('bolt-open');
     fab.innerHTML = '⚡';
+    document.body.classList.remove('bolt-open-mobile');
+    inputEl.blur();
+  });
+
+  // When the input gains focus on mobile, scroll the latest message into view
+  // so the user sees what they're typing in context.
+  inputEl.addEventListener('focus', () => {
+    setTimeout(() => {
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      syncMobileViewport();
+    }, 50);
   });
 
   inputEl.addEventListener('input', () => {

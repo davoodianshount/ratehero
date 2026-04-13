@@ -58,7 +58,7 @@ export default {
       }
       if (path === '/admin/api/config' && request.method === 'POST') {
         const body = await request.json();
-        return json(await updateConfig(env, body));
+        return json(await updateConfig(env, body, accessEmail));
       }
       return new Response('Not found', { status: 404 });
     } catch (err) {
@@ -154,20 +154,28 @@ async function getConversation(env, sessionId) {
 }
 
 async function getConfig(env) {
-  const [prompt, webhook] = await Promise.all([
+  const [prompt, webhook, promptMeta] = await Promise.all([
     env.BOLT_CONFIG.get('system_prompt'),
     env.BOLT_CONFIG.get('alert_webhook_url'),
+    env.BOLT_CONFIG.get('system_prompt_meta', { type: 'json' }),
   ]);
   return {
     system_prompt: prompt || '',
     alert_webhook_url: webhook || '',
+    system_prompt_updated_at: promptMeta?.updated_at || null,
+    system_prompt_updated_by: promptMeta?.updated_by || null,
+    system_prompt_length: (prompt || '').length,
   };
 }
 
-async function updateConfig(env, body) {
+async function updateConfig(env, body, accessEmail) {
   const ops = [];
   if (typeof body.system_prompt === 'string') {
     ops.push(env.BOLT_CONFIG.put('system_prompt', body.system_prompt));
+    ops.push(env.BOLT_CONFIG.put('system_prompt_meta', JSON.stringify({
+      updated_at: Date.now(),
+      updated_by: accessEmail || 'unknown',
+    })));
   }
   if (typeof body.alert_webhook_url === 'string') {
     const clean = body.alert_webhook_url.trim();
@@ -175,7 +183,7 @@ async function updateConfig(env, body) {
     else              ops.push(env.BOLT_CONFIG.put('alert_webhook_url', clean));
   }
   await Promise.all(ops);
-  return { ok: true };
+  return { ok: true, updated_at: Date.now() };
 }
 
 /* ─────────────── responses ─────────────── */
@@ -443,25 +451,46 @@ async function renderPrompt(){
   const el = $('#tab-prompt');
   el.innerHTML = '<div class="muted">Loading…</div>';
   const cfg = await api('/config');
+  const lastUpdated = cfg.system_prompt_updated_at
+    ? fmtDate(cfg.system_prompt_updated_at) + (cfg.system_prompt_updated_by ? \` · by \${escapeHtml(cfg.system_prompt_updated_by)}\` : '')
+    : 'Never — using built-in default';
   el.innerHTML = \`
     <div class="panel">
       <h3>System prompt</h3>
-      <div class="muted" style="margin-bottom:8px">This is Bolt's instructions. Changes go live immediately on the next message — no redeploy needed.</div>
+      <div class="muted" style="margin-bottom:8px">Bolt's instructions. Save → live on the next message, no redeploy.</div>
+      <div class="row" style="margin-bottom:10px">
+        <span class="badge dim">Last saved: \${lastUpdated}</span>
+        <span class="badge dim" id="prompt-chars">\${cfg.system_prompt_length} chars</span>
+      </div>
       <textarea id="prompt-ta">\${escapeHtml(cfg.system_prompt)}</textarea>
       <div class="row" style="margin-top:12px">
         <button class="btn" id="save-prompt">Save</button>
         <button class="btn ghost" id="reset-prompt">Revert</button>
-        <span class="muted" id="prompt-status"></span>
+        <button class="btn ghost" id="test-prompt">Test prompt →</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Program knowledge (FHA · VA · DSCR · Non-QM · etc.)</h3>
+      <div class="muted" style="line-height:1.6">
+        Paste guideline summaries directly into the prompt above (LTVs, DSCR mins, credit floors, reserves, loan limits).
+        Keep it tight — a few hundred words per program is plenty; Bolt references it verbatim.
+        For full PDF-size guideline docs, ask to add <b>RAG</b> (retrieval) — that's a follow-up we can ship once volume justifies it.
       </div>
     </div>
     <div class="panel">
       <h3>Tips</h3>
       <ul class="muted" style="margin:0;padding-left:18px;line-height:1.7">
-        <li>Keep the <b>submit_lead</b> tool instructions — removing them disables lead capture.</li>
-        <li>Short sentences win. Claude will mirror the tone you use here.</li>
-        <li>Blank this field to restore the built-in default.</li>
+        <li>Keep the <b>submit_lead</b> instructions — removing them disables lead capture.</li>
+        <li>Short sentences win. Bolt mirrors your tone.</li>
+        <li>Blank the field and save to restore the built-in default.</li>
       </ul>
     </div>\`;
+  document.getElementById('prompt-ta').addEventListener('input', e => {
+    document.getElementById('prompt-chars').textContent = e.target.value.length + ' chars';
+  });
+  document.getElementById('test-prompt').onclick = () => {
+    window.open('https://goratehero.com/?bolt-test=1#open', '_blank');
+  };
   $('#save-prompt').onclick = async () => {
     try {
       await api('/config', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ system_prompt: $('#prompt-ta').value }) });
