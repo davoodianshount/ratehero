@@ -336,7 +336,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       </a>
       <p class="footer-desc">Strategic mortgage financing for investors and self-employed borrowers. No W-2 required. Close in 21 days.</p>
       <a href="tel:7473081635" class="footer-phone">(747) 308-1635</a>
-      <a href="/cdn-cgi/l/email-protection#375f525b5b58775058455643525f5245581954585a" class="footer-email"><span class="__cf_email__" data-cfemail="7c14191010133c1b130e1d081914190e13521f1311">[email&#160;protected]</span></a>
+      <a href="mailto:hello@goratehero.com" class="footer-email">hello@goratehero.com</a>
       <div class="footer-addr">5930 San Fernando Rd, Glendale, CA 91202</div>
     </div>
     <div class="footer-col">
@@ -379,7 +379,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     <span>·</span><span>Not a commitment to lend.</span>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}
+<script>function tog(id){const i=document.getElementById(id),a=i.querySelector('.faq-a'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').classList.remove('open');});if(!o){i.classList.add('open');a.classList.add('open');}}
 function calcLTR(){
   const rent=parseFloat(document.getElementById('ltr-rent').value)||0;
   const pitia=parseFloat(document.getElementById('ltr-pitia').value)||0;
@@ -394,3 +394,7 @@ function calcLTR(){
   if(dscr>=1.25){num.style.color='#22C55E';verdict.style.color='#22C55E';verdict.textContent='Strong Qualification ✓';note.textContent='Excellent DSCR. You qualify for our best rates and highest LTV programs.';}
   else if(dscr>=1.0){num.style.color='#2563EB';verdict.style.color='#2563EB';verdict.textContent='Qualifies ✓';note.textContent='You meet standard DSCR requirements. Talk to us about rate and term options.';}
   else if(dscr>=0.75){num.style.color='#F59E0B';verdict.style.color='#F59E0B';verdict.textContent='May Qualify — Talk to Us';note.textContent='Below 1.0 but above our minimum. We have sub-1.0 programs for the right profile.';}
+  else{num.style.color='#EF4444';verdict.style.color='#EF4444';verdict.textContent='Below Our Minimum';note.textContent='DSCR below 0.75. Consider increasing rent, reducing loan amount, or exploring other programs.';}
+}
+</script>
+</body></html>
