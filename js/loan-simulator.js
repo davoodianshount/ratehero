@@ -218,14 +218,168 @@
 }
 `; /* end STYLES */
 
-  // ====== STATE ======
-  /* __STATE_PLACEHOLDER__ */
+  // ====== COLORS (single source of truth — CSS vars in STYLES mirror these) ======
+  var C_GREEN = '#22C55E', C_AMBER = '#F59E0B', C_BLUE = '#3B82F6';
 
-  // ====== MATH ======
+  // ====== STATE ======
+  var TIER_VISUALS = {
+    'dscr-strong':     { color: 'green', accent: C_GREEN, icon: '\u2713', label: 'Strong Approval', note: 'Numbers look strong. Sean can lock pricing fast.', cta: 'Get Pre-Qualified \u2014 No Credit Pull', ctaColor: 'green' },
+    'dscr-qualifies':  { color: 'green', accent: C_GREEN, icon: '\u2713', label: 'Qualifies', note: 'Cash flow works. Let\u2019s run the full quote.', cta: 'Get Pre-Qualified \u2014 No Credit Pull', ctaColor: 'green' },
+    'dscr-close':      { color: 'amber', accent: C_AMBER, icon: '\u2022', label: 'Close Match \u2014 Let\u2019s Structure It', note: 'Close enough to work. Sean has 3\u20134 ways to get this done.', cta: 'See My Custom Options', ctaColor: 'amber' },
+    'dscr-path':       { color: 'blue',  accent: C_BLUE,  icon: '\u2192', label: 'Let\u2019s Build a Path', note: 'Numbers need work, but there\u2019s almost always a way. Quick call?', cta: 'Talk to Sean \u2014 15 Min', ctaColor: 'blue' },
+    'brrrr-ready':     { color: 'green', accent: C_GREEN, icon: '\u2713', label: 'Cash-Out Ready', note: '', cta: 'Get Pre-Qualified \u2014 No Credit Pull', ctaColor: 'green' },
+    'brrrr-structure': { color: 'amber', accent: C_AMBER, icon: '\u2022', label: 'Let\u2019s Structure It', note: '', cta: 'See My Custom Options', ctaColor: 'amber' },
+    'brrrr-gap':       { color: 'amber', accent: C_AMBER, icon: '\u2022', label: 'Close the Gap \u2014 Let\u2019s Talk', note: '', cta: 'See My Custom Options', ctaColor: 'amber' },
+    'brrrr-path':      { color: 'blue',  accent: C_BLUE,  icon: '\u2192', label: 'Let\u2019s Build a Path', note: 'Numbers need work but there\u2019s almost always a way.', cta: 'Talk to Sean \u2014 15 Min', ctaColor: 'blue' },
+    'fthb-range':      { color: 'green', accent: C_GREEN, icon: '\u2713', label: 'You\u2019re in Range', note: 'Budget looks strong for your income.', cta: 'Get Pre-Qualified \u2014 No Credit Pull', ctaColor: 'green' },
+    'fthb-tight':      { color: 'amber', accent: C_AMBER, icon: '\u2022', label: 'Tight but Workable', note: 'Close to conforming. FHA, buydowns, or a co-borrower may open more room.', cta: 'See My Custom Options', ctaColor: 'amber' },
+    'fthb-program':    { color: 'blue',  accent: C_BLUE,  icon: '\u2192', label: 'Let\u2019s Find the Right Program', note: 'DTI\u2019s high \u2014 but there are FHA, VA, and 2-1 buydown programs built for this.', cta: 'Talk to Sean \u2014 15 Min', ctaColor: 'blue' },
+  };
+
+  var state = {
+    scenario: 'dscr',
+    approvalTier: 'dscr-qualifies',
+    inputs: {
+      // DSCR
+      propertyValue: 425000, rent: 3400, downPct: 0.25, state: '',
+      // BRRRR
+      arv: 525000, hmBalance: 360000, brrrrRent: 3800,
+      // FTHB
+      price: 500000, income: 120000, fthbDownPct: 0.05,
+    },
+    outputs: {
+      preApproval: 0, pitia: 0, dscr: 0, cashFlow: 0,
+      maxSupportedLoan: 0, rateRange: null, programChips: [],
+      // BRRRR extras
+      cashOut: 0, coversPayoff: false, shortfall: 0,
+      // FTHB extras
+      loanAmount: 0, frontDTI: 0, backDTI: 0,
+    },
+    leadCapture: { firstName: '', phone: '', email: '', consentTcpa: false },
+    submitStatus: 'idle',
+    hasInteracted: false,
+    leadFormShown: false,
+  };
+
   /* __MATH_PLACEHOLDER__ */
 
   // ====== DOM SCAFFOLD ======
-  /* __DOM_PLACEHOLDER__ */
+  var LICENSED_STATES = [
+    'AL','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA',
+    'KS','KY','LA','ME','MD','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
+    'NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT',
+    'VT','VA','WA','WV','WI','WY'
+  ];
+  var COMING_SOON = ['AK', 'DC', 'MA'];
+  var STATE_NAMES = {
+    AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',
+    CT:'Connecticut',DC:'District of Columbia',DE:'Delaware',FL:'Florida',GA:'Georgia',
+    HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',
+    LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',
+    MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',
+    NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',
+    OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',
+    SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',
+    WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'
+  };
+
+  function stateOptions() {
+    var html = '<option value="">Select state</option>';
+    LICENSED_STATES.forEach(function (s) {
+      html += '<option value="' + s + '">' + STATE_NAMES[s] + '</option>';
+    });
+    COMING_SOON.forEach(function (s) {
+      html += '<option value="" disabled>' + STATE_NAMES[s] + ' \u2014 coming soon</option>';
+    });
+    return html;
+  }
+
+  function sliderHTML(id, label, min, max, step, val, fmt) {
+    return '<div class="rh-sim-slider-row">' +
+      '<div class="rh-sim-slider-label">' +
+        '<span class="rh-sim-slider-name">' + label + '</span>' +
+        '<span class="rh-sim-slider-val" id="' + id + '-val">' + fmt(val) + '</span>' +
+      '</div>' +
+      '<input type="range" class="rh-sim-range" id="' + id + '" ' +
+        'min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '" ' +
+        'aria-label="' + label + '">' +
+    '</div>';
+  }
+
+  var fmtDollar = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  var fmtPct = function (n) { return Math.round(n * 100) + '%'; };
+
+  function buildInitialDOM(mount) {
+    mount.innerHTML =
+    '<div class="rh-sim-root">' +
+      '<div class="rh-sim-wrap">' +
+        '<div class="rh-sim-header">' +
+          '<div class="rh-sim-badge">\u26A1 Loan Simulator</div>' +
+          '<div class="rh-sim-title">See Your Numbers <em>Before You Apply</em></div>' +
+          '<div class="rh-sim-subtitle">Drag the sliders. Get your pre-approval estimate, rate range, and cash flow \u2014 instantly. No credit pull.</div>' +
+        '</div>' +
+        '<div class="rh-sim-tabs" role="tablist">' +
+          '<button class="rh-sim-tab active" data-tab="dscr" role="tab" aria-selected="true">Cash-Flow Investor</button>' +
+          '<button class="rh-sim-tab" data-tab="brrrr" role="tab" aria-selected="false">Fix &amp; Flip / BRRRR</button>' +
+          '<button class="rh-sim-tab" data-tab="fthb" role="tab" aria-selected="false">First-Time Buyer</button>' +
+        '</div>' +
+        '<div class="rh-sim-grid">' +
+          /* ── LEFT: INPUTS ── */
+          '<div class="rh-sim-inputs">' +
+            '<div class="rh-sim-scenario" id="rh-sim-dscr">' +
+              sliderHTML('sim-propval', 'Property Value', 150000, 1200000, 5000, 425000, fmtDollar) +
+              sliderHTML('sim-rent', 'Monthly Rent Estimate', 800, 8000, 50, 3400, fmtDollar) +
+              sliderHTML('sim-down', 'Down Payment', 0.20, 0.40, 0.01, 0.25, fmtPct) +
+              '<div class="rh-sim-slider-row">' +
+                '<div class="rh-sim-slider-label"><span class="rh-sim-slider-name">Property State</span></div>' +
+                '<select class="rh-sim-select" id="sim-state" aria-label="Property State">' + stateOptions() + '</select>' +
+              '</div>' +
+            '</div>' +
+            '<div class="rh-sim-scenario hidden" id="rh-sim-brrrr">' +
+              sliderHTML('sim-arv', 'After-Repair Value (ARV)', 200000, 1500000, 10000, 525000, fmtDollar) +
+              sliderHTML('sim-hm', 'Hard Money Balance', 100000, 1000000, 5000, 360000, fmtDollar) +
+              sliderHTML('sim-brent', 'Monthly Rent Estimate', 800, 8000, 50, 3800, fmtDollar) +
+            '</div>' +
+            '<div class="rh-sim-scenario hidden" id="rh-sim-fthb">' +
+              sliderHTML('sim-price', 'Purchase Price', 200000, 1500000, 5000, 500000, fmtDollar) +
+              sliderHTML('sim-income', 'Annual Income', 50000, 400000, 5000, 120000, fmtDollar) +
+              sliderHTML('sim-fdown', 'Down Payment', 0.03, 0.25, 0.01, 0.05, fmtPct) +
+            '</div>' +
+          '</div>' +
+          /* ── RIGHT: RESULT CARD ── */
+          '<div class="rh-sim-result" id="rh-sim-result" aria-live="polite">' +
+            '<div class="rh-sim-primary-label" id="rh-sim-primary-label">Pre-Approval Estimate</div>' +
+            '<div class="rh-sim-primary-num" id="rh-sim-primary-num">\u2014</div>' +
+            '<div class="rh-sim-rate-range" id="rh-sim-rate-range"></div>' +
+            '<div class="rh-sim-rate-fine">Rate range based on DSCR, LTV, and property type. Final rate after full underwriting.</div>' +
+            '<div class="rh-sim-approval" id="rh-sim-approval"><span class="rh-sim-approval-icon" id="rh-sim-approval-icon"></span><div><div id="rh-sim-approval-label"></div><div class="rh-sim-approval-note" id="rh-sim-approval-note"></div></div></div>' +
+            '<div class="rh-sim-metrics" id="rh-sim-metrics">' +
+              '<div class="rh-sim-metric"><span class="rh-sim-metric-val" id="rh-sim-m1-val">\u2014</span><span class="rh-sim-metric-lbl" id="rh-sim-m1-lbl">Monthly PITIA</span></div>' +
+              '<div class="rh-sim-metric"><span class="rh-sim-metric-val" id="rh-sim-m2-val">\u2014</span><span class="rh-sim-metric-lbl" id="rh-sim-m2-lbl">DSCR Ratio</span></div>' +
+              '<div class="rh-sim-metric"><span class="rh-sim-metric-val" id="rh-sim-m3-val">\u2014</span><span class="rh-sim-metric-lbl" id="rh-sim-m3-lbl">Net Cash Flow</span></div>' +
+            '</div>' +
+            '<div class="rh-sim-chips" id="rh-sim-chips"></div>' +
+            '<div class="rh-sim-chips-fine">Program matching is informational. Final eligibility determined by full application and underwriting.</div>' +
+            '<div class="rh-sim-scale" id="rh-sim-scale">' +
+              '<div class="rh-sim-scale-marker" id="rh-sim-marker" style="left:25%"></div>' +
+              '<div class="rh-sim-scale-line" style="left:25%"><span class="rh-sim-scale-line-label">1.00\u00d7 Qualifies</span></div>' +
+            '</div>' +
+            '<div class="rh-sim-insight" id="rh-sim-insight"></div>' +
+            '<div class="rh-sim-fine" id="rh-sim-fine">Example rate as of ' + SIM_CONFIG.rateAsOf + '. Actual rate depends on credit, LTV, reserves, and property type.</div>' +
+            /* Lead capture placeholder — form injected in Phase 3 */
+            '<div class="rh-sim-lead" id="rh-sim-lead"></div>' +
+            '<div class="rh-sim-success" id="rh-sim-success"></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function injectStyles() {
+    var s = document.createElement('style');
+    s.textContent = STYLES;
+    document.head.appendChild(s);
+  }
 
   // ====== RENDER ======
   /* __RENDER_PLACEHOLDER__ */
