@@ -40,7 +40,7 @@
   const STYLES = `
 /* ── ROOT VARS (fallbacks so widget works on any page) ── */
 .rh-sim-root {
-  --sim-navy: #080E1A; --sim-navy2: #0D1526; --sim-card: #0F1B30;
+  --sim-navy: #080E1A; --sim-navy2: #0C1527; --sim-card: #0E1A2E;
   --sim-blue: #3B82F6; --sim-blue-dk: #1D4ED8; --sim-blue-glow: rgba(37,99,235,0.25);
   --sim-amber: #F59E0B; --sim-green: #22C55E; --sim-red: #EF4444;
   --sim-border: rgba(255,255,255,0.08); --sim-w: #fff;
@@ -104,6 +104,117 @@
   .rh-sim-tab { font-size: 12px; padding: 9px 6px; }
   .rh-sim-slider-val { font-size: 24px; }
   .rh-sim-wrap { padding: 28px 16px; }
+}
+
+/* ── RESULT CARD ── */
+.rh-sim-result { background: var(--sim-card); border: 1px solid var(--sim-border); border-radius: 16px; padding: 24px; position: relative; overflow: hidden; }
+.rh-sim-result::before { content: ''; display: block; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--sim-blue), transparent); }
+
+/* Primary number */
+.rh-sim-primary-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sim-w65); margin-bottom: 4px; }
+.rh-sim-primary-num { font-family: var(--sim-fd); font-size: clamp(42px, 5vw, 56px); letter-spacing: 2px; color: var(--sim-w); line-height: 1; margin-bottom: 2px; }
+
+/* Rate range (directly under primary number) */
+.rh-sim-rate-range { font-size: 14px; font-weight: 700; color: var(--sim-blue); margin-bottom: 16px; }
+.rh-sim-rate-range .custom { color: var(--sim-amber); font-style: italic; }
+.rh-sim-rate-fine { font-size: 10px; color: var(--sim-w25); line-height: 1.5; margin-top: 2px; }
+
+/* Approval state banner */
+.rh-sim-approval { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; }
+.rh-sim-approval.green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: var(--sim-green); }
+.rh-sim-approval.amber { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); color: var(--sim-amber); }
+.rh-sim-approval.blue { background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.2); color: var(--sim-blue); }
+.rh-sim-approval-icon { font-size: 18px; flex-shrink: 0; }
+.rh-sim-approval-note { font-size: 12px; font-weight: 500; color: var(--sim-w65); margin-top: 2px; }
+
+/* Metric boxes row */
+.rh-sim-metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.rh-sim-metric { background: rgba(255,255,255,0.03); border: 1px solid var(--sim-border); border-radius: 10px; padding: 12px; text-align: center; }
+.rh-sim-metric-val { font-family: var(--sim-fd); font-size: 22px; letter-spacing: 1px; color: var(--sim-w); display: block; margin-bottom: 2px; }
+.rh-sim-metric-val.pos { color: var(--sim-green); }
+.rh-sim-metric-val.neg { color: var(--sim-red); }
+.rh-sim-metric-val.amber { color: var(--sim-amber); }
+.rh-sim-metric-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sim-w65); }
+
+/* ── PROGRAM MATCH CHIPS ── */
+.rh-sim-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.rh-sim-chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; border: 1px solid var(--sim-border); background: rgba(255,255,255,0.03); }
+.rh-sim-chip .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.rh-sim-chip.good .dot { background: var(--sim-green); }
+.rh-sim-chip.good { color: var(--sim-green); border-color: rgba(34,197,94,0.2); }
+.rh-sim-chip.possible .dot { background: var(--sim-amber); }
+.rh-sim-chip.possible { color: var(--sim-amber); border-color: rgba(245,158,11,0.15); }
+.rh-sim-chips-fine { font-size: 10px; color: var(--sim-w25); line-height: 1.4; margin-bottom: 14px; }
+
+/* ── DSCR SCALE BAR ── */
+.rh-sim-scale { position: relative; height: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--sim-red) 0%, var(--sim-amber) 35%, var(--sim-green) 70%, var(--sim-green) 100%); margin: 20px 0 28px; }
+.rh-sim-scale-marker { position: absolute; top: -6px; width: 22px; height: 22px; border-radius: 50%; background: var(--sim-w); border: 3px solid var(--sim-blue); box-shadow: 0 2px 8px rgba(0,0,0,0.4); transform: translateX(-50%); transition: left 0.3s ease; z-index: 2; }
+.rh-sim-scale-line { position: absolute; top: -18px; bottom: -18px; width: 1px; background: rgba(255,255,255,0.3); z-index: 1; }
+.rh-sim-scale-line-label { position: absolute; bottom: -28px; transform: translateX(-50%); font-size: 9px; font-weight: 700; color: var(--sim-w25); white-space: nowrap; letter-spacing: 0.04em; }
+
+/* Tertiary insight line */
+.rh-sim-insight { font-size: 13px; color: var(--sim-w65); line-height: 1.6; padding: 12px 14px; background: rgba(255,255,255,0.03); border-radius: 8px; border-left: 3px solid var(--sim-blue); margin-bottom: 16px; }
+
+/* Rate-as-of fine print — NON-NEGOTIABLE on every result state */
+.rh-sim-fine { font-size: 11px; color: var(--sim-w25); line-height: 1.5; margin-top: 12px; }
+
+/* ── LEAD CAPTURE FORM (inside result card) ── */
+.rh-sim-lead { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
+.rh-sim-lead.open { max-height: 600px; opacity: 1; }
+.rh-sim-lead-inner { padding-top: 16px; border-top: 1px solid var(--sim-border); margin-top: 16px; }
+.rh-sim-field { margin-bottom: 12px; }
+.rh-sim-field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sim-w65); margin-bottom: 5px; }
+.rh-sim-field input { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--sim-border); background: rgba(255,255,255,0.05); color: var(--sim-w); font-family: var(--sim-fb); font-size: 15px; font-weight: 600; outline: none; transition: border-color 0.2s; }
+.rh-sim-field input:focus { border-color: var(--sim-blue); }
+.rh-sim-field input.error { border-color: var(--sim-red); }
+.rh-sim-field .err-msg { font-size: 10px; color: var(--sim-red); margin-top: 3px; display: none; }
+.rh-sim-field input.error + .err-msg { display: block; }
+
+/* TCPA checkbox */
+.rh-sim-tcpa { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+.rh-sim-tcpa input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--sim-blue); flex-shrink: 0; cursor: pointer; }
+.rh-sim-tcpa-text { font-size: 10px; color: var(--sim-w25); line-height: 1.5; }
+
+/* Submit CTA */
+.rh-sim-submit { width: 100%; padding: 14px; border-radius: 10px; border: none; font-family: var(--sim-fb); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--sim-w); }
+.rh-sim-submit.green { background: var(--sim-green); }
+.rh-sim-submit.green:hover { background: #16a34a; transform: translateY(-1px); }
+.rh-sim-submit.amber { background: var(--sim-amber); color: #000; }
+.rh-sim-submit.amber:hover { background: #d97706; transform: translateY(-1px); }
+.rh-sim-submit.blue { background: var(--sim-blue); }
+.rh-sim-submit.blue:hover { background: var(--sim-blue-dk); transform: translateY(-1px); }
+.rh-sim-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.rh-sim-submit .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: var(--sim-w); border-radius: 50%; animation: rh-sim-spin 0.6s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes rh-sim-spin { to { transform: rotate(360deg); } }
+
+/* Secondary link + trust row */
+.rh-sim-fallback { display: block; text-align: center; margin-top: 10px; font-size: 13px; color: var(--sim-w65); text-decoration: none; transition: color 0.15s; }
+.rh-sim-fallback:hover { color: var(--sim-w); }
+.rh-sim-trust { text-align: center; margin-top: 10px; font-size: 11px; color: var(--sim-w25); }
+
+/* ── SUCCESS STATE ── */
+.rh-sim-success { display: none; text-align: center; padding: 20px 0; }
+.rh-sim-success.show { display: block; }
+.rh-sim-success-title { font-family: var(--sim-fd); font-size: 36px; letter-spacing: 1px; color: var(--sim-green); margin-bottom: 6px; }
+.rh-sim-success-sub { font-size: 15px; color: var(--sim-w65); line-height: 1.7; margin-bottom: 14px; }
+.rh-sim-success-recap { font-size: 13px; color: var(--sim-w25); margin-bottom: 16px; }
+.rh-sim-success-cta { display: inline-block; padding: 12px 28px; border-radius: 10px; background: var(--sim-green); color: var(--sim-w); font-family: var(--sim-fb); font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+.rh-sim-success-cta:hover { background: #16a34a; transform: translateY(-1px); }
+
+/* ── ERROR STATE ── */
+.rh-sim-error { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: var(--sim-red); display: none; }
+.rh-sim-error.show { display: block; }
+.rh-sim-error a { color: var(--sim-blue); }
+
+/* ── RESPONSIVE part 2 ── */
+@media (max-width: 767px) {
+  .rh-sim-result { position: sticky; bottom: 0; z-index: 10; border-radius: 16px 16px 0 0; border-bottom: none; box-shadow: 0 -8px 32px rgba(0,0,0,0.5); }
+  .rh-sim-metrics { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .rh-sim-metric { padding: 8px 6px; }
+  .rh-sim-metric-val { font-size: 18px; }
+  .rh-sim-primary-num { font-size: 36px; }
+  .rh-sim-chips { gap: 4px; }
+  .rh-sim-chip { font-size: 10px; padding: 4px 8px; }
 }
 `; /* end STYLES */
 
