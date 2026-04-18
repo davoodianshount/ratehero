@@ -108,7 +108,7 @@
 
 /* ── RESULT CARD ── */
 .rh-sim-result { background: var(--sim-card); border: 1px solid var(--sim-border); border-radius: 16px; padding: 24px; position: relative; overflow: hidden; }
-.rh-sim-result::before { content: ''; display: block; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--sim-blue), transparent); }
+.rh-sim-result::before { content: ''; display: block; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--sim-accent, var(--sim-blue)), transparent); }
 
 /* Primary number */
 .rh-sim-primary-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sim-w65); margin-bottom: 4px; }
@@ -147,7 +147,7 @@
 .rh-sim-chips-fine { font-size: 10px; color: var(--sim-w25); line-height: 1.4; margin-bottom: 14px; }
 
 /* ── DSCR SCALE BAR ── */
-.rh-sim-scale { position: relative; height: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--sim-red) 0%, var(--sim-amber) 35%, var(--sim-green) 70%, var(--sim-green) 100%); margin: 20px 0 28px; }
+.rh-sim-scale { position: relative; height: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--sim-red) 0%, var(--sim-amber) 12%, var(--sim-green) 22%, var(--sim-green) 100%); margin: 20px 0 28px; }
 .rh-sim-scale-marker { position: absolute; top: -6px; width: 22px; height: 22px; border-radius: 50%; background: var(--sim-w); border: 3px solid var(--sim-blue); box-shadow: 0 2px 8px rgba(0,0,0,0.4); transform: translateX(-50%); transition: left 0.3s ease; z-index: 2; }
 .rh-sim-scale-line { position: absolute; top: -18px; bottom: -18px; width: 1px; background: rgba(255,255,255,0.3); z-index: 1; }
 .rh-sim-scale-line-label { position: absolute; bottom: -28px; transform: translateX(-50%); font-size: 9px; font-weight: 700; color: var(--sim-w25); white-space: nowrap; letter-spacing: 0.04em; }
@@ -160,7 +160,7 @@
 
 /* ── LEAD CAPTURE FORM (inside result card) ── */
 .rh-sim-lead { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
-.rh-sim-lead.open { max-height: 600px; opacity: 1; }
+.rh-sim-lead.open { max-height: 800px; opacity: 1; }
 .rh-sim-lead-inner { padding-top: 16px; border-top: 1px solid var(--sim-border); margin-top: 16px; }
 .rh-sim-field { margin-bottom: 12px; }
 .rh-sim-field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sim-w65); margin-bottom: 5px; }
