@@ -150,91 +150,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <p class="hero-priv">🔒 No account needed · No credit pull · Bookmark this page</p>
 </div>
 
-<div class="calc-wrap">
-  <div class="calc-card">
-    <div class="calc-body">
-
-      <div class="calc-grid">
-        <div class="field">
-          <label>Monthly Gross Rent</label>
-          <div class="field-wrap">
-            <span class="field-pre">$</span>
-            <input type="number" id="rent" placeholder="2,400" oninput="calc()" min="0">
-          </div>
-          <div class="hint">Current lease, or Form 1007 market rent if vacant</div>
-        </div>
-        <div class="field">
-          <label>Monthly PITIA</label>
-          <div class="field-wrap">
-            <span class="field-pre">$</span>
-            <input type="number" id="pitia" placeholder="1,800" oninput="calc()" min="0">
-          </div>
-          <div class="hint">Principal + Interest + Tax + Insurance + HOA</div>
-        </div>
-        <div class="field">
-          <label>Purchase Price / Value</label>
-          <div class="field-wrap">
-            <span class="field-pre">$</span>
-            <input type="number" id="price" placeholder="350,000" oninput="calc()" min="0">
-          </div>
-          <div class="hint">Purchase price or current appraised value</div>
-        </div>
-        <div class="field">
-          <label>STR? Apply Vacancy Factor</label>
-          <div class="field-wrap" style="display:flex;align-items:center;gap:12px;height:50px">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:600;color:var(--w65);text-transform:none;letter-spacing:0">
-              <input type="checkbox" id="str" onchange="calc()" style="width:18px;height:18px;accent-color:var(--blue);cursor:pointer">
-              Short-term rental (Airbnb/VRBO)
-            </label>
-          </div>
-          <div class="hint" id="str-hint">Check to apply 20% vacancy factor to STR income</div>
-        </div>
-      </div>
-
-      <!-- RESULT -->
-      <div class="result" id="result">
-        <div class="result-top">
-          <div>
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--w65);margin-bottom:4px">Your DSCR Ratio</div>
-            <div class="dscr-num" id="dscr-num">—</div>
-          </div>
-          <div style="text-align:right">
-            <div class="verdict-icon" id="verdict-icon"></div>
-            <div class="verdict" id="verdict"></div>
-            <div style="font-size:13px;color:var(--w65);margin-top:4px" id="program-tier"></div>
-          </div>
-        </div>
-
-        <div class="result-bars">
-          <div class="rbar" id="bar-rent">
-            <span class="rbar-val" id="bar-rent-val">—</span>
-            <span class="rbar-lbl">Monthly Rent</span>
-          </div>
-          <div class="rbar" id="bar-pitia">
-            <span class="rbar-val" id="bar-pitia-val">—</span>
-            <span class="rbar-lbl">PITIA</span>
-          </div>
-          <div class="rbar" id="bar-cashflow">
-            <span class="rbar-val" id="bar-cf-val">—</span>
-            <span class="rbar-lbl">Monthly Cash Flow</span>
-          </div>
-          <div class="rbar" id="bar-ltv">
-            <span class="rbar-val" id="bar-ltv-val">—</span>
-            <span class="rbar-lbl">Est. Max LTV</span>
-          </div>
-        </div>
-
-        <div class="result-note" id="result-note"></div>
-
-        <div class="calc-cta">
-          <a href="../index.html?funnel=1" class="btn-primary" onclick="sessionStorage.setItem('openFunnel','1');return true;" id="cta-btn">Check My Eligibility →</a>
-          <a href="../dscr-loans/index.html" class="btn-ghost">View All DSCR Programs</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
+<div id="loan-simulator"></div>
 
 <!-- DSCR TIER GUIDE -->
 <div class="guide">
@@ -333,81 +249,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 </footer>
 
 <script>
-function fmt(n){return n>=1000?'$'+Math.round(n).toLocaleString():'$'+Math.round(n)}
-
-function calc(){
-  const rent = parseFloat(document.getElementById('rent').value)||0;
-  const pitia = parseFloat(document.getElementById('pitia').value)||0;
-  const price = parseFloat(document.getElementById('price').value)||0;
-  const isSTR = document.getElementById('str').checked;
-
-  if(!rent || !pitia){ document.getElementById('result').classList.remove('show'); return; }
-
-  const qualRent = isSTR ? rent * 0.8 : rent;
-  const dscr = (qualRent / pitia).toFixed(2);
-  const cashflow = qualRent - pitia;
-  const ltv = dscr >= 1.25 ? '85%' : dscr >= 1.0 ? '80%' : dscr >= 0.75 ? '75%' : '70%';
-
-  const numEl = document.getElementById('dscr-num');
-  const verdEl = document.getElementById('verdict');
-  const iconEl = document.getElementById('verdict-icon');
-  const noteEl = document.getElementById('result-note');
-  const tierEl = document.getElementById('program-tier');
-
-  numEl.textContent = dscr;
-
-  let color, verdict, icon, note, tier;
-  if(dscr >= 1.25){
-    color='#22C55E'; verdict='Strong Qualification'; icon='✅';
-    note='Your property easily covers the mortgage. You qualify for our best-rate programs with the highest LTV options. Multiple lenders will compete for this loan.';
-    tier='Best rates · Up to 85% LTV · All programs available';
-  } else if(dscr >= 1.0){
-    color='#3B82F6'; verdict='Qualifies'; icon='✓';
-    note='Your property covers the mortgage payment. Standard DSCR programs are available. Rate and term options may be slightly more limited than at 1.25+, but this is a fundable deal.';
-    tier='Standard programs · Up to 80% LTV';
-  } else if(dscr >= 0.75){
-    color='#F59E0B'; verdict='May Qualify — Call Us'; icon='⚠️';
-    note='Your DSCR is below 1.0 but above our minimum. Specialty sub-1.0 programs exist for borrowers with strong credit and reserves. This is worth a conversation before you walk away.';
-    tier='Sub-1.0 programs · Strong profile required';
-  } else {
-    color='#EF4444'; verdict='Below Standard Minimum'; icon='✗';
-    note='Your DSCR is below 0.75. No-ratio programs may still work depending on your credit score, reserves, and overall borrower profile. Talk to us before ruling it out.';
-    tier='No-ratio programs only · Case-by-case basis';
-  }
-
-  numEl.style.color = color;
-  verdEl.style.color = color;
-  verdEl.textContent = verdict;
-  iconEl.textContent = icon;
-  noteEl.textContent = note;
-  tierEl.textContent = tier;
-  tierEl.style.color = color;
-
-  document.getElementById('bar-rent-val').textContent = fmt(isSTR ? qualRent : rent);
-  document.getElementById('bar-rent-val').style.color = '#3B82F6';
-  document.getElementById('bar-pitia-val').textContent = fmt(pitia);
-  document.getElementById('bar-cf-val').textContent = (cashflow>=0?'+':'')+fmt(cashflow);
-  document.getElementById('bar-cf-val').style.color = cashflow >= 0 ? '#22C55E' : '#EF4444';
-  document.getElementById('bar-ltv-val').textContent = ltv;
-  document.getElementById('bar-ltv-val').style.color = color;
-
-  if(isSTR){
-    document.getElementById('str-hint').textContent = `STR vacancy applied: $${Math.round(rent)} gross → $${Math.round(qualRent)} qualifying (−20%)`;
-  }
-
-  document.getElementById('result').classList.add('show');
-}
-
 function submitGate(){
   const email = document.getElementById('gate-email').value.trim();
   if(!email || !email.includes('@')){ document.getElementById('gate-email').focus(); return; }
-  // In production: POST to your CRM/email service here
-  // fetch('/api/subscribe', {method:'POST',body:JSON.stringify({email,source:'dscr-calculator'})})
   document.getElementById('gate-form').style.display = 'none';
   document.getElementById('gate-success').style.display = 'block';
-  console.log('Gate submitted:', email);
 }
 </script>
+<script src="/js/loan-simulator.js" defer></script>
 <script src="/js/bolt-widget.js"></script>
 </body>
 </html>
