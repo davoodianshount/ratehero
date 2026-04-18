@@ -32,7 +32,7 @@
     },
     web3forms: {
       endpoint: 'https://api.web3forms.com/submit',
-      accessKey: 'PASTE_WEB3FORMS_ACCESS_KEY_HERE',
+      accessKey: '544fd03b-53dd-4844-ae11-af8c8871adf8',
     },
   };
 
