@@ -245,7 +245,7 @@
       // BRRRR
       arv: 525000, hmBalance: 360000, brrrrRent: 3800,
       // FTHB
-      price: 500000, income: 120000, fthbDownPct: 0.05,
+      price: 500000, income: 140000, fthbDownPct: 0.05,
     },
     outputs: {
       preApproval: 0, pitia: 0, dscr: 0, cashFlow: 0,
@@ -496,7 +496,7 @@
             '</div>' +
             '<div class="rh-sim-scenario hidden" id="rh-sim-fthb">' +
               sliderHTML('sim-price', 'Purchase Price', 200000, 1500000, 5000, 500000, fmtDollar) +
-              sliderHTML('sim-income', 'Annual Income', 50000, 400000, 5000, 120000, fmtDollar) +
+              sliderHTML('sim-income', 'Annual Income', 50000, 400000, 5000, 140000, fmtDollar) +
               sliderHTML('sim-fdown', 'Down Payment', 0.03, 0.25, 0.01, 0.05, fmtPct) +
             '</div>' +
           '</div>' +
@@ -536,7 +536,221 @@
   }
 
   // ====== RENDER ======
-  /* __RENDER_PLACEHOLDER__ */
+  var _prevNums = {};
+
+  function animateNumber(el, to, prefix, suffix) {
+    var key = el.id || el.className;
+    var from = _prevNums[key] || 0;
+    _prevNums[key] = to;
+    if (Math.abs(from - to) < 0.5) { el.textContent = prefix + formatNum(to) + suffix; return; }
+    var start = performance.now();
+    var dur = 250;
+    function tick(now) {
+      var t = Math.min((now - start) / dur, 1);
+      t = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      var cur = from + (to - from) * t;
+      el.textContent = prefix + formatNum(cur) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function formatNum(n) { return Math.round(n).toLocaleString('en-US'); }
+
+  function renderRateRange() {
+    var el = document.getElementById('rh-sim-rate-range');
+    if (!el) return;
+    var rr = state.outputs.rateRange;
+    if (!rr) { el.textContent = ''; return; }
+    if (rr.custom) {
+      el.innerHTML = '<span class="custom">Custom pricing \u2014 call Sean</span>';
+    } else {
+      el.textContent = 'Est. ' + rr.low.toFixed(3) + '% \u2013 ' + rr.high.toFixed(3) + '% APR';
+    }
+  }
+
+  function renderProgramChips() {
+    var el = document.getElementById('rh-sim-chips');
+    if (!el) return;
+    var chips = state.outputs.programChips || [];
+    el.innerHTML = chips.map(function (c) {
+      var cls = c.fit === 'good' ? 'good' : 'possible';
+      var sym = c.fit === 'good' ? '\u2713' : '\u2022';
+      return '<span class="rh-sim-chip ' + cls + '"><span class="dot"></span>' + sym + ' ' + c.name + '</span>';
+    }).join('');
+  }
+
+  function renderDSCRScale() {
+    var scaleEl = document.getElementById('rh-sim-scale');
+    var marker = document.getElementById('rh-sim-marker');
+    if (!scaleEl || !marker) return;
+    // Show scale only for DSCR and BRRRR scenarios (which have a DSCR ratio)
+    var hasDscr = state.scenario === 'dscr' || state.scenario === 'brrrr';
+    scaleEl.style.display = hasDscr ? '' : 'none';
+    if (!hasDscr) return;
+    var dscr = state.outputs.dscr || 0;
+    // Scale range: 0.80 to 1.60
+    var pct = Math.max(0, Math.min(100, ((dscr - 0.80) / (1.60 - 0.80)) * 100));
+    marker.style.left = pct + '%';
+  }
+
+  function renderApprovalState() {
+    var tier = state.approvalTier;
+    var vis = TIER_VISUALS[tier];
+    if (!vis) return;
+    var card = document.getElementById('rh-sim-result');
+    var banner = document.getElementById('rh-sim-approval');
+    var icon = document.getElementById('rh-sim-approval-icon');
+    var label = document.getElementById('rh-sim-approval-label');
+    var note = document.getElementById('rh-sim-approval-note');
+    if (card) card.style.setProperty('--sim-accent', vis.accent);
+    if (banner) { banner.className = 'rh-sim-approval ' + vis.color; }
+    if (icon) icon.textContent = vis.icon;
+    if (label) label.textContent = vis.label;
+    if (note) note.textContent = vis.note;
+  }
+
+  function renderResultCard() {
+    var o = state.outputs;
+    var primaryLabel = document.getElementById('rh-sim-primary-label');
+    var primaryNum = document.getElementById('rh-sim-primary-num');
+    var m1v = document.getElementById('rh-sim-m1-val');
+    var m1l = document.getElementById('rh-sim-m1-lbl');
+    var m2v = document.getElementById('rh-sim-m2-val');
+    var m2l = document.getElementById('rh-sim-m2-lbl');
+    var m3v = document.getElementById('rh-sim-m3-val');
+    var m3l = document.getElementById('rh-sim-m3-lbl');
+    var insight = document.getElementById('rh-sim-insight');
+
+    if (state.scenario === 'dscr') {
+      if (primaryLabel) primaryLabel.textContent = 'Pre-Approval Estimate';
+      if (primaryNum) animateNumber(primaryNum, o.preApproval, '$', '');
+      if (m1v) { animateNumber(m1v, o.pitia, '$', ''); }
+      if (m1l) m1l.textContent = 'Monthly PITIA';
+      if (m2v) { m2v.textContent = o.dscr.toFixed(2) + '\u00d7'; m2v.className = 'rh-sim-metric-val' + (o.dscr >= 1.0 ? ' pos' : o.dscr >= 0.75 ? ' amber' : ''); }
+      if (m2l) m2l.textContent = 'DSCR Ratio';
+      if (m3v) { animateNumber(m3v, Math.abs(o.cashFlow), o.cashFlow >= 0 ? '+$' : '-$', ''); m3v.className = 'rh-sim-metric-val' + (o.cashFlow >= 0 ? ' pos' : ' neg'); }
+      if (m3l) m3l.textContent = 'Net Cash Flow';
+      if (insight) insight.textContent = 'Your $' + formatNum(state.inputs.rent) + ' rent supports up to $' + formatNum(o.maxSupportedLoan) + ' in financing at 1.00\u00d7 DSCR.';
+      if (insight) insight.style.display = '';
+    } else if (state.scenario === 'brrrr') {
+      if (primaryLabel) primaryLabel.textContent = 'Max Cash-Out Refi';
+      if (primaryNum) animateNumber(primaryNum, o.cashOut, '$', '');
+      if (m1v) {
+        if (o.coversPayoff) { animateNumber(m1v, o.cashOutAmount, '+$', ''); m1v.className = 'rh-sim-metric-val pos'; }
+        else { animateNumber(m1v, o.gapAmount, '-$', ''); m1v.className = 'rh-sim-metric-val neg'; }
+      }
+      if (m1l) m1l.textContent = o.coversPayoff ? 'Cash Out' : 'Short by';
+      if (m2v) { animateNumber(m2v, o.pitia, '$', ''); }
+      if (m2l) m2l.textContent = 'New PITIA';
+      if (m3v) { m3v.textContent = o.dscr.toFixed(2) + '\u00d7'; m3v.className = 'rh-sim-metric-val' + (o.dscr >= 1.0 ? ' pos' : ' amber'); }
+      if (m3l) m3l.textContent = 'DSCR';
+      if (insight) {
+        if (!o.coversPayoff) insight.textContent = 'Close the gap: bring $' + formatNum(o.gapAmount) + ' to close, raise rent to $' + formatNum(o.rentNeeded) + ', or restructure the deal.';
+        else if (o.dscr < 1.0) insight.textContent = 'Refi covers payoff \u2014 rent needs to hit $' + formatNum(o.rentNeeded) + '/mo for DSCR to qualify.';
+        else insight.textContent = 'Refi covers payoff with $' + formatNum(o.cashOutAmount) + ' cash out at ' + o.dscr.toFixed(2) + '\u00d7 DSCR.';
+        insight.style.display = '';
+      }
+    } else { // fthb
+      if (primaryLabel) primaryLabel.textContent = 'Estimated Loan Amount';
+      if (primaryNum) animateNumber(primaryNum, o.loanAmount, '$', '');
+      if (m1v) { animateNumber(m1v, o.pitia, '$', ''); }
+      if (m1l) m1l.textContent = o.pmi > 0 ? 'PITIA + PMI' : 'Monthly PITIA';
+      if (m2v) { m2v.textContent = (o.frontDTI * 100).toFixed(1) + '%'; m2v.className = 'rh-sim-metric-val' + (o.frontDTI <= 0.28 ? ' pos' : o.frontDTI <= 0.36 ? ' amber' : ''); }
+      if (m2l) m2l.textContent = 'Front-End DTI';
+      if (m3v) { m3v.textContent = (o.backDTI * 100).toFixed(1) + '%'; m3v.className = 'rh-sim-metric-val' + (o.backDTI <= 0.36 ? ' pos' : o.backDTI <= 0.43 ? ' amber' : ''); }
+      if (m3l) m3l.textContent = 'Back-End DTI';
+      if (insight) { insight.textContent = 'Back-end DTI assumes $400/mo in other debt (cards, auto, student loans). Actual DTI uses your real obligations.'; insight.style.display = ''; }
+    }
+
+    renderRateRange();
+    renderProgramChips();
+    renderDSCRScale();
+    renderApprovalState();
+  }
+
+  function render() {
+    computeOutputs();
+    renderResultCard();
+  }
+
+  // ====== EVENT HANDLERS ======
+  var _debounceTimer = null;
+
+  function onSliderInput() {
+    if (_debounceTimer) clearTimeout(_debounceTimer);
+    _debounceTimer = setTimeout(function () {
+      readInputs();
+      render();
+    }, 50);
+  }
+
+  function readInputs() {
+    var v = function (id) { return parseFloat(document.getElementById(id).value) || 0; };
+    if (state.scenario === 'dscr') {
+      state.inputs.propertyValue = v('sim-propval');
+      state.inputs.rent = v('sim-rent');
+      state.inputs.downPct = v('sim-down');
+      state.inputs.state = document.getElementById('sim-state').value;
+      // Update displayed slider values
+      document.getElementById('sim-propval-val').textContent = fmtDollar(state.inputs.propertyValue);
+      document.getElementById('sim-rent-val').textContent = fmtDollar(state.inputs.rent);
+      document.getElementById('sim-down-val').textContent = fmtPct(state.inputs.downPct);
+    } else if (state.scenario === 'brrrr') {
+      state.inputs.arv = v('sim-arv');
+      state.inputs.hmBalance = v('sim-hm');
+      state.inputs.brrrrRent = v('sim-brent');
+      document.getElementById('sim-arv-val').textContent = fmtDollar(state.inputs.arv);
+      document.getElementById('sim-hm-val').textContent = fmtDollar(state.inputs.hmBalance);
+      document.getElementById('sim-brent-val').textContent = fmtDollar(state.inputs.brrrrRent);
+    } else {
+      state.inputs.price = v('sim-price');
+      state.inputs.income = v('sim-income');
+      state.inputs.fthbDownPct = v('sim-fdown');
+      document.getElementById('sim-price-val').textContent = fmtDollar(state.inputs.price);
+      document.getElementById('sim-income-val').textContent = fmtDollar(state.inputs.income);
+      document.getElementById('sim-fdown-val').textContent = fmtPct(state.inputs.fthbDownPct);
+    }
+  }
+
+  function switchTab(scenario) {
+    state.scenario = scenario;
+    // Update tab active states
+    var tabs = document.querySelectorAll('.rh-sim-tab');
+    tabs.forEach(function (t) {
+      var isActive = t.getAttribute('data-tab') === scenario;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    // Crossfade scenario panels
+    var panels = document.querySelectorAll('.rh-sim-scenario');
+    panels.forEach(function (p) {
+      var match = p.id === 'rh-sim-' + scenario;
+      p.classList.toggle('hidden', !match);
+    });
+    _prevNums = {};
+    readInputs();
+    render();
+  }
+
+  function attachEventListeners() {
+    // Tab clicks
+    document.querySelectorAll('.rh-sim-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () { switchTab(tab.getAttribute('data-tab')); });
+    });
+    // All sliders
+    document.querySelectorAll('.rh-sim-range').forEach(function (slider) {
+      slider.addEventListener('input', onSliderInput);
+    });
+    // State dropdown
+    var stateSelect = document.getElementById('sim-state');
+    if (stateSelect) {
+      stateSelect.addEventListener('change', function () {
+        state.inputs.state = stateSelect.value;
+        render();
+      });
+    }
+  }
 
   // ====== LEAD CAPTURE ======
   /* __LEAD_PLACEHOLDER__ */
@@ -553,6 +767,8 @@
     if (!mount) return;
     injectStyles();
     buildInitialDOM(mount);
+    attachEventListeners();
+    render();
   }
 
   if (document.readyState === 'loading') {
