@@ -521,7 +521,33 @@
             '<div class="rh-sim-insight" id="rh-sim-insight"></div>' +
             '<div class="rh-sim-fine" id="rh-sim-fine">Example rate as of ' + SIM_CONFIG.rateAsOf + '. Actual rate depends on credit, LTV, reserves, and property type.</div>' +
             /* Lead capture placeholder — form injected in Phase 3 */
-            '<div class="rh-sim-lead" id="rh-sim-lead"></div>' +
+            '<div class="rh-sim-lead" id="rh-sim-lead">' +
+              '<div class="rh-sim-lead-inner">' +
+                '<div class="rh-sim-error" id="rh-sim-error"></div>' +
+                '<div class="rh-sim-field">' +
+                  '<label for="rh-sim-fname">First Name</label>' +
+                  '<input type="text" id="rh-sim-fname" autocomplete="given-name" placeholder="First name" aria-label="First name">' +
+                  '<div class="err-msg" id="rh-sim-fname-err">First name is required</div>' +
+                '</div>' +
+                '<div class="rh-sim-field">' +
+                  '<label for="rh-sim-phone">Phone</label>' +
+                  '<input type="tel" id="rh-sim-phone" autocomplete="tel" placeholder="(555) 123-4567" aria-label="Phone number">' +
+                  '<div class="err-msg" id="rh-sim-phone-err">Enter a 10-digit phone number</div>' +
+                '</div>' +
+                '<div class="rh-sim-field">' +
+                  '<label for="rh-sim-email">Email</label>' +
+                  '<input type="email" id="rh-sim-email" autocomplete="email" placeholder="you@email.com" aria-label="Email address">' +
+                  '<div class="err-msg" id="rh-sim-email-err">Enter a valid email address</div>' +
+                '</div>' +
+                '<div class="rh-sim-tcpa">' +
+                  '<input type="checkbox" id="rh-sim-tcpa" aria-describedby="rh-sim-tcpa-text">' +
+                  '<span class="rh-sim-tcpa-text" id="rh-sim-tcpa-text">I agree to receive calls and texts from Rate Hero at the number provided, including via automated means. Consent is not a condition of any purchase. Message &amp; data rates may apply. Reply STOP to opt out.</span>' +
+                '</div>' +
+                '<button class="rh-sim-submit" id="rh-sim-submit" type="button"></button>' +
+                '<a class="rh-sim-fallback" id="rh-sim-fallback" href="/apply.html">Or fill out the full application \u2192</a>' +
+                '<div class="rh-sim-trust">\uD83D\uDD12 No credit pull \u00b7 No SSN \u00b7 We never sell your info</div>' +
+              '</div>' +
+            '</div>' +
             '<div class="rh-sim-success" id="rh-sim-success"></div>' +
           '</div>' +
         '</div>' +
@@ -672,12 +698,19 @@
   function render() {
     computeOutputs();
     renderResultCard();
+    updateLeadFormUI();
+    // Show form on first user interaction (not at page load)
+    if (state.hasInteracted) showLeadForm();
   }
 
   // ====== EVENT HANDLERS ======
   var _debounceTimer = null;
 
   function onSliderInput() {
+    if (!state.hasInteracted) {
+      state.hasInteracted = true;
+      trackEvent('sim_interact', { scenario: state.scenario });
+    }
     if (_debounceTimer) clearTimeout(_debounceTimer);
     _debounceTimer = setTimeout(function () {
       readInputs();
@@ -753,13 +786,109 @@
   }
 
   // ====== LEAD CAPTURE ======
-  /* __LEAD_PLACEHOLDER__ */
+  // ====== LEAD CAPTURE ======
+  function formatPhone(val) {
+    var digits = val.replace(/\D/g, '').slice(0, 10);
+    if (digits.length === 0) return '';
+    if (digits.length <= 3) return '(' + digits;
+    if (digits.length <= 6) return '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    return '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+  }
+
+  function phoneDigits(formatted) {
+    return (formatted || '').replace(/\D/g, '');
+  }
+
+  function isFormValid() {
+    var lc = state.leadCapture;
+    return lc.firstName.trim().length > 0 &&
+           phoneDigits(lc.phone).length === 10 &&
+           /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lc.email) &&
+           lc.consentTcpa;
+  }
+
+  function buildFallbackHref() {
+    var inp = state.inputs;
+    var o = state.outputs;
+    var params = 'source=simulator&scenario=' + state.scenario + '&tier=' + state.approvalTier;
+    if (state.scenario === 'dscr') {
+      params += '&propertyValue=' + inp.propertyValue + '&rent=' + inp.rent +
+                '&downPct=' + Math.round(inp.downPct * 100) + '&state=' + (inp.state || '') +
+                '&dscr=' + (o.dscr ? o.dscr.toFixed(2) : '');
+    } else if (state.scenario === 'brrrr') {
+      params += '&arv=' + inp.arv + '&hmBalance=' + inp.hmBalance + '&rent=' + inp.brrrrRent;
+    } else {
+      params += '&price=' + inp.price + '&income=' + inp.income +
+                '&downPct=' + Math.round(inp.fthbDownPct * 100);
+    }
+    return '/apply.html?' + params;
+  }
+
+  function showLeadForm() {
+    var el = document.getElementById('rh-sim-lead');
+    if (!el || el.classList.contains('open')) return;
+    el.classList.add('open');
+    if (!state.leadFormShown) {
+      state.leadFormShown = true;
+      trackEvent('sim_lead_form_view', { scenario: state.scenario, tier: state.approvalTier });
+    }
+  }
+
+  function updateLeadFormUI() {
+    var vis = TIER_VISUALS[state.approvalTier];
+    if (!vis) return;
+    var btn = document.getElementById('rh-sim-submit');
+    if (btn) {
+      btn.textContent = vis.cta;
+      btn.className = 'rh-sim-submit ' + vis.ctaColor;
+    }
+    var fallback = document.getElementById('rh-sim-fallback');
+    if (fallback) fallback.href = buildFallbackHref();
+  }
+
+  function attachLeadListeners() {
+    var fname = document.getElementById('rh-sim-fname');
+    var phone = document.getElementById('rh-sim-phone');
+    var email = document.getElementById('rh-sim-email');
+    var tcpa = document.getElementById('rh-sim-tcpa');
+    var btn = document.getElementById('rh-sim-submit');
+
+    if (fname) fname.addEventListener('input', function () {
+      state.leadCapture.firstName = fname.value;
+      fname.classList.remove('error');
+    });
+    if (phone) phone.addEventListener('input', function () {
+      phone.value = formatPhone(phone.value);
+      state.leadCapture.phone = phone.value;
+      phone.classList.remove('error');
+    });
+    if (email) email.addEventListener('input', function () {
+      state.leadCapture.email = email.value;
+      email.classList.remove('error');
+    });
+    if (tcpa) tcpa.addEventListener('change', function () {
+      state.leadCapture.consentTcpa = tcpa.checked;
+    });
+    if (btn) btn.addEventListener('click', function () {
+      // Phase 4A will wire real submission here
+      console.log('Phase 4A: submit', { valid: isFormValid(), state: state.leadCapture });
+    });
+
+    var fallback = document.getElementById('rh-sim-fallback');
+    if (fallback) fallback.addEventListener('click', function () {
+      trackEvent('sim_cta_fallback_click', { scenario: state.scenario, tier: state.approvalTier });
+    });
+  }
 
   // ====== PIPELINE ======
   /* __PIPELINE_PLACEHOLDER__ */
 
   // ====== ANALYTICS ======
-  /* __ANALYTICS_PLACEHOLDER__ */
+  function trackEvent(name, data) {
+    if (window.dataLayer) {
+      window.dataLayer.push(Object.assign({ event: name }, data || {}));
+    }
+  }
 
   // ====== INIT ======
   function init() {
@@ -768,6 +897,7 @@
     injectStyles();
     buildInitialDOM(mount);
     attachEventListeners();
+    attachLeadListeners();
     render();
   }
 
