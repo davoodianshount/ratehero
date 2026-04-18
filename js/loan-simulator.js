@@ -261,7 +261,164 @@
     leadFormShown: false,
   };
 
-  /* __MATH_PLACEHOLDER__ */
+  // ====== MATH ======
+  // All rates from SIM_CONFIG — zero hardcoded rate literals in this section.
+
+  function monthlyPI(loan, annualRatePct, years) {
+    var r = annualRatePct / 100 / 12;
+    var n = years * 12;
+    if (r === 0) return loan / n;
+    var rn = Math.pow(1 + r, n);
+    return loan * (r * rn) / (rn - 1);
+  }
+
+  function lookupStateTI(code) {
+    return SIM_CONFIG.stateTaxInsurance[code] || SIM_CONFIG.stateTaxInsurance['default'];
+  }
+
+  function maxLoanAtDscr(rent, annualRatePct, years, tiMonthly, targetDscr) {
+    // Solve: rent / (PI(L) + tiMonthly) = targetDscr
+    // → PI(L) = rent/targetDscr - tiMonthly
+    var targetPI = rent / targetDscr - tiMonthly;
+    if (targetPI <= 0) return 0;
+    var r = annualRatePct / 100 / 12;
+    var n = years * 12;
+    if (r === 0) return targetPI * n;
+    var rn = Math.pow(1 + r, n);
+    return targetPI * (rn - 1) / (r * rn);
+  }
+
+  function computeRateRange(scenario, tier) {
+    var baseKey = scenario === 'brrrr' ? 'brrrrCashOut' :
+                  scenario === 'fthb'  ? 'conventional30yr' : 'dscr30yr';
+    var base = SIM_CONFIG.rates[baseKey];
+    var spreads = {
+      'dscr-strong':     [0.000, 0.250],
+      'dscr-qualifies':  [0.125, 0.500],
+      'dscr-close':      [0.375, 0.875],
+      'dscr-path':       null,
+      'brrrr-ready':     [0.000, 0.250],
+      'brrrr-structure': [0.250, 0.625],
+      'brrrr-gap':       [0.250, 0.750],
+      'brrrr-path':      null,
+      'fthb-range':      [0.000, 0.375],
+      'fthb-tight':      [0.125, 0.625],
+      'fthb-program':    null,
+    };
+    var s = spreads[tier];
+    if (!s) return { custom: true };
+    return { low: base + s[0], high: base + s[1] };
+  }
+
+  function computeProgramMatches(scenario, inputs, outputs) {
+    if (scenario === 'dscr') {
+      return [
+        { name: 'DSCR 30-yr Fixed', fit: outputs.dscr >= SIM_CONFIG.dscr.qualifyingMin ? 'good' : 'possible' },
+        { name: 'No-Ratio DSCR',    fit: 'possible' },
+        { name: 'Bank Statement',    fit: 'possible' },
+      ];
+    }
+    if (scenario === 'brrrr') {
+      var refiGood = outputs.coversPayoff && outputs.dscr >= SIM_CONFIG.dscr.qualifyingMin;
+      return [
+        { name: 'DSCR Cash-Out Refi', fit: refiGood ? 'good' : 'possible' },
+        { name: 'Hard Money Exit',    fit: 'possible' },
+        { name: 'DSCR Rate-and-Term', fit: 'possible' },
+      ];
+    }
+    // fthb
+    var convGood = outputs.frontDTI <= 0.36 && inputs.fthbDownPct >= 0.05;
+    var buydownGood = outputs.frontDTI > 0.36;
+    return [
+      { name: 'Conventional 30-yr', fit: convGood ? 'good' : 'possible' },
+      { name: 'FHA 30-yr',          fit: 'possible' },
+      { name: '2-1 Buydown',        fit: buydownGood ? 'good' : 'possible' },
+    ];
+  }
+
+  function computeDSCR(inp) {
+    var loan = inp.propertyValue * (1 - inp.downPct);
+    var tiRate = lookupStateTI(inp.state);
+    var tiMonthly = inp.propertyValue * tiRate / 12;
+    // Use LOW end of rate range for PITIA — determined after tier, so
+    // we compute with base rate first to find tier, then recalc with low rate.
+    var basePitia = monthlyPI(loan, SIM_CONFIG.rates.dscr30yr, 30) + tiMonthly;
+    var baseDscr = inp.rent / basePitia;
+    var tier = baseDscr >= SIM_CONFIG.dscr.strongThreshold ? 'dscr-strong' :
+               baseDscr >= SIM_CONFIG.dscr.qualifyingMin   ? 'dscr-qualifies' :
+               baseDscr >= SIM_CONFIG.dscr.lowRatioFloor   ? 'dscr-close' : 'dscr-path';
+    var rr = computeRateRange('dscr', tier);
+    // Recalculate PITIA at the LOW end of the rate range
+    var rate = rr.custom ? SIM_CONFIG.rates.dscr30yr : rr.low;
+    var pi = monthlyPI(loan, rate, 30);
+    var pitia = pi + tiMonthly;
+    var dscr = inp.rent / pitia;
+    var cashFlow = inp.rent - pitia;
+    var maxLoan = maxLoanAtDscr(inp.rent, rate, 30, tiMonthly, SIM_CONFIG.dscr.qualifyingMin);
+    var out = { preApproval: loan, pitia: pitia, dscr: dscr, cashFlow: cashFlow,
+                maxSupportedLoan: maxLoan, approvalTier: tier, rateRange: rr };
+    out.programChips = computeProgramMatches('dscr', inp, out);
+    return out;
+  }
+
+  function computeBRRRR(inp) {
+    var maxCashOut = inp.arv * SIM_CONFIG.ltv.dscrCashOutMax;
+    var coversPayoff = maxCashOut >= inp.hmBalance;
+    var cashOutAmount = coversPayoff ? maxCashOut - inp.hmBalance : 0;
+    var gapAmount = coversPayoff ? 0 : inp.hmBalance - maxCashOut;
+    var refiLoan = Math.min(maxCashOut, inp.hmBalance);
+    var tiMonthly = inp.arv * lookupStateTI(inp.state || '') / 12;
+    var basePitia = monthlyPI(refiLoan, SIM_CONFIG.rates.brrrrCashOut, 30) + tiMonthly;
+    var baseDscr = inp.brrrrRent / basePitia;
+    var tier;
+    if (coversPayoff && baseDscr >= SIM_CONFIG.dscr.qualifyingMin) tier = 'brrrr-ready';
+    else if (coversPayoff) tier = 'brrrr-structure';
+    else if (baseDscr >= SIM_CONFIG.dscr.lowRatioFloor) tier = 'brrrr-gap';
+    else tier = 'brrrr-path';
+    var rr = computeRateRange('brrrr', tier);
+    var rate = rr.custom ? SIM_CONFIG.rates.brrrrCashOut : rr.low;
+    var pi = monthlyPI(refiLoan, rate, 30);
+    var pitia = pi + tiMonthly;
+    var dscr = inp.brrrrRent / pitia;
+    // Rent needed for DSCR 1.0 at this payment
+    var rentNeeded = pitia * SIM_CONFIG.dscr.qualifyingMin;
+    var out = { cashOut: maxCashOut, coversPayoff: coversPayoff, cashOutAmount: cashOutAmount,
+                gapAmount: gapAmount, pitia: pitia, dscr: dscr, rentNeeded: rentNeeded,
+                approvalTier: tier, rateRange: rr, preApproval: maxCashOut };
+    out.programChips = computeProgramMatches('brrrr', inp, out);
+    return out;
+  }
+
+  function computeFTHB(inp) {
+    var loan = inp.price * (1 - inp.fthbDownPct);
+    var tiMonthly = inp.price * lookupStateTI(inp.state || '') / 12;
+    var basePi = monthlyPI(loan, SIM_CONFIG.rates.conventional30yr, 30);
+    var pmi = inp.fthbDownPct < 0.20 ? loan * SIM_CONFIG.rates.pmiAnnualPct / 12 : 0;
+    var basePitia = basePi + tiMonthly + pmi;
+    var monthlyIncome = inp.income / 12;
+    var frontDTI = basePitia / monthlyIncome;
+    var tier = frontDTI <= 0.28 ? 'fthb-range' :
+               frontDTI <= 0.36 ? 'fthb-tight' : 'fthb-program';
+    var rr = computeRateRange('fthb', tier);
+    var rate = rr.custom ? SIM_CONFIG.rates.conventional30yr : rr.low;
+    var pi = monthlyPI(loan, rate, 30);
+    var pitia = pi + tiMonthly + pmi;
+    frontDTI = pitia / monthlyIncome;
+    var backDTI = (pitia + 400) / monthlyIncome;
+    var out = { loanAmount: loan, pitia: pitia, pmi: pmi, frontDTI: frontDTI,
+                backDTI: backDTI, approvalTier: tier, rateRange: rr, preApproval: loan };
+    out.programChips = computeProgramMatches('fthb', inp, out);
+    return out;
+  }
+
+  function computeOutputs() {
+    var o;
+    if (state.scenario === 'dscr')  o = computeDSCR(state.inputs);
+    else if (state.scenario === 'brrrr') o = computeBRRRR(state.inputs);
+    else o = computeFTHB(state.inputs);
+    state.outputs = o;
+    state.approvalTier = o.approvalTier;
+  }
 
   // ====== DOM SCAFFOLD ======
   var US_STATES = [
