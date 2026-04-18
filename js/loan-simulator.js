@@ -264,7 +264,7 @@
   /* __MATH_PLACEHOLDER__ */
 
   // ====== DOM SCAFFOLD ======
-  var LICENSED_STATES = [
+  var AVAILABLE_STATES = [
     'AL','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA',
     'KS','KY','LA','ME','MD','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
     'NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT',
@@ -285,7 +285,7 @@
 
   function stateOptions() {
     var html = '<option value="">Select state</option>';
-    LICENSED_STATES.forEach(function (s) {
+    AVAILABLE_STATES.forEach(function (s) {
       html += '<option value="' + s + '">' + STATE_NAMES[s] + '</option>';
     });
     COMING_SOON.forEach(function (s) {
@@ -333,6 +333,7 @@
               '<div class="rh-sim-slider-row">' +
                 '<div class="rh-sim-slider-label"><span class="rh-sim-slider-name">Property State</span></div>' +
                 '<select class="rh-sim-select" id="sim-state" aria-label="Property State">' + stateOptions() + '</select>' +
+                '<div style="font-size:10px;color:rgba(255,255,255,0.25);margin-top:5px;">Available in most states. AK, MA, and DC coming soon.</div>' +
               '</div>' +
             '</div>' +
             '<div class="rh-sim-scenario hidden" id="rh-sim-brrrr">' +
