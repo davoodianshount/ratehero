@@ -382,11 +382,12 @@ function submitGate(){
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web",
   "description": "Real-time DSCR calculator for real estate investors. Estimates pre-approval, monthly PITIA, DSCR ratio, and net cash flow across DSCR, BRRRR, and first-time homebuyer scenarios.",
-  "offers": { "@type": "Offer", "price": "0" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "provider": {
     "@type": "FinancialService",
     "name": "Rate Hero",
     "url": "https://goratehero.com",
+    "telephone": "+17473081635",
     "identifier": "NMLS #2822806"
   }
 }
@@ -414,9 +415,19 @@ function submitGate(){
   "name": "Rate Hero",
   "url": "https://goratehero.com",
   "telephone": "+17473081635",
+  "priceRange": "$",
   "identifier": "NMLS #2822806",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5930 San Fernando Rd",
+    "addressLocality": "Glendale",
+    "addressRegion": "CA",
+    "postalCode": "91202",
+    "addressCountry": "US"
+  },
   "areaServed": ["United States"],
-  "serviceType": ["DSCR Loans", "Non-QM", "Bank Statement Loans", "Conventional", "FHA", "VA", "BRRRR Refinance"]
+  "serviceType": ["DSCR Loans", "Non-QM", "Bank Statement Loans", "Conventional", "FHA", "VA", "BRRRR Refinance"],
+  "image": "https://goratehero.com/logo.png"
 }
 </script>
 </body>
