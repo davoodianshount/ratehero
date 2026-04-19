@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free DSCR calculator for real estate investors. Instantly check if your rental property qualifies — no SSN, no credit pull. Rate Hero NMLS #2822806.">
-<title>DSCR Loan Calculator | Does Your Property Qualify? | Rate Hero</title>
+<meta name="description" content="Free DSCR calculator with real-time rates. See your pre-approval, monthly PITIA, and cash flow in seconds — no SSN, no credit pull. Rate Hero works with investors in most US states.">
+<title>DSCR Calculator | Real-Time Rate & Approval for Investors | Rate Hero</title>
 <link rel="canonical" href="https://goratehero.com/dscr-calculator">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"DSCR Calculator","description":"Free DSCR calculator for real estate investors","url":"https://goratehero.com/dscr-calculator","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#080E1A;--navy2:#0C1527;--navy3:#111D35;--card:#0E1A2E;--blue:#3B82F6;--blue2:#3B82F6;--blue3:#1D4ED8;--w:#fff;--w80:rgba(255,255,255,0.8);--w65:rgba(255,255,255,0.65);--w25:rgba(255,255,255,0.25);--bd:rgba(255,255,255,0.08);--bdb:rgba(37,99,235,0.3);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--green:#22C55E;--amber:#F59E0B;--red:#EF4444}
@@ -124,6 +121,46 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
+/* ─── SEO CONTENT SECTIONS ─── */
+.rh-calc-explainer{max-width:760px;margin:0 auto;padding:48px 20px 0}
+.rh-calc-explainer h2{font-family:var(--fd);font-size:32px;letter-spacing:1px;color:var(--w);margin-bottom:12px}
+.rh-calc-explainer p{font-size:16px;color:var(--w65);line-height:1.8;margin-bottom:14px}
+.rh-calc-explainer strong{color:var(--w);font-weight:700}
+
+.rh-calc-paths{max-width:760px;margin:0 auto;padding:48px 20px 0}
+.rh-calc-paths h2{font-family:var(--fd);font-size:32px;letter-spacing:1px;color:var(--w);margin-bottom:6px}
+.rh-calc-paths-sub{font-size:15px;color:var(--w65);line-height:1.7;margin-bottom:24px}
+.rh-calc-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.rh-calc-card{display:block;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
+.rh-calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .2s}
+.rh-calc-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.15)}
+.rh-calc-card:hover::before{opacity:1}
+.rh-calc-card h3{font-family:var(--fb);font-size:17px;font-weight:800;color:var(--w);margin-bottom:8px}
+.rh-calc-card p{font-size:13px;color:var(--w65);line-height:1.65;margin-bottom:12px}
+.rh-calc-card-link{font-size:13px;font-weight:700;color:var(--blue2)}
+
+.rh-calc-faq{max-width:760px;margin:0 auto;padding:48px 20px 0}
+.rh-calc-faq h2{font-family:var(--fd);font-size:32px;letter-spacing:1px;color:var(--w);margin-bottom:18px}
+.rh-calc-faq-item{border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;overflow:hidden;transition:border-color .2s}
+.rh-calc-faq-item[open]{border-color:rgba(37,99,235,0.3)}
+.rh-calc-faq-item summary{padding:16px 20px;font-size:15px;font-weight:700;color:var(--w);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:color .15s}
+.rh-calc-faq-item summary:hover{color:var(--blue2)}
+.rh-calc-faq-item summary::after{content:'\25BE';font-size:14px;color:var(--w65);transition:transform .2s;flex-shrink:0;margin-left:12px}
+.rh-calc-faq-item[open] summary::after{transform:rotate(180deg)}
+.rh-calc-faq-item summary::-webkit-details-marker{display:none}
+.rh-calc-faq-item p{padding:0 20px 16px;font-size:15px;color:var(--w65);line-height:1.8}
+
+.rh-calc-mistakes{max-width:760px;margin:0 auto;padding:48px 20px 0}
+.rh-calc-mistakes h2{font-family:var(--fd);font-size:32px;letter-spacing:1px;color:var(--w);margin-bottom:14px}
+.rh-calc-mistakes-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.rh-calc-mistakes-list li{font-size:15px;color:var(--w65);line-height:1.75;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--bd);border-radius:10px}
+.rh-calc-mistakes-list li strong{color:var(--w);font-weight:700}
+
+@media(max-width:640px){
+  .rh-calc-cards{grid-template-columns:1fr}
+  .rh-calc-explainer,.rh-calc-paths,.rh-calc-faq,.rh-calc-mistakes{padding:32px 16px 0}
+}
+
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -151,6 +188,85 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 </div>
 
 <div id="loan-simulator"></div>
+
+<!-- EXPLAINER -->
+<section class="rh-calc-explainer">
+  <h2>What the calculator just showed you</h2>
+  <p>Your <strong>DSCR ratio</strong> is the single number most lenders look at first when evaluating a rental property. It's your monthly rent divided by your monthly <strong>PITIA</strong> — principal, interest, taxes, insurance, and association dues. A ratio of 1.00 means the property covers its own debt service. Above 1.20, most investor lenders consider it a strong deal. The calculator above solves the whole equation in real time as you adjust property value, rent, and down payment, using a current 30-year fixed DSCR rate of 6.125% as the baseline. State-specific tax and insurance rates are factored in automatically.</p>
+  <p>DSCR loans qualify on the property's income, not yours — no W-2s, no tax returns, no personal DTI calculation. That's why they've become the primary financing tool for real estate investors scaling beyond the conventional loan cap.</p>
+</section>
+
+<!-- RESOURCE CARDS -->
+<section class="rh-calc-paths">
+  <h2>Works for every investor strategy</h2>
+  <p class="rh-calc-paths-sub">DSCR financing isn't one product — it's a framework. Here's how Rate Hero structures deals across the three most common investor playbooks.</p>
+  <div class="rh-calc-cards">
+    <a href="/dscr-loans.html" class="rh-calc-card">
+      <h3>Long-Term Rentals</h3>
+      <p>30-year fixed DSCR loans for stabilized single-family and multifamily rentals. Qualify on lease income, close in 21 days, up to 80% LTV on purchase.</p>
+      <span class="rh-calc-card-link">See the program →</span>
+    </a>
+    <a href="/pages/brrrr-loan.html" class="rh-calc-card">
+      <h3>BRRRR Investors</h3>
+      <p>Exit hard money into a 30-year DSCR refi. Up to 75% LTV on cash-out. Built for investors who buy, rehab, rent, and refinance to recycle capital.</p>
+      <span class="rh-calc-card-link">See the BRRRR exit →</span>
+    </a>
+    <a href="/resources/str-playbook.html" class="rh-calc-card">
+      <h3>Short-Term Rentals</h3>
+      <p>STR DSCR loans accepting AirDNA projections, Airbnb/VRBO actuals, or 12-month deposit history. For investors with or without prior STR experience.</p>
+      <span class="rh-calc-card-link">Get the STR Playbook →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="rh-calc-faq">
+  <h2>DSCR Calculator — Frequently Asked Questions</h2>
+  <details class="rh-calc-faq-item">
+    <summary>What is a DSCR calculator?</summary>
+    <p>A DSCR calculator estimates whether a rental property's income is sufficient to cover its mortgage payment and operating costs. Investors use it to pre-screen deals before applying for financing. Rate Hero's calculator adds real-time rate ranges, state-specific tax and insurance estimates, and pre-approval amounts in one screen.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>How is DSCR calculated?</summary>
+    <p>DSCR equals monthly rental income divided by monthly PITIA (principal, interest, taxes, insurance, and association dues). A DSCR of 1.00 means the property breaks even after debt service. Anything above 1.00 means positive cash flow. Most investor lenders look for DSCR at or above 1.00 for standard pricing.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>What DSCR do I need to qualify for a loan?</summary>
+    <p>Most standard DSCR loan programs require a minimum DSCR of 1.00. Strong deals with DSCR above 1.20 typically receive better pricing. Rate Hero also works with low-ratio and no-ratio DSCR programs for deals that don't hit 1.00 on paper — these typically require a larger down payment or a slight rate adjustment but can still close.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>Can I qualify for a DSCR loan with a ratio below 1.0?</summary>
+    <p>Yes. Rate Hero works with low-ratio DSCR programs down into the 0.70s with compensating factors (larger down payment, reserves, or higher credit), and true no-ratio DSCR products when the property numbers don't pencil at all. Below that threshold, the deal can often be restructured — more equity in, a different loan product, or interest-only pricing. Call us directly if your numbers don't pencil — there's almost always a path.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>What's the difference between DSCR and cap rate?</summary>
+    <p>DSCR measures whether a property's income covers its debt service. Cap rate measures a property's unlevered return (net operating income divided by property value). DSCR is what a lender uses to approve the loan. Cap rate is what an investor uses to evaluate the deal independent of financing. Both matter, but they answer different questions.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>How much down payment is required for a DSCR loan?</summary>
+    <p>Most DSCR purchase loans require at least 20% down, with the sweet spot at 25%. Cash-out refinance on an existing rental typically maxes at 75% LTV, meaning you keep at least 25% equity in the property. First-time investor and lower-credit borrowers may see slightly higher down payment requirements.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>Is DSCR based on gross rent or net rental income?</summary>
+    <p>Standard DSCR loans use gross monthly rent (the actual lease amount or market rent per a rental appraisal) divided by the full PITIA payment. Operating expenses, vacancy, and property management fees are not subtracted for the DSCR calculation itself — though a smart investor factors them in when evaluating actual cash flow.</p>
+  </details>
+  <details class="rh-calc-faq-item">
+    <summary>Does the DSCR calculation include property taxes and insurance?</summary>
+    <p>Yes. DSCR is calculated against full PITIA — principal, interest, taxes, insurance, and any HOA dues. Leaving taxes and insurance out produces an artificially high DSCR that won't match what a lender actually approves. Rate Hero's calculator factors in state-specific tax and insurance rates automatically.</p>
+  </details>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section class="rh-calc-mistakes">
+  <h2>Common DSCR Mistakes Investors Make</h2>
+  <ul class="rh-calc-mistakes-list">
+    <li><strong>Using gross rent instead of market rent.</strong> If the property is rented below market, underwriters will use the lower of the two. Budget conservatively.</li>
+    <li><strong>Forgetting HOA dues in PITIA.</strong> Condos and townhomes frequently have HOA fees that sink an otherwise-qualifying DSCR. Always include them.</li>
+    <li><strong>Assuming a flat 1.5% for taxes and insurance.</strong> Texas runs 2.4%. Florida insurance has tripled in some counties. Use accurate state-specific numbers — which the calculator above does automatically.</li>
+    <li><strong>Not stress-testing with vacancy.</strong> A DSCR of 1.05 at full occupancy becomes 0.95 with one month of vacancy. Investors serious about cash flow model at 92–95% occupancy, not 100%.</li>
+    <li><strong>Treating short-term rental income as if it's long-term.</strong> STR revenue is lumpier and seasonal. Most STR DSCR programs use 12-month trailing average or AirDNA projections, not peak-month numbers.</li>
+  </ul>
+</section>
 
 <!-- DSCR TIER GUIDE -->
 <div class="guide">
@@ -258,5 +374,51 @@ function submitGate(){
 </script>
 <script src="/js/loan-simulator.js" defer></script>
 <script src="/js/bolt-widget.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "DSCR Calculator",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Real-time DSCR calculator for real estate investors. Estimates pre-approval, monthly PITIA, DSCR ratio, and net cash flow across DSCR, BRRRR, and first-time homebuyer scenarios.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": {
+    "@type": "FinancialService",
+    "name": "Rate Hero",
+    "url": "https://goratehero.com",
+    "telephone": "+17473081635",
+    "priceRange": "$",
+    "identifier": "NMLS #2822806",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5930 San Fernando Rd",
+      "addressLocality": "Glendale",
+      "addressRegion": "CA",
+      "postalCode": "91202",
+      "addressCountry": "US"
+    },
+    "areaServed": ["United States"],
+    "serviceType": ["DSCR Loans", "Non-QM", "Bank Statement Loans", "Conventional", "FHA", "VA", "BRRRR Refinance"],
+    "image": "https://goratehero.com/apple-touch-icon.png"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a DSCR calculator?", "acceptedAnswer": { "@type": "Answer", "text": "A DSCR calculator estimates whether a rental property's income is sufficient to cover its mortgage payment and operating costs. Investors use it to pre-screen deals before applying for financing. Rate Hero's calculator adds real-time rate ranges, state-specific tax and insurance estimates, and pre-approval amounts in one screen." } },
+    { "@type": "Question", "name": "How is DSCR calculated?", "acceptedAnswer": { "@type": "Answer", "text": "DSCR equals monthly rental income divided by monthly PITIA (principal, interest, taxes, insurance, and association dues). A DSCR of 1.00 means the property breaks even after debt service. Anything above 1.00 means positive cash flow. Most investor lenders look for DSCR at or above 1.00 for standard pricing." } },
+    { "@type": "Question", "name": "What DSCR do I need to qualify for a loan?", "acceptedAnswer": { "@type": "Answer", "text": "Most standard DSCR loan programs require a minimum DSCR of 1.00. Strong deals with DSCR above 1.20 typically receive better pricing. Rate Hero also works with low-ratio and no-ratio DSCR programs for deals that don't hit 1.00 on paper." } },
+    { "@type": "Question", "name": "Can I qualify for a DSCR loan with a ratio below 1.0?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Rate Hero works with low-ratio DSCR programs down into the 0.70s with compensating factors (larger down payment, reserves, or higher credit), and true no-ratio DSCR products when the property numbers don't pencil at all. Below that threshold, the deal can often be restructured." } },
+    { "@type": "Question", "name": "What is the difference between DSCR and cap rate?", "acceptedAnswer": { "@type": "Answer", "text": "DSCR measures whether a property's income covers its debt service. Cap rate measures a property's unlevered return. DSCR is what a lender uses to approve the loan. Cap rate is what an investor uses to evaluate the deal independent of financing." } },
+    { "@type": "Question", "name": "How much down payment is required for a DSCR loan?", "acceptedAnswer": { "@type": "Answer", "text": "Most DSCR purchase loans require at least 20% down, with the sweet spot at 25%. Cash-out refinance on an existing rental typically maxes at 75% LTV." } },
+    { "@type": "Question", "name": "Is DSCR based on gross rent or net rental income?", "acceptedAnswer": { "@type": "Answer", "text": "Standard DSCR loans use gross monthly rent divided by the full PITIA payment. Operating expenses, vacancy, and property management fees are not subtracted for the DSCR calculation itself." } },
+    { "@type": "Question", "name": "Does the DSCR calculation include property taxes and insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DSCR is calculated against full PITIA — principal, interest, taxes, insurance, and any HOA dues. Rate Hero's calculator factors in state-specific tax and insurance rates automatically." } }
+  ]
+}
+</script>
 </body>
 </html>
