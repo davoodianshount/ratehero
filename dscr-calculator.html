@@ -388,7 +388,19 @@ function submitGate(){
     "name": "Rate Hero",
     "url": "https://goratehero.com",
     "telephone": "+17473081635",
-    "identifier": "NMLS #2822806"
+    "priceRange": "$",
+    "identifier": "NMLS #2822806",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5930 San Fernando Rd",
+      "addressLocality": "Glendale",
+      "addressRegion": "CA",
+      "postalCode": "91202",
+      "addressCountry": "US"
+    },
+    "areaServed": ["United States"],
+    "serviceType": ["DSCR Loans", "Non-QM", "Bank Statement Loans", "Conventional", "FHA", "VA", "BRRRR Refinance"],
+    "image": "https://goratehero.com/apple-touch-icon.png"
   }
 }
 </script>
@@ -406,28 +418,6 @@ function submitGate(){
     { "@type": "Question", "name": "Is DSCR based on gross rent or net rental income?", "acceptedAnswer": { "@type": "Answer", "text": "Standard DSCR loans use gross monthly rent divided by the full PITIA payment. Operating expenses, vacancy, and property management fees are not subtracted for the DSCR calculation itself." } },
     { "@type": "Question", "name": "Does the DSCR calculation include property taxes and insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DSCR is calculated against full PITIA — principal, interest, taxes, insurance, and any HOA dues. Rate Hero's calculator factors in state-specific tax and insurance rates automatically." } }
   ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FinancialService",
-  "name": "Rate Hero",
-  "url": "https://goratehero.com",
-  "telephone": "+17473081635",
-  "priceRange": "$",
-  "identifier": "NMLS #2822806",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "5930 San Fernando Rd",
-    "addressLocality": "Glendale",
-    "addressRegion": "CA",
-    "postalCode": "91202",
-    "addressCountry": "US"
-  },
-  "areaServed": ["United States"],
-  "serviceType": ["DSCR Loans", "Non-QM", "Bank Statement Loans", "Conventional", "FHA", "VA", "BRRRR Refinance"],
-  "image": "https://goratehero.com/logo.png"
 }
 </script>
 </body>
