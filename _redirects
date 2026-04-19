@@ -4,3 +4,13 @@
 /dscr-loans/short-term-rental.html /pages/short-term-rental 301
 /dscr-loans/hard-money-exit /pages/hard-money-exit 301
 /dscr-loans/hard-money-exit.html /pages/hard-money-exit 301
+
+# Canonical URLs: root-level duplicates → nested canonical paths
+/about /pages/about 301
+/about.html /pages/about 301
+/brand-guidelines /resources/brand-guidelines 301
+/brand-guidelines.html /resources/brand-guidelines 301
+/voicemail-followup /resources/voicemail-followup 301
+/voicemail-followup.html /resources/voicemail-followup 301
+/out-of-state-buying-guide /resources/out-of-state-buying-guide 301
+/out-of-state-buying-guide.html /resources/out-of-state-buying-guide 301
