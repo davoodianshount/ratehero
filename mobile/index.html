@@ -219,48 +219,6 @@
     }
   }
 
-  /* ---------- Density modifiers ---------- */
-  body.density-compact section{ padding-top:26px; padding-bottom:26px; }
-  body.density-spacious section{ padding-top:56px; padding-bottom:56px; }
-
-  /* ---------- Hero variations ---------- */
-  body:not(.hero-split) #hero-split{ display:none; }
-  body.hero-split #hero-default{ display:none; }
-
-  /* Calculator variations */
-  body:not(.calc-typed) .calc-typed{ display:none; }
-  body.calc-typed .calc-slider{ display:none; }
-  body:not(.calc-stepper) .calc-stepper{ display:none; }
-  body.calc-stepper .calc-slider{ display:none; }
-  body.calc-typed .calc-stepper{ display:none; }
-  body.calc-stepper .calc-typed{ display:none; }
-
-  /* Typed inputs */
-  .typed-input{
-    position:relative; background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.09); border-radius:14px;
-  }
-  .typed-input:focus-within{ border-color:rgba(59,130,246,.55); background:rgba(59,130,246,.06); }
-  .typed-input label{
-    display:block; padding:12px 16px 0 16px; font-size:11px; font-weight:600;
-    letter-spacing:.08em; text-transform:uppercase; color:#8FA0BE;
-  }
-  .typed-input .prefix{ position:absolute; left:16px; bottom:12px; color:#6B7B99; font-weight:700; }
-  .typed-input input{
-    width:100%; background:transparent; color:#fff; font-size:18px; font-weight:700;
-    padding:2px 16px 14px 28px; border:0; outline:none;
-  }
-
-  /* Stepper */
-  .step-pill{
-    width:44px; height:44px; border-radius:12px;
-    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
-    display:inline-flex; align-items:center; justify-content:center;
-    font-size:22px; font-weight:700; color:#fff;
-    transition:background 140ms ease;
-  }
-  .step-pill:active{ background:rgba(59,130,246,.25); }
-
   hr.sep{ border:0; height:1px; background:rgba(255,255,255,.06); margin:0; }
 </style>
 </head>
@@ -415,68 +373,6 @@
         <input type="range" id="dp" class="slider" min="15" max="40" step="1" value="20" />
         <div class="flex justify-between mt-1.5 text-[10px] text-slate-500 mono">
           <span>15%</span><span>40%</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- TYPED VERSION -->
-    <div class="calc-typed space-y-3">
-      <div class="typed-input">
-        <label for="pv-t">Property value</label>
-        <span class="prefix">$</span>
-        <input id="pv-t" inputmode="numeric" placeholder="350,000" value="350,000" />
-      </div>
-      <div class="typed-input">
-        <label for="rent-t">Monthly rent</label>
-        <span class="prefix">$</span>
-        <input id="rent-t" inputmode="numeric" placeholder="2,800" value="2,800" />
-      </div>
-      <div class="typed-input">
-        <label for="dp-t">Down payment %</label>
-        <span class="prefix" style="left:auto; right:16px;">%</span>
-        <input id="dp-t" inputmode="numeric" placeholder="20" value="20" style="padding-left:16px;" />
-      </div>
-    </div>
-
-    <!-- STEPPER VERSION -->
-    <div class="calc-stepper space-y-4">
-      <div>
-        <div class="field-row">
-          <span class="field-label">Property value</span>
-          <span class="field-value"><span class="text-slate-400 text-[20px] mr-1">$</span><span id="pv-s-label">350,000</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <button class="step-pill" data-step="pv-" >−</button>
-          <div class="flex-1 h-2 rounded-full bg-white/5 overflow-hidden">
-            <div id="pv-s-bar" class="h-full bg-brand" style="width:40%"></div>
-          </div>
-          <button class="step-pill" data-step="pv+">+</button>
-        </div>
-      </div>
-      <div>
-        <div class="field-row">
-          <span class="field-label">Monthly rent</span>
-          <span class="field-value"><span class="text-slate-400 text-[20px] mr-1">$</span><span id="rent-s-label">2,800</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <button class="step-pill" data-step="rent-" >−</button>
-          <div class="flex-1 h-2 rounded-full bg-white/5 overflow-hidden">
-            <div id="rent-s-bar" class="h-full" style="width:38%; background:linear-gradient(90deg,#F5B731,#E8920A)"></div>
-          </div>
-          <button class="step-pill" data-step="rent+">+</button>
-        </div>
-      </div>
-      <div>
-        <div class="field-row">
-          <span class="field-label">Down payment</span>
-          <span class="field-value"><span id="dp-s-label">20</span><span class="text-slate-400 text-[20px] ml-1">%</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <button class="step-pill" data-step="dp-" >−</button>
-          <div class="flex-1 h-2 rounded-full bg-white/5 overflow-hidden">
-            <div id="dp-s-bar" class="h-full bg-brand" style="width:25%"></div>
-          </div>
-          <button class="step-pill" data-step="dp+">+</button>
         </div>
       </div>
     </div>
@@ -797,27 +693,6 @@
 </a>
 <!-- ============ LOGIC ============ -->
 <script>
-  // One-time cleanup of legacy preview key
-  try { localStorage.removeItem('rh-tweaks'); } catch(e){}
-
-  // ---- Optional variant flags via URL or localStorage (no UI in prod) ----
-  // Supported: ?hero=split | ?calc=typed|stepper | ?density=compact|spacious
-  // Persisted to localStorage so refresh keeps the variant during an A/B run.
-  try {
-    const url = new URLSearchParams(window.location.search);
-    const saved = JSON.parse(localStorage.getItem('rh-variant') || '{}');
-    const variant = {
-      hero:    url.get('hero')    || saved.hero    || 'default',
-      calc:    url.get('calc')    || saved.calc    || 'slider',
-      density: url.get('density') || saved.density || 'normal',
-    };
-    if (variant.hero === 'split')      document.body.classList.add('hero-split');
-    if (variant.calc === 'typed')      document.body.classList.add('calc-typed');
-    if (variant.calc === 'stepper')    document.body.classList.add('calc-stepper');
-    document.body.classList.add('density-' + variant.density);
-    localStorage.setItem('rh-variant', JSON.stringify(variant));
-  } catch(e) { document.body.classList.add('density-normal'); }
-
   // ---- Sticky CTA visibility ----
   const sticky = document.getElementById('sticky');
   const finalCta = document.getElementById('final');
@@ -847,17 +722,6 @@
     document.getElementById('pv-label').textContent = fmt(state.pv);
     document.getElementById('rent-label').textContent = fmt(state.rent);
     document.getElementById('dp-label').textContent = state.dp;
-    // typed
-    document.getElementById('pv-t').value = fmt(state.pv);
-    document.getElementById('rent-t').value = fmt(state.rent);
-    document.getElementById('dp-t').value = state.dp;
-    // stepper
-    document.getElementById('pv-s-label').textContent = fmt(state.pv);
-    document.getElementById('rent-s-label').textContent = fmt(state.rent);
-    document.getElementById('dp-s-label').textContent = state.dp;
-    document.getElementById('pv-s-bar').style.width = ((state.pv - 80000)/(1500000-80000)*100).toFixed(1) + '%';
-    document.getElementById('rent-s-bar').style.width = ((state.rent - 500)/(12000-500)*100).toFixed(1) + '%';
-    document.getElementById('dp-s-bar').style.width = ((state.dp - 15)/(40-15)*100).toFixed(1) + '%';
   }
 
   function updateSliderFill(el) {
@@ -950,61 +814,6 @@
       setAll(); recalc();
     });
     updateSliderFill(el);
-  });
-
-  // Wire typed
-  ['pv-t','rent-t','dp-t'].forEach((id, idx) => {
-    const el = document.getElementById(id);
-    const keys = ['pv','rent','dp'];
-    el.addEventListener('input', (e) => {
-      const n = parseNum(e.target.value);
-      if (keys[idx] === 'dp') {
-        state.dp = Math.max(15, Math.min(40, n || 20));
-      } else if (keys[idx] === 'pv') {
-        state.pv = Math.max(80000, Math.min(1500000, n || 350000));
-      } else {
-        state.rent = Math.max(500, Math.min(12000, n || 2800));
-      }
-      // don't overwrite what they're typing in this field
-      if (keys[idx] !== 'pv') document.getElementById('pv-label').textContent = fmt(state.pv);
-      if (keys[idx] !== 'rent') document.getElementById('rent-label').textContent = fmt(state.rent);
-      if (keys[idx] !== 'dp') document.getElementById('dp-label').textContent = state.dp;
-      if (keys[idx] !== 'pv') e.target !== document.getElementById('pv-t') ? null : null;
-      if (keys[idx] !== 'dp') { /* no-op */ }
-      // update slider UI for cross-sync
-      document.getElementById('pv').value = state.pv;
-      document.getElementById('rent').value = state.rent;
-      document.getElementById('dp').value = state.dp;
-      updateSliderFill(document.getElementById('pv'));
-      updateSliderFill(document.getElementById('rent'));
-      updateSliderFill(document.getElementById('dp'));
-      // stepper bars
-      document.getElementById('pv-s-bar').style.width = ((state.pv - 80000)/(1500000-80000)*100).toFixed(1) + '%';
-      document.getElementById('rent-s-bar').style.width = ((state.rent - 500)/(12000-500)*100).toFixed(1) + '%';
-      document.getElementById('dp-s-bar').style.width = ((state.dp - 15)/(40-15)*100).toFixed(1) + '%';
-      document.getElementById('pv-s-label').textContent = fmt(state.pv);
-      document.getElementById('rent-s-label').textContent = fmt(state.rent);
-      document.getElementById('dp-s-label').textContent = state.dp;
-      recalc();
-    });
-    el.addEventListener('blur', (e) => {
-      if (keys[idx] !== 'dp') e.target.value = fmt(state[keys[idx]]);
-      else e.target.value = state.dp;
-    });
-  });
-
-  // Wire stepper
-  document.querySelectorAll('[data-step]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cmd = btn.dataset.step;
-      const dir = cmd.endsWith('+') ? 1 : -1;
-      const key = cmd.replace(/[+-]$/,'');
-      const steps = { pv: 10000, rent: 100, dp: 1 };
-      const mins  = { pv: 80000, rent: 500, dp: 15 };
-      const maxs  = { pv: 1500000, rent: 12000, dp: 40 };
-      state[key] = Math.max(mins[key], Math.min(maxs[key], state[key] + dir * steps[key]));
-      setAll(); recalc();
-    });
   });
 
   setAll();
