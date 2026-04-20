@@ -365,11 +365,44 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 </footer>
 
 <script>
-function submitGate(){
+async function submitGate() {
   const email = document.getElementById('gate-email').value.trim();
-  if(!email || !email.includes('@')){ document.getElementById('gate-email').focus(); return; }
-  document.getElementById('gate-form').style.display = 'none';
-  document.getElementById('gate-success').style.display = 'block';
+  if (!email || !email.includes('@')) { document.getElementById('gate-email').focus(); return; }
+
+  const btn = document.querySelector('.gate-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: '544fd03b-53dd-4844-ae11-af8c8871adf8',
+        email: email,
+        subject: 'STR Playbook Request \u2014 Rate Hero',
+        from_name: 'Rate Hero Lead Magnet',
+        resource_requested: 'STR Playbook',
+        source_page: window.location.pathname,
+        autoresponse: email,
+        autoresponse_subject: 'Your STR Playbook \u2014 Rate Hero',
+        autoresponse_message: 'Thanks for requesting the Short-Term Rental Playbook! Here is your copy:\n\nhttps://goratehero.com/resources/str-playbook\n\nThis guide covers AirDNA qualification, DSCR scenarios, and 4 real deal breakdowns.\n\nQuestions about financing your short-term rental? Reply to this email or call us at (747) 308-1635.\n\n\u2014 Rate Hero, Inc. | NMLS #2822806'
+      })
+    });
+
+    if (response.ok) {
+      document.getElementById('gate-form').style.display = 'none';
+      document.getElementById('gate-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Send My Copy \u2192';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (err) {
+    btn.textContent = 'Send My Copy \u2192';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+  }
 }
 </script>
 <script src="/js/loan-simulator.js" defer></script>
