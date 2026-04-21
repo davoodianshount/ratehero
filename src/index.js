@@ -1,14 +1,21 @@
 // src/index.js
 // Entry for the ratehero Workers Static Assets project.
-// Routes mobile visitors from the homepage to /mobile/ silently,
-// then delegates everything else to the static asset server.
+// Serves the same responsive HTML to every visitor regardless of UA.
+// The previous mobile UA rewrite was removed because routing real
+// mobile users to /mobile/ while serving the desktop homepage to
+// Googlebot-Smartphone constituted cloaking under Google's spam
+// policies. The /mobile/ directory still exists in the repo but is
+// no longer routed to by this Worker.
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const ua = (request.headers.get('user-agent') || '').toLowerCase();
 
-    // 1. Explicit desktop override via ?desktop=1 or cookie
+    // Explicit desktop override via ?desktop=1 or rh_desktop=1 cookie.
+    // Retained from the previous mobile-rewrite era for compatibility
+    // with any existing user cookies and bookmarked ?desktop=1 URLs.
+    // Currently a no-op for routing (there's no mobile rewrite to
+    // bypass), but still sets the cookie when the param is present.
     const cookie = request.headers.get('cookie') || '';
     const hasDesktopCookie = /(?:^|;\s*)rh_desktop=1/.test(cookie);
     const hasDesktopParam = url.searchParams.get('desktop') === '1';
@@ -26,38 +33,8 @@ export default {
       return response;
     }
 
-    // 2. Skip if already inside /mobile/ — no loops
-    if (url.pathname === '/mobile' || url.pathname.startsWith('/mobile/')) {
-      return env.ASSETS.fetch(request);
-    }
-
-    // 3. Only rewrite the homepage. Interior pages pass through as-is.
-    if (url.pathname !== '/' && url.pathname !== '/index.html') {
-      return env.ASSETS.fetch(request);
-    }
-
-    // 4. Skip bots so SEO keeps indexing desktop as canonical
-    const isBot =
-      /bot|crawler|spider|facebookexternalhit|slackbot|twitterbot|linkedinbot|whatsapp|telegram|discord|preview|lighthouse|pagespeed|gtmetrix/i.test(
-        ua
-      );
-    if (isBot) {
-      return env.ASSETS.fetch(request);
-    }
-
-    // 5. Mobile UA detection
-    const isMobile =
-      /iphone|ipod|android.*mobile|windows phone|blackberry|webos|opera mini|iemobile/i.test(
-        ua
-      );
-
-    if (isMobile) {
-      // Rewrite (not redirect) — address bar stays on goratehero.com
-      const rewrittenUrl = new URL('/mobile/', url.origin);
-      return env.ASSETS.fetch(new Request(rewrittenUrl.toString(), request));
-    }
-
-    // Desktop — serve normal homepage
+    // Default: serve the requested asset unmodified. Same HTML for
+    // every visitor — desktop, mobile, bot, anyone.
     return env.ASSETS.fetch(request);
   }
 };
