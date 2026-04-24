@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Rate Hero specializes in DSCR loans, Non-QM, bank statement mortgages, and hard money exits. No W-2 required. Close in 21 days. Available in 30+ states. NMLS #2822806.">
 <title>DSCR Loans & Non-QM Mortgage | Rate Hero | No Tax Returns</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -311,6 +314,7 @@ nav {
 
 /* REVIEWS */
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.reviews-disclaimer { font-size: 13px; color: rgba(255,255,255,0.38); text-align: center; max-width: 560px; margin: -32px auto 36px; letter-spacing: .02em; font-style: italic; line-height: 1.6; }
 .review-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.25s; }
 .review-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-3px); }
 .review-stars { color: #FBBF24; font-size: 18px; letter-spacing: 2px; margin-bottom: 14px; }
@@ -1147,6 +1151,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 /* ── TRUST BAR TWO-ROW ── */
 .trust-bar { background:var(--navy-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 52px; }
 .trust-inner { max-width:720px; margin:0 auto; display:flex; flex-direction:column; align-items:center; }
+.partner-badges { display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap; margin:0 0 16px; }
+.partner-badge { display:inline-flex; align-items:center; background:rgba(37,99,235,0.08); border:1px solid rgba(37,99,235,0.25); border-radius:12px; padding:12px 20px; text-decoration:none; line-height:0; transition:transform .25s ease, opacity .25s ease; opacity:0.92; }
+.partner-badge:hover { transform:translateY(-2px); opacity:1; }
+.partner-badge img { height:56px; width:auto; display:block; opacity:0.95; }
+@media (max-width: 520px) {
+  .partner-badges { gap:12px; }
+  .partner-badge { padding:10px 16px; }
+  .partner-badge img { height:44px; }
+}
 .trust-leadership-label { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px; }
 .trust-credentials { display:flex; align-items:center; gap:40px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:12px; width:100%; justify-content:center; }
 .trust-cred { display:flex; align-items:center; gap:11px; }
@@ -1511,9 +1524,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <div class="trust-bar">
   <div class="trust-inner">
 
-    <a href="biggerpockets.html" style="display:inline-flex;align-items:center;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:12px 20px;text-decoration:none;margin-bottom:16px;">
-      <img src="BP_Featured-Lender-White_500W.png" alt="BiggerPockets Featured Lender" style="height:56px;opacity:0.95;">
-    </a>
+    <div class="partner-badges">
+      <a href="biggerpockets.html" class="partner-badge">
+        <img src="BP_Featured-Lender-White_500W.png" alt="BiggerPockets Featured Lender">
+      </a>
+      <a href="rabbu.html" class="partner-badge">
+        <img src="Rabbu_STR-Lending-Partner-White_500W.svg" alt="Rabbu STR Lending Partner">
+      </a>
+    </div>
 
     <div class="trust-leadership-label">Leadership</div>
 
@@ -1521,7 +1539,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       <div class="trust-cred">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         <div class="trust-cred-text">
-          <div class="trust-cred-num">$200M+</div>
+          <div class="trust-cred-num">$300M+</div>
           <div class="trust-cred-lbl">Funded</div>
         </div>
       </div>
@@ -1529,7 +1547,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       <div class="trust-cred">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         <div class="trust-cred-text">
-          <div class="trust-cred-num">5,000+</div>
+          <div class="trust-cred-num">1,000+</div>
           <div class="trust-cred-lbl">Clients Served</div>
         </div>
       </div>
@@ -2103,7 +2121,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
           <div class="stag" style="margin-bottom:12px;"><span class="dot"></span> Your Founder</div>
           <h2 style="font-family:var(--font-d);font-size:clamp(32px,4vw,48px);letter-spacing:1px;color:var(--white);margin-bottom:16px;line-height:1.05;">Meet <span style="color:var(--blue);">Sean Davoodian.</span></h2>
           <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:20px;">Sean founded Rate Hero after spending years watching creditworthy borrowers get turned away by lenders who couldn't think outside the W-2. He built this company specifically for investors, self-employed borrowers, and anyone the banks have failed.</p>
-          <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:28px;">Before Rate Hero, Sean and his leadership team personally funded over $200M and worked with 5,000+ clients. That experience is now available to you — with faster closings, better programs, and an advisor who actually picks up the phone.</p>
+          <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:28px;">Before Rate Hero, Sean and his leadership team personally funded $300M+ and worked with 1,000+ clients. That experience is now available to you — with faster closings, better programs, and an advisor who actually picks up the phone.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
             <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:12px 18px;">
               <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px;">License</div>
@@ -2129,8 +2147,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <div style="background:var(--navy-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="section" style="padding-top:64px;padding-bottom:64px;">
     <div class="stats-row">
-      <div class="stat-box"><span class="stat-box-num">$200M+</span><span class="stat-box-label">Loans Funded</span><span class="stat-box-qualifier">by leadership</span></div>
-      <div class="stat-box"><span class="stat-box-num">5,000+</span><span class="stat-box-label">Clients Served</span><span class="stat-box-qualifier">by leadership</span></div>
+      <div class="stat-box"><span class="stat-box-num">$300M+</span><span class="stat-box-label">Loans Funded</span><span class="stat-box-qualifier">by leadership</span></div>
+      <div class="stat-box"><span class="stat-box-num">1,000+</span><span class="stat-box-label">Clients Served</span><span class="stat-box-qualifier">by leadership</span></div>
       <div class="stat-box"><span class="stat-box-num">21 Days</span><span class="stat-box-label">Avg Close Time</span><span class="stat-box-qualifier stat-box-qualifier--empty">&nbsp;</span></div>
       <div class="stat-box"><span class="stat-box-num">100%</span><span class="stat-box-label">Dedicated to You</span><span class="stat-box-qualifier stat-box-qualifier--empty">&nbsp;</span></div>
       <div class="stat-box"><span class="stat-box-num">&lt;10min</span><span class="stat-box-label">Pre-Approval</span><span class="stat-box-qualifier stat-box-qualifier--empty">&nbsp;</span></div>
@@ -2208,6 +2226,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     <div class="section-tag"><span class="dot"></span> Client Reviews</div>
     <h2>Real People. <span>Real Results.</span></h2>
     <p class="section-sub">Real clients. Real closings. Here's what they had to say.</p>
+    <p class="reviews-disclaimer">Reviews reflect client experiences with Rate Hero leadership at prior companies.</p>
     <div class="reviews-grid" style="grid-template-columns: repeat(2, 1fr);text-align:left;">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>

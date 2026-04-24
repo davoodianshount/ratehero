@@ -1,3 +1,12 @@
 bolt-proxy/
 Bolt- Chat/
 *.zip
+src/
+wrangler.jsonc
+.git/
+.github/
+node_modules/
+package.json
+package-lock.json
+README.md
+CLAUDE.md
