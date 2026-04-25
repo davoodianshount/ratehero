@@ -374,7 +374,7 @@ async function submitGate() {
   const email = document.getElementById('gate-email').value.trim();
   if (!email || !email.includes('@')) { document.getElementById('gate-email').focus(); return; }
 
-  const captchaToken = hcaptcha.getResponse();
+  const captchaToken = (typeof hcaptcha !== 'undefined') ? hcaptcha.getResponse() : '';
   if (!captchaToken) { alert('Please complete the captcha to submit the form.'); return; }
 
   const btn = document.querySelector('.gate-btn');
@@ -400,17 +400,17 @@ async function submitGate() {
     });
 
     if (response.ok) {
-      hcaptcha.reset();
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       document.getElementById('gate-form').style.display = 'none';
       document.getElementById('gate-success').style.display = 'block';
     } else {
-      hcaptcha.reset();
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       btn.textContent = 'Send My Copy \u2192';
       btn.disabled = false;
       alert('Something went wrong. Please try again.');
     }
   } catch (err) {
-    hcaptcha.reset();
+    if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
     btn.textContent = 'Send My Copy \u2192';
     btn.disabled = false;
     alert('Something went wrong. Please try again.');
