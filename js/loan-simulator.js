@@ -561,6 +561,7 @@
                   '<input type="checkbox" id="rh-sim-tcpa" aria-describedby="rh-sim-tcpa-text">' +
                   '<span class="rh-sim-tcpa-text" id="rh-sim-tcpa-text">I agree to receive calls and texts from Rate Hero at the number provided, including via automated means. Consent is not a condition of any purchase. Message &amp; data rates may apply. Reply STOP to opt out.</span>' +
                 '</div>' +
+                '<div id="rh-sim-captcha" class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-size="compact"></div>' +
                 '<button class="rh-sim-submit" id="rh-sim-submit" type="button"></button>' +
                 '<a class="rh-sim-fallback" id="rh-sim-fallback" href="/apply.html">Or fill out the full application \u2192</a>' +
                 '<div class="rh-sim-trust">\uD83D\uDD12 No credit pull \u00b7 No SSN \u00b7 We never sell your info</div>' +
@@ -985,6 +986,12 @@
 
     if (!validateAndShowErrors()) return;
 
+    var captchaToken = (typeof hcaptcha !== 'undefined') ? hcaptcha.getResponse() : '';
+    if (!captchaToken) {
+      alert('Please complete the captcha to submit the form.');
+      return;
+    }
+
     // Transition to submitting state
     state.submitStatus = 'submitting';
     var btn = document.getElementById('rh-sim-submit');
@@ -996,13 +1003,14 @@
 
     trackEvent('sim_lead_submit_start', { scenario: state.scenario, approvalTier: state.approvalTier });
 
-    submitLead().then(function (response) {
+    submitLead(captchaToken).then(function (response) {
       state.submitStatus = 'success';
       trackEvent('sim_lead_submit_success', { scenario: state.scenario, approvalTier: state.approvalTier, dscr: state.outputs.dscr });
       renderSuccess();
     }).catch(function (err) {
       state.submitStatus = 'error';
       trackEvent('sim_lead_submit_error', { scenario: state.scenario, approvalTier: state.approvalTier, message: err.message });
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       // Re-enable form for retry
       if (btn) {
         btn.disabled = false;
@@ -1055,7 +1063,7 @@
   // Field labels are a contract with the Apps Script parser in the
   // Rate Hero Leads Google Sheet. Do NOT rename without updating the
   // parser (Extensions → Apps Script). Parser keys on lowercased labels.
-  async function submitLead() {
+  async function submitLead(captchaToken) {
     var lc = state.leadCapture;
     var inp = state.inputs;
     var o = state.outputs;
@@ -1065,6 +1073,7 @@
     var body = new FormData();
 
     body.append('access_key', SIM_CONFIG.web3forms.accessKey);
+    body.append('h-captcha-response', captchaToken);
     body.append('botcheck', '');
 
     var sourceMap = {
@@ -1146,6 +1155,25 @@
     }
   }
 
+  // ====== CAPTCHA ======
+  function renderCaptcha() {
+    if (typeof hcaptcha === 'undefined') {
+      window.addEventListener('load', renderCaptcha, { once: true });
+      return;
+    }
+    var el = document.getElementById('rh-sim-captcha');
+    if (!el || el.dataset.rendered) return;
+    try {
+      hcaptcha.render('rh-sim-captcha', {
+        sitekey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2',
+        size: 'compact'
+      });
+      el.dataset.rendered = 'true';
+    } catch (e) {
+      // hcaptcha.render() throws if widget already rendered — safe to ignore
+    }
+  }
+
   // ====== INIT ======
   function init() {
     var mount = document.getElementById('loan-simulator');
@@ -1154,6 +1182,7 @@
     buildInitialDOM(mount);
     attachEventListeners();
     attachLeadListeners();
+    renderCaptcha();
     render();
   }
 
