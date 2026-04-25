@@ -237,7 +237,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div class="vc-row"><span class="vc-k">LLC Lending</span><span class="vc-v t">Yes ✓</span></div>
 </div></div></section>
 <div class="pstats">
-  <div class="pstat"><span class="pstat-num">0.75</span><span class="pstat-lbl">Min DSCR</span></div>
+  <div class="pstat"><span class="pstat-num">0.00</span><span class="pstat-lbl">Min DSCR (No-Ratio)</span></div>
   <div class="pstat"><span class="pstat-num">$3M+</span><span class="pstat-lbl">Max Loan Amount</span></div>
   <div class="pstat"><span class="pstat-num">80%</span><span class="pstat-lbl">Max LTV</span></div>
   <div class="pstat"><span class="pstat-num">∞</span><span class="pstat-lbl">No Property Cap</span></div>
@@ -317,7 +317,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div class="stag"><span class="dot"></span> Common Questions</div>
   <h2 class="sh2">Long-Term Rental <em>FAQ</em></h2>
   <div class="faq-wrap">
-    <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">What is the minimum DSCR to qualify?<span class="faq-ico">+</span></div><div class="faq-a"><p>Most programs require a DSCR of 1.0. We have select programs down to 0.75 for strong borrower profiles. The higher your DSCR, the better your rate and terms.</p></div></div>
+    <div class="faq-item" id="f1"><div class="faq-q" onclick="tog('f1')">What is the minimum DSCR to qualify?<span class="faq-ico">+</span></div><div class="faq-a"><p>Most programs require a DSCR of 1.0. Rate Hero offers sub-1.0 DSCR programs down to 0.75, plus no-ratio (0.00 minimum) options for qualified borrowers. The higher your DSCR, the better your rate and terms.</p></div></div>
     <div class="faq-item" id="f2"><div class="faq-q" onclick="tog('f2')">Can I use projected rent if the property is vacant?<span class="faq-ico">+</span></div><div class="faq-a"><p>Yes. For purchases, we use market rent from a third-party appraisal even with no current tenant. For refinances, we use the existing lease or a market rent analysis.</p></div></div>
     <div class="faq-item" id="f3"><div class="faq-q" onclick="tog('f3')">Can I hold the loan in an LLC?<span class="faq-ico">+</span></div><div class="faq-a"><p>Absolutely. We lend to LLCs, corporations, trusts, and other entities — a major advantage for investors who want to separate personal and investment assets.</p></div></div>
     <div class="faq-item" id="f4"><div class="faq-q" onclick="tog('f4')">Is there a limit on how many rental loans I can have?<span class="faq-ico">+</span></div><div class="faq-a"><p>No limit. This is one of the biggest advantages of DSCR vs. conventional investment loans, which cap at 10 financed properties.</p></div></div>
@@ -396,8 +396,8 @@ function calcLTR(){
   num.textContent=dscr;
   if(dscr>=1.25){num.style.color='#22C55E';verdict.style.color='#22C55E';verdict.textContent='Strong Qualification ✓';note.textContent='Excellent DSCR. You qualify for our best rates and highest LTV programs.';}
   else if(dscr>=1.0){num.style.color='#2563EB';verdict.style.color='#2563EB';verdict.textContent='Qualifies ✓';note.textContent='You meet standard DSCR requirements. Talk to us about rate and term options.';}
-  else if(dscr>=0.75){num.style.color='#F59E0B';verdict.style.color='#F59E0B';verdict.textContent='May Qualify — Talk to Us';note.textContent='Below 1.0 but above our minimum. We have sub-1.0 programs for the right profile.';}
-  else{num.style.color='#EF4444';verdict.style.color='#EF4444';verdict.textContent='Below Our Minimum';note.textContent='DSCR below 0.75. Consider increasing rent, reducing loan amount, or exploring other programs.';}
+  else if(dscr>=0.75){num.style.color='#F59E0B';verdict.style.color='#F59E0B';verdict.textContent='Qualify (Sub-1.0 Program)';note.textContent='Sub-1.0 DSCR programs available — strong credit profile required.';}
+  else{num.style.color='#3B82F6';verdict.style.color='#3B82F6';verdict.textContent='Qualify — Talk to Us About No-Ratio';note.textContent='Your DSCR qualifies for our no-ratio (0.00 minimum) program — talk to us about your scenario.';}
 }
 </script>
 </body></html>
