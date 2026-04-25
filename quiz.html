@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#080E1A;--navy2:#0C1527;--navy3:#111D35;--card:#0E1A2E;--blue:#3B82F6;--blue2:#3B82F6;--blue3:#1D4ED8;--w:#fff;--w80:rgba(255,255,255,0.82);--w65:rgba(255,255,255,0.65);--w35:rgba(255,255,255,0.35);--w12:rgba(255,255,255,0.07);--bd:rgba(255,255,255,0.08);--bdb:rgba(37,99,235,0.3);--green:#22C55E;--amber:#F59E0B;--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
@@ -305,6 +306,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 52px
             <input type="email" id="qf-email" placeholder="Email Address" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 16px;font-size:15px;color:#fff;font-family:var(--fb);outline:none;transition:border .2s;" onfocus="this.style.borderColor='rgba(37,99,235,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
             <input type="tel" id="qf-phone" placeholder="Phone Number" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 16px;font-size:15px;color:#fff;font-family:var(--fb);outline:none;transition:border .2s;" onfocus="this.style.borderColor='rgba(37,99,235,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
           </div>
+          <div id="quiz-captcha" class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
           <button onclick="submitQuizLead()" class="result-cta" id="r-cta" style="border:none;cursor:pointer;width:100%;">Unlock My Full Rate Breakdown →</button>
           <p style="margin-top:10px;text-align:center;font-size:12px;color:rgba(255,255,255,0.35);">🔒 No SSN · No credit pull · Never sold · <a href="../dscr-calculator" style="color:rgba(59,130,246,0.7);text-decoration:none;">Try the calculator first</a></p>
         </div>
@@ -468,10 +470,14 @@ function submitQuizLead() {
   if (!first) { document.getElementById('qf-first').focus(); return; }
   if (!email && !phone) { document.getElementById('qf-email').focus(); return; }
 
+  var captchaToken = (typeof hcaptcha !== 'undefined') ? hcaptcha.getResponse() : '';
+  if (!captchaToken) { alert('Please complete the captcha to submit the form.'); return; }
+
   var prog = document.getElementById('r-prog') ? document.getElementById('r-prog').textContent : 'Quiz';
 
   var body = new FormData();
   body.append('access_key',   '544fd03b-53dd-4844-ae11-af8c8871adf8');
+  body.append('h-captcha-response', captchaToken);
   body.append('subject',      'New Rate Hero Quiz Lead — ' + prog);
   body.append('from_name',    'Rate Hero Quiz');
   body.append('Name',         first);
@@ -483,10 +489,12 @@ function submitQuizLead() {
 
   fetch('https://api.web3forms.com/submit', {method: 'POST', body: body})
     .then(function() {
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       document.getElementById('quiz-form').style.display = 'none';
       document.getElementById('quiz-success').style.display = 'block';
     })
     .catch(function() {
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       document.getElementById('quiz-form').style.display = 'none';
       document.getElementById('quiz-success').style.display = 'block';
     });
