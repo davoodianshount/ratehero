@@ -21,7 +21,7 @@ const ALLOWED_ORIGINS = new Set([
   'https://www.goratehero.com',
 ]);
 
-const MODEL = 'claude-sonnet-4-5';
+const MODEL = 'claude-sonnet-4-6';
 const MAX_TOKENS = 800;
 
 // web3forms config — matches the funnel in index.html so leads land in
