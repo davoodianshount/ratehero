@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#080E1A;--navy2:#0C1527;--navy3:#111D35;--card:#0E1A2E;--blue:#3B82F6;--blue2:#3B82F6;--blue3:#1D4ED8;--w:#fff;--w80:rgba(255,255,255,0.8);--w65:rgba(255,255,255,0.65);--w25:rgba(255,255,255,0.25);--bd:rgba(255,255,255,0.08);--bdb:rgba(37,99,235,0.3);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--green:#22C55E;--amber:#F59E0B;--red:#EF4444}
@@ -307,6 +308,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     <p class="gate-sub">The complete short-term rental financing guide — AirDNA qualification, DSCR scenarios, 4 real deal breakdowns. Free, instant download.</p>
     <div class="gate-form" id="gate-form">
       <input type="email" id="gate-email" placeholder="your@email.com">
+      <div id="dscr-gate-captcha" class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
       <button class="gate-btn" onclick="submitGate()">Send My Copy →</button>
     </div>
     <div class="gate-success" id="gate-success">
@@ -372,6 +374,9 @@ async function submitGate() {
   const email = document.getElementById('gate-email').value.trim();
   if (!email || !email.includes('@')) { document.getElementById('gate-email').focus(); return; }
 
+  const captchaToken = (typeof hcaptcha !== 'undefined') ? hcaptcha.getResponse() : '';
+  if (!captchaToken) { alert('Please complete the captcha to submit the form.'); return; }
+
   const btn = document.querySelector('.gate-btn');
   btn.textContent = 'Sending...';
   btn.disabled = true;
@@ -382,6 +387,7 @@ async function submitGate() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         access_key: '544fd03b-53dd-4844-ae11-af8c8871adf8',
+        'h-captcha-response': captchaToken,
         email: email,
         subject: 'STR Playbook Request \u2014 Rate Hero',
         from_name: 'Rate Hero Lead Magnet',
@@ -394,14 +400,17 @@ async function submitGate() {
     });
 
     if (response.ok) {
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       document.getElementById('gate-form').style.display = 'none';
       document.getElementById('gate-success').style.display = 'block';
     } else {
+      if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
       btn.textContent = 'Send My Copy \u2192';
       btn.disabled = false;
       alert('Something went wrong. Please try again.');
     }
   } catch (err) {
+    if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
     btn.textContent = 'Send My Copy \u2192';
     btn.disabled = false;
     alert('Something went wrong. Please try again.');
