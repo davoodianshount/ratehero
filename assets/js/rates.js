@@ -1,5 +1,5 @@
-/**
- * Rate Hero — /rates Scenario Pricer (v3)
+﻿/**
+ * Rate Hero â€” /rates Scenario Pricer (v3)
  *
  * Changes from v2:
  *   - Pricing config is fetched from /api/pricing/approved (Cloudflare KV).
@@ -7,7 +7,7 @@
  *     (loaded from rates-config.js) and shows a warning banner.
  *   - Profile-based pricing. (program, purpose) -> profile lookup, with
  *     graceful fallback if no exact profile exists ("advisor review required").
- *   - Eligibility checks (minFico, maxLtv, minDscr) — when a scenario
+ *   - Eligibility checks (minFico, maxLtv, minDscr) â€” when a scenario
  *     violates a profile's box, the page still renders an estimate but
  *     flags it for advisor review and adds the reasons to the Bolt summary.
  *   - Bolt CTA generates a clean text summary and calls window.openBolt(text).
@@ -51,7 +51,7 @@
     return n.toFixed(2) + 'x';
   }
   function fmtPoints(low, high) {
-    return low.toFixed(3) + ' – ' + high.toFixed(3);
+    return low.toFixed(3) + ' â€“ ' + high.toFixed(3);
   }
   function parseNum(v) {
     if (v == null) return 0;
@@ -78,7 +78,7 @@
 
   /**
    * Return the active profile that best matches (program, purpose).
-   * Priority: exact match → "any" purpose → purchase fallback → first active in program → null.
+   * Priority: exact match â†’ "any" purpose â†’ purchase fallback â†’ first active in program â†’ null.
    */
   function findProfile(cfg, program, purpose) {
     if (!cfg || !Array.isArray(cfg.profiles)) return { profile: null, exact: false };
@@ -127,28 +127,28 @@
   function findCreditLabel(cfg, value) {
     const arr = (cfg.adjustments && cfg.adjustments.creditScore) || [];
     const b = arr.find(br => br.match === value);
-    return b ? b.label : '—';
+    return b ? b.label : 'â€”';
   }
   function findLtvBracket(cfg, ltvPct) {
     const arr = (cfg.adjustments && cfg.adjustments.ltv) || [];
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].active !== false && ltvPct <= arr[i].ltvMax) return arr[i];
     }
-    return arr[arr.length - 1] || { rateAdj: 0, label: '—' };
+    return arr[arr.length - 1] || { rateAdj: 0, label: 'â€”' };
   }
   function findDscrBracket(cfg, dscr) {
     const arr = (cfg.adjustments && cfg.adjustments.dscr) || [];
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].active !== false && dscr >= arr[i].dscrMin) return arr[i];
     }
-    return arr[arr.length - 1] || { rateAdj: 0, label: '—' };
+    return arr[arr.length - 1] || { rateAdj: 0, label: 'â€”' };
   }
   function findLoanAmountBracket(cfg, amount) {
     const arr = (cfg.adjustments && cfg.adjustments.loanAmount) || [];
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].active !== false && amount <= arr[i].amountMax) return arr[i];
     }
-    return arr[arr.length - 1] || { rateAdj: 0, label: '—' };
+    return arr[arr.length - 1] || { rateAdj: 0, label: 'â€”' };
   }
   function findStateBand(cfg, code) {
     const bands = (cfg.adjustments && cfg.adjustments.state && cfg.adjustments.state.bands) || {};
@@ -275,7 +275,7 @@
       {
         rate: lowRate,
         pointsLabel: 'Higher cost',
-        pointsRange: (profile.pointsHigh - 0.5).toFixed(2) + ' – ' + (profile.pointsHigh + 0.5).toFixed(2),
+        pointsRange: (profile.pointsHigh - 0.5).toFixed(2) + ' â€“ ' + (profile.pointsHigh + 0.5).toFixed(2),
         payment: calcMonthlyPayment(loanForCalc, lowRate, termYears, isIO),
         note: 'Best if holding the property long-term.'
       },
@@ -321,7 +321,7 @@
     if (dscr >= 1.25) return { label: 'Strong deal', tone: 'strong' };
     if (dscr >= 1.10) return { label: 'Solid deal', tone: 'solid' };
     if (dscr >= 1.00) return { label: 'Tight but workable', tone: 'tight' };
-    if (dscr >= 0.75) return { label: 'Sub-1.0 — likely no-ratio', tone: 'weak' };
+    if (dscr >= 0.75) return { label: 'Sub-1.0 â€” likely no-ratio', tone: 'weak' };
     return { label: 'Negative DSCR', tone: 'weak' };
   }
 
@@ -382,10 +382,10 @@
     if (r) parts.push(fmtUsd(r) + ' rent');
     if (result && result.dscr) parts.push('DSCR ' + result.dscr.toFixed(2));
     if (result && result.lowRate != null && result.highRate != null) {
-      parts.push('est rate ' + result.lowRate.toFixed(3) + '–' + result.highRate.toFixed(3) + '%');
+      parts.push('est rate ' + result.lowRate.toFixed(3) + 'â€“' + result.highRate.toFixed(3) + '%');
     }
     if (result && result.pointsLow != null && result.pointsHigh != null) {
-      parts.push('points ' + result.pointsLow.toFixed(2) + '–' + result.pointsHigh.toFixed(2));
+      parts.push('points ' + result.pointsLow.toFixed(2) + 'â€“' + result.pointsHigh.toFixed(2));
     }
     if (inputs.lockPeriod) parts.push(inputs.lockPeriod + '-day lock');
     if (inputs.prepay) parts.push('prepay: ' + inputs.prepay);
@@ -393,7 +393,7 @@
 
     let suffix = '';
     if (result && result.advisorReview) {
-      suffix = '. ADVISOR REVIEW REQUIRED — ' + (result.advisorReasons || []).join('; ');
+      suffix = '. ADVISOR REVIEW REQUIRED â€” ' + (result.advisorReasons || []).join('; ');
     } else {
       suffix = '. Borrower wants a real quote.';
     }
@@ -410,7 +410,7 @@
 
   // ===== Bolt integration =============================================
 
-  function openBoltWithSummary(text) {
+  function openBoltWithSummary(text, program) {
     try {
       if (typeof window.openBolt === 'function') {
         window.openBolt(text);
@@ -422,7 +422,7 @@
       contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return true;
     }
-    window.location.href = '/#contact';
+    window.location.href = '/' + '?funnel=' + encodeURIComponent(program || 'purchase');
     return true;
   }
 
@@ -538,7 +538,7 @@
         + '<div class="rh-compliance" role="note"><strong>Important.</strong> '
         + escapeHtml(cfg.compliance && cfg.compliance.disclaimer || '') + '</div>';
       const cta = document.getElementById('rh-out-cta-btn');
-      if (cta) cta.addEventListener('click', () => openBoltWithSummary(buildBoltSummary(inputs, result)));
+      if (cta) cta.addEventListener('click', () => openBoltWithSummary(buildBoltSummary(inputs, result), inputs.program));
       return;
     }
 
@@ -560,7 +560,7 @@
 
     const advisorBadge = result.advisorReview
       ? '<div class="rh-advisor-badge" title="' + escapeHtml((result.advisorReasons || []).join('; ')) + '">'
-        + '<strong>Advisor review</strong> — ' + escapeHtml((result.advisorReasons || []).slice(0, 2).join('; '))
+        + '<strong>Advisor review</strong> â€” ' + escapeHtml((result.advisorReasons || []).slice(0, 2).join('; '))
         + '</div>'
       : '';
 
@@ -617,7 +617,7 @@
       + '</div>';
 
     const cta = document.getElementById('rh-out-cta-btn');
-    if (cta) cta.addEventListener('click', () => openBoltWithSummary(buildBoltSummary(inputs, result)));
+    if (cta) cta.addEventListener('click', () => openBoltWithSummary(buildBoltSummary(inputs, result), inputs.program));
 
     function row(label, value, valClass, extra) {
       return '<div class="rh-out-row">'
@@ -761,7 +761,7 @@
       el.addEventListener('click', function () {
         const inputs = form ? readInputs(form) : {};
         const result = ACTIVE_CONFIG ? priceScenario(ACTIVE_CONFIG, inputs) : null;
-        openBoltWithSummary(buildBoltSummary(inputs, result));
+        openBoltWithSummary(buildBoltSummary(inputs, result), inputs.program);
       });
     });
 
@@ -810,7 +810,7 @@
       lockPeriod: '30', prepay: '5-yr', interestOnly: 'no'
     });
     assert('DSCR Purchase clean scenario priced', !!r1.profile && r1.profile.id === 'dscr-purchase');
-    assert('Mid rate within 5–11%', r1.midRate > 5 && r1.midRate < 11);
+    assert('Mid rate within 5â€“11%', r1.midRate > 5 && r1.midRate < 11);
     assert('Grid has 3 rows', r1.grid.length === 3);
     assert('Clean scenario no advisor flag', r1.advisorReview === false);
 
@@ -841,9 +841,9 @@
 
     const passed = results.filter(x => x.pass).length;
     const failed = results.length - passed;
-    console.group('%cRate Hero — pricer tests', 'font-weight:bold;color:#3B82F6');
+    console.group('%cRate Hero â€” pricer tests', 'font-weight:bold;color:#3B82F6');
     results.forEach(x => {
-      const tag = x.pass ? '%c✓' : '%c✗';
+      const tag = x.pass ? '%câœ“' : '%câœ—';
       const color = x.pass ? 'color:#22c55e' : 'color:#ef4444';
       console.log(tag + ' ' + x.name + (x.detail ? ' (' + x.detail + ')' : ''), color);
     });
@@ -866,3 +866,4 @@
     init();
   }
 })();
+
