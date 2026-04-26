@@ -52,6 +52,19 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .pcard-detail{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px}
 .pcard-btn{display:inline-block;background:var(--blue);color:var(--w);padding:10px 20px;border-radius:8px;font-family:var(--fb);font-size:14px;font-weight:700;text-decoration:none;transition:all .2s}
 .pcard-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.pcard-hero{grid-column:1/-1;background:var(--card);border:1px solid var(--bdt);border-radius:16px;padding:36px 32px;position:relative;overflow:hidden;transition:all .2s}
+.pcard-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.pcard-hero:hover{transform:translateY(-3px)}
+.pcard-hero-tag{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--tealP);border:1px solid rgba(37,99,235,0.25);padding:4px 10px;border-radius:6px}
+.pcard-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.pcard-hero-icon{margin-bottom:14px}
+.pcard-hero-title{font-size:24px;font-weight:800;color:var(--w);margin-bottom:10px}
+.pcard-hero-desc{font-size:15px;color:var(--w65);line-height:1.7}
+.pcard-hero-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.pcard-hero-features li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--w70);line-height:1.5}
+.pcard-hero-features li::before{content:'✓';color:var(--teal);font-weight:700;font-size:14px;flex-shrink:0}
+.pcard-hero-btn{display:inline-block;background:var(--blue);color:var(--w);padding:12px 28px;border-radius:10px;font-family:var(--fb);font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(37,99,235,0.25)}
+.pcard-hero-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .trust{background:var(--navy2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:40px 24px;text-align:center}
 .trust-stats{display:flex;justify-content:center;gap:40px;margin-bottom:16px}
 .trust-stat-num{font-family:var(--fd);font-size:36px;color:var(--teal);letter-spacing:2px;display:block;line-height:1}
@@ -81,7 +94,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .footer-link{font-size:13px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:2.1;transition:color .15s}.footer-link:hover{color:#fff}
 .footer-bottom{max-width:1260px;margin:0 auto;padding:16px 52px;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,0.3)}
 .footer-ehl{display:flex;align-items:center;gap:5px}
-@media(max-width:960px){nav{padding:0 20px}.nlinks,.nphone{display:none}.hero{padding:48px 20px 36px}.pgrid{grid-template-columns:1fr}.cta-band{padding:52px 20px}.trust-stats{flex-direction:column;gap:20px;align-items:center}.trust-ops{flex-direction:column;gap:6px;align-items:center}}
+@media(max-width:960px){nav{padding:0 20px}.nlinks,.nphone{display:none}.hero{padding:48px 20px 36px}.pgrid{grid-template-columns:1fr}.pcard-hero-inner{grid-template-columns:1fr}.cta-band{padding:52px 20px}.trust-stats{flex-direction:column;gap:20px;align-items:center}.trust-ops{flex-direction:column;gap:6px;align-items:center}}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr!important;gap:28px!important;padding:40px 20px 28px!important}.footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}}
 </style>
 </head>
@@ -113,12 +126,25 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 </section>
 
 <div class="pgrid" id="programs-grid">
-  <div class="pcard">
-    <div class="pcard-icon"><svg width="20" height="28" viewBox="0 0 28 40"><defs><linearGradient id="blt1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt1)"/></svg></div>
-    <div class="pcard-title">DSCR Loans</div>
-    <div class="pcard-desc">Qualify on the property's rental income, not your tax returns. Built for investors scaling a portfolio without W-2 hassle.</div>
-    <div class="pcard-detail">85% LTV rate-and-term · 80% cash-out · 30-yr fixed available</div>
-    <a href="/pages/long-term-rental" class="pcard-btn">Explore →</a>
+  <div class="pcard-hero">
+    <div class="pcard-hero-tag">FLAGSHIP</div>
+    <div class="pcard-hero-inner">
+      <div>
+        <div class="pcard-hero-icon"><svg width="30" height="42" viewBox="0 0 28 40"><defs><linearGradient id="blt1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt1)"/></svg></div>
+        <div class="pcard-hero-title">DSCR Loans</div>
+        <div class="pcard-hero-desc">Qualify on the property's rental income, not your tax returns. Built for investors scaling a portfolio without W-2 hassle, complex tax filings, or DTI limits.</div>
+      </div>
+      <div>
+        <ul class="pcard-hero-features">
+          <li>85% LTV purchase and rate-and-term refinance</li>
+          <li>80% LTV cash-out refinance</li>
+          <li>30-yr fixed available</li>
+          <li>No personal income docs required</li>
+          <li>LLC and entity-friendly closings</li>
+        </ul>
+        <a href="/pages/long-term-rental" class="pcard-hero-btn">Explore DSCR Loans →</a>
+      </div>
+    </div>
   </div>
   <div class="pcard">
     <div class="pcard-icon"><svg width="20" height="28" viewBox="0 0 28 40"><defs><linearGradient id="blt2" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt2)"/></svg></div>
