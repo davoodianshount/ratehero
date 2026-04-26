@@ -295,6 +295,35 @@ function renderDashboard(email) {
   .toast { position:fixed; bottom:20px; right:20px; background:var(--panel); border:1px solid var(--border); padding:12px 16px; border-radius:10px; font-size:13px; z-index:100; display:none; }
   .toast.ok { border-color:rgba(16,185,129,.5); }
   .toast.err { border-color:rgba(239,68,68,.5); }
+  /* Pricing tab */
+  .p-status { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .p-status .card { flex:1; min-width:160px; }
+  .p-actions { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+  .p-actions .btn-pub { background:linear-gradient(135deg,var(--green),#059669); }
+  .p-actions .btn-rev { background:transparent; border:1px solid var(--border); color:var(--text); }
+  .p-actions .btn-rev:disabled { opacity:.35; }
+  .p-warn { background:rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.3); color:#FCD34D; padding:8px 12px; border-radius:8px; font-size:12px; margin-bottom:8px; }
+  .p-err { background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.3); color:#FCA5A5; padding:8px 12px; border-radius:8px; font-size:12px; margin-bottom:8px; }
+  .p-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .p-table input, .p-table select { background:var(--panel); border:1px solid var(--border); border-radius:6px; padding:5px 8px; color:var(--text); font-size:12px; width:100%; }
+  .p-table input:focus, .p-table select:focus { border-color:var(--blue); outline:none; }
+  .p-table input[type=number] { width:80px; }
+  .p-table input[type=checkbox] { width:auto; accent-color:var(--blue); }
+  .p-section { margin-bottom:20px; }
+  .p-section h3 { cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px; }
+  .p-section h3 .arr { transition:transform .2s; font-size:10px; }
+  .p-section h3.collapsed .arr { transform:rotate(-90deg); }
+  .p-section .p-body { overflow:hidden; }
+  .p-section .p-body.collapsed { display:none; }
+  .p-ta { width:100%; min-height:80px; background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:var(--text); font-size:13px; line-height:1.5; resize:vertical; font-family:inherit; }
+  .p-ta:focus { border-color:var(--blue); outline:none; }
+  .p-sticky { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--border); padding:12px 0; z-index:8; display:flex; gap:8px; align-items:center; }
+  .p-dirty { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--amber); margin-right:6px; }
+  @media(max-width:640px){
+    .p-status { flex-direction:column; }
+    .p-actions { flex-direction:column; }
+    .p-actions .btn { width:100%; }
+  }
 </style>
 </head>
 <body>
@@ -310,12 +339,14 @@ function renderDashboard(email) {
   <button data-tab="leads">Leads</button>
   <button data-tab="prompt">System Prompt</button>
   <button data-tab="settings">Settings</button>
+  <button data-tab="pricing">Pricing</button>
 </nav>
 <main>
   <section id="tab-conversations"></section>
   <section id="tab-leads" hidden></section>
   <section id="tab-prompt" hidden></section>
   <section id="tab-settings" hidden></section>
+  <section id="tab-pricing" hidden></section>
 </main>
 
 <div class="modal-mask" id="modal-mask"><div class="modal" id="modal"></div></div>
@@ -343,7 +374,7 @@ $$('nav.tabs button').forEach(b=>{
   b.onclick = () => {
     $$('nav.tabs button').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
-    ['conversations','leads','prompt','settings'].forEach(t=>{
+    ['conversations','leads','prompt','settings','pricing'].forEach(t=>{
       $('#tab-'+t).hidden = (t !== b.dataset.tab);
     });
     loadTab(b.dataset.tab);
@@ -355,6 +386,7 @@ function loadTab(t){
   if (t==='leads')         return renderConversations('leads');
   if (t==='prompt')        return renderPrompt();
   if (t==='settings')      return renderSettings();
+  if (t==='pricing')       return renderPricing();
 }
 
 /* ─── conversations ─── */
@@ -528,6 +560,284 @@ async function renderSettings(){
       toast('Saved');
     } catch(err){ toast('Save failed: '+err.message,'err'); }
   };
+}
+
+/* ─── pricing ─── */
+let pDraft = null;   // current draft config being edited
+let pClean = null;   // snapshot at last save (for dirty detection)
+let pApproved = null;// last fetched approved metadata
+let pDirty = false;
+
+function pApi(path, opts={}){
+  return fetch('/api/admin/pricing'+path, { credentials:'same-origin', ...opts }).then(async r => {
+    const j = await r.json().catch(()=>({}));
+    if (!r.ok) throw Object.assign(new Error(j.error||r.statusText), { status:r.status, errors:j.errors||[], warnings:j.warnings||[] });
+    return j;
+  });
+}
+
+function pMarkDirty(){ pDirty=true; const d=$('#p-dirty'); if(d) d.style.display='inline-block'; }
+function pMarkClean(){ pDirty=false; pClean=JSON.stringify(pDraft); const d=$('#p-dirty'); if(d) d.style.display='none'; }
+function pFmt(iso){ if(!iso) return '—'; return new Date(iso).toLocaleString(); }
+
+window.addEventListener('beforeunload', e => { if(pDirty){ e.preventDefault(); e.returnValue=''; } });
+
+async function renderPricing(){
+  const el = $('#tab-pricing');
+  el.innerHTML = '<div class="muted">Loading pricing data…</div>';
+  try {
+    const [draftRes, appRes] = await Promise.all([pApi('/draft'), pApi('/approved')]);
+    pDraft = draftRes.config;
+    pClean = JSON.stringify(pDraft);
+    pApproved = appRes;
+    pDirty = false;
+  } catch(err){
+    el.innerHTML = '<div class="p-err">Failed to load pricing: '+escapeHtml(err.message)+'</div>';
+    return;
+  }
+  pRenderAll(el);
+}
+
+function pRenderAll(el){
+  el.innerHTML = '';
+
+  // Warnings container
+  el.insertAdjacentHTML('beforeend', '<div id="p-warnings"></div><div id="p-errors"></div>');
+
+  // Status cards
+  el.insertAdjacentHTML('beforeend', pRenderStatus());
+
+  // Action buttons
+  el.insertAdjacentHTML('beforeend', pRenderActions());
+
+  // Profiles editor
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> PROFILES</h3><div class="p-body" id="p-profiles"></div></div>');
+  pRenderProfiles();
+
+  // Adjustments editor
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> ADJUSTMENTS</h3><div class="p-body" id="p-adj"></div></div>');
+  pRenderAdjustments();
+
+  // Fees editor
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> FEES</h3><div class="p-body" id="p-fees"></div></div>');
+  pRenderFees();
+
+  // Compliance editor
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> COMPLIANCE COPY</h3><div class="p-body" id="p-compliance"></div></div>');
+  pRenderCompliance();
+
+  // Sticky save bar
+  el.insertAdjacentHTML('beforeend', '<div class="p-sticky"><span class="p-dirty" id="p-dirty" style="display:none"></span><button class="btn" onclick="pSaveDraft()">Save Draft</button><button class="btn btn-pub" onclick="pPublish()" style="margin-left:auto">Approve &amp; Publish</button></div>');
+}
+
+function pToggle(h3){
+  h3.classList.toggle('collapsed');
+  h3.nextElementSibling.classList.toggle('collapsed');
+}
+
+function pRenderStatus(){
+  const ap = pApproved && pApproved.approved ? pApproved.approved : {};
+  return '<div class="p-status">' +
+    '<div class="card"><div class="k">Published</div><div class="v" style="font-size:14px">' + pFmt(ap.publishedAt) + '</div><div class="sub">by ' + escapeHtml(ap.publishedBy||'—') + '</div></div>' +
+    '<div class="card"><div class="k">Approved Updated</div><div class="v" style="font-size:14px">' + pFmt(ap.lastUpdated) + '</div></div>' +
+    '<div class="card"><div class="k">Draft Updated</div><div class="v" style="font-size:14px">' + pFmt(pDraft.lastUpdated) + '</div><div class="sub">by ' + escapeHtml(pDraft.lastReviewedBy||'—') + '</div></div>' +
+  '</div>';
+}
+
+function pRenderActions(){
+  const canRevert = pApproved && pApproved.canRevert;
+  return '<div class="p-actions">' +
+    '<button class="btn" onclick="pSaveDraft()">Save Draft</button>' +
+    '<button class="btn btn-pub" onclick="pPublish()">Approve &amp; Publish</button>' +
+    '<button class="btn btn-rev' + (canRevert?'':' disabled') + '" onclick="pRevert()"' + (canRevert?'':' disabled') + '>Revert to Last Approved</button>' +
+  '</div>';
+}
+
+/* ── Profiles ── */
+function pRenderProfiles(){
+  const wrap = $('#p-profiles');
+  if (!wrap) return;
+  const profiles = pDraft.profiles || [];
+  const cols = ['active','id','displayName','program','purpose','baseRate','spreadLow','spreadHigh','pointsLow','pointsHigh','feeLow','feeHigh','minFico','maxLtv','minDscr','defaultPrepay','ioAllowed','notes'];
+  let html = '<div class="p-table-wrap"><table class="p-table"><thead><tr>';
+  cols.forEach(c => { html += '<th>' + c + '</th>'; });
+  html += '</tr></thead><tbody>';
+  profiles.forEach((p, i) => {
+    html += '<tr>';
+    cols.forEach(c => {
+      if (c === 'active') {
+        html += '<td><input type="checkbox"' + (p.active?' checked':'') + ' onchange="pEditProfile('+i+',\\'active\\',this.checked)"></td>';
+      } else if (c === 'ioAllowed') {
+        html += '<td><input type="checkbox"' + (p.ioAllowed?' checked':'') + ' onchange="pEditProfile('+i+',\\'ioAllowed\\',this.checked)"></td>';
+      } else if (c === 'id' || c === 'program' || c === 'purpose') {
+        html += '<td style="font-family:ui-monospace,monospace;font-size:11px;white-space:nowrap">' + escapeHtml(p[c]) + '</td>';
+      } else if (['baseRate','spreadLow','spreadHigh','pointsLow','pointsHigh','feeLow','feeHigh','minFico','maxLtv'].includes(c)) {
+        html += '<td><input type="number" step="any" value="' + (p[c]??'') + '" onchange="pEditProfile('+i+',\\''+c+'\\',parseFloat(this.value))"></td>';
+      } else if (c === 'minDscr') {
+        html += '<td><input type="number" step="any" value="' + (p[c]!=null?p[c]:'') + '" placeholder="null" onchange="pEditProfile('+i+',\\'minDscr\\',this.value===\\'\\'?null:parseFloat(this.value))"></td>';
+      } else if (c === 'defaultPrepay') {
+        html += '<td><select onchange="pEditProfile('+i+',\\'defaultPrepay\\',this.value)">';
+        ['none','1-yr','3-yr','5-yr'].forEach(v => { html += '<option value="'+v+'"'+(p[c]===v?' selected':'')+'>'+v+'</option>'; });
+        html += '</select></td>';
+      } else {
+        html += '<td><input type="text" value="' + escapeHtml(p[c]||'') + '" onchange="pEditProfile('+i+',\\''+c+'\\',this.value)"></td>';
+      }
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+}
+function pEditProfile(i, field, val){ pDraft.profiles[i][field] = val; pMarkDirty(); }
+
+/* ── Adjustments ── */
+function pRenderAdjustments(){
+  const wrap = $('#p-adj');
+  if (!wrap) return;
+  const adj = pDraft.adjustments || {};
+  let html = '';
+
+  // State is special
+  Object.keys(adj).forEach(cat => {
+    if (cat === 'state') {
+      html += pRenderStateBands(adj.state);
+    } else {
+      html += pRenderAdjArray(cat, adj[cat]);
+    }
+  });
+  wrap.innerHTML = html;
+}
+
+function pRenderAdjArray(cat, arr){
+  if (!Array.isArray(arr)) return '';
+  const keyCol = arr[0] && arr[0].match != null ? 'match' : arr[0] && arr[0].ltvMax != null ? 'ltvMax' : arr[0] && arr[0].dscrMin != null ? 'dscrMin' : arr[0] && arr[0].amountMax != null ? 'amountMax' : 'match';
+  let html = '<div class="panel"><h3 style="margin-bottom:10px">' + escapeHtml(cat) + '</h3>';
+  html += '<div class="p-table-wrap"><table class="p-table"><thead><tr><th>active</th><th>' + keyCol + '</th><th>label</th><th>rateAdj</th><th>pointsAdj</th><th>notes</th></tr></thead><tbody>';
+  arr.forEach((row, i) => {
+    const kv = row[keyCol] != null ? row[keyCol] : '';
+    html += '<tr>' +
+      '<td><input type="checkbox"' + (row.active?' checked':'') + ' onchange="pEditAdj(\\''+cat+'\\','+i+',\\'active\\',this.checked)"></td>' +
+      '<td><input type="text" value="' + escapeHtml(String(kv)) + '" onchange="pEditAdjKey(\\''+cat+'\\','+i+',\\''+keyCol+'\\',this.value)"></td>' +
+      '<td><input type="text" value="' + escapeHtml(row.label||'') + '" onchange="pEditAdj(\\''+cat+'\\','+i+',\\'label\\',this.value)"></td>' +
+      '<td><input type="number" step="any" value="' + (row.rateAdj??0) + '" onchange="pEditAdj(\\''+cat+'\\','+i+',\\'rateAdj\\',parseFloat(this.value))"></td>' +
+      '<td><input type="number" step="any" value="' + (row.pointsAdj??0) + '" onchange="pEditAdj(\\''+cat+'\\','+i+',\\'pointsAdj\\',parseFloat(this.value))"></td>' +
+      '<td><input type="text" value="' + escapeHtml(row.notes||'') + '" onchange="pEditAdj(\\''+cat+'\\','+i+',\\'notes\\',this.value)"></td>' +
+    '</tr>';
+  });
+  html += '</tbody></table></div></div>';
+  return html;
+}
+
+function pRenderStateBands(state){
+  if (!state || !state.bands) return '';
+  let html = '<div class="panel"><h3 style="margin-bottom:10px">state</h3>';
+  html += '<div class="muted" style="margin-bottom:10px">' + escapeHtml(state.explain||'') + '</div>';
+  ['low','mid','high'].forEach(band => {
+    const b = state.bands[band];
+    if (!b) return;
+    html += '<div style="margin-bottom:12px;padding:10px;background:rgba(255,255,255,.02);border-radius:8px">' +
+      '<div style="font-weight:600;margin-bottom:6px">' + escapeHtml(b.label) + ' <span class="muted">(rateAdj: ' + b.rateAdj + ')</span></div>' +
+      '<div class="row"><label class="muted" style="width:60px">rateAdj</label><input type="number" step="any" value="' + b.rateAdj + '" style="width:80px" onchange="pEditStateBand(\\''+band+'\\',\\'rateAdj\\',parseFloat(this.value))"></div>' +
+      '<div class="row"><label class="muted" style="width:60px">active</label><input type="checkbox"' + (b.active?' checked':'') + ' onchange="pEditStateBand(\\''+band+'\\',\\'active\\',this.checked)"></div>' +
+      '<div class="row"><label class="muted" style="width:60px">states</label><input type="text" value="' + (b.states||[]).join(', ') + '" style="flex:1" onchange="pEditStateBand(\\''+band+'\\',\\'states\\',this.value.split(/[,\\\\s]+/).map(s=>s.trim()).filter(Boolean))"></div>' +
+    '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function pEditAdj(cat, i, field, val){ pDraft.adjustments[cat][i][field] = val; pMarkDirty(); }
+function pEditAdjKey(cat, i, key, val){
+  const num = parseFloat(val);
+  pDraft.adjustments[cat][i][key] = isNaN(num) ? val : num;
+  pMarkDirty();
+}
+function pEditStateBand(band, field, val){
+  pDraft.adjustments.state.bands[band][field] = val;
+  pMarkDirty();
+}
+
+/* ── Fees ── */
+function pRenderFees(){
+  const wrap = $('#p-fees');
+  if (!wrap) return;
+  const fees = pDraft.fees || [];
+  let html = '<div class="p-table-wrap"><table class="p-table"><thead><tr><th>active</th><th>id</th><th>name</th><th>low</th><th>high</th><th>notes</th></tr></thead><tbody>';
+  fees.forEach((f, i) => {
+    html += '<tr>' +
+      '<td><input type="checkbox"' + (f.active?' checked':'') + ' onchange="pEditFee('+i+',\\'active\\',this.checked)"></td>' +
+      '<td style="font-family:ui-monospace,monospace;font-size:11px">' + escapeHtml(f.id) + '</td>' +
+      '<td><input type="text" value="' + escapeHtml(f.name||'') + '" onchange="pEditFee('+i+',\\'name\\',this.value)"></td>' +
+      '<td><input type="number" step="any" value="' + (f.low??0) + '" onchange="pEditFee('+i+',\\'low\\',parseFloat(this.value))"></td>' +
+      '<td><input type="number" step="any" value="' + (f.high??0) + '" onchange="pEditFee('+i+',\\'high\\',parseFloat(this.value))"></td>' +
+      '<td><input type="text" value="' + escapeHtml(f.notes||'') + '" onchange="pEditFee('+i+',\\'notes\\',this.value)"></td>' +
+    '</tr>';
+  });
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+}
+function pEditFee(i, field, val){ pDraft.fees[i][field] = val; pMarkDirty(); }
+
+/* ── Compliance ── */
+function pRenderCompliance(){
+  const wrap = $('#p-compliance');
+  if (!wrap) return;
+  const c = pDraft.compliance || {};
+  const fields = ['disclaimer','rateRangeFootnote','upfrontCostNote','rateGridDisclaimer','advisorReviewMessage'];
+  let html = '';
+  fields.forEach(f => {
+    html += '<div style="margin-bottom:14px"><label class="muted" style="display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;letter-spacing:.06em">' + f + '</label>' +
+      '<textarea class="p-ta" onchange="pEditCompliance(\\''+f+'\\',this.value)">' + escapeHtml(c[f]||'') + '</textarea></div>';
+  });
+  wrap.innerHTML = html;
+}
+function pEditCompliance(field, val){ if(!pDraft.compliance) pDraft.compliance={}; pDraft.compliance[field]=val; pMarkDirty(); }
+
+/* ── Save / Publish / Revert ── */
+async function pSaveDraft(){
+  $('#p-warnings').innerHTML = '';
+  $('#p-errors').innerHTML = '';
+  try {
+    const res = await pApi('/draft', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(pDraft) });
+    if (res.warnings && res.warnings.length) {
+      $('#p-warnings').innerHTML = res.warnings.map(w => '<div class="p-warn">' + escapeHtml(w) + '</div>').join('');
+    }
+    pDraft.lastUpdated = res.lastUpdated || new Date().toISOString();
+    pMarkClean();
+    toast('Draft saved');
+    // Refresh status
+    const statusEl = document.querySelector('.p-status');
+    if (statusEl) statusEl.outerHTML = pRenderStatus();
+  } catch(err){
+    if (err.errors && err.errors.length) {
+      $('#p-errors').innerHTML = err.errors.map(e => '<div class="p-err">' + escapeHtml(e) + '</div>').join('');
+    } else {
+      $('#p-errors').innerHTML = '<div class="p-err">' + escapeHtml(err.message) + '</div>';
+    }
+    toast('Save failed','err');
+  }
+}
+
+async function pPublish(){
+  if (!confirm('Approve and publish the current draft? This will update the live /rates page.')) return;
+  try {
+    const res = await pApi('/publish', { method:'POST' });
+    toast('Published');
+    renderPricing();
+  } catch(err){
+    toast('Publish failed: '+err.message,'err');
+  }
+}
+
+async function pRevert(){
+  if (!confirm('Revert to the previous approved version? Your current draft is preserved separately.')) return;
+  try {
+    const res = await pApi('/revert', { method:'POST' });
+    toast('Reverted');
+    renderPricing();
+  } catch(err){
+    toast('Revert failed: '+err.message,'err');
+  }
 }
 
 loadTab('conversations');
