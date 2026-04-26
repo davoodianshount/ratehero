@@ -1,9 +1,21 @@
-/dscr-loans/non-qm /pages/non-qm 301
-/dscr-loans/non-qm.html /pages/non-qm 301
+/dscr-loans/non-qm /non-qm/ 301
+/dscr-loans/non-qm.html /non-qm/ 301
 /dscr-loans/short-term-rental /pages/short-term-rental 301
 /dscr-loans/short-term-rental.html /pages/short-term-rental 301
 /dscr-loans/hard-money-exit /pages/hard-money-exit 301
 /dscr-loans/hard-money-exit.html /pages/hard-money-exit 301
+
+# Old /pages/ URLs → new clean URLs
+/pages/long-term-rental /dscr-loans/ 301
+/pages/long-term-rental.html /dscr-loans/ 301
+/pages/non-qm /non-qm/ 301
+/pages/non-qm.html /non-qm/ 301
+/pages/conventional /conventional/ 301
+/pages/conventional.html /conventional/ 301
+/pages/heloc /heloc/ 301
+/pages/heloc.html /heloc/ 301
+/pages/brrrr-loan /brrrr/ 301
+/pages/brrrr-loan.html /brrrr/ 301
 
 # Canonical URLs: root-level duplicates → nested canonical paths
 /about /pages/about 301

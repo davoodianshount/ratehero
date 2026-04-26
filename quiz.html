@@ -384,7 +384,7 @@ function showResult(){
     tagline = 'No down payment required · Your earned benefit';
     why = 'As a veteran or active military member, the VA loan is almost certainly your best option. Zero down payment, no PMI, and rates consistently lower than conventional loans. Rate Hero works with VA-approved lenders to get you the best VA rate available.';
     features = [['Down Payment','0% required'],['PMI','None — ever'],['Qualification','VA entitlement + income'],['Best for','Purchase or refi of primary home']];
-    alts = [['Conventional','Strong credit? May compete with VA','pages/conventional.html'],['FHA','Lower credit options','pages/conventional.html']];
+    alts = [['Conventional','Strong credit? May compete with VA','/conventional/'],['FHA','Lower credit options','/conventional/']];
   }
   // RETIRED / ASSETS → Asset Utilization
   else if(income === 'retired'){
@@ -392,7 +392,7 @@ function showResult(){
     tagline = 'Your portfolio qualifies you — no paycheck needed';
     why = 'You have accumulated wealth but no active paycheck — which means conventional income documentation won\'t work. Asset utilization programs divide your eligible assets over a loan term to produce qualifying income. No job required, no W-2, no tax returns.';
     features = [['Income Doc','Eligible assets ÷ 84 months'],['Min Assets','Varies by loan amount'],['Credit','680+ recommended'],['Down Payment','20–25%']];
-    alts = [['Non-QM','Bank stmt or P&L if you have business income','pages/non-qm.html'],['DSCR','If buying investment property','pages/long-term-rental.html']];
+    alts = [['Non-QM','Bank stmt or P&L if you have business income','/non-qm/'],['DSCR','If buying investment property','/dscr-loans/']];
   }
   // INVESTOR + LTR/STR/MULTIFAMILY → DSCR
   else if(income === 'investor' || prop === 'ltr' || prop === 'str' || prop === 'multifamily'){
@@ -401,13 +401,13 @@ function showResult(){
       tagline = 'Qualify on Airbnb and VRBO income';
       why = 'Your Airbnb or VRBO income is exactly what DSCR STR programs are built for. Lenders use AirDNA projections (for purchases) or 12-month platform history (for refinances) to calculate qualifying income. No W-2, no tax returns, no personal income needed.';
       features = [['Income Source','AirDNA or platform history'],['Vacancy Factor','20% default applied'],['Down Payment','20–25%'],['Loan in LLC','Yes — available']];
-      alts = [['DSCR Long-Term','If converting to annual leases','pages/long-term-rental.html'],['BRRRR Refi','If exiting a rehab','pages/brrrr-loan.html']];
+      alts = [['DSCR Long-Term','If converting to annual leases','/dscr-loans/'],['BRRRR Refi','If exiting a rehab','/brrrr/']];
     } else {
       prog = 'DSCR LOAN';
       tagline = 'The property qualifies itself — no personal income needed';
       why = 'Based on your answers, DSCR is your strongest fit. Lenders look at one thing: does the rent cover the mortgage? If yes, you qualify — regardless of what your tax return shows, how many write-offs you have, or whether you\'re self-employed. No W-2s, no tax returns, no income limits.';
       features = [['Income Required','None — property qualifies'],['Down Payment','20–25%'],['Loan in LLC','Yes — available'],['Close Time','21 days average']];
-      alts = [['Non-QM','If income docs needed','pages/non-qm.html'],['HELOC','To tap existing equity','pages/heloc.html']];
+      alts = [['Non-QM','If income docs needed','/non-qm/'],['HELOC','To tap existing equity','/heloc/']];
     }
   }
   // HARD MONEY EXIT
@@ -416,7 +416,7 @@ function showResult(){
     tagline = 'Stop paying hard money rates — refinance into a 30-year DSCR';
     why = 'You\'ve finished the rehab and the property is stabilized — now you need to get out of the hard money loan before the carrying cost kills your returns. A DSCR refinance replaces your hard money loan with a 30-year term based on the property\'s rental income. No W-2 or tax returns needed.';
     features = [['Income Required','Rental income only'],['Down Payment','N/A — refinance'],['Seasoning','None required on most programs'],['Close Time','14–21 days']];
-    alts = [['BRRRR Refi','Cash-out to fund next deal','pages/brrrr-loan.html'],['DSCR LTR','Long-term hold strategy','pages/long-term-rental.html']];
+    alts = [['BRRRR Refi','Cash-out to fund next deal','/brrrr/'],['DSCR LTR','Long-term hold strategy','/dscr-loans/']];
   }
   // SELF-EMPLOYED → Non-QM
   else if(income === 'selfemployed'){
@@ -424,7 +424,7 @@ function showResult(){
     tagline = 'Bank statements, P&L, or assets — skip the tax return problem';
     why = 'As a self-employed borrower, your tax return likely shows far less than you actually earn after write-offs. Non-QM programs use 12–24 months of bank deposits, a CPA-prepared P&L, or asset utilization instead of tax returns. Your real income qualifies the loan — not the number your accountant optimized.';
     features = [['Income Doc','Bank statements or P&L'],['No W-2 Needed','Correct'],['Property Type','Primary, second, or investment'],['Credit','620+ minimum']];
-    alts = [['DSCR','If buying investment property','pages/long-term-rental.html'],['Bank Statements','Most popular Non-QM method','pages/non-qm.html']];
+    alts = [['DSCR','If buying investment property','/dscr-loans/'],['Bank Statements','Most popular Non-QM method','/non-qm/']];
   }
   // W-2 PRIMARY → Conventional/FHA
   else {
@@ -433,13 +433,13 @@ function showResult(){
       tagline = 'Strongest rates for documented W-2 borrowers';
       why = 'With strong W-2 income and good credit, a conventional loan gives you access to the best rates on the market. Rate Hero shops multiple lending partners to find the lowest conventional rate available — often better than what your bank or a retail lender quotes.';
       features = [['Down Payment','3–20%'],['PMI','Required below 20% down'],['Best Rate','680+ credit gets top tier'],['Close Time','21 days average']];
-      alts = [['FHA','Lower down payment option','pages/conventional.html'],['VA Loan','If you have VA eligibility','pages/conventional.html']];
+      alts = [['FHA','Lower down payment option','/conventional/'],['VA Loan','If you have VA eligibility','/conventional/']];
     } else {
       prog = 'FHA LOAN';
       tagline = '3.5% down · More flexible qualification than conventional';
       why = 'FHA loans are the strongest option when your credit score is below 680 or your down payment is limited. With as little as 3.5% down and more flexible DTI limits, FHA often approves borrowers who conventional programs decline. Rate Hero finds the best FHA lender in our network for your specific profile.';
       features = [['Down Payment','3.5% minimum'],['Credit','580+ for 3.5% down'],['DTI Limit','More flexible than conventional'],['MIP','Required — monthly + upfront']];
-      alts = [['Conventional','Once credit improves','pages/conventional.html'],['Non-QM','If W-2 income is also complex','pages/non-qm.html']];
+      alts = [['Conventional','Once credit improves','/conventional/'],['Non-QM','If W-2 income is also complex','/non-qm/']];
     }
   }
 
