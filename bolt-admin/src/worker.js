@@ -1,13 +1,13 @@
 /**
- * bolt-admin — Admin dashboard for Bolt.
+ * bolt-admin � Admin dashboard for Bolt.
  *
  * Routes (served at goratehero.com/admin/*):
- *   GET  /admin                         → dashboard HTML shell (SPA-ish)
- *   GET  /admin/api/stats               → overview counts
- *   GET  /admin/api/conversations       → list (paginated)
- *   GET  /admin/api/conversations/:id   → full conversation
- *   GET  /admin/api/config              → { system_prompt, alert_webhook_url }
- *   POST /admin/api/config              → update KV keys
+ *   GET  /admin                         ? dashboard HTML shell (SPA-ish)
+ *   GET  /admin/api/stats               ? overview counts
+ *   GET  /admin/api/conversations       ? list (paginated)
+ *   GET  /admin/api/conversations/:id   ? full conversation
+ *   GET  /admin/api/config              ? { system_prompt, alert_webhook_url }
+ *   POST /admin/api/config              ? update KV keys
  *
  * Auth: Cloudflare Access is expected to sit in front of this Worker.
  * As a defense-in-depth check we also require the CF-Access-Authenticated-User-Email
@@ -84,7 +84,7 @@ export default {
   },
 };
 
-/* ─────────────── data access ─────────────── */
+/* --------------- data access --------------- */
 
 async function getStats(env) {
   const day  = 24 * 60 * 60 * 1000;
@@ -203,7 +203,7 @@ async function updateConfig(env, body, accessEmail) {
   return { ok: true, updated_at: Date.now() };
 }
 
-/* ─────────────── responses ─────────────── */
+/* --------------- responses --------------- */
 
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
@@ -218,7 +218,7 @@ function htmlResponse(html) {
   });
 }
 
-/* ─────────────── dashboard HTML ─────────────── */
+/* --------------- dashboard HTML --------------- */
 
 function renderDashboard(email) {
   return `<!doctype html>
@@ -227,7 +227,7 @@ function renderDashboard(email) {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Bolt Admin · Rate Hero</title>
+<title>Bolt Admin � Rate Hero</title>
 <style>
   :root {
     --bg:#0B1220; --panel:#111A2E; --panel2:#0E1628; --border:rgba(255,255,255,.08);
@@ -345,8 +345,8 @@ function renderDashboard(email) {
 <body>
 <header>
   <div class="brand">
-    <div class="bolt">⚡</div>
-    <div>Bolt Admin <span class="muted" style="font-weight:400">· Rate Hero</span></div>
+    <div class="bolt">?</div>
+    <div>Bolt Admin <span class="muted" style="font-weight:400">� Rate Hero</span></div>
   </div>
   <div class="user">${escapeHtml(email || 'unauthenticated')}</div>
 </header>
@@ -385,7 +385,7 @@ async function api(path, opts={}){
   return res.json();
 }
 
-/* ─── tabs ─── */
+/* --- tabs --- */
 $$('nav.tabs button').forEach(b=>{
   b.onclick = () => {
     $$('nav.tabs button').forEach(x=>x.classList.remove('active'));
@@ -405,10 +405,10 @@ function loadTab(t){
   if (t==='pricing')       return renderPricing();
 }
 
-/* ─── conversations ─── */
+/* --- conversations --- */
 async function renderConversations(filter){
   const el = $('#tab-' + (filter==='leads' ? 'leads' : 'conversations'));
-  el.innerHTML = '<div class="muted">Loading…</div>';
+  el.innerHTML = '<div class="muted">Loading�</div>';
   let stats, list;
   try {
     [stats, list] = await Promise.all([
@@ -425,13 +425,13 @@ async function renderConversations(filter){
       <div class="card"><div class="k">Today</div><div class="v">\${stats.today.conversations}</div><div class="sub">\${stats.today.leads} leads</div></div>
       <div class="card"><div class="k">This Week</div><div class="v">\${stats.week.conversations}</div><div class="sub">\${stats.week.leads} leads</div></div>
       <div class="card"><div class="k">All Time</div><div class="v">\${stats.total.conversations}</div><div class="sub">\${stats.total.leads} leads</div></div>
-      <div class="card"><div class="k">Lead Rate</div><div class="v">\${stats.total.conversations ? ((stats.total.leads/stats.total.conversations)*100).toFixed(1)+'%' : '—'}</div><div class="sub">leads / conversations</div></div>
+      <div class="card"><div class="k">Lead Rate</div><div class="v">\${stats.total.conversations ? ((stats.total.leads/stats.total.conversations)*100).toFixed(1)+'%' : '�'}</div><div class="sub">leads / conversations</div></div>
     </div>\`;
 
   const rows = list.items.map(c => \`
     <tr data-id="\${c.session_id}">
       <td>\${fmtDate(c.updated_at)}</td>
-      <td>\${c.lead_captured ? '<span class="badge lead">Lead</span>' : '<span class="badge dim">—</span>'}</td>
+      <td>\${c.lead_captured ? '<span class="badge lead">Lead</span>' : '<span class="badge dim">�</span>'}</td>
       <td class="preview">\${escapeHtml(c.first_user_message || '(no user message)')}</td>
       <td>\${c.msg_count}</td>
     </tr>\`).join('');
@@ -463,9 +463,9 @@ async function openConversation(id){
       <b>Last msg</b><span>\${fmtDate(data.updated_at)}</span>
       <b>Messages</b><span>\${data.msg_count}</span>
       <b>Session</b><span style="font-family:ui-monospace,monospace">\${escapeHtml(data.session_id)}</span>
-      <b>Referrer</b><span>\${escapeHtml(data.referer||'—')}</span>
-      <b>User-Agent</b><span style="word-break:break-all">\${escapeHtml(data.user_agent||'—')}</span>
-      <b>IP hash</b><span style="font-family:ui-monospace,monospace">\${escapeHtml(data.ip_hash||'—')}</span>
+      <b>Referrer</b><span>\${escapeHtml(data.referer||'�')}</span>
+      <b>User-Agent</b><span style="word-break:break-all">\${escapeHtml(data.user_agent||'�')}</span>
+      <b>IP hash</b><span style="font-family:ui-monospace,monospace">\${escapeHtml(data.ip_hash||'�')}</span>
     </div>\`;
   $('#modal').innerHTML = \`
     <header style="display:flex;justify-content:space-between;align-items:center;">
@@ -486,7 +486,7 @@ function renderMsg(m){
   // content is an array of blocks (Anthropic format)
   return (m.content||[]).map(b => {
     if (b.type === 'text')        return \`<div class="msg \${role}"><div class="role">\${role}</div>\${escapeHtml(b.text)}</div>\`;
-    if (b.type === 'tool_use')    return \`<div class="msg tool"><div class="role">tool call · \${escapeHtml(b.name)}</div>\${escapeHtml(JSON.stringify(b.input,null,2))}</div>\`;
+    if (b.type === 'tool_use')    return \`<div class="msg tool"><div class="role">tool call � \${escapeHtml(b.name)}</div>\${escapeHtml(JSON.stringify(b.input,null,2))}</div>\`;
     if (b.type === 'tool_result') return \`<div class="msg tool"><div class="role">tool result</div>\${escapeHtml(typeof b.content==='string'?b.content:JSON.stringify(b.content))}</div>\`;
     return '';
   }).join('');
@@ -495,18 +495,18 @@ function renderMsg(m){
 function closeModal(){ $('#modal-mask').classList.remove('open'); }
 $('#modal-mask').addEventListener('click', e => { if (e.target.id==='modal-mask') closeModal(); });
 
-/* ─── prompt ─── */
+/* --- prompt --- */
 async function renderPrompt(){
   const el = $('#tab-prompt');
-  el.innerHTML = '<div class="muted">Loading…</div>';
+  el.innerHTML = '<div class="muted">Loading�</div>';
   const cfg = await api('/config');
   const lastUpdated = cfg.system_prompt_updated_at
-    ? fmtDate(cfg.system_prompt_updated_at) + (cfg.system_prompt_updated_by ? \` · by \${escapeHtml(cfg.system_prompt_updated_by)}\` : '')
-    : 'Never — using built-in default';
+    ? fmtDate(cfg.system_prompt_updated_at) + (cfg.system_prompt_updated_by ? \` � by \${escapeHtml(cfg.system_prompt_updated_by)}\` : '')
+    : 'Never � using built-in default';
   el.innerHTML = \`
     <div class="panel">
       <h3>System prompt</h3>
-      <div class="muted" style="margin-bottom:8px">Bolt's instructions. Save → live on the next message, no redeploy.</div>
+      <div class="muted" style="margin-bottom:8px">Bolt's instructions. Save ? live on the next message, no redeploy.</div>
       <div class="row" style="margin-bottom:10px">
         <span class="badge dim">Last saved: \${lastUpdated}</span>
         <span class="badge dim" id="prompt-chars">\${cfg.system_prompt_length} chars</span>
@@ -515,21 +515,21 @@ async function renderPrompt(){
       <div class="row" style="margin-top:12px">
         <button class="btn" id="save-prompt">Save</button>
         <button class="btn ghost" id="reset-prompt">Revert</button>
-        <button class="btn ghost" id="test-prompt">Test prompt →</button>
+        <button class="btn ghost" id="test-prompt">Test prompt ?</button>
       </div>
     </div>
     <div class="panel">
-      <h3>Program knowledge (FHA · VA · DSCR · Non-QM · etc.)</h3>
+      <h3>Program knowledge (FHA � VA � DSCR � Non-QM � etc.)</h3>
       <div class="muted" style="line-height:1.6">
         Paste guideline summaries directly into the prompt above (LTVs, DSCR mins, credit floors, reserves, loan limits).
-        Keep it tight — a few hundred words per program is plenty; Bolt references it verbatim.
-        For full PDF-size guideline docs, ask to add <b>RAG</b> (retrieval) — that's a follow-up we can ship once volume justifies it.
+        Keep it tight � a few hundred words per program is plenty; Bolt references it verbatim.
+        For full PDF-size guideline docs, ask to add <b>RAG</b> (retrieval) � that's a follow-up we can ship once volume justifies it.
       </div>
     </div>
     <div class="panel">
       <h3>Tips</h3>
       <ul class="muted" style="margin:0;padding-left:18px;line-height:1.7">
-        <li>Keep the <b>submit_lead</b> instructions — removing them disables lead capture.</li>
+        <li>Keep the <b>submit_lead</b> instructions � removing them disables lead capture.</li>
         <li>Short sentences win. Bolt mirrors your tone.</li>
         <li>Blank the field and save to restore the built-in default.</li>
       </ul>
@@ -549,7 +549,7 @@ async function renderPrompt(){
   $('#reset-prompt').onclick = () => { $('#prompt-ta').value = cfg.system_prompt; };
 }
 
-/* ─── settings ─── */
+/* --- settings --- */
 async function renderSettings(){
   const el = $('#tab-settings');
   const cfg = await api('/config');
@@ -564,7 +564,7 @@ async function renderSettings(){
     </div>
     <div class="panel">
       <h3>Lead delivery</h3>
-      <div class="muted">Leads from Bolt are POSTed to the same <b>web3forms</b> endpoint as your site CTAs (access key ending <code>1adf8</code>). No separate inbox — they land next to your funnel submissions.</div>
+      <div class="muted">Leads from Bolt are POSTed to the same <b>web3forms</b> endpoint as your site CTAs (access key ending <code>1adf8</code>). No separate inbox � they land next to your funnel submissions.</div>
     </div>
     <div class="panel">
       <h3>Retention</h3>
@@ -578,7 +578,7 @@ async function renderSettings(){
   };
 }
 
-/* ─── pricing ─── */
+/* --- pricing --- */
 let pDraft = null;   // current draft config being edited
 let pClean = null;   // snapshot at last save (for dirty detection)
 let pApproved = null;// last fetched approved metadata
@@ -594,13 +594,13 @@ function pApi(path, opts={}){
 
 function pMarkDirty(){ pDirty=true; const d=$('#p-dirty'); if(d) d.style.display='inline-block'; }
 function pMarkClean(){ pDirty=false; pClean=JSON.stringify(pDraft); const d=$('#p-dirty'); if(d) d.style.display='none'; }
-function pFmt(iso){ if(!iso) return '—'; return new Date(iso).toLocaleString(); }
+function pFmt(iso){ if(!iso) return '�'; return new Date(iso).toLocaleString(); }
 
 window.addEventListener('beforeunload', e => { if(pDirty){ e.preventDefault(); e.returnValue=''; } });
 
 async function renderPricing(){
   const el = $('#tab-pricing');
-  el.innerHTML = '<div class="muted">Loading pricing data…</div>';
+  el.innerHTML = '<div class="muted">Loading pricing data�</div>';
   try {
     const [draftRes, appRes] = await Promise.all([pApi('/draft'), pApi('/approved')]);
     pDraft = draftRes.config;
@@ -627,19 +627,19 @@ function pRenderAll(el){
   el.insertAdjacentHTML('beforeend', pRenderActions());
 
   // Profiles editor
-  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> PROFILES</h3><div class="p-body" id="p-profiles"></div></div>');
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">?</span> PROFILES</h3><div class="p-body" id="p-profiles"></div></div>');
   pRenderProfiles();
 
   // Adjustments editor
-  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> ADJUSTMENTS</h3><div class="p-body" id="p-adj"></div></div>');
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">?</span> ADJUSTMENTS</h3><div class="p-body" id="p-adj"></div></div>');
   pRenderAdjustments();
 
   // Fees editor
-  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> FEES</h3><div class="p-body" id="p-fees"></div></div>');
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">?</span> FEES</h3><div class="p-body" id="p-fees"></div></div>');
   pRenderFees();
 
   // Compliance editor
-  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">▼</span> COMPLIANCE COPY</h3><div class="p-body" id="p-compliance"></div></div>');
+  el.insertAdjacentHTML('beforeend', '<div class="p-section"><h3 onclick="pToggle(this)"><span class="arr">?</span> COMPLIANCE COPY</h3><div class="p-body" id="p-compliance"></div></div>');
   pRenderCompliance();
 
   // Sticky save bar
@@ -654,9 +654,9 @@ function pToggle(h3){
 function pRenderStatus(){
   const ap = pApproved && pApproved.approved ? pApproved.approved : {};
   return '<div class="p-status">' +
-    '<div class="card"><div class="k">Published</div><div class="v" style="font-size:14px">' + pFmt(ap.publishedAt) + '</div><div class="sub">by ' + escapeHtml(ap.publishedBy||'—') + '</div></div>' +
+    '<div class="card"><div class="k">Published</div><div class="v" style="font-size:14px">' + pFmt(ap.publishedAt) + '</div><div class="sub">by ' + escapeHtml(ap.publishedBy||'�') + '</div></div>' +
     '<div class="card"><div class="k">Approved Updated</div><div class="v" style="font-size:14px">' + pFmt(ap.lastUpdated) + '</div></div>' +
-    '<div class="card"><div class="k">Draft Updated</div><div class="v" style="font-size:14px">' + pFmt(pDraft.lastUpdated) + '</div><div class="sub">by ' + escapeHtml(pDraft.lastReviewedBy||'—') + '</div></div>' +
+    '<div class="card"><div class="k">Draft Updated</div><div class="v" style="font-size:14px">' + pFmt(pDraft.lastUpdated) + '</div><div class="sub">by ' + escapeHtml(pDraft.lastReviewedBy||'�') + '</div></div>' +
   '</div>';
 }
 
@@ -669,7 +669,7 @@ function pRenderActions(){
   '</div>';
 }
 
-/* ── Profiles ── */
+/* -- Profiles -- */
 function pRenderProfiles(){
   const wrap = $('#p-profiles');
   if (!wrap) return;
@@ -706,7 +706,7 @@ function pRenderProfiles(){
 }
 function pEditProfile(i, field, val){ pDraft.profiles[i][field] = val; pMarkDirty(); }
 
-/* ── Adjustments ── */
+/* -- Adjustments -- */
 function pRenderAdjustments(){
   const wrap = $('#p-adj');
   if (!wrap) return;
@@ -773,7 +773,7 @@ function pEditStateBand(band, field, val){
   pMarkDirty();
 }
 
-/* ── Fees ── */
+/* -- Fees -- */
 function pRenderFees(){
   const wrap = $('#p-fees');
   if (!wrap) return;
@@ -794,7 +794,7 @@ function pRenderFees(){
 }
 function pEditFee(i, field, val){ pDraft.fees[i][field] = val; pMarkDirty(); }
 
-/* ── Compliance ── */
+/* -- Compliance -- */
 function pRenderCompliance(){
   const wrap = $('#p-compliance');
   if (!wrap) return;
@@ -809,7 +809,7 @@ function pRenderCompliance(){
 }
 function pEditCompliance(field, val){ if(!pDraft.compliance) pDraft.compliance={}; pDraft.compliance[field]=val; pMarkDirty(); }
 
-/* ── Save / Publish / Revert ── */
+/* -- Save / Publish / Revert -- */
 async function pSaveDraft(){
   $('#p-warnings').innerHTML = '';
   $('#p-errors').innerHTML = '';
