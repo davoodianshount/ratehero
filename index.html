@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -43,7 +43,7 @@ body { font-family: var(--font-b); background: var(--navy); color: var(--white);
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
 
-/* ─── ANIMATIONS ─── */
+/* â”€â”€â”€ ANIMATIONS â”€â”€â”€ */
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 @keyframes slideIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); } 50% { box-shadow: 0 0 0 12px rgba(37,99,235,0); } }
@@ -51,7 +51,7 @@ body { font-family: var(--font-b); background: var(--navy); color: var(--white);
 
 #landing { display: block; }
 
-/* ─── NAV ─── */
+/* â”€â”€â”€ NAV â”€â”€â”€ */
 nav {
   position: sticky; top: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -63,7 +63,7 @@ nav {
 .nav-logo { font-family: var(--font-d); font-size: 22px; letter-spacing: 3px; color: var(--white); text-decoration: none; display:inline-flex; align-items:center; }
 .nav-logo span { color: var(--teal); }
 
-/* ── centered nav ── */
+/* â”€â”€ centered nav â”€â”€ */
 .nav-links { display: flex; gap: 2px; list-style: none; align-items: center; }
 .nav-links > li { position: relative; }
 .nav-links > li > a {
@@ -72,11 +72,11 @@ nav {
   display: flex; align-items: center; gap: 5px; white-space: nowrap;
 }
 .nav-links > li > a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
-.nav-links > li > a.has-drop::after { content:'▾'; font-size:9px; color:var(--white-65); transition:transform .2s; margin-left:2px; }
+.nav-links > li > a.has-drop::after { content:'â–¾'; font-size:9px; color:var(--white-65); transition:transform .2s; margin-left:2px; }
 .nav-links > li:hover > a.has-drop::after { transform:rotate(180deg); color:var(--blue-bright); }
 .nav-links > li:hover > a.has-drop { color:var(--white); }
 
-/* ── dropdown ── */
+/* â”€â”€ dropdown â”€â”€ */
 .nav-drop::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;}
 .nav-drop {
   position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(-6px);
@@ -109,7 +109,7 @@ nav {
 .btn-hero:hover { background: var(--blue-bright); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,99,235,0.55); }
 .btn-nav:hover { background: var(--blue-bright); transform: translateY(-1px); }
 
-/* ─── HERO ─── */
+/* â”€â”€â”€ HERO â”€â”€â”€ */
 .hero {
   background: var(--navy);
   min-height: calc(100vh - 66px);
@@ -140,7 +140,7 @@ nav {
   font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   margin-bottom: 28px;
 }
-.hero-badge::before { content: '⚡'; font-size: 11px; }
+.hero-badge::before { content: 'âš¡'; font-size: 11px; }
 
 .hero h1 {
   font-family: var(--font-b); font-size: clamp(50px, 6.5vw, 84px);
@@ -221,7 +221,7 @@ nav {
 .hsc-num span { color: var(--teal); }
 .hsc-label { font-size: 11px; color: var(--white-65); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
 
-/* ─── TRUST BAR ─── */
+/* â”€â”€â”€ TRUST BAR â”€â”€â”€ */
 .trust-bar {
   background: var(--navy-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   padding: 16px 52px; display: flex; align-items: center; justify-content: center;
@@ -231,7 +231,7 @@ nav {
 .trust-item strong { color: var(--white); font-weight: 700; }
 .trust-divider { width: 1px; height: 20px; background: var(--border); }
 
-/* ─── SECTIONS ─── */
+/* â”€â”€â”€ SECTIONS â”€â”€â”€ */
 .section { padding: 96px 52px; max-width: 1300px; margin: 0 auto; }
 .section-tag {
   display: inline-flex; align-items: center; gap: 8px;
@@ -358,7 +358,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 .footer-bottom { border-top: 1px solid var(--border); padding: 20px 52px; max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 .footer-bottom p { font-size: 12px; color: var(--white-65); }
 
-/* ─── FUNNEL ─── */
+/* â”€â”€â”€ FUNNEL â”€â”€â”€ */
 #funnel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: var(--navy-2); display: none; flex-direction: column; overflow-y: auto; }
 .funnel-nav { background: rgba(8,14,26,0.97); border-bottom: 1px solid var(--border); padding: 0 52px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
 .funnel-logo { font-family: var(--font-d); font-size: 22px; letter-spacing: 3px; color: var(--white); }
@@ -430,7 +430,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 .next-num { width: 28px; height: 28px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: var(--white); flex-shrink: 0; }
 .next-text { font-size: 18px; color: var(--white-65); line-height: 1.6; padding-top: 4px; }
 
-/* ─── MOBILE ─── */
+/* â”€â”€â”€ MOBILE â”€â”€â”€ */
 @media (max-width: 960px) {
   nav, .funnel-nav { padding: 0 20px; }
   .nav-links, .nav-phone { display: none; }
@@ -452,15 +452,15 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .opt-grid, .opt-grid.three { grid-template-columns: 1fr 1fr; }
   .input-row { grid-template-columns: 1fr; }
   .back-btn { left: 12px; bottom: 80px; top: auto; transform: none; }
-  /* Situation grid — 2 col on tablet */
+  /* Situation grid â€” 2 col on tablet */
   .situation-grid { grid-template-columns: repeat(2, 1fr);   margin: 0 auto;
 }
-  /* Situation grid — 2 col on tablet */
+  /* Situation grid â€” 2 col on tablet */
   .situation-grid { grid-template-columns: repeat(2, 1fr);   margin: 0 auto;
 }
-  /* Case studies — 1 col on tablet */
+  /* Case studies â€” 1 col on tablet */
   .case-studies-grid { grid-template-columns: 1fr !important; }
-  /* Hard money banner — stack on mobile */
+  /* Hard money banner â€” stack on mobile */
   .hm-inner { flex-direction: column !important; text-align: center; gap: 14px !important; }
   .situation-grid { grid-template-columns: repeat(2, 1fr);   margin: 0 auto;
 }
@@ -490,7 +490,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   /* Situation grid 1 col */
   .situation-grid { grid-template-columns: repeat(2, 1fr);   margin: 0 auto;
 }
-  /* Situation grid — 2 col on phone */
+  /* Situation grid â€” 2 col on phone */
   .situation-grid { grid-template-columns: repeat(2, 1fr);   margin: 0 auto;
 }
   /* Case studies 1 col */
@@ -501,7 +501,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .accordion-q { font-size: 15px; padding: 16px 14px; }
 }
 
-/* ─── SITUATION SELECTOR ─── */
+/* â”€â”€â”€ SITUATION SELECTOR â”€â”€â”€ */
 .situation-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -549,10 +549,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 
 
 .mobile-only-trust { display: none; }
-/* ════════════════════════════════════════════════════
-   MOBILE OPTIMIZATIONS — max-width: 768px
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   MOBILE OPTIMIZATIONS â€” max-width: 768px
    Desktop is completely unaffected
-════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 .trust-disclaimer {
   font-size: 11px;
@@ -566,21 +566,21 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 
 @media (max-width: 768px) {
 
-  /* ─── HIDE Programs section (duplicate of situation cards) ─── */
+  /* â”€â”€â”€ HIDE Programs section (duplicate of situation cards) â”€â”€â”€ */
   .mobile-hide-section { display: none !important; }
   .mobile-hide { display: none !important; }
 
-  /* ─── HERO: tighter spacing ─── */
+  /* â”€â”€â”€ HERO: tighter spacing â”€â”€â”€ */
   .hero { padding: 52px 16px 40px !important; min-height: auto !important; }
   h1 { font-size: clamp(36px, 9vw, 56px) !important; line-height: .92 !important; }
   .hero-sub { font-size: 15px !important; margin-bottom: 8px !important; }
   .btn-hero { max-width: 100% !important; padding: 16px 28px !important; font-size: 17px !important; text-align: center !important; }
 
-  /* ─── TRUST BAR: smaller, tighter ─── */
+  /* â”€â”€â”€ TRUST BAR: smaller, tighter â”€â”€â”€ */
   .trust-bar { padding: 12px 16px !important; }
   .trust-item { font-size: 12px !important; }
 
-  /* ─── HARD MONEY BANNER: stack vertically ─── */
+  /* â”€â”€â”€ HARD MONEY BANNER: stack vertically â”€â”€â”€ */
   .hm-inner {
     flex-direction: column !important;
     align-items: center !important;
@@ -589,7 +589,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     padding: 16px 16px !important;
   }
 
-  /* ─── SITUATION CARDS: 2 columns, no overflow ─── */
+  /* â”€â”€â”€ SITUATION CARDS: 2 columns, no overflow â”€â”€â”€ */
   .situation-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 10px !important;
@@ -600,7 +600,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .sit-title { font-size: 12px !important; }
   .sit-sub { font-size: 10px !important; }
 
-  /* ─── HOW IT WORKS: single column ─── */
+  /* â”€â”€â”€ HOW IT WORKS: single column â”€â”€â”€ */
   .two-col,
   div[style*="grid-template-columns:1fr 1fr"],
   div[style*="grid-template-columns: 1fr 1fr"] { 
@@ -608,7 +608,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     gap: 32px !important;
   }
 
-  /* ─── CASE STUDIES: horizontal swipe ─── */
+  /* â”€â”€â”€ CASE STUDIES: horizontal swipe â”€â”€â”€ */
   .case-studies-wrapper {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
@@ -633,18 +633,18 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     flex-shrink: 0 !important;
   }
 
-  /* ─── REVIEWS: single column ─── */
+  /* â”€â”€â”€ REVIEWS: single column â”€â”€â”€ */
   .reviews-grid { grid-template-columns: 1fr !important; }
 
-  /* ─── STATS: 2x2 grid ─── */
+  /* â”€â”€â”€ STATS: 2x2 grid â”€â”€â”€ */
   .stats-row { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
   .stat-box { padding: 20px 14px !important; }
   .stat-box-num { font-size: 36px !important; }
 
-  /* ─── SECTIONS: tighter padding ─── */
+  /* â”€â”€â”€ SECTIONS: tighter padding â”€â”€â”€ */
   .section { padding: 48px 16px !important; }
 
-  /* ─── FOOTER: collapse resources ─── */
+  /* â”€â”€â”€ FOOTER: collapse resources â”€â”€â”€ */
   #footer-res-col { 
     flex-direction: column !important;
     gap: 0 !important;
@@ -674,11 +674,11 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .footer-res-label { cursor: pointer !important; width: 100% !important; padding: 4px 0 !important; }
 
 
-  /* ─── HERO: cleaner mobile ─── */
+  /* â”€â”€â”€ HERO: cleaner mobile â”€â”€â”€ */
   .mobile-only-trust { display: block !important; }
   .hero-badge.mobile-hide { display: none !important; }
 
-  /* ─── PROGRAMS: collapsible on mobile ─── */
+  /* â”€â”€â”€ PROGRAMS: collapsible on mobile â”€â”€â”€ */
   .mobile-programs-section {
     position: relative !important;
   }
@@ -715,7 +715,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
     display: none !important;
   }
 
-  /* ─── FUNNEL: full width steps ─── */
+  /* â”€â”€â”€ FUNNEL: full width steps â”€â”€â”€ */
   .funnel-body { padding: 20px 16px !important; }
   .opt-grid { gap: 8px !important; }
   .opt { padding: 12px 10px !important; }
@@ -723,28 +723,28 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .opt-sub { font-size: 11px !important; }
   .step h2 { font-size: clamp(20px, 5.5vw, 28px) !important; }
 
-  /* ─── ACCORDION: readable on small screens ─── */
+  /* â”€â”€â”€ ACCORDION: readable on small screens â”€â”€â”€ */
   .accordion-q { font-size: 14px !important; padding: 14px 12px !important; }
   .accordion-a p { font-size: 14px !important; }
 
-  /* ─── STICKY CTA: smaller ─── */
+  /* â”€â”€â”€ STICKY CTA: smaller â”€â”€â”€ */
   #stickyCTA { bottom: 16px !important; right: 12px !important; }
   #stickyCTA button { padding: 12px 18px !important; font-size: 14px !important; }
 
-  /* ─── CTA SECTION ─── */
+  /* â”€â”€â”€ CTA SECTION â”€â”€â”€ */
   .cta-inner { padding: 52px 20px !important; }
   .cta-inner h2 { font-size: clamp(26px, 7vw, 40px) !important; }
 
-  /* ─── SCROLL HINT on case studies ─── */
+  /* â”€â”€â”€ SCROLL HINT on case studies â”€â”€â”€ */
   .case-studies-wrapper::-webkit-scrollbar { display: none; }
   .case-studies-wrapper { scrollbar-width: none; }
 }
 
 
-  /* ─── MOBILE ONLY TRUST LINE ─── */
+  /* â”€â”€â”€ MOBILE ONLY TRUST LINE â”€â”€â”€ */
   .mobile-only-trust { display: block !important; }
 
-  /* ─── PROGRAMS: show as compact tap-to-expand on mobile ─── */
+  /* â”€â”€â”€ PROGRAMS: show as compact tap-to-expand on mobile â”€â”€â”€ */
   .mobile-programs-section { display: block !important; }
   .mobile-programs-section .section { padding: 36px 16px !important; }
   .programs-bg .section { padding: 36px 16px !important; }
@@ -773,10 +773,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .mobile-programs-section h2 { font-size: clamp(24px, 6vw, 36px) !important; margin-bottom: 16px !important; }
   .mobile-programs-section .section-sub { margin-bottom: 14px !important; font-size: 15px !important; }
 
-  /* ─── BODY PADDING for sticky CTA ─── */
+  /* â”€â”€â”€ BODY PADDING for sticky CTA â”€â”€â”€ */
   body { padding-bottom: 56px !important; }
   #funnel { padding-bottom: 0 !important; }
-  /* ─── STICKY CTA: upgraded to full bottom bar ─── */
+  /* â”€â”€â”€ STICKY CTA: upgraded to full bottom bar â”€â”€â”€ */
   #stickyCTA {
     bottom: 0 !important;
     right: 0 !important;
@@ -795,17 +795,17 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   /* Add safe area for iPhone home bar */
   #stickyCTA button { padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important; }
 
-  /* ─── ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA ─── */
+  /* â”€â”€â”€ ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA â”€â”€â”€ */
   #funnel { z-index: 9999 !important; }
 
-  /* ─── HARD MONEY BANNER: padding fix ─── */
+  /* â”€â”€â”€ HARD MONEY BANNER: padding fix â”€â”€â”€ */
   .hm-inner { padding: 16px !important; }
 
 
-  /* ─── MOBILE ONLY TRUST LINE ─── */
+  /* â”€â”€â”€ MOBILE ONLY TRUST LINE â”€â”€â”€ */
   .mobile-only-trust { display: block !important; }
 
-  /* ─── PROGRAMS: show as compact tap-to-expand on mobile ─── */
+  /* â”€â”€â”€ PROGRAMS: show as compact tap-to-expand on mobile â”€â”€â”€ */
   .mobile-programs-section { display: block !important; }
   .mobile-programs-section .section { padding: 36px 16px !important; }
   
@@ -834,10 +834,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   .mobile-programs-section h2 { font-size: clamp(24px, 6vw, 36px) !important; margin-bottom: 16px !important; }
   .mobile-programs-section .section-sub { margin-bottom: 14px !important; font-size: 15px !important; }
 
-  /* ─── BODY PADDING for sticky CTA ─── */
+  /* â”€â”€â”€ BODY PADDING for sticky CTA â”€â”€â”€ */
   
   #funnel { padding-bottom: 0 !important; }
-  /* ─── STICKY CTA: upgraded to full bottom bar ─── */
+  /* â”€â”€â”€ STICKY CTA: upgraded to full bottom bar â”€â”€â”€ */
   #stickyCTA {
     bottom: 0 !important;
     right: 0 !important;
@@ -856,10 +856,10 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
   /* Add safe area for iPhone home bar */
   #stickyCTA button { padding-bottom: calc(16px + env(safe-area-inset-bottom)) !important; }
 
-  /* ─── ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA ─── */
+  /* â”€â”€â”€ ENSURE FUNNEL DOESN'T GO BEHIND STICKY CTA â”€â”€â”€ */
   #funnel { z-index: 9999 !important; }
 
-  /* ─── HARD MONEY BANNER: padding fix ─── */
+  /* â”€â”€â”€ HARD MONEY BANNER: padding fix â”€â”€â”€ */
   .hm-inner { padding: 16px !important; }
 }
 
@@ -871,7 +871,7 @@ footer { background: var(--navy); border-top: 1px solid var(--border); }
 }
 
 
-/* ─── COLUMNAR FOOTER ─── */
+/* â”€â”€â”€ COLUMNAR FOOTER â”€â”€â”€ */
 footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .footer-grid{max-width:1260px;margin:0 auto;padding:60px 52px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
 .footer-logo{font-family:var(--font-d);font-size:22px;letter-spacing:4px;color:#fff;margin-bottom:6px;display:flex;align-items:center}
@@ -896,24 +896,24 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 }
 
 
-/* ════════════════════════════════════════════════════════════
-   BETTER.COM-INSPIRED MOBILE REDESIGN — max-width: 768px
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   BETTER.COM-INSPIRED MOBILE REDESIGN â€” max-width: 768px
    Desktop is 100% unchanged
-════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @media (max-width: 768px) {
 
-  /* ── GLOBAL ── */
+  /* â”€â”€ GLOBAL â”€â”€ */
   body { padding-bottom: 0 !important; }
   .section { padding: 32px 16px !important; }
   .mobile-hide { display: none !important; }
   .mobile-hide-section { display: none !important; }
 
-  /* ── NAV: logo + one button, phone hidden ── */
+  /* â”€â”€ NAV: logo + one button, phone hidden â”€â”€ */
   nav { padding: 0 16px !important; height: 56px !important; grid-template-columns: auto 1fr auto !important; gap: 8px !important; }
   .nav-phone { display: none !important; }
   .btn-nav { padding: 9px 16px !important; font-size: 12px !important; }
 
-  /* ── HERO: clean, minimal ── */
+  /* â”€â”€ HERO: clean, minimal â”€â”€ */
   .hero { min-height: auto !important; padding: 48px 20px 40px !important; }
   .hero-badge { display: none !important; }
   .hero-trust-row { display: none !important; }
@@ -923,10 +923,10 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .btn-hero { padding: 17px 24px !important; font-size: 16px !important; max-width: 100% !important; width: 100% !important; border-radius: 14px !important; text-align: center !important; justify-content: center !important; }
   p[style*="60-Second Qualification"] { display: none !important; }
 
-  /* ── TRUST BAR: hide entirely — info in proof strip ── */
+  /* â”€â”€ TRUST BAR: hide entirely â€” info in proof strip â”€â”€ */
   .trust-bar { display: none !important; }
 
-  /* ── HARD MONEY BANNER: card style ── */
+  /* â”€â”€ HARD MONEY BANNER: card style â”€â”€ */
   .hm-inner {
     flex-direction: row !important;
     align-items: center !important;
@@ -945,7 +945,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     padding: 18px !important;
   }
 
-  /* ── PROOF STRIP: replaces trust bar and stats grid ── */
+  /* â”€â”€ PROOF STRIP: replaces trust bar and stats grid â”€â”€ */
   .mobile-proof-strip {
     display: flex !important;
     justify-content: space-around !important;
@@ -967,7 +967,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   }
   .mobile-proof-div { width: 1px; height: 36px; background: rgba(255,255,255,0.07); }
 
-  /* ── SITUATION SECTION: keep, no sub-label needed ── */
+  /* â”€â”€ SITUATION SECTION: keep, no sub-label needed â”€â”€ */
   .situation-grid {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
@@ -987,7 +987,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .sit-card .sit-title { font-size: 14px !important; font-weight: 800 !important; }
   .sit-card .sit-sub { font-size: 11px !important; }
   .sit-card::after {
-    content: "›";
+    content: "â€º";
     margin-left: auto;
     font-size: 20px;
     color: rgba(255,255,255,0.2);
@@ -995,22 +995,22 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     flex-shrink: 0;
   }
 
-  /* ── PROGRAMS: hide ── */
+  /* â”€â”€ PROGRAMS: hide â”€â”€ */
   .programs-bg, .mobile-programs-section { display: none !important; }
 
-  /* ── HOW IT WORKS: single column, no quiz block ── */
+  /* â”€â”€ HOW IT WORKS: single column, no quiz block â”€â”€ */
   div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: 28px !important; }
   div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 28px !important; }
 
-  /* ── STATS: hide — replaced by proof strip ── */
+  /* â”€â”€ STATS: hide â€” replaced by proof strip â”€â”€ */
   .stats-row { display: none !important; }
   div[style*="padding-top:64px;padding-bottom:64px"] { display: none !important; }
 
-  /* ── WHY RATE HERO: swipe card ── */
+  /* â”€â”€ WHY RATE HERO: swipe card â”€â”€ */
   .mobile-why-swipe { display: block !important; }
   .mobile-why-accordion { display: none !important; }
 
-  /* ── CASE STUDIES: horizontal swipe ── */
+  /* â”€â”€ CASE STUDIES: horizontal swipe â”€â”€ */
   .case-studies-wrapper {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
@@ -1027,14 +1027,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   }
   .case-studies-grid > div { width: 260px !important; flex-shrink: 0 !important; }
 
-  /* ── REVIEWS: single card ── */
+  /* â”€â”€ REVIEWS: single card â”€â”€ */
   .reviews-grid {
     display: block !important;
   }
   .review-card:not(:first-child) { display: none !important; }
   .review-card:first-child { border-radius: 20px !important; padding: 24px !important; }
 
-  /* ── DSCR STATES: smaller pills, blue top border ── */
+  /* â”€â”€ DSCR STATES: smaller pills, blue top border â”€â”€ */
   div[style*="background:var(--navy-card"] {
     border-top: 2px solid rgba(37,99,235,0.15) !important;
     padding: 22px 16px 28px !important;
@@ -1045,7 +1045,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     border-radius: 6px !important;
   }
 
-  /* ── FOOTER: single column, all links visible ── */
+  /* â”€â”€ FOOTER: single column, all links visible â”€â”€ */
   .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 0 !important;
@@ -1054,13 +1054,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-col { margin-top: 0 !important; }
   .footer-col-head { margin-top: 20px !important; padding-top: 20px !important; border-top: 1px solid rgba(255,255,255,0.06) !important; }
 
-  /* ── FOOTER BOTTOM ── */
+  /* â”€â”€ FOOTER BOTTOM â”€â”€ */
   .footer-bottom { padding: 14px 20px !important; flex-direction: column !important; gap: 4px !important; text-align: center !important; }
 
-  /* ── HIDE STICKY CTA ── */
+  /* â”€â”€ HIDE STICKY CTA â”€â”€ */
   #stickyCTA { display: none !important; }
 
-  /* ── FUNNEL ── */
+  /* â”€â”€ FUNNEL â”€â”€ */
   .funnel-body { padding: 20px 16px !important; }
   .opt-grid { gap: 8px !important; }
   .opt { padding: 12px 10px !important; }
@@ -1073,13 +1073,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .sit-card .sit-title { font-size: 13px !important; }
 }
 
-/* ── MOBILE-ONLY ELEMENTS (hidden on desktop) ── */
+/* â”€â”€ MOBILE-ONLY ELEMENTS (hidden on desktop) â”€â”€ */
 .mobile-proof-strip { display: none; }
 .mobile-why-swipe { display: none; }
 .mobile-why-accordion { display: block; }
 
 
-/* ── WHY SWIPE CARDS ── */
+/* â”€â”€ WHY SWIPE CARDS â”€â”€ */
 .why-swipe-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.09);
@@ -1129,7 +1129,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .why-dot:not(.active) { width: 6px; }
 
 
-/* ── REVIEW SWIPE DOTS (mobile only) ── */
+/* â”€â”€ REVIEW SWIPE DOTS (mobile only) â”€â”€ */
 .review-swipe-dots {
   display: none;
   justify-content: center;
@@ -1149,7 +1149,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 }
 
 
-/* ── TRUST BAR TWO-ROW ── */
+/* â”€â”€ TRUST BAR TWO-ROW â”€â”€ */
 .trust-bar { background:var(--navy-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 52px; }
 .trust-inner { max-width:720px; margin:0 auto; display:flex; flex-direction:column; align-items:center; }
 .partner-badges { display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap; margin:0 0 16px; }
@@ -1173,7 +1173,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .trust-op-div { width:1px; height:13px; background:rgba(255,255,255,0.07); }
 
 
-/* ── STAT QUALIFIER ── */
+/* â”€â”€ STAT QUALIFIER â”€â”€ */
 .stat-box { display:flex; flex-direction:column; align-items:center; }
 .stat-box-qualifier { display:block; font-size:10px; color:rgba(255,255,255,0.28); letter-spacing:.04em; margin-top:3px; font-style:italic; }
 .stat-box-qualifier--empty { color:transparent; pointer-events:none; }
@@ -1188,7 +1188,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DSCR Loans & Non-QM Mortgage | Rate Hero, Inc.">
-<meta name="twitter:description" content="Investor-focused mortgage. DSCR · Non-QM · Bank Statement. No income docs on DSCR. Close in 21 days.">
+<meta name="twitter:description" content="Investor-focused mortgage. DSCR Â· Non-QM Â· Bank Statement. No income docs on DSCR. Close in 21 days.">
 <link rel="canonical" href="https://goratehero.com/">
 <script type="application/ld+json">
 {
@@ -1306,7 +1306,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 {
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  "name": "Rate Hero — DSCR & Non-QM Mortgage",
+  "name": "Rate Hero â€” DSCR & Non-QM Mortgage",
   "url": "https://goratehero.com",
   "image": "https://goratehero.com/logo.png",
   "telephone": "+1-747-308-1635",
@@ -1331,14 +1331,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "@type": "Review",
       "author": {"@type": "Person", "name": "Mia R."},
       "datePublished": "2026-02",
-      "reviewBody": "I loved working with Sean — he was really informative and we got finished really quick. Eddie was super helpful whenever I was confused. I'll be using them again for my refinance.",
+      "reviewBody": "I loved working with Sean â€” he was really informative and we got finished really quick. Eddie was super helpful whenever I was confused. I'll be using them again for my refinance.",
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
     },
     {
       "@type": "Review",
       "author": {"@type": "Person", "name": "C.F."},
       "datePublished": "2026-02",
-      "reviewBody": "I worked with Zack and Ruben on my most recent purchase — they were great and we got everything done quickly. There were issues with the property but they were fluid enough to work with me. Highly recommend!",
+      "reviewBody": "I worked with Zack and Ruben on my most recent purchase â€” they were great and we got everything done quickly. There were issues with the property but they were fluid enough to work with me. Highly recommend!",
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
     },
     {
@@ -1352,7 +1352,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "@type": "Review",
       "author": {"@type": "Person", "name": "Sam Y."},
       "datePublished": "2026-01",
-      "reviewBody": "Sean made our DSCR loan process incredibly smooth from start to finish. He moved fast, communicated clearly, and stayed on top of every detail. If you want someone reliable, sharp, and efficient — Sean is your guy.",
+      "reviewBody": "Sean made our DSCR loan process incredibly smooth from start to finish. He moved fast, communicated clearly, and stayed on top of every detail. If you want someone reliable, sharp, and efficient â€” Sean is your guy.",
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
     }
   ]
@@ -1369,7 +1369,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "name": "What is a DSCR loan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A DSCR loan (Debt Service Coverage Ratio loan) lets real estate investors qualify for a mortgage based on the property's rental income — not personal W-2s or tax returns. The property's cash flow is divided by the mortgage payment. A DSCR of 1.0 or higher qualifies on most programs."
+        "text": "A DSCR loan (Debt Service Coverage Ratio loan) lets real estate investors qualify for a mortgage based on the property's rental income â€” not personal W-2s or tax returns. The property's cash flow is divided by the mortgage payment. A DSCR of 1.0 or higher qualifies on most programs."
       }
     },
     {
@@ -1439,7 +1439,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <body>
 <a href="#landing" class="skip-link" style="position:absolute;top:-40px;left:0;background:#2563EB;color:#fff;padding:8px 16px;z-index:10001;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
 
-<!-- ════════════ LANDING ════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â• LANDING â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="landing" role="main">
 
 <nav aria-label="Main navigation" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;">
@@ -1467,7 +1467,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         </a>
         <a href="pages/short-term-rental">
           <span class="nd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle"><path d="M12 2C8 2 4 6 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4-4-8-8-8z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="nd-info"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO — AirDNA accepted</span></span>
+          <span class="nd-info"><span class="nd-title">Short-Term Rental</span><span class="nd-sub">Airbnb &amp; VRBO â€” AirDNA accepted</span></span>
         </a>
       </div>
     </li>
@@ -1491,7 +1491,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 15% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 85% 30%, rgba(59,130,246,0.07) 0%, transparent 50%);pointer-events:none;"></div>
   <div class="hero">
     <div style="width:100%;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;">
-      <div class="hero-badge mobile-hide">Strategic Financing &nbsp;·&nbsp; Zero Runaround &nbsp;·&nbsp; Lightning-Fast ⚡</div>
+      <div class="hero-badge mobile-hide">Strategic Financing &nbsp;Â·&nbsp; Zero Runaround &nbsp;Â·&nbsp; Lightning-Fast âš¡</div>
       <h1>Your Income.<br>Your Rules.<br><span>Our Rates.</span></h1>
       <p class="hero-sub" style="text-align:center;max-width:560px;">For homeowners, investors, and everyone in between.</p>
 
@@ -1499,20 +1499,20 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         Find My Ideal Loan &rarr;
       </button>
       <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:-4px;margin-bottom:14px;text-align:center;">
-        Not sure? <span onclick="window.openBolt && window.openBolt()" style="color:#3B82F6;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">Ask Bolt ⚡</span>
+        Not sure? <span onclick="window.openBolt && window.openBolt()" style="color:#3B82F6;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">Ask Bolt âš¡</span>
       </p>
       <p class="mobile-hide" style="font-size:12px;color:rgba(255,255,255,0.62);margin-bottom:28px;letter-spacing:.04em;" style="display:flex;align-items:center;justify-content:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.62)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> 60-Second Qualification</p>
-      <p class="mobile-only-trust" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:28px;letter-spacing:.04em;">No SSN &nbsp;·&nbsp; No Credit Pull &nbsp;·&nbsp; 2 Minutes</p>
+      <p class="mobile-only-trust" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:28px;letter-spacing:.04em;">No SSN &nbsp;Â·&nbsp; No Credit Pull &nbsp;Â·&nbsp; 2 Minutes</p>
 
       <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:4px;" class="hero-trust-row mobile-hide">
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
-          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> No SSN Required</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> No Credit Pull</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">âœ“</span> No SSN Required</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">âœ“</span> No Credit Pull</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
-          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> No Tax Returns Required</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> LLC &amp; Investor Friendly</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">✓</span> 21-Day Closings Available</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">âœ“</span> No Tax Returns Required</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">âœ“</span> LLC &amp; Investor Friendly</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:#3B82F6;font-weight:700;font-size:15px;">âœ“</span> 21-Day Closings Available</span>
         </div>
       </div>
     </div>
@@ -1586,7 +1586,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         <div style="font-size:13px;color:rgba(255,255,255,0.75);">Refinance into a 30-year DSCR loan. Close in 21 days. No income docs required.</div>
       </div>
     </div>
-    <button onclick="openFunnel('brrrr')" style="background:#F59E0B;color:#1a1a1a;border:none;padding:12px 28px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;transition:all .2s;" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">Get Out of Hard Money →</button>
+    <button onclick="openFunnel('brrrr')" style="background:#F59E0B;color:#1a1a1a;border:none;padding:12px 28px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;transition:all .2s;" onmouseover="this.style.background='#FCD34D'" onmouseout="this.style.background='#F59E0B'">Get Out of Hard Money â†’</button>
   </div>
 </div>
 
@@ -1628,42 +1628,42 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div class="bolt-section-inner">
     <div class="bolt-label">
       <div class="bolt-label-line"></div>
-      <div class="bolt-label-pill"><span>⚡</span><span>Meet Bolt</span></div>
+      <div class="bolt-label-pill"><span>âš¡</span><span>Meet Bolt</span></div>
       <div class="bolt-label-line"></div>
     </div>
     <h2 class="bolt-section-h2">Not Sure If This Deal Qualifies?<br><span class="blue">Ask Bolt in 60 Seconds.</span></h2>
-    <p class="bolt-section-sub">Tell Bolt your deal — price, rent, loan amount, and timeline — and it'll tell you what may work. No SSN. No credit pull. No sales pressure.</p>
+    <p class="bolt-section-sub">Tell Bolt your deal â€” price, rent, loan amount, and timeline â€” and it'll tell you what may work. No SSN. No credit pull. No sales pressure.</p>
     <div class="bolt-features">
       <div class="bolt-feature-card">
-        <div class="bolt-feature-icon">🔓</div>
+        <div class="bolt-feature-icon">ðŸ”“</div>
         <div><div class="bolt-feature-title">Hard money exit expert</div><div class="bolt-feature-desc">Bolt knows DSCR refis, LTV limits, DSCR ratios, and tight payoff timelines. Ask anything.</div></div>
       </div>
       <div class="bolt-feature-card">
-        <div class="bolt-feature-icon">📊</div>
+        <div class="bolt-feature-icon">ðŸ“Š</div>
         <div><div class="bolt-feature-title">Instant deal analysis</div><div class="bolt-feature-desc">Not a generic chatbot. Bolt helps you understand whether DSCR, bank statement, or no-ratio may fit.</div></div>
       </div>
       <div class="bolt-feature-card">
-        <div class="bolt-feature-icon">🤝</div>
+        <div class="bolt-feature-icon">ðŸ¤</div>
         <div><div class="bolt-feature-title">Hands off to a strategist</div><div class="bolt-feature-desc">When you're ready, Bolt connects you to a real Rate Hero advisor to run exact numbers.</div></div>
       </div>
     </div>
     <div class="bolt-preview">
       <div class="bolt-preview-header">
-        <div class="bolt-preview-avatar">⚡</div>
-        <div><div class="bolt-preview-name">Bolt</div><div class="bolt-preview-status">● Online · Rate Hero Deal Agent</div></div>
+        <div class="bolt-preview-avatar">âš¡</div>
+        <div><div class="bolt-preview-name">Bolt</div><div class="bolt-preview-status">â— Online Â· Rate Hero Deal Agent</div></div>
       </div>
       <div class="bolt-preview-user">
         <div class="bolt-preview-user-bubble">My hard money loan matures in 45 days. Can you help?</div>
       </div>
       <div class="bolt-preview-bot">
-        <div class="bolt-preview-bot-avatar">⚡</div>
-        <div class="bolt-preview-bot-bubble">Yes — 45 days is workable. This sounds like a DSCR refi scenario. No income docs, no tax returns. What's the property type, estimated value, loan amount, and monthly rent?</div>
+        <div class="bolt-preview-bot-avatar">âš¡</div>
+        <div class="bolt-preview-bot-bubble">Yes â€” 45 days is workable. This sounds like a DSCR refi scenario. No income docs, no tax returns. What's the property type, estimated value, loan amount, and monthly rent?</div>
       </div>
     </div>
     <button class="bolt-section-cta" onclick="window.openBolt && window.openBolt()">
-      <span>⚡</span> Ask Bolt — Run My Deal
+      <span>âš¡</span> Ask Bolt â€” Run My Deal
     </button>
-    <p class="bolt-section-microcopy">Available 24/7 · No credit pull · Hands off to a strategist anytime</p>
+    <p class="bolt-section-microcopy">Available 24/7 Â· No credit pull Â· Hands off to a strategist anytime</p>
   </div>
 </section>
 
@@ -1681,42 +1681,42 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       <button onclick="openFunnel('dscr')" class="sit-card" aria-label="Real Estate Investor">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(37,99,235,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/><line x1="9" y1="16" x2="9" y2="16.01"/><line x1="12" y1="16" x2="12" y2="16.01"/></svg></span>
         <span class="sit-title">Real Estate Investor</span>
-        <span class="sit-sub">DSCR · No income docs required</span>
+        <span class="sit-sub">DSCR Â· No income docs required</span>
       </button>
       <button onclick="openFunnel('nonqm')" class="sit-card" aria-label="Self-Employed">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(37,99,235,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></span>
         <span class="sit-title">Self-Employed</span>
-        <span class="sit-sub">Bank statement · P&L · 1099</span>
+        <span class="sit-sub">Bank statement Â· P&L Â· 1099</span>
       </button>
       <button onclick="openFunnel('conventional')" class="sit-card" aria-label="First-Time Buyer">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(37,99,235,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></span>
         <span class="sit-title">First-Time Buyer</span>
-        <span class="sit-sub">Conventional · FHA · VA</span>
+        <span class="sit-sub">Conventional Â· FHA Â· VA</span>
       </button>
       <button onclick="openFunnel('purchase')" class="sit-card" aria-label="Cash-Out or HELOC">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(37,99,235,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="2" y="9" width="20" height="12" rx="1"/><path d="M12 2L2 7h20z"/><line x1="2" y1="13" x2="22" y2="13"/></svg></span>
         <span class="sit-title">Cash-Out / HELOC</span>
-        <span class="sit-sub">Tap equity · Up to 90% LTV</span>
+        <span class="sit-sub">Tap equity Â· Up to 90% LTV</span>
       </button>
       <button onclick="openFunnel('brrrr')" class="sit-card sit-card--amber" aria-label="Stuck in Hard Money">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(245,158,11,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg></span>
         <span class="sit-title">Stuck in Hard Money</span>
-        <span class="sit-sub">Exit fast · 21-day refi</span>
+        <span class="sit-sub">Exit fast Â· 21-day refi</span>
       </button>
       <button onclick="openFunnel('dscr')" class="sit-card" aria-label="Portfolio Investor">
         <span class="sit-icon-wrap" style="width:40px;height:40px;background:rgba(37,99,235,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
         <span class="sit-title">Portfolio Investor</span>
-        <span class="sit-sub">10+ doors · LLC lending</span>
+        <span class="sit-sub">10+ doors Â· LLC lending</span>
       </button>
     </div>
-    <p style="font-size:13px;color:var(--white-35);margin-top:28px;text-align:center;" class="mobile-hide">Not sure? <a href="quiz" style="color:var(--blue-bright);text-decoration:none;font-weight:600;">Take the 60-second quiz →</a></p>
+    <p style="font-size:13px;color:var(--white-35);margin-top:28px;text-align:center;" class="mobile-hide">Not sure? <a href="quiz" style="color:var(--blue-bright);text-decoration:none;font-weight:600;">Take the 60-second quiz â†’</a></p>
 
 <p style="font-size:13px;color:rgba(255,255,255,0.45);text-align:center;margin-top:16px;">
   Top markets: 
-  <a href="dscr-loans/florida" style="color:var(--blue);text-decoration:none;font-weight:600;">Florida</a> · 
-  <a href="dscr-loans/texas" style="color:var(--blue);text-decoration:none;font-weight:600;">Texas</a> · 
-  <a href="dscr-loans/georgia" style="color:var(--blue);text-decoration:none;font-weight:600;">Georgia</a> · 
-  <a href="dscr-loans/north-carolina" style="color:var(--blue);text-decoration:none;font-weight:600;">North Carolina</a> · 
+  <a href="dscr-loans/florida" style="color:var(--blue);text-decoration:none;font-weight:600;">Florida</a> Â· 
+  <a href="dscr-loans/texas" style="color:var(--blue);text-decoration:none;font-weight:600;">Texas</a> Â· 
+  <a href="dscr-loans/georgia" style="color:var(--blue);text-decoration:none;font-weight:600;">Georgia</a> Â· 
+  <a href="dscr-loans/north-carolina" style="color:var(--blue);text-decoration:none;font-weight:600;">North Carolina</a> Â· 
   <a href="dscr-loans/tennessee" style="color:var(--blue);text-decoration:none;font-weight:600;">Tennessee</a>
 </p>
   </div>
@@ -1728,52 +1728,52 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     <div style="text-align:center;margin-bottom:36px;">
       <div class="section-tag" style="display:inline-flex;margin-bottom:14px;"><span class="dot"></span> Loan Programs</div>
       <h2>Find Your <span>Perfect Program</span></h2>
-      <p class="section-sub" style="margin-bottom:24px;max-width:600px;margin-left:auto;margin-right:auto;">Whether you're buying your first home, expanding a rental portfolio, or pulling equity — we have a loan built for your exact situation.</p>
+      <p class="section-sub" style="margin-bottom:24px;max-width:600px;margin-left:auto;margin-right:auto;">Whether you're buying your first home, expanding a rental portfolio, or pulling equity â€” we have a loan built for your exact situation.</p>
       <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;" class="mobile-hide">Ready to see your options?</div>
-      <button class="mobile-hide" onclick="openFunnel('purchase')" style="background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" onmouseover="this.style.background='#3B82F6'" onmouseout="this.style.background='var(--blue)'">Show Me My Loan Options →</button>
+      <button class="mobile-hide" onclick="openFunnel('purchase')" style="background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" onmouseover="this.style.background='#3B82F6'" onmouseout="this.style.background='var(--blue)'">Show Me My Loan Options â†’</button>
     </div>
     <div class="programs-grid">
       <a href="/dscr-loans/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
         <h3>Long-Term Rental Loans</h3>
         <div class="prog-tag">No Income Docs Required</div>
-        <p>The property pays the mortgage. Qualify on rental cash flow — no W-2s, no tax returns, no income limits.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <p>The property pays the mortgage. Qualify on rental cash flow â€” no W-2s, no tax returns, no income limits.</p>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
       <a href="/non-qm/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3>Non-QM Loans</h3>
         <div class="prog-tag">Self-Employed? You Qualify.</div>
         <p>Bank statements, P&L, or assets instead of W-2s. If the banks said no, this is your path forward.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
       <a href="/conventional/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></div>
         <h3>Conventional / FHA / VA</h3>
         <div class="prog-tag">Lowest Rates for Qualifying Borrowers</div>
-        <p>W-2 income, strong credit, or veteran status? We find the best rate across conventional, FHA, and VA programs for your exact situation — period.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <p>W-2 income, strong credit, or veteran status? We find the best rate across conventional, FHA, and VA programs for your exact situation â€” period.</p>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
       <a href="/heloc/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="2" y="9" width="20" height="12" rx="1"/><path d="M12 3v6"/><line x1="2" y1="13" x2="22" y2="13"/></svg></div>
         <h3>HELOCs</h3>
         <div class="prog-tag">Your Equity. Your Weapon.</div>
         <p>Borrow up to 90% of your home's value as a revolving line. Fund renovations, investments, or anything else.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
       <a href="/non-qm/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10z"/></svg></div>
         <h3>Foreign National Loans</h3>
         <div class="prog-tag">Invest in US Real Estate</div>
         <p>No US credit history. No SSN. Non-residents can finance US investment properties with alternative documentation.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
       <a href="/dscr-loans/" class="program-card">
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M12 2C8 2 4 6 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4-4-8-8-8z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
         <h3>Short-Term Rental Loans</h3>
         <div class="prog-tag">Airbnb &amp; VRBO Income Accepted</div>
-        <p>We use your actual platform income — or AirDNA projections — to qualify. No rental history needed.</p>
-        <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
+        <p>We use your actual platform income â€” or AirDNA projections â€” to qualify. No rental history needed.</p>
+        <div class="program-link">Learn More <span class="prog-arrow">â†’</span></div>
       </a>
     </div>
 
@@ -1854,7 +1854,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       <div>
         <div style="text-align:center;"><div class="section-tag"><span class="dot"></span> Why Rate Hero</div>
         <h2 style="text-align:center;">We're In Your <span>Corner.</span></h2></div>
-        <p style="font-size:18px;color:var(--white-65);line-height:1.75;margin-bottom:8px;">The mortgage industry was built to serve banks, not borrowers. We built Rate Hero to change that — with faster closings, better programs, and advisors who actually pick up the phone.</p>
+        <p style="font-size:18px;color:var(--white-65);line-height:1.75;margin-bottom:8px;">The mortgage industry was built to serve banks, not borrowers. We built Rate Hero to change that â€” with faster closings, better programs, and advisors who actually pick up the phone.</p>
 
         <!-- MOBILE: Swipe cards (hidden on desktop via CSS) -->
         <div class="mobile-why-swipe" id="whySwipe">
@@ -1864,7 +1864,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
             <div class="why-card-body" id="whyBody"></div>
           </div>
           <div class="why-dots" id="whyDots"></div>
-          <p style="font-size:10px;color:rgba(255,255,255,0.2);text-align:center;margin-top:10px">Swipe for more reasons ›</p>
+          <p style="font-size:10px;color:rgba(255,255,255,0.2);text-align:center;margin-top:10px">Swipe for more reasons â€º</p>
         </div>
 
         <!-- DESKTOP: Accordion (hidden on mobile via CSS) -->
@@ -1872,7 +1872,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
           <div class="accordion" style="margin-top:28px;">
             <div class="accordion-item" id="acc-1">
               <div class="accordion-q" onclick="toggleAcc('acc-1')">We Close Fast <span class="accordion-icon">+</span></div>
-              <div class="accordion-a"><p>21-day average close time. We move fast because our process is tight — not because we cut corners.</p></div>
+              <div class="accordion-a"><p>21-day average close time. We move fast because our process is tight â€” not because we cut corners.</p></div>
             </div>
             <div class="accordion-item" id="acc-2">
               <div class="accordion-q" onclick="toggleAcc('acc-2')">Strategic Lender Access <span class="accordion-icon">+</span></div>
@@ -1880,7 +1880,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
             </div>
             <div class="accordion-item" id="acc-3">
               <div class="accordion-q" onclick="toggleAcc('acc-3')">Complex Borrowers Welcome <span class="accordion-icon">+</span></div>
-              <div class="accordion-a"><p>Self-employed, investors, foreign nationals, low credit — we have programs for borrowers the big banks turn away.</p></div>
+              <div class="accordion-a"><p>Self-employed, investors, foreign nationals, low credit â€” we have programs for borrowers the big banks turn away.</p></div>
             </div>
             <div class="accordion-item" id="acc-4">
               <div class="accordion-q" onclick="toggleAcc('acc-4')">Radical Transparency <span class="accordion-icon">+</span></div>
@@ -1894,7 +1894,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         </div>
 
         <div style="margin-top:32px;text-align:center;" class="mobile-hide">
-          <button class="btn-nav" onclick="window.open('https://ratehero.my1003app.com/1252107/register','_blank')" style="padding:14px 36px;font-size:17px;display:inline-flex;align-items:center;gap:8px;">Choose Rate Hero →</button>
+          <button class="btn-nav" onclick="window.open('https://ratehero.my1003app.com/1252107/register','_blank')" style="padding:14px 36px;font-size:17px;display:inline-flex;align-items:center;gap:8px;">Choose Rate Hero â†’</button>
         </div>
       </div>
       </div>
@@ -1915,7 +1915,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
           <div class="stag" style="margin-bottom:12px;"><span class="dot"></span> Your Founder</div>
           <h2 style="font-family:var(--font-d);font-size:clamp(32px,4vw,48px);letter-spacing:1px;color:var(--white);margin-bottom:16px;line-height:1.05;">Meet <span style="color:var(--blue);">Sean Davoodian.</span></h2>
           <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:20px;">Sean founded Rate Hero after spending years watching creditworthy borrowers get turned away by lenders who couldn't think outside the W-2. He built this company specifically for investors, self-employed borrowers, and anyone the banks have failed.</p>
-          <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:28px;">Before Rate Hero, Sean and his leadership team personally funded $300M+ and worked with 1,000+ clients. That experience is now available to you — with faster closings, better programs, and an advisor who actually picks up the phone.</p>
+          <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:28px;">Before Rate Hero, Sean and his leadership team personally funded $300M+ and worked with 1,000+ clients. That experience is now available to you â€” with faster closings, better programs, and an advisor who actually picks up the phone.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
             <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:12px 18px;">
               <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px;">License</div>
@@ -1930,7 +1930,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
               <div style="font-size:15px;font-weight:700;color:var(--white);">Rate Hero, NMLS #2822806</div>
             </div>
           </div>
-          <button class="btn-hero" onclick="openFunnel('purchase')" style="margin-top:4px;">Work With Sean →</button>
+          <button class="btn-hero" onclick="openFunnel('purchase')" style="margin-top:4px;">Work With Sean â†’</button>
         </div>
       </div>
     </div>
@@ -1959,19 +1959,19 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div class="section" style="text-align:center;">
     <div class="section-tag" style="display:inline-flex;"><span class="dot"></span>Real Deal Math</div>
     <h2>Case Studies. <span>Real Numbers.</span></h2>
-    <p class="section-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">How Rate Hero structures deals for investors, self-employed borrowers, and homebuyers — from first call to close.</p>
+    <p class="section-sub" style="max-width:600px;margin-left:auto;margin-right:auto;">How Rate Hero structures deals for investors, self-employed borrowers, and homebuyers â€” from first call to close.</p>
     <div class="case-studies-wrapper"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;text-align:left;" class="case-studies-grid">
       <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
         <div style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(37,99,235,0.05));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);margin-bottom:8px;">DSCR Purchase · Texas</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);margin-bottom:8px;">DSCR Purchase Â· Texas</div>
           <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$425,000</div>
-          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price · SFR</div>
+          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price Â· SFR</div>
         </div>
         <div style="padding:20px 24px;">
           <div style="display:flex;flex-direction:column;gap:0;margin-bottom:16px;">
             <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Monthly Rent</span><span style="color:var(--white);font-weight:700;">$3,400</span></div>
             <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">PITIA</span><span style="color:var(--white);font-weight:700;">$2,580</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">DSCR Ratio</span><span style="color:#3B82F6;font-weight:700;">1.32 ✓</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">DSCR Ratio</span><span style="color:#3B82F6;font-weight:700;">1.32 âœ“</span></div>
             <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;"><span style="color:var(--white-65);">Close Time</span><span style="color:#22C55E;font-weight:700;">19 Days</span></div>
           </div>
           <div style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--white-65);">No W-2. No tax returns. Qualified on rental income alone.</div>
@@ -1979,15 +1979,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       </div>
       <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(245,158,11,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
         <div style="background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(245,158,11,0.04));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#F59E0B;margin-bottom:8px;">Bank Statement · Arizona</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#F59E0B;margin-bottom:8px;">Bank Statement Â· Arizona</div>
           <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$680,000</div>
-          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price · Primary</div>
+          <div style="font-size:12px;color:var(--white-65);margin-top:4px;">Purchase Price Â· Primary</div>
         </div>
         <div style="padding:20px 24px;">
           <div style="display:flex;flex-direction:column;gap:0;margin-bottom:16px;">
             <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Monthly Deposits</span><span style="color:var(--white);font-weight:700;">$38,000</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Tax Return Said</span><span style="color:#f87171;font-weight:700;">$44K/yr ✗</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">We Qualified On</span><span style="color:#F59E0B;font-weight:700;">$19K/mo ✓</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">Tax Return Said</span><span style="color:#f87171;font-weight:700;">$44K/yr âœ—</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:var(--white-65);">We Qualified On</span><span style="color:#F59E0B;font-weight:700;">$19K/mo âœ“</span></div>
             <div style="display:flex;justify-content:space-between;font-size:13px;padding:7px 0;"><span style="color:var(--white-65);">Close Time</span><span style="color:#22C55E;font-weight:700;">23 Days</span></div>
           </div>
           <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--white-65);">Bank denied. Rate Hero closed on 24-month deposits.</div>
@@ -1995,7 +1995,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       </div>
       <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;" onmouseover="this.style.borderColor='rgba(34,197,94,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
         <div style="background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(34,197,94,0.04));padding:24px 24px 16px;border-bottom:1px solid var(--border);">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#22C55E;margin-bottom:8px;">BRRRR Exit · Georgia</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#22C55E;margin-bottom:8px;">BRRRR Exit Â· Georgia</div>
           <div style="font-family:var(--font-d);font-size:34px;color:var(--white);letter-spacing:1px;line-height:1;">$268,000</div>
           <div style="font-size:12px;color:var(--white-65);margin-top:4px;">After-Repair Value</div>
         </div>
@@ -2011,7 +2011,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       </div>
     </div></div>
     <div style="text-align:center;margin-top:32px;" class="mobile-hide">
-      <button onclick="openFunnel('purchase')" class="btn-cta">Run the Numbers on My Deal →</button>
+      <button onclick="openFunnel('purchase')" class="btn-cta">Run the Numbers on My Deal â†’</button>
     </div>
   </div>
 </div>
@@ -2023,23 +2023,23 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     <p class="reviews-disclaimer">Reviews reflect client experiences with Rate Hero leadership at prior companies.</p>
     <div class="reviews-grid" style="grid-template-columns: repeat(2, 1fr);text-align:left;">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I loved working with Sean — he was really informative and we got finished really quick. Eddie was super helpful whenever I was confused. I'll be using them again for my refinance."</p>
+        <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <p class="review-text">"I loved working with Sean â€” he was really informative and we got finished really quick. Eddie was super helpful whenever I was confused. I'll be using them again for my refinance."</p>
         <div class="review-author"><div class="review-avatar"><div style="width:36px;height:36px;background:rgba(37,99,235,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div></div><div><div class="review-name">Mia R.</div><div class="review-role">February 2026</div></div></div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I worked with Zack and Ruben on my most recent purchase — they were great and we got everything done quickly. There were issues with the property but they were fluid enough to work with me. Highly recommend!"</p>
+        <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <p class="review-text">"I worked with Zack and Ruben on my most recent purchase â€” they were great and we got everything done quickly. There were issues with the property but they were fluid enough to work with me. Highly recommend!"</p>
         <div class="review-author"><div class="review-avatar"><div style="width:36px;height:36px;background:rgba(37,99,235,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div></div><div><div class="review-name">C.F.</div><div class="review-role">February 2026</div></div></div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I had a great time working with Zack on my first home purchase. I was nervous but he gave me all the information I needed and made it as simple as possible. Eddie was also incredibly helpful — every interaction was pleasant and educational. I would definitely recommend their team!"</p>
+        <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <p class="review-text">"I had a great time working with Zack on my first home purchase. I was nervous but he gave me all the information I needed and made it as simple as possible. Eddie was also incredibly helpful â€” every interaction was pleasant and educational. I would definitely recommend their team!"</p>
         <div class="review-author"><div class="review-avatar"><div style="width:36px;height:36px;background:rgba(37,99,235,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div></div><div><div class="review-name">Caylin</div><div class="review-role">February 2026</div></div></div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Sean made our DSCR loan process incredibly smooth from start to finish. He moved fast, communicated clearly, and stayed on top of every detail. Any potential hiccup was handled before it even became an issue. If you want someone reliable, sharp, and efficient — Sean is your guy."</p>
+        <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <p class="review-text">"Sean made our DSCR loan process incredibly smooth from start to finish. He moved fast, communicated clearly, and stayed on top of every detail. Any potential hiccup was handled before it even became an issue. If you want someone reliable, sharp, and efficient â€” Sean is your guy."</p>
         <div class="review-author"><div class="review-avatar"><div style="width:36px;height:36px;background:rgba(37,99,235,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div></div><div><div class="review-name">Sam Y.</div><div class="review-role">January 2026</div></div></div>
       </div>
     </div>
@@ -2048,17 +2048,17 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   </div>
 </div>
 <div style="text-align:center;padding:4px 0 28px;background:var(--navy);">
-  <a href="review" style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.32);text-decoration:none;" onmouseover="this.style.color='rgba(59,130,246,0.75)'" onmouseout="this.style.color='rgba(255,255,255,0.32)'">Just closed with us? Leave a review →</a>
+  <a href="review" style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.32);text-decoration:none;" onmouseover="this.style.color='rgba(59,130,246,0.75)'" onmouseout="this.style.color='rgba(255,255,255,0.32)'">Just closed with us? Leave a review â†’</a>
 </div>
 
 <!-- CTA -->
 <div class="cta-section">
   <div class="cta-inner">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCD34D;margin-bottom:20px;">⚡ Fast-Track Closings Available — Limited Capacity</div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCD34D;margin-bottom:20px;">âš¡ Fast-Track Closings Available â€” Limited Capacity</div>
     <h2>Your Best Rate Is <span>Waiting.</span></h2>
-    <p>Takes 2 minutes. No SSN. No credit pull. Just your best mortgage options — delivered fast.</p>
-    <button class="btn-cta" onclick="openFunnel('purchase')">Find My Ideal Loan →</button>
-    <p class="cta-privacy">100% confidential · No credit pull · No SSN required</p>
+    <p>Takes 2 minutes. No SSN. No credit pull. Just your best mortgage options â€” delivered fast.</p>
+    <button class="btn-cta" onclick="openFunnel('purchase')">Find My Ideal Loan â†’</button>
+    <p class="cta-privacy">100% confidential Â· No credit pull Â· No SSN required</p>
   </div>
 </div>
 
@@ -2104,40 +2104,40 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       <a href="legal/terms-of-use" class="footer-link">Terms of Use</a>
       <a href="legal/ccpa-privacy-notice" class="footer-link">CCPA Notice</a>
       <a href="legal/texas-mortgage-disclosure" class="footer-link">TX Disclosure</a>
-      <a href="https://www.nmlsconsumeraccess.org/TuringTestPage.aspx?ReturnUrl=/EntityDetails.aspx/COMPANY/2822806" class="footer-link" target="_blank" rel="noopener">NMLS Consumer Access ↗</a>
+      <a href="https://www.nmlsconsumeraccess.org/TuringTestPage.aspx?ReturnUrl=/EntityDetails.aspx/COMPANY/2822806" class="footer-link" target="_blank" rel="noopener">NMLS Consumer Access â†—</a>
     </div>
   </div>
   <div style="background:#0F1B30;border-top:1px solid rgba(255,255,255,0.06);padding:32px 52px;">
     <div style="max-width:1260px;margin:0 auto">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(37,99,235,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> DSCR Loans — States We Lend In</div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(37,99,235,0.7);margin-bottom:14px" style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(37,99,235,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> DSCR Loans â€” States We Lend In</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px 6px">
-        <a href="dscr-loans/florida" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🌴 Florida</a>
-        <a href="dscr-loans/texas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🤠 Texas</a>
-        <a href="dscr-loans/georgia" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🍑 Georgia</a>
-        <a href="dscr-loans/north-carolina" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏔️ North Carolina</a>
-        <a href="dscr-loans/tennessee" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🎸 Tennessee</a>
-        <a href="dscr-loans/south-carolina" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏖️ South Carolina</a>
-        <a href="dscr-loans/ohio" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🌊 Ohio</a>
-        <a href="dscr-loans/indiana" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏙️ Indiana</a>
-        <a href="dscr-loans/kentucky" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🐴 Kentucky</a>
-        <a href="dscr-loans/missouri" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🎵 Missouri</a>
-        <a href="dscr-loans/alabama" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🚀 Alabama</a>
-        <a href="dscr-loans/mississippi" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🌊 Mississippi</a>
-        <a href="dscr-loans/arkansas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🌿 Arkansas</a>
-        <a href="dscr-loans/kansas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🌾 Kansas</a>
-        <a href="dscr-loans/oklahoma" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏙️ Oklahoma</a>
-        <a href="dscr-loans/colorado" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏔️ Colorado</a>
-        <a href="dscr-loans/wyoming" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🦬 Wyoming</a>
-        <a href="dscr-loans/montana" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">🏔️ Montana</a>
-      <a href="dscr-loans/washington" class="state-link">🌲 Washington</a>
-      <a href="dscr-loans/oregon" class="state-link">🌲 Oregon</a>
-      <a href="dscr-loans/wisconsin" class="state-link">🧀 Wisconsin</a>
-      <a href="dscr-loans/iowa" class="state-link">🌽 Iowa</a>
-      <a href="dscr-loans/idaho" class="state-link">🥔 Idaho</a>
-      <a href="dscr-loans/hawaii" class="state-link">🌺 Hawaii</a>
-      <a href="dscr-loans/delaware" class="state-link">🏛️ Delaware</a>
-      <a href="dscr-loans/district-of-columbia" class="state-link">🏛️ Washington DC</a>
-        <a href="dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States →</a>
+        <a href="dscr-loans/florida" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŒ´ Florida</a>
+        <a href="dscr-loans/texas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ¤  Texas</a>
+        <a href="dscr-loans/georgia" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ‘ Georgia</a>
+        <a href="dscr-loans/north-carolina" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ”ï¸ North Carolina</a>
+        <a href="dscr-loans/tennessee" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŽ¸ Tennessee</a>
+        <a href="dscr-loans/south-carolina" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ–ï¸ South Carolina</a>
+        <a href="dscr-loans/ohio" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŒŠ Ohio</a>
+        <a href="dscr-loans/indiana" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ™ï¸ Indiana</a>
+        <a href="dscr-loans/kentucky" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ´ Kentucky</a>
+        <a href="dscr-loans/missouri" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŽµ Missouri</a>
+        <a href="dscr-loans/alabama" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸš€ Alabama</a>
+        <a href="dscr-loans/mississippi" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŒŠ Mississippi</a>
+        <a href="dscr-loans/arkansas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŒ¿ Arkansas</a>
+        <a href="dscr-loans/kansas" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸŒ¾ Kansas</a>
+        <a href="dscr-loans/oklahoma" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ™ï¸ Oklahoma</a>
+        <a href="dscr-loans/colorado" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ”ï¸ Colorado</a>
+        <a href="dscr-loans/wyoming" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ¦¬ Wyoming</a>
+        <a href="dscr-loans/montana" style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px">ðŸ”ï¸ Montana</a>
+      <a href="dscr-loans/washington" class="state-link">ðŸŒ² Washington</a>
+      <a href="dscr-loans/oregon" class="state-link">ðŸŒ² Oregon</a>
+      <a href="dscr-loans/wisconsin" class="state-link">ðŸ§€ Wisconsin</a>
+      <a href="dscr-loans/iowa" class="state-link">ðŸŒ½ Iowa</a>
+      <a href="dscr-loans/idaho" class="state-link">ðŸ¥” Idaho</a>
+      <a href="dscr-loans/hawaii" class="state-link">ðŸŒº Hawaii</a>
+      <a href="dscr-loans/delaware" class="state-link">ðŸ›ï¸ Delaware</a>
+      <a href="dscr-loans/district-of-columbia" class="state-link">ðŸ›ï¸ Washington DC</a>
+        <a href="dscr-loans/index.html" style="font-size:12px;font-weight:700;color:rgba(37,99,235,0.9);text-decoration:none;padding:4px 10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);border-radius:6px">View All States â†’</a>
       </div>
     </div>
   </div>
@@ -2145,15 +2145,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <!-- Bottom strip -->
   <div class="footer-bottom">
     <span class="footer-ehl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M3 10L12 3L21 10V20C21 20.5523 20.5523 21 20 21H15V15H9V21H4C3.44772 21 3 20.5523 3 20V10Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/><line x1="6" y1="19" x2="18" y2="19" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/></svg> Equal Housing Lender</span>
-    <span>·</span><span>© 2026 Rate Hero, Inc. All rights reserved.</span>
-    <span>·</span><span>Not a commitment to lend.</span>
+    <span>Â·</span><span>Â© 2026 Rate Hero, Inc. All rights reserved.</span>
+    <span>Â·</span><span>Not a commitment to lend.</span>
   </div>
 </footer>
 
 
 </div><!-- /landing -->
 
-<!-- ════════════ FUNNEL ════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â• FUNNEL â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="funnel" role="dialog" aria-modal="true" aria-label="Loan application">
   <div class="funnel-nav">
     <div class="funnel-logo"><svg width="16" height="22" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0">
@@ -2165,15 +2165,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   </defs>
   <polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#blt)"/>
 </svg>RATE <span>HERO</span></div>
-    <button class="funnel-close" onclick="closeFunnel()">✕</button>
+    <button class="funnel-close" onclick="closeFunnel()">âœ•</button>
   </div>
   <div class="funnel-progress"><div class="funnel-bar" id="fBar" style="width:5%"></div></div>
-  <button class="back-btn hidden" id="backBtn" onclick="goBack()">‹</button>
+  <button class="back-btn hidden" id="backBtn" onclick="goBack()">â€¹</button>
 
   <div class="funnel-body">
 
     <div class="step active" id="step-1">
-      <div class="step-pill">Step 01 · Loan Program</div>
+      <div class="step-pill">Step 01 Â· Loan Program</div>
       <h2>Which Program <span>Fits You?</span></h2>
       <p class="step-sub">Select your loan program to get started. No SSN, no credit pull.</p>
       <div class="opt-grid three">
@@ -2181,11 +2181,11 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         <div class="opt-illus" onclick="selIllus('loanType','nonqm',this)"><div class="illus-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="illus-label">Non-QM</div></div>
         <div class="opt-illus" onclick="selIllus('loanType','conventional',this)"><div class="illus-top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></div><div class="illus-label">Conventional / FHA / VA</div></div>
       </div>
-      <p class="f-privacy"><span>🔒</span> No SSN required · Zero impact to credit · Never sold</p>
+      <p class="f-privacy"><span>ðŸ”’</span> No SSN required Â· Zero impact to credit Â· Never sold</p>
     </div>
 
     <div class="step" id="step-2">
-      <div class="step-pill">Step 02 · About You</div>
+      <div class="step-pill">Step 02 Â· About You</div>
       <h2>Who <span>Are You?</span></h2>
       <p class="step-sub">Select the option that best describes your situation.</p>
       <div class="opt-grid">
@@ -2199,24 +2199,24 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     </div>
 
     <div class="step" id="step-3">
-      <div class="step-pill">Step 03 · Property</div>
+      <div class="step-pill">Step 03 Â· Property</div>
       <h2>Property <span>Type?</span></h2>
       <div class="opt-grid">
         <button class="opt" onclick="selOpt('property','sfr',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></span><span class="opt-title">Single Family</span><span class="opt-sub">SFR / detached home</span></button>
-        <button class="opt" onclick="selOpt('property','multi',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></span><span class="opt-title">2–4 Units</span><span class="opt-sub">Duplex, triplex, quad</span></button>
+        <button class="opt" onclick="selOpt('property','multi',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></span><span class="opt-title">2â€“4 Units</span><span class="opt-sub">Duplex, triplex, quad</span></button>
         <button class="opt" onclick="selOpt('property','condo',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="1"/><line x1="8" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="16" y2="21"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="2" y1="15" x2="22" y2="15"/></svg></span><span class="opt-title">Condo / Townhome</span><span class="opt-sub">Attached unit</span></button>
         <button class="opt" onclick="selOpt('property','commercial',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg></span><span class="opt-title">5+ Units / Commercial</span><span class="opt-sub">Large portfolio</span></button>
       </div>
     </div>
 
     <div class="step"                               id="step-4">
-      <div class="step-pill">Step 04 · Location</div>
+      <div class="step-pill">Step 04 Â· Location</div>
       <h2>Where Is The <span>Property?</span></h2>
       <p class="step-sub">We lend in most US states. This helps us find the best rates in your market.</p>
       <div class="input-group">
         <label>Property State</label>
         <select id="stateSelect" onchange="enStep4()">
-          <option value="">Select a state…</option>
+          <option value="">Select a stateâ€¦</option>
           <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
         </select>
       </div>
@@ -2224,66 +2224,66 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
             <label style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px;display:block;">Property Address <span style="color:rgba(255,255,255,0.3);font-size:11px;">(optional)</span></label>
             <input type="text" id="propAddress" placeholder="e.g. 123 Main St, Miami, FL 33101" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:var(--font-b);outline:none;box-sizing:border-box;" />
           </div>
-          <button class="btn-continue" id="cont4" disabled onclick="ans.state=document.getElementById('stateSelect').value;ans.address=document.getElementById('propAddress').value||'Not provided';show(5);">Continue →</button>
+          <button class="btn-continue" id="cont4" disabled onclick="ans.state=document.getElementById('stateSelect').value;ans.address=document.getElementById('propAddress').value||'Not provided';show(5);">Continue â†’</button>
     </div>
 
             <div class="step" id="step-5">
-      <div class="step-pill">Step 05 · Amount</div>
+      <div class="step-pill">Step 05 Â· Amount</div>
       <h2>How Much Do <span>You Need?</span></h2>
       <div class="opt-grid">
         <button class="opt" onclick="selOpt('amount','u300k',this)"><span class="opt-title">Under $300K</span></button>
-        <button class="opt" onclick="selOpt('amount','300_500k',this)"><span class="opt-title">$300K – $500K</span></button>
-        <button class="opt" onclick="selOpt('amount','500_750k',this)"><span class="opt-title">$500K – $750K</span></button>
-        <button class="opt" onclick="selOpt('amount','750_1m',this)"><span class="opt-title">$750K – $1M</span></button>
-        <button class="opt" onclick="selOpt('amount','1_2m',this)"><span class="opt-title">$1M – $2M</span></button>
+        <button class="opt" onclick="selOpt('amount','300_500k',this)"><span class="opt-title">$300K â€“ $500K</span></button>
+        <button class="opt" onclick="selOpt('amount','500_750k',this)"><span class="opt-title">$500K â€“ $750K</span></button>
+        <button class="opt" onclick="selOpt('amount','750_1m',this)"><span class="opt-title">$750K â€“ $1M</span></button>
+        <button class="opt" onclick="selOpt('amount','1_2m',this)"><span class="opt-title">$1M â€“ $2M</span></button>
         <button class="opt" onclick="selOpt('amount','2mplus',this)"><span class="opt-title">$2M+</span></button>
       </div>
     </div>
 
     <div class="step" id="step-6">
-      <div class="step-pill">Step 06 · Credit</div>
+      <div class="step-pill">Step 06 Â· Credit</div>
       <h2>Estimated <span>Credit Score?</span></h2>
       <p class="step-sub">No hard pull. Helps us match you to the right program instantly.</p>
       <div class="opt-grid">
         <button class="opt" onclick="selOpt('credit','760plus',this)"><span class="opt-title">760+</span><span class="opt-sub">Excellent</span></button>
-        <button class="opt" onclick="selOpt('credit','720_759',this)"><span class="opt-title">720 – 759</span><span class="opt-sub">Very Good</span></button>
-        <button class="opt" onclick="selOpt('credit','680_719',this)"><span class="opt-title">680 – 719</span><span class="opt-sub">Good</span></button>
-        <button class="opt" onclick="selOpt('credit','640_679',this)"><span class="opt-title">640 – 679</span><span class="opt-sub">Fair</span></button>
-        <button class="opt" onclick="selOpt('credit','600_639',this)"><span class="opt-title">600 – 639</span><span class="opt-sub">Below Average</span></button>
+        <button class="opt" onclick="selOpt('credit','720_759',this)"><span class="opt-title">720 â€“ 759</span><span class="opt-sub">Very Good</span></button>
+        <button class="opt" onclick="selOpt('credit','680_719',this)"><span class="opt-title">680 â€“ 719</span><span class="opt-sub">Good</span></button>
+        <button class="opt" onclick="selOpt('credit','640_679',this)"><span class="opt-title">640 â€“ 679</span><span class="opt-sub">Fair</span></button>
+        <button class="opt" onclick="selOpt('credit','600_639',this)"><span class="opt-title">600 â€“ 639</span><span class="opt-sub">Below Average</span></button>
         <button class="opt" onclick="selOpt('credit','u600',this)"><span class="opt-title">Under 600</span><span class="opt-sub">Let's talk</span></button>
       </div>
     </div>
 
     <div class="step" id="step-7">
-      <div class="step-pill">Step 07 · Timeline</div>
+      <div class="step-pill">Step 07 Â· Timeline</div>
       <h2>When Do You Want <span>To Close?</span></h2>
       <div class="opt-grid" style="max-width:480px;">
         <button class="opt" onclick="selOpt('timeline','asap',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span class="opt-title">ASAP</span><span class="opt-sub">Within 30 days</span></button>
-        <button class="opt" onclick="selOpt('timeline','1_3mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="opt-title">1 – 3 Months</span></button>
-        <button class="opt" onclick="selOpt('timeline','3_6mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="8 14 10 16 14 12"/></svg></span><span class="opt-title">3 – 6 Months</span></button>
+        <button class="opt" onclick="selOpt('timeline','1_3mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="opt-title">1 â€“ 3 Months</span></button>
+        <button class="opt" onclick="selOpt('timeline','3_6mo',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="8 14 10 16 14 12"/></svg></span><span class="opt-title">3 â€“ 6 Months</span></button>
         <button class="opt" onclick="selOpt('timeline','research',this)"><span class="opt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="opt-title">Just Researching</span></button>
       </div>
     </div>
 
     
         <div class="step" id="step-8">
-          <div class="step-pill">Step 08 · Experience</div>
+          <div class="step-pill">Step 08 Â· Experience</div>
           <h2>How Many Properties Do You <span>Currently Own?</span></h2>
           <p class="step-sub">Helps us identify the right program and entity structure for you.</p>
           <div class="opt-grid">
             <div class="opt" onclick="selOpt('properties','0',this)">
               <span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></span>
-              <span class="opt-title">None — First Purchase</span>
+              <span class="opt-title">None â€” First Purchase</span>
               <span class="opt-sub">First-time investor or homebuyer</span>
             </div>
             <div class="opt" onclick="selOpt('properties','1-2',this)">
               <span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 22V11L8 4l7 7v11"/><path d="M15 22V13l4-4 4 4v9"/><path d="M1 22h22"/></svg></span>
-              <span class="opt-title">1–2 Properties</span>
+              <span class="opt-title">1â€“2 Properties</span>
               <span class="opt-sub">Getting started</span>
             </div>
             <div class="opt" onclick="selOpt('properties','3-9',this)">
               <span class="opt-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-              <span class="opt-title">3–9 Properties</span>
+              <span class="opt-title">3â€“9 Properties</span>
               <span class="opt-sub">Growing portfolio</span>
             </div>
             <div class="opt" onclick="selOpt('properties','10+',this)">
@@ -2292,11 +2292,11 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
               <span class="opt-sub">Experienced investor</span>
             </div>
           </div>
-          <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="back-btn" onclick="goBack()">‹</button></div>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="back-btn" onclick="goBack()">â€¹</button></div>
         </div>
 
 <div class="step" id="step-9">
-      <div class="step-pill">Step 09 · Your Info</div>
+      <div class="step-pill">Step 09 Â· Your Info</div>
       <h2>Almost <span>Done.</span></h2>
       <p class="step-sub">A licensed Rate Hero advisor will reach out within 1 hour with your personalized options.</p>
       <div class="input-row" style="max-width:480px;margin-bottom:16px;">
@@ -2305,20 +2305,20 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       </div>
       <div class="input-group"><label>Email Address</label><input type="email" id="em" placeholder="jane@email.com" oninput="checkContact()"></div>
       <div class="input-group"><label>Phone Number</label><input type="tel" id="ph" placeholder="(555) 000-0000" oninput="checkContact()"></div>
-      <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Check My Eligibility →</button>
-      <p class="f-privacy" style="max-width:480px;margin-top:14px;"><span>🔒</span> No SSN · No credit pull · Your data is never sold</p>
+      <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Check My Eligibility â†’</button>
+      <p class="f-privacy" style="max-width:480px;margin-top:14px;"><span>ðŸ”’</span> No SSN Â· No credit pull Â· Your data is never sold</p>
     </div>
 
     
         <div class="step" id="step-10">
       <div class="success-wrap">
-        <div class="success-icon">✓</div>
+        <div class="success-icon">âœ“</div>
         <h2>You're A <span>Hero.</span></h2>
         <p>A Rate Hero specialist will contact you within 1 business hour with your personalized rate options.</p>
         <div class="next-box">
           <h3>What Happens Next</h3>
           <div class="next-step"><div class="next-num">1</div><div class="next-text">A licensed advisor reviews your profile and finds the best programs for your situation.</div></div>
-          <div class="next-step"><div class="next-num">2</div><div class="next-text">You receive a personalized rate quote — no SSN, no credit pull.</div></div>
+          <div class="next-step"><div class="next-num">2</div><div class="next-text">You receive a personalized rate quote â€” no SSN, no credit pull.</div></div>
           <div class="next-step"><div class="next-num">3</div><div class="next-text">If you love the terms, we move fast. Most deals close in 21 days or less.</div></div>
         </div>
       </div>
@@ -2383,7 +2383,7 @@ function submitForm(){
 
   var body = new FormData();
   body.append('access_key',   '544fd03b-53dd-4844-ae11-af8c8871adf8');
-  body.append('subject',      'New Rate Hero Lead — ' + (ans.loanType || 'Website'));
+  body.append('subject',      'New Rate Hero Lead â€” ' + (ans.loanType || 'Website'));
   body.append('from_name',    'Rate Hero Website');
   body.append('Name',         ans.firstName + ' ' + ans.lastName);
   body.append('Email',        ans.email);
@@ -2430,7 +2430,7 @@ function toggleAcc(id) {
 <div id="stickyCTA" style="position:fixed;bottom:24px;right:24px;z-index:500;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;">
   <button onclick="openFunnel('purchase')" aria-label="Get My Loan Options" style="background:var(--blue);color:#fff;border:none;padding:14px 24px;border-radius:14px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;gap:8px;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(37,99,235,0.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(37,99,235,0.5),0 2px 8px rgba(0,0,0,0.3)'">
     <svg width="14" height="20" viewBox="0 0 28 40"><defs><linearGradient id="scblt" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#F5B731"/><stop offset="100%" stop-color="#E8920A"/></linearGradient></defs><polygon points="19,0 6,20 13,20 3,40 26,16 17,16" fill="url(#scblt)"/></svg>
-    Find My Loan Options →
+    Find My Loan Options â†’
   </button>
 </div>
 <script>
@@ -2488,7 +2488,7 @@ function toggleAcc(id) {
   // Create toggle button
   var toggle = document.createElement('button');
   toggle.className = 'mobile-programs-toggle';
-  toggle.innerHTML = '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+  toggle.innerHTML = 'ðŸ“‹ View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
   toggle.setAttribute('aria-expanded', 'false');
   
   grid.parentNode.insertBefore(toggle, grid);
@@ -2496,8 +2496,8 @@ function toggleAcc(id) {
   toggle.addEventListener('click', function() {
     var expanded = grid.classList.toggle('expanded');
     toggle.innerHTML = expanded 
-      ? '📋 Loan Programs <span style="font-size:12px;opacity:.7">tap to collapse</span>'
-      : '📋 View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
+      ? 'ðŸ“‹ Loan Programs <span style="font-size:12px;opacity:.7">tap to collapse</span>'
+      : 'ðŸ“‹ View Loan Programs <span style="font-size:12px;opacity:.7">tap to expand</span>';
     toggle.setAttribute('aria-expanded', expanded);
   });
 })();
@@ -2540,17 +2540,17 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>',
       title: 'Close in 21 Days.',
-      body: 'We move fast because our process is tight — not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>'
+      body: 'We move fast because our process is tight â€” not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>'
     },
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
       title: "We're In Your Corner.",
-      body: 'Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve.'
+      body: 'Strategic lender access means <b>your loan is structured for the best rate and terms</b> â€” not just what is easiest to approve.'
     },
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
       title: 'Complex Borrowers Welcome.',
-      body: '<b>Self-employed, investors, foreign nationals, low credit</b> — programs for borrowers the big banks turn away.'
+      body: '<b>Self-employed, investors, foreign nationals, low credit</b> â€” programs for borrowers the big banks turn away.'
     },
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
@@ -2655,17 +2655,17 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       icon: "clock",
       title: "Close in 21 Days.",
-      body: "We move fast because our process is tight — not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>"
+      body: "We move fast because our process is tight â€” not because we cut corners. <b>Most lenders take 21 days just to issue a pre-approval.</b>"
     },
     {
       icon: "users",
-      title: "We’re In Your Corner.",
-      body: "Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve."
+      title: "Weâ€™re In Your Corner.",
+      body: "Strategic lender access means <b>your loan is structured for the best rate and terms</b> â€” not just what is easiest to approve."
     },
     {
       icon: "check",
       title: "Complex Borrowers Welcome.",
-      body: "<b>Self-employed, investors, foreign nationals, low credit</b> — programs for borrowers the big banks turn away."
+      body: "<b>Self-employed, investors, foreign nationals, low credit</b> â€” programs for borrowers the big banks turn away."
     },
     {
       icon: "shield",
@@ -2720,8 +2720,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   var params = new URLSearchParams(window.location.search);
-  if (params.get("funnel") === "1") {
-    openFunnel("purchase");
+  var f = params.get("funnel");
+  if (f) {
+    openFunnel(f === "1" ? "purchase" : f);
   }
 });
 </script>
