@@ -1,0 +1,732 @@
+// rates-config.js — STATIC FALLBACK ONLY.
+//
+// The /rates page fetches the live pricing config from /api/pricing/approved.
+// If that fetch fails (network error, KV not seeded, deploy issue), the page
+// falls back to this embedded config and shows a banner.
+//
+// Keep this file in sync with the seed in data/pricing-seed.json so that fresh
+// deploys behave identically to KV-backed deploys.
+
+window.RATE_HERO_FALLBACK_CONFIG = {
+  "version": "1.0",
+  "lastUpdated": "2026-04-25T00:00:00Z",
+  "lastReviewedBy": "Sean",
+  "_schemaNote": "Profile-based pricing. Each profile is one program \u00d7 purpose combination. Public /rates picks profile by (program, purpose); falls back to the program's first active profile if exact match missing. Global adjustments apply on top of profile baseRate.",
+  "profiles": [
+    {
+      "id": "dscr-purchase",
+      "program": "dscr",
+      "purpose": "purchase",
+      "displayName": "DSCR Purchase",
+      "active": true,
+      "baseRate": 7.25,
+      "spreadLow": 0.375,
+      "spreadHigh": 0.375,
+      "pointsLow": 0.5,
+      "pointsHigh": 2.0,
+      "feeLow": 1495,
+      "feeHigh": 2495,
+      "minFico": 660,
+      "maxLtv": 80,
+      "minDscr": 1.0,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": true,
+      "notes": "",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "dscr-rt-refi",
+      "program": "dscr",
+      "purpose": "rt-refi",
+      "displayName": "DSCR Rate/Term Refi",
+      "active": true,
+      "baseRate": 7.25,
+      "spreadLow": 0.375,
+      "spreadHigh": 0.375,
+      "pointsLow": 0.5,
+      "pointsHigh": 2.0,
+      "feeLow": 1495,
+      "feeHigh": 2495,
+      "minFico": 660,
+      "maxLtv": 75,
+      "minDscr": 1.0,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": true,
+      "notes": "",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "dscr-cashout",
+      "program": "dscr",
+      "purpose": "cashout",
+      "displayName": "DSCR Cash-Out Refi",
+      "active": true,
+      "baseRate": 7.5,
+      "spreadLow": 0.375,
+      "spreadHigh": 0.5,
+      "pointsLow": 1.0,
+      "pointsHigh": 2.5,
+      "feeLow": 1495,
+      "feeHigh": 2495,
+      "minFico": 680,
+      "maxLtv": 70,
+      "minDscr": 1.0,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": true,
+      "notes": "Cash-out adds spread above rate-and-term. Max LTV typically 70%.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "dscr-hm-exit",
+      "program": "dscr",
+      "purpose": "hm-exit",
+      "displayName": "DSCR Hard Money Exit",
+      "active": true,
+      "baseRate": 7.25,
+      "spreadLow": 0.375,
+      "spreadHigh": 0.5,
+      "pointsLow": 0.5,
+      "pointsHigh": 2.0,
+      "feeLow": 1495,
+      "feeHigh": 2495,
+      "minFico": 660,
+      "maxLtv": 75,
+      "minDscr": 1.0,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": true,
+      "notes": "BRRRR / hard money take-out. Treated like rate-and-term refi.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "bs-purchase",
+      "program": "bankStatement",
+      "purpose": "purchase",
+      "displayName": "Bank Statement Purchase",
+      "active": true,
+      "baseRate": 7.875,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.5,
+      "pointsLow": 0.5,
+      "pointsHigh": 2.5,
+      "feeLow": 1995,
+      "feeHigh": 2995,
+      "minFico": 660,
+      "maxLtv": 80,
+      "minDscr": null,
+      "defaultPrepay": "none",
+      "ioAllowed": true,
+      "notes": "12 or 24 month statements.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "bs-rt-refi",
+      "program": "bankStatement",
+      "purpose": "rt-refi",
+      "displayName": "Bank Statement Rate/Term Refi",
+      "active": true,
+      "baseRate": 7.875,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.5,
+      "pointsLow": 0.5,
+      "pointsHigh": 2.5,
+      "feeLow": 1995,
+      "feeHigh": 2995,
+      "minFico": 660,
+      "maxLtv": 75,
+      "minDscr": null,
+      "defaultPrepay": "none",
+      "ioAllowed": true,
+      "notes": "",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "bs-cashout",
+      "program": "bankStatement",
+      "purpose": "cashout",
+      "displayName": "Bank Statement Cash-Out Refi",
+      "active": true,
+      "baseRate": 8.125,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.625,
+      "pointsLow": 1.0,
+      "pointsHigh": 2.75,
+      "feeLow": 1995,
+      "feeHigh": 2995,
+      "minFico": 680,
+      "maxLtv": 70,
+      "minDscr": null,
+      "defaultPrepay": "none",
+      "ioAllowed": true,
+      "notes": "",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "noratio-purchase",
+      "program": "noRatio",
+      "purpose": "purchase",
+      "displayName": "No-Ratio Investor Purchase",
+      "active": true,
+      "baseRate": 8.25,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.5,
+      "pointsLow": 1.0,
+      "pointsHigh": 2.5,
+      "feeLow": 1995,
+      "feeHigh": 2995,
+      "minFico": 680,
+      "maxLtv": 75,
+      "minDscr": null,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": false,
+      "notes": "Vacant or pre-lease properties; no DSCR test.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "noratio-refi",
+      "program": "noRatio",
+      "purpose": "rt-refi",
+      "displayName": "No-Ratio Investor Refi",
+      "active": true,
+      "baseRate": 8.5,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.5,
+      "pointsLow": 1.0,
+      "pointsHigh": 2.5,
+      "feeLow": 1995,
+      "feeHigh": 2995,
+      "minFico": 680,
+      "maxLtv": 70,
+      "minDscr": null,
+      "defaultPrepay": "5-yr",
+      "ioAllowed": false,
+      "notes": "Same profile used for cash-out and hard-money exits when DSCR not provable.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "heloc",
+      "program": "heloc",
+      "purpose": "any",
+      "displayName": "HELOC / Second",
+      "active": true,
+      "baseRate": 9.5,
+      "spreadLow": 1.0,
+      "spreadHigh": 1.0,
+      "pointsLow": 0.0,
+      "pointsHigh": 2.0,
+      "feeLow": 995,
+      "feeHigh": 1995,
+      "minFico": 680,
+      "maxLtv": 85,
+      "minDscr": null,
+      "defaultPrepay": "none",
+      "ioAllowed": false,
+      "notes": "Combined LTV drives pricing. Used for all purposes.",
+      "lastReviewed": "2026-04-25"
+    },
+    {
+      "id": "agency",
+      "program": "conventional",
+      "purpose": "any",
+      "displayName": "Conventional / FHA / VA",
+      "active": true,
+      "baseRate": 6.5,
+      "spreadLow": 0.5,
+      "spreadHigh": 0.5,
+      "pointsLow": 0.0,
+      "pointsHigh": 2.0,
+      "feeLow": 1175,
+      "feeHigh": 1995,
+      "minFico": 620,
+      "maxLtv": 97,
+      "minDscr": null,
+      "defaultPrepay": "none",
+      "ioAllowed": false,
+      "notes": "Agency loans. Used for all purposes.",
+      "lastReviewed": "2026-04-25"
+    }
+  ],
+  "adjustments": {
+    "creditScore": [
+      {
+        "match": "780+",
+        "label": "780+",
+        "rateAdj": -0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "740-779",
+        "label": "740 \u2013 779",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "match": "720-739",
+        "label": "720 \u2013 739",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "700-719",
+        "label": "700 \u2013 719",
+        "rateAdj": 0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "680-699",
+        "label": "680 \u2013 699",
+        "rateAdj": 0.5,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "660-679",
+        "label": "660 \u2013 679",
+        "rateAdj": 0.875,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "640-659",
+        "label": "640 \u2013 659",
+        "rateAdj": 1.375,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "620-639",
+        "label": "620 \u2013 639",
+        "rateAdj": 2.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "ltv": [
+      {
+        "ltvMax": 60.0,
+        "label": "\u2264 60%",
+        "rateAdj": -0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "ltvMax": 65.0,
+        "label": "60.01 \u2013 65%",
+        "rateAdj": -0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "ltvMax": 70.0,
+        "label": "65.01 \u2013 70%",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "ltvMax": 75.0,
+        "label": "70.01 \u2013 75%",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "ltvMax": 80.0,
+        "label": "75.01 \u2013 80%",
+        "rateAdj": 0.5,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "ltvMax": 999,
+        "label": "> 80%",
+        "rateAdj": 1.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "dscr": [
+      {
+        "dscrMin": 1.25,
+        "label": "\u2265 1.25 (strong)",
+        "rateAdj": -0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "dscrMin": 1.1,
+        "label": "1.10 \u2013 1.24",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "dscrMin": 1.0,
+        "label": "1.00 \u2013 1.09",
+        "rateAdj": 0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "dscrMin": 0.75,
+        "label": "0.75 \u2013 0.99",
+        "rateAdj": 0.625,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Likely no-ratio"
+      },
+      {
+        "dscrMin": 0.0,
+        "label": "< 0.75",
+        "rateAdj": 1.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Likely no-ratio"
+      }
+    ],
+    "propertyType": [
+      {
+        "match": "sfr",
+        "label": "Single-family",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "match": "condo",
+        "label": "Warrantable condo",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "2-4",
+        "label": "2-4 unit",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "multi-5-8",
+        "label": "Multi 5-8 unit",
+        "rateAdj": 0.5,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "str",
+        "label": "Short-term rental",
+        "rateAdj": 0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "condotel",
+        "label": "Condotel",
+        "rateAdj": 1.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "mfg",
+        "label": "Manufactured",
+        "rateAdj": 0.75,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "loanAmount": [
+      {
+        "amountMax": 150000,
+        "label": "< $150k",
+        "rateAdj": 0.5,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "amountMax": 300000,
+        "label": "$150k \u2013 $300k",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "amountMax": 1000000,
+        "label": "$300k \u2013 $1M",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "amountMax": 2000000,
+        "label": "$1M \u2013 $2M",
+        "rateAdj": 0.125,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "amountMax": 999999999,
+        "label": "> $2M",
+        "rateAdj": 0.375,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "state": {
+      "label": "State",
+      "explain": "Some states price slightly higher because of foreclosure timelines and lender eligibility.",
+      "bands": {
+        "low": {
+          "label": "Lower-cost states",
+          "rateAdj": 0.0,
+          "pointsAdj": 0,
+          "active": true,
+          "states": [
+            "AZ",
+            "CO",
+            "FL",
+            "GA",
+            "ID",
+            "MO",
+            "NC",
+            "OK",
+            "SC",
+            "TN",
+            "TX",
+            "UT",
+            "VA",
+            "WA"
+          ]
+        },
+        "mid": {
+          "label": "Mid-cost states",
+          "rateAdj": 0.075,
+          "pointsAdj": 0,
+          "active": true,
+          "states": [
+            "AL",
+            "AR",
+            "DE",
+            "HI",
+            "IA",
+            "IN",
+            "KS",
+            "KY",
+            "LA",
+            "MA",
+            "MD",
+            "ME",
+            "MI",
+            "MN",
+            "MS",
+            "MT",
+            "NE",
+            "NH",
+            "NM",
+            "NV",
+            "OH",
+            "OR",
+            "PA",
+            "RI",
+            "SD",
+            "WI",
+            "WV",
+            "WY"
+          ]
+        },
+        "high": {
+          "label": "Higher-cost states",
+          "rateAdj": 0.15,
+          "pointsAdj": 0,
+          "active": true,
+          "states": [
+            "CA",
+            "NY",
+            "NJ",
+            "CT",
+            "IL",
+            "DC",
+            "ND",
+            "VT",
+            "AK"
+          ]
+        }
+      }
+    },
+    "lockPeriod": [
+      {
+        "match": "15",
+        "label": "15 days",
+        "rateAdj": -0.075,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "30",
+        "label": "30 days",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "match": "45",
+        "label": "45 days",
+        "rateAdj": 0.1,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "prepay": [
+      {
+        "match": "none",
+        "label": "No prepay",
+        "rateAdj": 0.5,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "1-yr",
+        "label": "1-year",
+        "rateAdj": 0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      },
+      {
+        "match": "3-yr",
+        "label": "3-year",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "match": "5-yr",
+        "label": "5-year",
+        "rateAdj": -0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ],
+    "interestOnly": [
+      {
+        "match": "no",
+        "label": "No (P&I)",
+        "rateAdj": 0.0,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": "Baseline"
+      },
+      {
+        "match": "yes",
+        "label": "Yes (IO)",
+        "rateAdj": 0.25,
+        "pointsAdj": 0,
+        "active": true,
+        "notes": ""
+      }
+    ]
+  },
+  "fees": [
+    {
+      "id": "lender",
+      "name": "Lender / admin fee",
+      "low": 1495,
+      "high": 2995,
+      "active": true,
+      "notes": "Underwriting, doc prep, admin. Per-program range overrides this in profile."
+    },
+    {
+      "id": "appraisal",
+      "name": "Appraisal",
+      "low": 600,
+      "high": 1500,
+      "active": true,
+      "notes": "Higher for multi-unit, rural, larger properties."
+    },
+    {
+      "id": "credit",
+      "name": "Credit / background",
+      "low": 75,
+      "high": 250,
+      "active": true,
+      "notes": "Tri-merge credit and verification reports."
+    },
+    {
+      "id": "title",
+      "name": "Title / escrow",
+      "low": 1500,
+      "high": 4500,
+      "active": true,
+      "notes": "Varies by state, loan size, and policy type."
+    },
+    {
+      "id": "recording",
+      "name": "Recording / county",
+      "low": 75,
+      "high": 400,
+      "active": true,
+      "notes": "Set by the county recorder."
+    },
+    {
+      "id": "prepaid",
+      "name": "Prepaid interest",
+      "low": 0,
+      "high": 0,
+      "active": true,
+      "notes": "Daily interest from funding to month-end. Varies."
+    },
+    {
+      "id": "escrows",
+      "name": "Tax / insurance escrows",
+      "low": 0,
+      "high": 0,
+      "active": true,
+      "notes": "If the loan requires an escrow account. Varies."
+    }
+  ],
+  "compliance": {
+    "disclaimer": "This is an estimate for scenario planning only. It is not a rate lock, approval, loan estimate, or commitment to lend. Final pricing depends on current market conditions, lender eligibility, credit, LTV, DSCR, documentation, reserves, property type, state, lock period, and full underwriting review.",
+    "rateRangeFootnote": "Lower rate usually means higher upfront cost. Higher rate may reduce points or create rebate depending on lender pricing.",
+    "upfrontCostNote": "Estimate only. Actual cost depends on the rate selected and lender pricing on lock day.",
+    "rateGridDisclaimer": "Illustrative trade-off only. Actual rate / point combinations are priced by the lender at lock.",
+    "advisorReviewMessage": "This scenario falls outside our standard pricing brackets. An advisor will review and respond with a real quote."
+  }
+};
