@@ -1,36 +1,18 @@
-{
+﻿{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "bolt-admin",
   "main": "src/worker.js",
   "compatibility_date": "2026-04-12",
-  "observability": {
-    "enabled": true
-  },
-
-  // Same D1 + KV bindings as bolt-proxy — this worker reads/writes them.
+  "observability": { "enabled": true },
   "d1_databases": [
-    {
-      "binding": "BOLT_DB",
-      "database_name": "bolt-data",
-      "database_id": "d872842e-62db-4fa1-9d56-86a656946e45"
-    }
+    { "binding": "BOLT_DB", "database_name": "bolt-data", "database_id": "d872842e-62db-4fa1-9d56-86a656946e45" }
   ],
   "kv_namespaces": [
-    {
-      "binding": "BOLT_CONFIG",
-      "id": "083d29dd347748c6ad1139b58e2003b9"
-    }
+    { "binding": "BOLT_CONFIG", "id": "083d29dd347748c6ad1139b58e2003b9" },
+    { "binding": "PRICING_KV", "id": "621400adc60044299d2c736d6d10e56b", "preview_id": "e7059c3c2c3f4e2ea34ed078a41ba219" }
   ],
-
-  // Serve at goratehero.com/admin/*
   "routes": [
-    {
-      "pattern": "goratehero.com/admin",
-      "zone_name": "goratehero.com"
-    },
-    {
-      "pattern": "goratehero.com/admin/*",
-      "zone_name": "goratehero.com"
-    }
+    { "pattern": "goratehero.com/admin", "zone_name": "goratehero.com" },
+    { "pattern": "goratehero.com/admin/*", "zone_name": "goratehero.com" }
   ]
 }

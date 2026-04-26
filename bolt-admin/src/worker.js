@@ -61,6 +61,22 @@ export default {
         const body = await request.json();
         return json(await updateConfig(env, body, accessEmail));
       }
+      if (path === '/admin/api/pricing/draft' && request.method === 'GET') {
+        return json(await getPricingDraft(env));
+      }
+      if (path === '/admin/api/pricing/draft' && request.method === 'POST') {
+        const body = await request.json();
+        return json(await savePricingDraft(env, body, accessEmail));
+      }
+      if (path === '/admin/api/pricing/approved' && request.method === 'GET') {
+        return json(await getPricingApprovedAdmin(env));
+      }
+      if (path === '/admin/api/pricing/publish' && request.method === 'POST') {
+        return json(await publishPricing(env, accessEmail));
+      }
+      if (path === '/admin/api/pricing/revert' && request.method === 'POST') {
+        return json(await revertPricing(env, accessEmail));
+      }
       return new Response('Not found', { status: 404 });
     } catch (err) {
       return json({ error: err.message, stack: err.stack }, 500);
@@ -569,7 +585,7 @@ let pApproved = null;// last fetched approved metadata
 let pDirty = false;
 
 function pApi(path, opts={}){
-  return fetch('/api/admin/pricing'+path, { credentials:'same-origin', ...opts }).then(async r => {
+  return fetch('/admin/api/pricing'+path, { credentials:'same-origin', ...opts }).then(async r => {
     const j = await r.json().catch(()=>({}));
     if (!r.ok) throw Object.assign(new Error(j.error||r.statusText), { status:r.status, errors:j.errors||[], warnings:j.warnings||[] });
     return j;
@@ -848,4 +864,177 @@ loadTab('conversations');
 
 function escapeHtml(s) {
   return (s || '').replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]));
+}
+
+/* --------------- pricing data access --------------- */
+
+async function getPricingDraft(env) {
+  if (!env.PRICING_KV) return { error: 'PRICING_KV binding missing' };
+  const draft = await readPricingJSON(env, 'pricing:draft');
+  if (draft) return { source: 'draft', config: draft, warnings: pricingWarnings(draft) };
+  const approved = await readPricingJSON(env, 'pricing:approved');
+  return {
+    source: approved ? 'approved-as-starter' : 'empty',
+    config: approved,
+    warnings: approved ? pricingWarnings(approved) : []
+  };
+}
+
+async function savePricingDraft(env, body, reviewerEmail) {
+  if (!env.PRICING_KV) return { error: 'PRICING_KV binding missing' };
+  const errors = pricingValidate(body);
+  if (errors.length) return { error: 'Validation failed', errors };
+  body.lastUpdated = new Date().toISOString();
+  if (reviewerEmail) body.lastReviewedBy = reviewerEmail;
+  await writePricingJSON(env, 'pricing:draft', body);
+  return {
+    ok: true,
+    lastUpdated: body.lastUpdated,
+    lastReviewedBy: body.lastReviewedBy || null,
+    warnings: pricingWarnings(body)
+  };
+}
+
+async function getPricingApprovedAdmin(env) {
+  if (!env.PRICING_KV) return { error: 'PRICING_KV binding missing' };
+  const approved = await readPricingJSON(env, 'pricing:approved');
+  const lastApproved = await readPricingJSON(env, 'pricing:last_approved');
+  let archives = [];
+  try {
+    const listing = await env.PRICING_KV.list({ prefix: 'pricing:archive:' });
+    archives = (listing.keys || []).map(function(k){
+      return { key: k.name, timestamp: k.name.replace('pricing:archive:', '') };
+    });
+    archives.sort(function(a, b){ return b.timestamp.localeCompare(a.timestamp); });
+  } catch (_) { archives = []; }
+  return {
+    approved: approved || null,
+    canRevert: !!lastApproved,
+    lastApprovedTimestamp: lastApproved && lastApproved.publishedAt ? lastApproved.publishedAt : null,
+    archives
+  };
+}
+
+async function publishPricing(env, publisherEmail) {
+  if (!env.PRICING_KV) return { error: 'PRICING_KV binding missing' };
+  const draft = await readPricingJSON(env, 'pricing:draft');
+  if (!draft) return { error: 'No draft to publish. Save a draft first.' };
+  const errors = pricingValidate(draft);
+  if (errors.length) return { error: 'Draft is invalid; cannot publish.', errors };
+  const previousApproved = await readPricingJSON(env, 'pricing:approved');
+  if (previousApproved) {
+    await writePricingJSON(env, pricingArchiveKey(), previousApproved);
+    await writePricingJSON(env, 'pricing:last_approved', previousApproved);
+  }
+  draft.publishedAt = new Date().toISOString();
+  if (publisherEmail) draft.publishedBy = publisherEmail;
+  await writePricingJSON(env, 'pricing:approved', draft);
+  return {
+    ok: true,
+    publishedAt: draft.publishedAt,
+    publishedBy: draft.publishedBy || null,
+    archivedPrevious: !!previousApproved
+  };
+}
+
+async function revertPricing(env, reverterEmail) {
+  if (!env.PRICING_KV) return { error: 'PRICING_KV binding missing' };
+  const lastApproved = await readPricingJSON(env, 'pricing:last_approved');
+  if (!lastApproved) return { error: 'No previous approved version to revert to.' };
+  const currentApproved = await readPricingJSON(env, 'pricing:approved');
+  if (currentApproved) {
+    await writePricingJSON(env, pricingArchiveKey('revert'), currentApproved);
+  }
+  const restored = Object.assign({}, lastApproved);
+  restored.revertedAt = new Date().toISOString();
+  if (reverterEmail) restored.revertedBy = reverterEmail;
+  await writePricingJSON(env, 'pricing:approved', restored);
+  return {
+    ok: true,
+    revertedAt: restored.revertedAt,
+    revertedBy: restored.revertedBy || null
+  };
+}
+
+/* --------------- pricing helpers --------------- */
+
+async function readPricingJSON(env, key) {
+  try { const raw = await env.PRICING_KV.get(key); return raw ? JSON.parse(raw) : null; }
+  catch (_) { return null; }
+}
+
+async function writePricingJSON(env, key, value) {
+  return env.PRICING_KV.put(key, JSON.stringify(value));
+}
+
+function pricingArchiveKey(suffix) {
+  const ts = new Date().toISOString().replace(/[:.]/g, '-');
+  return 'pricing:archive:' + ts + (suffix ? '-' + suffix : '');
+}
+
+function pricingValidate(cfg) {
+  const errors = [];
+  if (!cfg || typeof cfg !== 'object') { errors.push('Config must be an object.'); return errors; }
+  if (!Array.isArray(cfg.profiles)) errors.push('profiles must be an array.');
+  else {
+    cfg.profiles.forEach(function(p, i) {
+      const ctx = 'profiles[' + i + ']';
+      if (!p || typeof p !== 'object') { errors.push(ctx + ' must be an object.'); return; }
+      if (typeof p.id !== 'string' || !p.id) errors.push(ctx + '.id required');
+      if (typeof p.program !== 'string') errors.push(ctx + '.program required');
+      if (typeof p.purpose !== 'string') errors.push(ctx + '.purpose required');
+      if (typeof p.baseRate !== 'number' || p.baseRate < 0) errors.push(ctx + '.baseRate must be non-negative');
+      if (typeof p.spreadLow !== 'number' || p.spreadLow < 0) errors.push(ctx + '.spreadLow must be non-negative');
+      if (typeof p.spreadHigh !== 'number' || p.spreadHigh < 0) errors.push(ctx + '.spreadHigh must be non-negative');
+      if (typeof p.pointsLow !== 'number') errors.push(ctx + '.pointsLow required');
+      if (typeof p.pointsHigh !== 'number') errors.push(ctx + '.pointsHigh required');
+      if (typeof p.feeLow !== 'number' || p.feeLow < 0) errors.push(ctx + '.feeLow must be non-negative');
+      if (typeof p.feeHigh !== 'number' || p.feeHigh < 0) errors.push(ctx + '.feeHigh must be non-negative');
+      if (typeof p.active !== 'boolean') errors.push(ctx + '.active must be boolean');
+    });
+    const ids = cfg.profiles.map(function(p){ return p && p.id; }).filter(Boolean);
+    const dupes = ids.filter(function(id, i){ return ids.indexOf(id) !== i; });
+    if (dupes.length) errors.push('Duplicate profile ids: ' + Array.from(new Set(dupes)).join(', '));
+  }
+  if (!cfg.adjustments || typeof cfg.adjustments !== 'object') errors.push('adjustments object required.');
+  else {
+    ['creditScore','ltv','dscr','propertyType','loanAmount','state','lockPeriod','prepay','interestOnly'].forEach(function(k){
+      if (!(k in cfg.adjustments)) errors.push('adjustments.' + k + ' missing');
+    });
+  }
+  if (!Array.isArray(cfg.fees)) errors.push('fees must be an array.');
+  if (!cfg.compliance || typeof cfg.compliance !== 'object') errors.push('compliance object required.');
+  else {
+    ['disclaimer','rateRangeFootnote','upfrontCostNote','rateGridDisclaimer'].forEach(function(k){
+      if (typeof cfg.compliance[k] !== 'string' || !cfg.compliance[k].trim()) {
+        errors.push('compliance.' + k + ' required (non-empty string)');
+      }
+    });
+  }
+  return errors;
+}
+
+function pricingWarnings(cfg) {
+  const warnings = [];
+  if (!cfg || !Array.isArray(cfg.profiles)) return warnings;
+  cfg.profiles.forEach(function(p) {
+    if (!p || !p.active) return;
+    const tag = p.id || '(unnamed)';
+    if (typeof p.baseRate === 'number' && (p.baseRate < 4 || p.baseRate > 14)) {
+      warnings.push(tag + ': baseRate ' + p.baseRate + '% looks unusual');
+    }
+    if (typeof p.maxLtv === 'number' && p.maxLtv > 90) {
+      warnings.push(tag + ': maxLtv ' + p.maxLtv + '% above 90 - verify');
+    }
+    if (typeof p.minFico === 'number' && p.minFico < 600) {
+      warnings.push(tag + ': minFico ' + p.minFico + ' below 600 - verify');
+    }
+    ['baseRate','spreadLow','spreadHigh','pointsLow','pointsHigh','feeLow','feeHigh','minFico','maxLtv']
+      .forEach(function(k) {
+        if (p[k] === undefined || p[k] === null || p[k] === '') {
+          warnings.push(tag + ': ' + k + ' is missing');
+        }
+      });
+  });
+  return warnings;
 }
