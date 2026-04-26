@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ratehero",
   "compatibility_date": "2026-04-12",
@@ -17,8 +17,8 @@
   "kv_namespaces": [
     {
       "binding": "PRICING_KV",
-      "id": "REPLACE_WITH_PRODUCTION_KV_NAMESPACE_ID",
-      "preview_id": "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+      "id": "621400adc60044299d2c736d6d10e56b",
+      "preview_id": "e7059c3c2c3f4e2ea34ed078a41ba219"
     }
   ]
 }
