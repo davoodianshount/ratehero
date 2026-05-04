@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#080E1A;--navy2:#0C1527;--navy3:#101D34;--card:#0E1A2E;--navyL:#162240;--teal:#3B82F6;--teal2:#3B82F6;--tealP:rgba(37,99,235,0.12);--tealG:rgba(37,99,235,0.25);--blue:#3B82F6;--blue2:#3B82F6;--w:#FFFFFF;--w70:rgba(255,255,255,0.7);--w65:rgba(255,255,255,0.65);--w08:rgba(255,255,255,0.05);--bd:rgba(255,255,255,0.08);--bdt:rgba(37,99,235,0.25);--fd:'Bebas Neue',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
@@ -127,6 +128,27 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 @media(max-width:768px){
   .footer-grid{grid-template-columns:1fr!important;gap:28px!important;padding:40px 20px 28px!important}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
+}
+
+/* ─── FOUNDER'S NOTE ─── */
+.founder-note{background:#FFFFFF;padding:72px 0;border-top:1px solid rgba(8,14,26,0.06);border-bottom:1px solid rgba(8,14,26,0.06)}
+.founder-note .fn-wrap{max-width:1260px;margin:0 auto;padding:0 56px}
+.founder-note .fn-grid{display:grid;grid-template-columns:40fr 60fr;gap:48px;align-items:center}
+.founder-note .fn-img-col{display:flex;justify-content:center}
+.founder-note .fn-img{width:300px;height:300px;object-fit:cover;border-radius:16px;box-shadow:0 24px 48px rgba(8,14,26,0.18),0 8px 16px rgba(8,14,26,0.08);display:block}
+.founder-note .fn-heading{font-family:'Caveat',cursive;font-weight:600;font-size:56px;line-height:1;letter-spacing:-0.5px;color:#080E1A;margin:0 0 20px}
+.founder-note .fn-body p{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#374151;margin:0 0 14px}
+.founder-note .fn-body p:last-child{margin-bottom:0}
+.founder-note .fn-sig{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:18px;color:#080E1A;margin-top:22px}
+.founder-note .fn-sub-sig{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:#6B7280;margin-top:4px}
+@media (max-width:768px){
+  .founder-note{padding:56px 0}
+  .founder-note .fn-wrap{padding:0 24px}
+  .founder-note .fn-grid{grid-template-columns:1fr;gap:24px}
+  .founder-note .fn-img{width:200px;height:200px;border-radius:14px}
+  .founder-note .fn-heading{font-size:40px;margin-bottom:14px}
+  .founder-note .fn-body p{font-size:16px;line-height:1.7}
+  .founder-note .fn-sig{margin-top:18px}
 }
 
 </style>
@@ -253,20 +275,41 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   <div class="pstat"><span class="pstat-num">1,000+</span><span class="pstat-lbl">Clients by Leadership</span></div>
   <div class="pstat"><span class="pstat-num">21 Days</span><span class="pstat-lbl">Avg. Close Time</span></div>
 </div>
-<section class="sec"><div class="wrap"><div class="twocol"><div>
+<section class="sec"><div class="wrap" style="max-width:840px">
   <div class="stag"><span class="dot"></span> Our Story</div>
   <h2 class="sh2">Built for the<br><em>Overlooked Borrower</em></h2>
-  <p class="sp">Rate Hero was founded on a simple belief: the best borrowers aren't always the ones with the most W-2s. Business owners, real estate investors, and self-employed professionals are building real wealth — and they deserve a lender that understands how they actually make money.</p>
-  <p class="sp">We built Rate Hero to be that lender. With access to multiple programs, a team of experienced advisors, and a process designed to close fast, our leadership brings 1,000+ client relationships to every deal we structure.</p>
-</div><div>
+  <p class="sp" style="max-width:none">Rate Hero was founded on a simple belief: the best borrowers aren't always the ones with the most W-2s. Business owners, real estate investors, and self-employed professionals are building real wealth — and they deserve a lender that understands how they actually make money.</p>
+  <p class="sp" style="max-width:none;margin-bottom:0">We built Rate Hero to be that lender. With access to multiple programs, a team of experienced advisors, and a process designed to close fast, our leadership brings 1,000+ client relationships to every deal we structure.</p>
+</div></section>
+<section class="founder-note" aria-labelledby="founder-note-heading">
+  <div class="fn-wrap">
+    <div class="fn-grid">
+      <div class="fn-img-col">
+        <img class="fn-img" src="../Sean.jpg" alt="Sean Davoodian, Founder of Rate Hero" loading="lazy" width="300" height="300">
+      </div>
+      <div class="fn-text">
+        <h2 id="founder-note-heading" class="fn-heading">A Note From Sean</h2>
+        <div class="fn-body">
+          <p>I built Rate Hero after structuring 1,000+ deals — for homeowners, investors, and everyone in between — and watching too many of them get treated like problems instead of clients.</p>
+          <p>Whether you're buying your first home, moving your family up, refinancing out of hard money, or closing your tenth rental, the goal is the same: get the right loan, structured the right way, with an advisor who actually picks up the phone.</p>
+          <p>Some files fit cleanly into a conventional program. Others need DSCR, bank statement, or non-QM. Either way, you deserve a lender who understands how you earn, invest, and build wealth — and tells you the truth, even when it's not what you want to hear.</p>
+          <p>That's the company I wanted to work with. So I built it.</p>
+        </div>
+        <div class="fn-sig">— Sean Davoodian</div>
+        <div class="fn-sub-sig">Founder, Rate Hero · NMLS #1252107</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec"><div class="wrap">
   <div class="stag"><span class="dot"></span> Our Values</div>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;max-width:560px">
     <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">📞 We Pick Up The Phone</div><p style="font-size:17px;color:var(--w65);line-height:1.7">You'll have a direct line to your advisor. Not a call center. Not an automated system.</p></div>
     <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">🔍 Radical Transparency</div><p style="font-size:17px;color:var(--w65);line-height:1.7">No bait-and-switch rates. No hidden fees. You'll know exactly what you're getting before you sign anything.</p></div>
     <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">⚡ We Move Fast</div><p style="font-size:17px;color:var(--w65);line-height:1.7">21-day average close. We move fast because our process is tight — not because we cut corners.</p></div>
-    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">🏆 We Shop For You</div><p style="font-size:17px;color:var(--w65);line-height:1.7">multiple programs means we find the best rate — not just the one that's easiest for us to sell.</p></div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">🏆 We Shop For You</div><p style="font-size:17px;color:var(--w65);line-height:1.7">Multiple programs mean we find the right option — not just the one that's easiest for us to sell.</p></div>
   </div>
-</div></div></div></section>
+</div></section>
 <section class="cta-band"><div class="cta-inner">
   <h2>Ready To Work<br>With <em>Rate Hero?</em></h2>
   <p>Takes 2 minutes. No SSN. No credit pull. Just your best mortgage options — fast.</p>
