@@ -151,6 +151,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .founder-note .fn-sig{margin-top:18px}
 }
 
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:880px;margin:0 auto}
+@media (max-width:767px){.values-grid{grid-template-columns:1fr}}
+
 </style>
 
 <meta property="og:type" content="website">
@@ -301,9 +304,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
     </div>
   </div>
 </section>
-<section class="sec"><div class="wrap">
+<section class="sec"><div class="wrap" style="text-align:center">
   <div class="stag"><span class="dot"></span> Our Values</div>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;max-width:560px">
+  <div class="values-grid" style="margin-top:14px;text-align:left">
     <div style="background:var(--card);border:1px solid var(--bdt);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">📞 We Pick Up The Phone</div><p style="font-size:17px;color:var(--w65);line-height:1.7">You'll have a direct line to your advisor. Not a call center. Not an automated system.</p></div>
     <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">🔍 Radical Transparency</div><p style="font-size:17px;color:var(--w65);line-height:1.7">No bait-and-switch rates. No hidden fees. You'll know exactly what you're getting before you sign anything.</p></div>
     <div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 18px"><div style="font-size:17px;font-weight:700;color:var(--w);margin-bottom:6px">⚡ We Move Fast</div><p style="font-size:17px;color:var(--w65);line-height:1.7">21-day average close. We move fast because our process is tight — not because we cut corners.</p></div>
