@@ -40,15 +40,15 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .phero h1{font-family:var(--fb);font-size:clamp(34px,4.5vw,56px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--w);margin-bottom:14px}.phero h1 em{font-style:italic;color:var(--teal)}
 .phero-sub{font-size:18px;color:var(--w70);line-height:1.7;max-width:720px}
 .kb-wrap{max-width:880px;margin:0 auto;padding:64px 56px 56px}
-.kb-toc{background:var(--card);border:1px solid var(--bdt);border-radius:14px;padding:24px 28px;margin-bottom:48px}
+.kb-toc{display:block;background:var(--card);border:1px solid var(--bdt);border-radius:14px;padding:24px 28px;margin-bottom:80px}
 .kb-toc-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--w65);margin-bottom:14px}
 .kb-toc ol{list-style:none;counter-reset:toc;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
 .kb-toc li{counter-increment:toc;font-size:14px;color:var(--w70);line-height:1.6}
 .kb-toc li::before{content:counter(toc, decimal-leading-zero)". ";color:var(--teal);font-weight:700;font-size:12px;margin-right:4px}
 .kb-toc a{color:var(--w70);text-decoration:none;transition:color .15s}
 .kb-toc a:hover{color:var(--w)}
-.kb-section{padding:18px 0 8px;border-top:1px solid var(--bd)}
-.kb-section:first-of-type{border-top:none;padding-top:0}
+.kb-section{padding:32px 0 16px;border-top:1px solid var(--bd);clear:both}
+.kb-section:first-of-type{border-top:none;padding-top:8px}
 .kb-section h2{font-family:var(--fb);font-size:24px;font-weight:800;color:var(--w);line-height:1.25;letter-spacing:-.4px;margin-bottom:14px;scroll-margin-top:84px}
 .kb-section p{font-size:17px;color:var(--w70);line-height:1.8;margin-bottom:18px}
 .kb-section a{color:var(--teal);text-decoration:none}
