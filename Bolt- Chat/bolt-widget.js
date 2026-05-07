@@ -311,13 +311,13 @@
         body: JSON.stringify({ messages }),
       });
       const data = await res.json();
-      const reply = data?.content?.[0]?.text || 'Reach a Rate Hero strategist at (747) 308-1635 or visit goratehero.com.';
+      const reply = data?.content?.[0]?.text || 'Reach a Rate Hero strategist at (818) 208-6801 or visit goratehero.com.';
       hideTyping();
       messages.push({ role: 'assistant', content: reply });
       addBubble('assistant', reply);
     } catch {
       hideTyping();
-      addBubble('assistant', 'Reach a Rate Hero strategist at (747) 308-1635 or visit goratehero.com.');
+      addBubble('assistant', 'Reach a Rate Hero strategist at (818) 208-6801 or visit goratehero.com.');
     }
 
     busy = false;
