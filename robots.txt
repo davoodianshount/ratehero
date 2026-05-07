@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://goratehero.com/sitemap.xml
+
+# AI content maps
+# llms.txt: https://goratehero.com/llms.txt
+# llms-full.txt: https://goratehero.com/llms-full.txt
