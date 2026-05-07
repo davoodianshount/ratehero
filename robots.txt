@@ -1,4 +1,51 @@
+# ALLOW — AI Search & Retrieval (visibility in AI answers)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# ALLOW — Traditional search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# BLOCK — AI training crawlers (IP protection)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Default
 User-agent: *
 Allow: /
 
 Sitemap: https://goratehero.com/sitemap.xml
+
+# AI content maps
+# llms.txt: https://goratehero.com/llms.txt
+# llms-full.txt: https://goratehero.com/llms-full.txt

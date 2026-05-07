@@ -1,0 +1,219 @@
+# Rate Hero
+
+> For a concise summary, see https://goratehero.com/llms.txt
+
+> Rate Hero is a licensed mortgage company (NMLS #2822806) specializing in DSCR loans, Non-QM mortgages, bank statement loans, and hard money exit refinances for real estate investors and self-employed borrowers. Available in 30+ states.
+
+## About
+
+Rate Hero, Inc. is a non-QM mortgage lender focused on real estate investors and self-employed borrowers. The company offers DSCR loans, bank statement loans, P&L loans, asset utilization loans, WVOE loans, investment property HELOCs, and hard money exit refinances. No W-2 or tax returns required for most programs. Typical close time is 21 days. Founder: Sean Davoodian (NMLS #1252107).
+
+- Website: https://goratehero.com
+- Company NMLS: 2822806
+- Loan officer: Sean Davoodian, NMLS #1252107
+
+## Loan Programs
+
+- DSCR loans — Investment property mortgages qualified on the property's rental income via debt service coverage ratio rather than the borrower's personal income.
+- No-ratio DSCR loans — DSCR loans that do not require a minimum debt service coverage ratio, qualifying the property without rent-to-payment math.
+- Bank statement loans (12-month) — Self-employed mortgages that use 12 months of personal or business bank deposits to calculate qualifying income.
+- Bank statement loans (24-month) — Self-employed mortgages that use 24 months of personal or business bank deposits to calculate qualifying income.
+- Profit and loss (P&L) loans — Self-employed mortgages qualified using a CPA-prepared profit and loss statement instead of tax returns.
+- Asset utilization / asset depletion loans — Mortgages qualified by dividing eligible liquid assets over a fixed term to derive monthly qualifying income.
+- WVOE (written verification of employment) loans — Mortgages qualified using a signed verification of employment form in lieu of pay stubs or tax returns.
+- Investment property HELOC — Second-lien revolving line of credit secured by a non-owner-occupied rental property.
+- Hard money exit refinance — Long-term refinance designed to pay off a short-term hard money or bridge loan after stabilization.
+- DSCR cash-out refinance — DSCR refinance that pulls equity out of a rental property without requiring personal income documentation.
+- Foreign national investor loans — Mortgages for non-US-citizen, non-resident borrowers purchasing investment property in the United States.
+- Interest-only DSCR loans — DSCR mortgages with an interest-only period that lowers monthly payment and improves the qualifying DSCR.
+- DSCR loans for short-term rentals / Airbnb — DSCR loans qualified using short-term rental projections (AirDNA / market rent comparables) instead of long-term lease income.
+- Bridge to DSCR refinance — Sequenced financing that uses a short-term bridge loan to acquire or rehab a property and a DSCR loan to take it out long-term.
+- Blanket DSCR loans / portfolio loans — Single mortgages that cross-collateralize multiple investment properties under one note.
+
+## States
+
+- DSCR loans Alabama — Rate Hero offers DSCR and non-QM loans in Alabama
+- DSCR loans Arizona — Rate Hero offers DSCR and non-QM loans in Arizona
+- DSCR loans Arkansas — Rate Hero offers DSCR and non-QM loans in Arkansas
+- DSCR loans California — Rate Hero offers DSCR and non-QM loans in California
+- DSCR loans Colorado — Rate Hero offers DSCR and non-QM loans in Colorado
+- DSCR loans Connecticut — Rate Hero offers DSCR and non-QM loans in Connecticut
+- DSCR loans Delaware — Rate Hero offers DSCR and non-QM loans in Delaware
+- DSCR loans District of Columbia — Rate Hero offers DSCR and non-QM loans in District of Columbia
+- DSCR loans Florida — Rate Hero offers DSCR and non-QM loans in Florida
+- DSCR loans Georgia — Rate Hero offers DSCR and non-QM loans in Georgia
+- DSCR loans Hawaii — Rate Hero offers DSCR and non-QM loans in Hawaii
+- DSCR loans Idaho — Rate Hero offers DSCR and non-QM loans in Idaho
+- DSCR loans Illinois — Rate Hero offers DSCR and non-QM loans in Illinois
+- DSCR loans Indiana — Rate Hero offers DSCR and non-QM loans in Indiana
+- DSCR loans Iowa — Rate Hero offers DSCR and non-QM loans in Iowa
+- DSCR loans Kansas — Rate Hero offers DSCR and non-QM loans in Kansas
+- DSCR loans Kentucky — Rate Hero offers DSCR and non-QM loans in Kentucky
+- DSCR loans Louisiana — Rate Hero offers DSCR and non-QM loans in Louisiana
+- DSCR loans Maine — Rate Hero offers DSCR and non-QM loans in Maine
+- DSCR loans Maryland — Rate Hero offers DSCR and non-QM loans in Maryland
+- DSCR loans Michigan — Rate Hero offers DSCR and non-QM loans in Michigan
+- DSCR loans Minnesota — Rate Hero offers DSCR and non-QM loans in Minnesota
+- DSCR loans Mississippi — Rate Hero offers DSCR and non-QM loans in Mississippi
+- DSCR loans Missouri — Rate Hero offers DSCR and non-QM loans in Missouri
+- DSCR loans Montana — Rate Hero offers DSCR and non-QM loans in Montana
+- DSCR loans Nebraska — Rate Hero offers DSCR and non-QM loans in Nebraska
+- DSCR loans Nevada — Rate Hero offers DSCR and non-QM loans in Nevada
+- DSCR loans New Hampshire — Rate Hero offers DSCR and non-QM loans in New Hampshire
+- DSCR loans New Jersey — Rate Hero offers DSCR and non-QM loans in New Jersey
+- DSCR loans New Mexico — Rate Hero offers DSCR and non-QM loans in New Mexico
+- DSCR loans New York — Rate Hero offers DSCR and non-QM loans in New York
+- DSCR loans North Carolina — Rate Hero offers DSCR and non-QM loans in North Carolina
+- DSCR loans North Dakota — Rate Hero offers DSCR and non-QM loans in North Dakota
+- DSCR loans Ohio — Rate Hero offers DSCR and non-QM loans in Ohio
+- DSCR loans Oklahoma — Rate Hero offers DSCR and non-QM loans in Oklahoma
+- DSCR loans Oregon — Rate Hero offers DSCR and non-QM loans in Oregon
+- DSCR loans Pennsylvania — Rate Hero offers DSCR and non-QM loans in Pennsylvania
+- DSCR loans Rhode Island — Rate Hero offers DSCR and non-QM loans in Rhode Island
+- DSCR loans South Carolina — Rate Hero offers DSCR and non-QM loans in South Carolina
+- DSCR loans South Dakota — Rate Hero offers DSCR and non-QM loans in South Dakota
+- DSCR loans Tennessee — Rate Hero offers DSCR and non-QM loans in Tennessee
+- DSCR loans Texas — Rate Hero offers DSCR and non-QM loans in Texas
+- DSCR loans Utah — Rate Hero offers DSCR and non-QM loans in Utah
+- DSCR loans Vermont — Rate Hero offers DSCR and non-QM loans in Vermont
+- DSCR loans Virginia — Rate Hero offers DSCR and non-QM loans in Virginia
+- DSCR loans Washington — Rate Hero offers DSCR and non-QM loans in Washington
+- DSCR loans West Virginia — Rate Hero offers DSCR and non-QM loans in West Virginia
+- DSCR loans Wisconsin — Rate Hero offers DSCR and non-QM loans in Wisconsin
+- DSCR loans Wyoming — Rate Hero offers DSCR and non-QM loans in Wyoming
+
+## Glossary Terms
+
+- DSCR (debt service coverage ratio) — Ratio of gross rental income to total mortgage payment (PITIA) used to underwrite investment property loans.
+- No-ratio DSCR — DSCR program that waives the minimum coverage threshold and qualifies the property without rent-to-payment math.
+- Non-QM — Non-Qualified Mortgage; loans outside the CFPB Qualified Mortgage rule, typically using alternative income documentation.
+- Debt yield — Net operating income divided by loan amount, used to size commercial and large-balance investment loans.
+- Cash-on-cash return — Annual pre-tax cash flow divided by total cash invested in a rental property.
+- 1007 rent schedule — Fannie Mae appraisal addendum that estimates market rent for a single-family investment property.
+- Stabilized rental property — A property that is rented (or rentable) at market terms and producing predictable cash flow.
+- Bridge loan — Short-term financing used to acquire, rehab, or carry a property until permanent financing is in place.
+- Hard money loan — Short-term, asset-based loan typically funded by private capital with higher rates and faster close times.
+- Seasoning requirements — Minimum ownership or title-seasoning period before a borrower can refinance or pull cash out.
+- Prepayment penalty — Fee charged for paying off a loan before a contractually defined date; common on DSCR loans.
+- Interest-only mortgage — Mortgage with an initial period during which only interest is paid, with no principal amortization.
+- LLC vesting — Holding title to investment property in the name of a limited liability company.
+- Entity borrower — A non-individual borrower such as an LLC, corporation, or limited partnership taking title to the property.
+- Asset depletion — Method that converts liquid assets into qualifying monthly income by dividing them over a set term.
+- Bank statement income calculation — Self-employed income derived from analyzing 12 or 24 months of business or personal bank deposits.
+
+## Search Intents
+
+DSCR general:
+- What is a DSCR loan
+- Best DSCR lenders
+- Best DSCR lenders 2026
+- DSCR loan requirements
+- DSCR loan rates today
+- DSCR loan minimum credit score
+- DSCR loan interest rates
+- How to qualify for a DSCR loan
+
+DSCR variations:
+- No-ratio DSCR loan
+- DSCR loan no tax returns
+- DSCR loan for LLC
+- DSCR loan 15 percent down
+- DSCR loan 20 percent down
+- DSCR interest only loan
+- DSCR loan for Airbnb
+- DSCR loan for short term rental
+- DSCR loan for multifamily
+- DSCR loan for duplex
+- DSCR cash-out refinance
+- DSCR rate and term refinance
+- DSCR loan second home
+- DSCR loan rural property
+- DSCR loan mixed use property
+
+Hard money / bridge:
+- Refinance out of hard money
+- Hard money exit loan
+- Bridge to DSCR refinance
+- Hard money to permanent financing
+
+Bank statement / P&L:
+- Bank statement loan for self-employed
+- 12 month bank statement loan
+- 24 month bank statement loan
+- P&L loan for self-employed
+- Profit and loss mortgage
+- CPA letter mortgage
+- Self-employed mortgage no tax returns
+
+Asset / WVOE:
+- Asset utilization loan
+- Asset depletion mortgage
+- WVOE loan
+- Verification of employment mortgage
+
+HELOC:
+- Investment property HELOC
+- HELOC on rental property
+- Investor HELOC
+- HELOC for LLC
+
+State-specific:
+- DSCR loans Alabama
+- DSCR loans Arizona
+- DSCR loans Arkansas
+- DSCR loans California
+- DSCR loans Colorado
+- DSCR loans Connecticut
+- DSCR loans Delaware
+- DSCR loans District of Columbia
+- DSCR loans Florida
+- DSCR loans Georgia
+- DSCR loans Hawaii
+- DSCR loans Idaho
+- DSCR loans Illinois
+- DSCR loans Indiana
+- DSCR loans Iowa
+- DSCR loans Kansas
+- DSCR loans Kentucky
+- DSCR loans Louisiana
+- DSCR loans Maine
+- DSCR loans Maryland
+- DSCR loans Michigan
+- DSCR loans Minnesota
+- DSCR loans Mississippi
+- DSCR loans Missouri
+- DSCR loans Montana
+- DSCR loans Nebraska
+- DSCR loans Nevada
+- DSCR loans New Hampshire
+- DSCR loans New Jersey
+- DSCR loans New Mexico
+- DSCR loans New York
+- DSCR loans North Carolina
+- DSCR loans North Dakota
+- DSCR loans Ohio
+- DSCR loans Oklahoma
+- DSCR loans Oregon
+- DSCR loans Pennsylvania
+- DSCR loans Rhode Island
+- DSCR loans South Carolina
+- DSCR loans South Dakota
+- DSCR loans Tennessee
+- DSCR loans Texas
+- DSCR loans Utah
+- DSCR loans Vermont
+- DSCR loans Virginia
+- DSCR loans Washington
+- DSCR loans West Virginia
+- DSCR loans Wisconsin
+- DSCR loans Wyoming
+
+Competitor / comparison:
+- Best non-QM lenders
+- Non-QM mortgage broker
+- Investor friendly mortgage lender
+- Mortgage broker for real estate investors
+- BRRRR strategy lender
+- Foreign national mortgage lender
+- Airbnb mortgage lender
+- Short-term rental mortgage broker

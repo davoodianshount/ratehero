@@ -1,0 +1,72 @@
+# Rate Hero
+
+> Rate Hero is a licensed mortgage company (NMLS #2822806) specializing in DSCR loans, Non-QM mortgages, bank statement loans, and hard money exit refinances for real estate investors and self-employed borrowers. Available in 30+ states.
+
+## About
+
+Rate Hero, Inc. is a non-QM mortgage lender focused on real estate investors and self-employed borrowers. The company offers DSCR loans, bank statement loans, P&L loans, asset utilization loans, WVOE loans, investment property HELOCs, and hard money exit refinances. No W-2 or tax returns required for most programs. Typical close time is 21 days. Founder: Sean Davoodian (NMLS #1252107).
+
+- Website: https://goratehero.com
+- Company NMLS: 2822806
+- Loan officer: Sean Davoodian, NMLS #1252107
+
+## Loan Programs
+
+- [DSCR loans](https://goratehero.com/dscr-loans/): Qualify investment property loans on rental income, not personal income.
+- [Non-QM loans](https://goratehero.com/non-qm.html): Alternative documentation mortgages for borrowers who don't fit conventional guidelines.
+- [Bank statement loans](https://goratehero.com/non-qm.html): Self-employed mortgages using 12 or 24 months of bank deposits.
+- [Hard money exit refinance](https://goratehero.com/brrrr-loan.html): Refinance hard money or bridge debt into long-term DSCR financing.
+- [Investment property HELOC](https://goratehero.com/heloc.html): Second-lien HELOCs on rental properties and LLC-vested homes.
+- [Long-term rental DSCR](https://goratehero.com/long-term-rental.html): 30-year financing for stabilized rental properties.
+- [Short-term rental DSCR](https://goratehero.com/str-dscr-loans-florida-airbnb.html): DSCR loans qualified on Airbnb / short-term rental income.
+- [BRRRR loans](https://goratehero.com/brrrr-loan.html): Financing for the buy-rehab-rent-refinance-repeat strategy.
+- [Conventional loans](https://goratehero.com/conventional.html): Conforming agency mortgages.
+
+## Tools
+
+- [DSCR calculator](https://goratehero.com/dscr-calculator.html)
+- [Rate quote](https://goratehero.com/rates.html)
+- [Loan program quiz](https://goratehero.com/quiz.html)
+
+## Resources
+
+- [Glossary](https://goratehero.com/glossary/)
+- [Blog](https://goratehero.com/blog/)
+- [Contact](https://goratehero.com/contact/)
+
+## Search Intents
+
+- What is a DSCR loan
+- Best DSCR lenders
+- DSCR loan requirements
+- DSCR loan rates today
+- DSCR loan minimum credit score
+- How to qualify for a DSCR loan
+- DSCR loan no tax returns
+- DSCR loan for LLC
+- DSCR loan for Airbnb
+- DSCR loan for short term rental
+- DSCR cash-out refinance
+- No-ratio DSCR loan
+- DSCR interest only loan
+- Bank statement loan for self-employed
+- 12 month bank statement loan
+- 24 month bank statement loan
+- Self-employed mortgage no tax returns
+- P&L loan for self-employed
+- Asset utilization loan
+- Asset depletion mortgage
+- WVOE loan
+- Investment property HELOC
+- HELOC on rental property
+- Refinance out of hard money
+- Hard money exit loan
+- Bridge to DSCR refinance
+- Best non-QM lenders
+- Mortgage broker for real estate investors
+- BRRRR strategy lender
+- Foreign national investor loan
+
+## Full Map
+
+For comprehensive coverage of every program, state, glossary term, and search intent, see https://goratehero.com/llms-full.txt
