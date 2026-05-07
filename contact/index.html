@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Rate Hero, Inc. | NMLS #2822806</title>
+  <meta name="description" content="Get in touch with Rate Hero. DSCR loans, Non-QM, bank statement mortgages, hard money exits, and HELOCs. Call (747) 308-1635 or submit the form below.">
+  <meta property="og:title" content="Contact | Rate Hero, Inc.">
+  <meta property="og:description" content="Strategic mortgage financing for investors and self-employed borrowers. Contact us today.">
+  <meta property="og:url" content="https://goratehero.com/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rate Hero, Inc.">
+  <link rel="canonical" href="https://goratehero.com/contact/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: Organization + ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://goratehero.com/contact/",
+    "name": "Contact Rate Hero",
+    "mainEntity": {
+      "@type": "MortgageBroker",
+      "name": "Rate Hero, Inc.",
+      "telephone": "+1-747-308-1635",
+      "email": "hello@goratehero.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5930 San Fernando Rd",
+        "addressLocality": "Glendale",
+        "addressRegion": "CA",
+        "postalCode": "91202",
+        "addressCountry": "US"
+      },
+      "identifier": "NMLS #2822806",
+      "url": "https://goratehero.com"
+    }
+  }
+  </script>
+
+  <style>
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Rate Hero Brand Tokens ──────────────────────────── */
+    :root {
+      /* Navy palette (page → cards) */
+      --navy:        #080E1A;
+      --navy2:       #0D1526;
+      --navy3:       #111D35;
+      --navy4:       #162040;
+      --card:        #0F1B30;
+
+      /* Blue (primary CTA + brand accent) */
+      --blue:        #2563EB;
+      --blue2:       #3B82F6;
+      --blue3:       #1D4ED8;
+      --blue-bg:     rgba(37, 99, 235, .10);
+      --blue-glow:   rgba(37, 99, 235, .35);
+
+      /* Amber gold (bolt accent only — italic h1, never CTA) */
+      --amber:       #F5B731;
+      --amber2:      #E8920A;
+
+      /* Text */
+      --w:           #FFFFFF;
+      --w90:         rgba(255,255,255,.92);
+      --w75:         rgba(255,255,255,.75);
+      --w55:         rgba(255,255,255,.55);
+      --w35:         rgba(255,255,255,.35);
+
+      /* Borders */
+      --bd:          rgba(255,255,255,.08);
+      --bd2:         rgba(255,255,255,.14);
+      --bd-blue:     rgba(37,99,235,.30);
+
+      /* Shape */
+      --r-sm:        8px;
+      --r-md:        12px;
+      --r-lg:        16px;
+      --r-xl:        24px;
+      --transition:  .25s cubic-bezier(.4,0,.2,1);
+
+      /* Type */
+      --fd:          'Bebas Neue', 'Impact', sans-serif;
+      --fb:          'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Layout */
+      --max-w:       1140px;
+    }
+
+    /* ── Global ─────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--fb);
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse 1200px 800px at 50% -10%, rgba(37,99,235,.08), transparent 60%),
+        radial-gradient(ellipse 800px 600px at 100% 100%, rgba(37,99,235,.05), transparent 60%);
+      color: var(--w90);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: var(--blue2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--w); }
+
+    /* ── Nav ────────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 14, 26, .85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--bd);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--fd);
+      font-size: 24px;
+      letter-spacing: 1.5px;
+      color: var(--w);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .bolt {
+      display: inline-block;
+      color: var(--amber);
+      font-size: 26px;
+      transform: translateY(-1px);
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--w75);
+    }
+    .nav-links a:hover { color: var(--w); }
+    .nav-phone {
+      font-size: 14px; font-weight: 600; color: var(--w) !important;
+    }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--w) !important;
+      padding: 10px 22px;
+      border-radius: var(--r-sm);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .02em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--blue3);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px var(--blue-glow);
+    }
+    .nav-mobile-toggle { display: none; background: none; border: none; color: var(--w); cursor: pointer; padding: 4px; }
+
+    /* ── Hero / Page Header ─────────────────────────────── */
+    .page-header {
+      text-align: center;
+      padding: 80px 24px 0;
+      position: relative;
+    }
+    .page-header h1 {
+      font-family: var(--fd);
+      font-size: clamp(48px, 7vw, 76px);
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 16px;
+      color: var(--w);
+    }
+    .page-header h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-header p {
+      font-size: 18px;
+      color: var(--w75);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ── Main Section ───────────────────────────────────── */
+    .contact-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── Form Card ──────────────────────────────────────── */
+    .form-card {
+      background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue2), var(--blue));
+    }
+    .form-card h2 {
+      font-family: var(--fd);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--w);
+      margin-bottom: 8px;
+    }
+    .form-card .subtitle {
+      font-size: 15px;
+      color: var(--w55);
+      margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field { margin-bottom: 20px; }
+    .field label {
+      display: block;
+      font-family: var(--fb);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--w75);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-md);
+      padding: 13px 16px;
+      font-size: 15px;
+      font-family: var(--fb);
+      color: var(--w);
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+      outline: none;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--w35);
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue2);
+      box-shadow: 0 0 0 3px var(--blue-bg);
+      background: var(--navy2);
+    }
+    .field textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+
+    /* ── Consent Checkboxes ─────────────────────────────── */
+    .consent-group { margin: 24px 0 20px; }
+    .consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+    .consent-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      min-width: 20px;
+      background: var(--navy);
+      border: 1px solid var(--bd2);
+      border-radius: 5px;
+      margin-top: 2px;
+      cursor: pointer;
+      position: relative;
+      transition: all var(--transition);
+    }
+    .consent-item input[type="checkbox"]:hover {
+      border-color: var(--blue2);
+    }
+    .consent-item input[type="checkbox"]:checked {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .consent-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 6px; top: 2px;
+      width: 6px; height: 11px;
+      border: solid var(--w);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    .consent-item span {
+      font-size: 13px;
+      color: var(--w75);
+      line-height: 1.55;
+    }
+
+    /* ── TCPA Disclaimer ───────────────────────────────── */
+    .tcpa-disclaimer {
+      font-size: 12px;
+      color: var(--w55);
+      line-height: 1.7;
+      margin: 20px 0 24px;
+      padding: 16px;
+      background: rgba(255,255,255,.02);
+      border-radius: var(--r-md);
+      border: 1px solid var(--bd);
+    }
+    .tcpa-disclaimer a {
+      color: var(--blue2);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tcpa-disclaimer a:hover { color: var(--w); }
+
+    /* ── Submit Button ─────────────────────────────────── */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--blue);
+      color: var(--w);
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--fb);
+      letter-spacing: .02em;
+      border: none;
+      border-radius: var(--r-md);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: var(--blue3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px var(--blue-glow);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+    /* ── Info Panel ─────────────────────────────────────── */
+    .info-panel { padding-top: 12px; }
+    .info-panel h2 {
+      font-family: var(--fd);
+      font-size: 40px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 16px;
+      color: var(--w);
+    }
+    .info-panel h2 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .info-panel > p {
+      font-size: 16px;
+      color: var(--w75);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .info-icon {
+      width: 48px; height: 48px;
+      min-width: 48px;
+      background: var(--blue-bg);
+      border: 1px solid var(--bd-blue);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .info-text h3 {
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--w);
+      margin-bottom: 4px;
+      letter-spacing: .01em;
+    }
+    .info-text p {
+      font-size: 14px;
+      color: var(--w55);
+    }
+    .info-text a {
+      color: var(--blue2);
+      font-weight: 600;
+    }
+    .info-text a:hover { color: var(--w); }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--bd);
+      margin: 36px 0;
+    }
+
+    .quick-links-label {
+      font-family: var(--fb);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--w55);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 14px;
+    }
+    .quick-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--navy3);
+      border: 1px solid var(--bd);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--w75);
+      transition: all var(--transition);
+    }
+    .quick-link:hover {
+      border-color: var(--blue2);
+      color: var(--w);
+      background: var(--blue-bg);
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--bd);
+      padding: 56px 24px 36px;
+      text-align: center;
+      background: var(--navy2);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .footer-logo {
+      font-family: var(--fd);
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      color: var(--w);
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo .bolt { color: var(--amber); font-size: 24px; transform: translateY(-1px); }
+    .footer p {
+      font-size: 13px;
+      color: var(--w55);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 12px;
+    }
+    .footer-links {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--w55);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--blue2); }
+    .footer-disclaimer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--w35);
+      letter-spacing: .03em;
+    }
+
+    /* ── Mobile ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 20px 80px;
+      }
+      .info-panel { order: -1; text-align: center; }
+      .info-panel > p { margin-left: auto; margin-right: auto; }
+      .info-item { justify-content: flex-start; text-align: left; }
+      .quick-links { justify-content: center; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+      .page-header { padding: 56px 20px 0; }
+      .info-panel h2 { font-size: 32px; }
+    }
+
+    /* ── Success State ──────────────────────────────────── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .form-success.active { display: block; }
+    .form-success .check-circle {
+      width: 72px; height: 72px;
+      background: var(--blue-bg);
+      border: 2px solid var(--blue2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      color: var(--blue2);
+      margin-bottom: 24px;
+    }
+    .form-success h3 {
+      font-family: var(--fd);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--w);
+      margin-bottom: 10px;
+    }
+    .form-success p {
+      color: var(--w75);
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="https://goratehero.com/" class="nav-logo"><span class="bolt">⚡</span>RATE HERO</a>
+      <div class="nav-links">
+        <a href="https://goratehero.com/dscr-loans/">DSCR</a>
+        <a href="https://goratehero.com/non-qm/">Non-QM</a>
+        <a href="https://goratehero.com/conventional/">Conventional</a>
+        <a href="https://goratehero.com/heloc/">HELOC</a>
+        <a href="https://goratehero.com/brrrr/">BRRRR</a>
+        <a href="tel:7473081635" class="nav-phone">📞 (747) 308-1635</a>
+        <a href="https://ratehero.my1003app.com/1252107/register" class="nav-cta">Apply Now</a>
+      </div>
+      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').style.display = this.dataset.open ? 'none' : 'flex'; this.dataset.open = this.dataset.open ? '' : '1';" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ──────────────────────────────────── -->
+  <header class="page-header">
+    <h1>GET IN <em>TOUCH</em></h1>
+    <p>Have a deal to discuss? Need a rate quote? We're here to help — and we actually pick up the phone.</p>
+  </header>
+
+  <!-- ── CONTACT SECTION ──────────────────────────────── -->
+  <section class="contact-section">
+
+    <!-- Form Card -->
+    <div class="form-card">
+      <h2>SEND US A MESSAGE</h2>
+      <p class="subtitle">We'll get back to you within 1 business day.</p>
+
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="544fd03b-53dd-4844-ae11-af8c8871adf8">
+        <input type="hidden" name="subject" value="New Contact Form Submission — goratehero.com/contact">
+        <input type="hidden" name="from_name" value="Rate Hero Contact Form">
+        <input type="hidden" name="redirect" value="">
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="first_name" placeholder="John" required>
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Mobile Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+        </div>
+
+        <div class="field">
+          <label for="message">How Can We Help? <span style="font-weight:400;text-transform:none;color:var(--w35);font-size:11px">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="Tell us about your deal — property type, loan amount, timeline, or any questions you have."></textarea>
+        </div>
+
+        <!-- Consent Checkboxes -->
+        <div class="consent-group">
+          <label class="consent-item">
+            <input type="checkbox" name="marketing_consent" value="yes">
+            <span>Yes, I agree to receive marketing text messages at the number provided.</span>
+          </label>
+          <label class="consent-item">
+            <input type="checkbox" name="transactional_consent" value="yes">
+            <span>Yes, I agree to receive non-marketing updates and information such as billing or account updates at the number provided.</span>
+          </label>
+        </div>
+
+        <!-- TCPA Disclaimer -->
+        <div class="tcpa-disclaimer">
+          By entering my email and phone number on this form and clicking Sign Up, I consent to receive calls, emails, and text messages from Rate Hero, Inc. (DBA Rate Hero), NMLS #2822806, including messages sent via automation using the contact information provided above. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. You may unsubscribe any time by replying STOP via text message or clicking the unsubscribe link via email. Reply HELP anytime for assistance.<br><br>
+          <a href="https://goratehero.com/legal/privacy-policy">Privacy Policy</a> &nbsp;&middot;&nbsp;
+          <a href="https://goratehero.com/legal/terms-of-use">Terms &amp; Conditions</a>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign Up</button>
+      </form>
+
+      <!-- Success State -->
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle">✓</div>
+        <h3>MESSAGE SENT</h3>
+        <p>Thanks for reaching out. A Rate Hero advisor will be in touch within 1 business day.</p>
+      </div>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="info-panel">
+      <h2>LET'S TALK <em>STRATEGY</em></h2>
+      <p>Whether you're closing on your first DSCR deal or refinancing out of hard money under deadline — we've structured thousands of deals and we'll find the right path for yours.</p>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+          <h3>Call Us Directly</h3>
+          <p><a href="tel:7473081635">(747) 308-1635</a></p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-text">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@goratehero.com">hello@goratehero.com</a></p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text">
+          <h3>Office</h3>
+          <p>5930 San Fernando Rd<br>Glendale, CA 91202</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🪪</div>
+        <div class="info-text">
+          <h3>NMLS #2822806</h3>
+          <p><a href="https://www.nmlsconsumeraccess.org/TuringTestPage.aspx?ReturnUrl=/EntityDetails.aspx/COMPANY/2822806" target="_blank" rel="noopener">Verify on NMLS Consumer Access ↗</a></p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <p class="quick-links-label">Quick Links</p>
+      <div class="quick-links">
+        <a href="https://goratehero.com/dscr-loans/" class="quick-link">⚡ DSCR Loans</a>
+        <a href="https://goratehero.com/heloc/" class="quick-link">🏠 HELOC</a>
+        <a href="https://goratehero.com/brrrr/" class="quick-link">🔄 Hard Money Exit</a>
+        <a href="https://goratehero.com/quiz" class="quick-link">📋 Loan Quiz</a>
+        <a href="https://goratehero.com/dscr-calculator" class="quick-link">🧮 DSCR Calculator</a>
+        <a href="https://goratehero.com/glossary/" class="quick-link">📖 Glossary</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="bolt">⚡</span>RATE HERO</div>
+      <p>NMLS #2822806 · Equal Housing Lender</p>
+      <p>Strategic mortgage financing for investors and self-employed borrowers. No W-2 required. Close in 21 days.</p>
+      <p style="margin-top:8px">(747) 308-1635 · <a href="mailto:hello@goratehero.com">hello@goratehero.com</a> · 5930 San Fernando Rd, Glendale, CA 91202</p>
+      <div class="footer-links">
+        <a href="https://goratehero.com/legal/privacy-policy">Privacy Policy</a>
+        <a href="https://goratehero.com/legal/terms-of-use">Terms of Use</a>
+        <a href="https://goratehero.com/legal/ccpa-privacy-notice">CCPA Notice</a>
+        <a href="https://goratehero.com/glossary/">Glossary</a>
+        <a href="https://www.nmlsconsumeraccess.org/TuringTestPage.aspx?ReturnUrl=/EntityDetails.aspx/COMPANY/2822806" target="_blank" rel="noopener">NMLS Consumer Access ↗</a>
+      </div>
+      <p class="footer-disclaimer">© 2026 Rate Hero, Inc. All rights reserved. Not a commitment to lend.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Phone formatting ──────────────────────────────── */
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function (e) {
+      let x = e.target.value.replace(/\D/g, '').substring(0, 10);
+      let formatted = '';
+      if (x.length > 0) formatted = '(' + x.substring(0, 3);
+      if (x.length >= 3) formatted += ') ' + x.substring(3, 6);
+      if (x.length >= 6) formatted += '-' + x.substring(6, 10);
+      e.target.value = formatted;
+    });
+
+    /* ── Form submission via Web3Forms ─────────────────── */
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').classList.add('active');
+        } else {
+          btn.textContent = 'Sign Up';
+          btn.disabled = false;
+          alert('Something went wrong. Please call us at (747) 308-1635.');
+        }
+      } catch (err) {
+        btn.textContent = 'Sign Up';
+        btn.disabled = false;
+        alert('Something went wrong. Please call us at (747) 308-1635.');
+      }
+    });
+  </script>
+
+</body>
+</html>
