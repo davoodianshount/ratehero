@@ -10,7 +10,7 @@
 
   const WORKER_URL     = 'https://bolt-proxy.davoodianshount.workers.dev';
   const WEB3FORMS_URL  = 'https://api.web3forms.com/submit';
-  const FALLBACK_PHONE = '(747) 308-1635';
+  const FALLBACK_PHONE = '(818) 208-6801';
   const FALLBACK_SITE  = 'goratehero.com';
   const SESSION_ID     = 'bolt-' + Math.random().toString(36).slice(2) + '-' + Date.now();
 
