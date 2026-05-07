@@ -1,4 +1,4 @@
-# ALLOW — AI Search & Retrieval (visibility in AI answers)
+# ALLOW - AI Search & Retrieval (visibility in AI answers)
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -14,14 +14,14 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# ALLOW — Traditional search engines
+# ALLOW - Traditional search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# BLOCK — AI training crawlers (IP protection)
+# BLOCK - AI training crawlers (IP protection)
 User-agent: GPTBot
 Disallow: /
 
