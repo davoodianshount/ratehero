@@ -13,14 +13,14 @@ Rate Hero, Inc. is a non-QM mortgage lender focused on real estate investors and
 ## Loan Programs
 
 - [DSCR loans](https://goratehero.com/dscr-loans/): Qualify investment property loans on rental income, not personal income.
-- [Non-QM loans](https://goratehero.com/non-qm.html): Alternative documentation mortgages for borrowers who don't fit conventional guidelines.
-- [Bank statement loans](https://goratehero.com/non-qm.html): Self-employed mortgages using 12 or 24 months of bank deposits.
-- [Hard money exit refinance](https://goratehero.com/brrrr-loan.html): Refinance hard money or bridge debt into long-term DSCR financing.
-- [Investment property HELOC](https://goratehero.com/heloc.html): Second-lien HELOCs on rental properties and LLC-vested homes.
-- [Long-term rental DSCR](https://goratehero.com/long-term-rental.html): 30-year financing for stabilized rental properties.
+- [Non-QM loans](https://goratehero.com/non-qm/): Alternative documentation mortgages for borrowers who don't fit conventional guidelines.
+- [Bank statement loans](https://goratehero.com/non-qm/bank-statement-loans/): Self-employed mortgages using 12 or 24 months of bank deposits.
+- [Hard money exit refinance](https://goratehero.com/brrrr/): Refinance hard money or bridge debt into long-term DSCR financing.
+- [Investment property HELOC](https://goratehero.com/heloc/): Second-lien HELOCs on rental properties and LLC-vested homes.
+- [Long-term rental DSCR](https://goratehero.com/dscr-loans/): 30-year financing for stabilized rental properties.
 - [Short-term rental DSCR](https://goratehero.com/str-dscr-loans-florida-airbnb.html): DSCR loans qualified on Airbnb / short-term rental income.
-- [BRRRR loans](https://goratehero.com/brrrr-loan.html): Financing for the buy-rehab-rent-refinance-repeat strategy.
-- [Conventional loans](https://goratehero.com/conventional.html): Conforming agency mortgages.
+- [BRRRR loans](https://goratehero.com/brrrr/): Financing for the buy-rehab-rent-refinance-repeat strategy.
+- [Conventional loans](https://goratehero.com/conventional/): Conforming agency mortgages.
 
 ## Tools
 
