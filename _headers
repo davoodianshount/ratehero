@@ -1,6 +1,24 @@
+# Cloudflare Pages headers
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Security headers (apply to all paths)
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Force UTF-8 charset on text files
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+# Wildcard fallback for any future .txt files
+/*.txt
+  Content-Type: text/plain; charset=utf-8
