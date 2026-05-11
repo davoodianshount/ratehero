@@ -180,10 +180,22 @@ async function resolveUser(env, code) {
     try { profile = JSON.parse(raw); } catch {}
   }
   if (profile) {
-    // Admin role is determined by the access code matching ADMIN_CODE, not by
-    // what's stored in KV — that way, demoting/promoting only requires
-    // changing the secret. Force-refresh the role flag.
-    if (isAdmin) profile.role = 'admin';
+    if (isAdmin) {
+      profile.role = 'admin';
+      // If the admin record is still a placeholder (no real name, or the
+      // legacy "Admin" seed, or explicitly flagged for setup) AND there is
+      // another LO record sitting on a real profile under a different code,
+      // collapse them into lo:{ADMIN_CODE} now. This handles the case where
+      // the placeholder was already seeded BEFORE the migration logic landed.
+      const isPlaceholder =
+        !profile.name ||
+        profile.needsProfileSetup === true ||
+        String(profile.name).trim().toLowerCase() === 'admin';
+      if (isPlaceholder) {
+        const migrated = await migrateAdminProfile(env, code, /*preferName*/ 'sean davoodian');
+        if (migrated) return migrated;
+      }
+    }
     return profile;
   }
   if (!isAdmin) return null;
@@ -217,26 +229,42 @@ async function resolveUser(env, code) {
   return seed;
 }
 
-// One-time migration: if the admin is signing in for the first time but a
-// legacy LO entry (e.g. "Sean Davoodian") already exists under a different
-// access code, move it to lo:{ADMIN_CODE}, rewire every quote owned by that
-// old code to the admin id, and drop the old LO record. Returns the new
-// admin profile on success, or null if no candidate was found.
-async function migrateAdminProfile(env, adminCode) {
+// Look for an existing LO record (other than the one keyed by adminCode) that
+// represents the real admin profile. If one is found, move its data into
+// lo:{adminCode}, reassign every quote it owned to id 'admin' (updating
+// loAccessCode and the lo.snapshot stored on the quote), merge the per-LO
+// quote index into lo-quotes:admin, and drop the legacy lo:{oldCode} record
+// plus its entry in all-los. Returns the new admin profile, or null if no
+// candidate was found.
+//
+// `preferName` (case-insensitive, optional) matches by exact name first; if
+// no exact match exists, picks any other LO record that has a non-empty name
+// — that handles the case where Sean entered his profile but the name field
+// drifted from the original "Sean Davoodian" spelling.
+async function migrateAdminProfile(env, adminCode, preferName = 'sean davoodian') {
   const codes = await readJsonKv(env, 'all-los', []);
-  let legacyCode = null;
-  let legacy = null;
+  const candidates = [];
   for (const c of codes) {
     if (c === adminCode) continue;
     const r = await env.QUOTES.get(`lo:${c}`);
     if (!r) continue;
     try {
       const p = JSON.parse(r);
-      const name = String(p.name || '').trim().toLowerCase();
-      if (name === 'sean davoodian') { legacy = p; legacyCode = c; break; }
+      if (!p.name) continue;
+      candidates.push({ code: c, profile: p });
     } catch {}
   }
-  if (!legacy || !legacyCode) return null;
+  if (!candidates.length) return null;
+  const want = String(preferName || '').trim().toLowerCase();
+  let chosen = candidates.find(c => String(c.profile.name || '').trim().toLowerCase() === want);
+  if (!chosen) {
+    // Fall back to the first non-empty candidate. With the dedup rule in
+    // listLOs, this case only fires when there's exactly one legacy record,
+    // so the heuristic is safe in practice.
+    chosen = candidates[0];
+  }
+  const legacy = chosen.profile;
+  const legacyCode = chosen.code;
 
   const newProfile = {
     id: 'admin',
@@ -250,6 +278,7 @@ async function migrateAdminProfile(env, adminCode) {
     needsProfileSetup: false,
     createdAt: legacy.createdAt || new Date().toISOString(),
     migratedFromCode: legacyCode,
+    migratedAt: new Date().toISOString(),
   };
   await env.QUOTES.put(`lo:${adminCode}`, JSON.stringify(newProfile));
 
@@ -267,6 +296,7 @@ async function migrateAdminProfile(env, adminCode) {
         phone: newProfile.phone,
         title: newProfile.title,
         nmls: newProfile.nmls,
+        email: newProfile.email,
       };
       await env.QUOTES.put(`quote:${slug}`, JSON.stringify(q));
     } catch {}
@@ -277,7 +307,9 @@ async function migrateAdminProfile(env, adminCode) {
   if (merged.length) {
     await env.QUOTES.put(`lo-quotes:admin`, JSON.stringify(merged));
   }
-  await env.QUOTES.delete(`lo-quotes:${legacy.id}`);
+  if (legacy.id && legacy.id !== 'admin') {
+    await env.QUOTES.delete(`lo-quotes:${legacy.id}`);
+  }
 
   // Drop the legacy LO record and clean up the all-los index.
   await env.QUOTES.delete(`lo:${legacyCode}`);
@@ -332,6 +364,7 @@ async function createQuote(env, user, body) {
       phone: user.phone,
       title: user.title,
       nmls: user.nmls,
+      email: user.email,
     },
     loAccessCode: user.accessCode,
     options: options.map(normalizeOption),
@@ -482,7 +515,7 @@ async function updateQuote(env, user, slug, body) {
     }
   }
   const lo = ownerProfile
-    ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls }
+    ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls, email: ownerProfile.email }
     : existing.lo;
 
   const updated = {
@@ -540,6 +573,7 @@ async function reassignQuote(env, slug, newCode) {
     phone: newLo.phone,
     title: newLo.title,
     nmls: newLo.nmls,
+    email: newLo.email,
   };
   quote.reassignedAt = new Date().toISOString();
   await env.QUOTES.put(`quote:${slug}`, JSON.stringify(quote));
@@ -573,24 +607,39 @@ async function deleteQuote(env, user, slug) {
 // ---------- LO management ----------
 async function listLOs(env) {
   const codes = await readJsonKv(env, 'all-los', []);
-  const out = [];
+  const adminCode = env.ADMIN_CODE || '';
+  // First pass: load all LO records.
+  const raw = [];
   for (const code of codes) {
-    const raw = await env.QUOTES.get(`lo:${code}`);
-    if (!raw) continue;
-    try {
-      const lo = JSON.parse(raw);
-      out.push({
-        id: lo.id,
-        accessCode: lo.accessCode,
-        name: lo.name,
-        phone: lo.phone,
-        nmls: lo.nmls,
-        title: lo.title,
-        email: lo.email,
-        role: lo.role,
-        createdAt: lo.createdAt,
-      });
-    } catch {}
+    const r = await env.QUOTES.get(`lo:${code}`);
+    if (!r) continue;
+    try { raw.push({ code, lo: JSON.parse(r) }); } catch {}
+  }
+  // Identify the admin record (if any) so we can suppress duplicates that
+  // share its name. The admin profile always wins — we keep its entry and
+  // drop any other LO whose name matches case-insensitively. This is a
+  // belt-and-braces guard against legacy two-account states slipping past
+  // the migration.
+  const adminEntry = raw.find(e => e.code === adminCode);
+  const adminName = adminEntry ? String(adminEntry.lo.name || '').trim().toLowerCase() : '';
+  const out = [];
+  for (const { lo } of raw) {
+    if (adminName && lo.accessCode !== adminCode) {
+      const n = String(lo.name || '').trim().toLowerCase();
+      if (n && n === adminName) continue;
+    }
+    out.push({
+      id: lo.id,
+      accessCode: lo.accessCode,
+      name: lo.name,
+      phone: lo.phone,
+      nmls: lo.nmls,
+      title: lo.title,
+      email: lo.email,
+      role: lo.role,
+      createdAt: lo.createdAt,
+      needsProfileSetup: !!lo.needsProfileSetup,
+    });
   }
   return out;
 }
@@ -688,7 +737,7 @@ async function handleClientSubdomain(env, sub) {
     if (loRaw) {
       try {
         const p = JSON.parse(loRaw);
-        liveLo = { id: p.id, name: p.name, phone: p.phone, title: p.title, nmls: p.nmls };
+        liveLo = { id: p.id, name: p.name, phone: p.phone, title: p.title, nmls: p.nmls, email: p.email };
       } catch {}
     }
   }
@@ -1439,6 +1488,7 @@ function renderClientPage(q) {
   const optsCount = (q.options || []).length;
   const loPhoneHref = telHref(lo.phone || COMPANY_PHONE);
   const heroPhoneHref = telHref(COMPANY_PHONE);
+  const loFirstName = lo.name ? String(lo.name).trim().split(/\s+/)[0] : '';
 
   return `<!doctype html>
 <html lang="en">
@@ -1453,9 +1503,10 @@ ${FONT_LINK}
 .nav{position:sticky;top:0;z-index:10;background:rgba(8,14,26,0.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);}
 .nav-inner{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .nav-brand{display:flex;align-items:center;gap:10px;}
-.nav-lo{display:flex;flex-direction:column;align-items:flex-end;font-size:13px;line-height:1.3;}
-.nav-lo strong{color:#fff;font-weight:700;}
-.nav-lo a{color:rgba(255,255,255,0.6);}
+.nav-lo{display:flex;flex-direction:column;align-items:flex-end;line-height:1.3;gap:1px;}
+.nav-lo strong{color:#fff;font-weight:600;font-size:13px;}
+.nav-lo .meta-line{color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;}
+.nav-lo .meta-line:hover{color:rgba(255,255,255,0.7);text-decoration:underline;}
 .hero{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;padding:50px 0 30px;align-items:start;}
 @media (max-width: 920px){.hero{grid-template-columns:1fr;gap:22px;}}
 .kicker{color:#3B82F6;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
@@ -1536,7 +1587,8 @@ footer a{color:rgba(255,255,255,0.55);}
     <div class="nav-brand">${BOLT_SVG}<span class="wordmark"><span class="w-rate">RATE</span><span class="w-hero">HERO</span></span></div>
     <div class="nav-lo">
       <strong>${escapeHtml(lo.name || 'Rate Hero')}</strong>
-      <a href="${loPhoneHref}">${escapeHtml(lo.phone || COMPANY_PHONE)}</a>
+      <a class="meta-line" href="${loPhoneHref}">${escapeHtml(lo.phone || COMPANY_PHONE)}</a>
+      ${lo.email ? `<a class="meta-line" href="mailto:${escapeHtml(lo.email)}">${escapeHtml(lo.email)}</a>` : ''}
     </div>
   </div>
 </nav>
@@ -1589,9 +1641,9 @@ footer a{color:rgba(255,255,255,0.55);}
 
   <div class="more-q">
     <h3>HAVE MORE QUESTIONS?</h3>
-    <p>${escapeHtml(lo.name || 'Your loan officer')} can walk you through every line and help you pick the right option. Call ${escapeHtml(lo.phone || COMPANY_PHONE)}.</p>
+    <p>${escapeHtml(loFirstName || 'Your loan officer')} can walk you through every line and help you pick the right option. Call ${escapeHtml(lo.phone || COMPANY_PHONE)}.</p>
     <div class="btns">
-      <a class="btn btn-dark" href="${loPhoneHref}">Call ${escapeHtml(lo.name ? lo.name.split(' ')[0] : 'Now')}</a>
+      <a class="btn btn-dark" href="${loPhoneHref}">Call ${escapeHtml(loFirstName || 'Now')}</a>
       <a class="btn btn-primary" href="${APPLY_URL}" target="_blank" rel="noopener">Apply Now</a>
     </div>
   </div>
