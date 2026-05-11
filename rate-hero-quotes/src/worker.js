@@ -125,6 +125,15 @@ async function handleApi(request, env, url) {
     return json(await deleteQuote(env, user, quoteMatch[1]));
   }
 
+  const reassignMatch = path.match(/^\/admin\/api\/quotes\/([a-z0-9]+)\/reassign$/);
+  if (reassignMatch && method === 'POST') {
+    if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
+    const body = await readJson(request);
+    const result = await reassignQuote(env, reassignMatch[1], body.newLoAccessCode || '');
+    if (result.error) return json({ error: result.error }, result.status || 400);
+    return json(result);
+  }
+
   if (path === '/admin/api/los' && method === 'GET') {
     if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
     return json({ los: await listLOs(env) });
@@ -178,15 +187,22 @@ async function resolveUser(env, code) {
     return profile;
   }
   if (!isAdmin) return null;
-  // First time the admin signs in — seed a placeholder LO record under their
-  // access code so the Team tab can show / edit it like any other LO.
+  // First admin sign-in: try to migrate an existing "Sean Davoodian" LO entry
+  // (or whichever LO is currently the de-facto admin) into lo:{ADMIN_CODE}.
+  // This collapses the legacy two-account state into a single profile keyed
+  // by the admin secret.
+  const migrated = await migrateAdminProfile(env, code);
+  if (migrated) return migrated;
+  // No legacy entry to migrate — seed a blank profile that the admin will
+  // fill in from the Team tab. We don't pre-fill name/title to avoid any
+  // bogus "Admin · Founder" data ever surfacing in the UI.
   const seed = {
     id: 'admin',
     accessCode: code,
-    name: 'Admin',
+    name: '',
     phone: '',
     nmls: '',
-    title: 'Founder',
+    title: '',
     email: '',
     role: 'admin',
     needsProfileSetup: true,
@@ -199,6 +215,77 @@ async function resolveUser(env, code) {
     await env.QUOTES.put('all-los', JSON.stringify(codes));
   }
   return seed;
+}
+
+// One-time migration: if the admin is signing in for the first time but a
+// legacy LO entry (e.g. "Sean Davoodian") already exists under a different
+// access code, move it to lo:{ADMIN_CODE}, rewire every quote owned by that
+// old code to the admin id, and drop the old LO record. Returns the new
+// admin profile on success, or null if no candidate was found.
+async function migrateAdminProfile(env, adminCode) {
+  const codes = await readJsonKv(env, 'all-los', []);
+  let legacyCode = null;
+  let legacy = null;
+  for (const c of codes) {
+    if (c === adminCode) continue;
+    const r = await env.QUOTES.get(`lo:${c}`);
+    if (!r) continue;
+    try {
+      const p = JSON.parse(r);
+      const name = String(p.name || '').trim().toLowerCase();
+      if (name === 'sean davoodian') { legacy = p; legacyCode = c; break; }
+    } catch {}
+  }
+  if (!legacy || !legacyCode) return null;
+
+  const newProfile = {
+    id: 'admin',
+    accessCode: adminCode,
+    name: legacy.name || '',
+    phone: legacy.phone || '',
+    nmls: legacy.nmls || '',
+    title: legacy.title || 'Founder',
+    email: legacy.email || '',
+    role: 'admin',
+    needsProfileSetup: false,
+    createdAt: legacy.createdAt || new Date().toISOString(),
+    migratedFromCode: legacyCode,
+  };
+  await env.QUOTES.put(`lo:${adminCode}`, JSON.stringify(newProfile));
+
+  // Reassign every quote owned by the legacy LO to the admin id.
+  const legacyQuotes = await readJsonKv(env, `lo-quotes:${legacy.id}`, []);
+  for (const slug of legacyQuotes) {
+    const qRaw = await env.QUOTES.get(`quote:${slug}`);
+    if (!qRaw) continue;
+    try {
+      const q = JSON.parse(qRaw);
+      q.loAccessCode = adminCode;
+      q.lo = {
+        id: newProfile.id,
+        name: newProfile.name,
+        phone: newProfile.phone,
+        title: newProfile.title,
+        nmls: newProfile.nmls,
+      };
+      await env.QUOTES.put(`quote:${slug}`, JSON.stringify(q));
+    } catch {}
+  }
+  // Merge the per-LO quote indexes.
+  const adminQuotes = await readJsonKv(env, `lo-quotes:admin`, []);
+  const merged = Array.from(new Set([...legacyQuotes, ...adminQuotes]));
+  if (merged.length) {
+    await env.QUOTES.put(`lo-quotes:admin`, JSON.stringify(merged));
+  }
+  await env.QUOTES.delete(`lo-quotes:${legacy.id}`);
+
+  // Drop the legacy LO record and clean up the all-los index.
+  await env.QUOTES.delete(`lo:${legacyCode}`);
+  const cleaned = codes.filter(c => c !== legacyCode);
+  if (!cleaned.includes(adminCode)) cleaned.unshift(adminCode);
+  await env.QUOTES.put('all-los', JSON.stringify(cleaned));
+
+  return newProfile;
 }
 
 function publicUser(u) {
@@ -411,6 +498,53 @@ async function updateQuote(env, user, slug, body) {
   };
   await env.QUOTES.put(`quote:${slug}`, JSON.stringify(updated));
   return { slug, url: `https://${slug}.goratehero.com`, updated: true };
+}
+
+async function reassignQuote(env, slug, newCode) {
+  const code = String(newCode || '').trim();
+  if (!code) return { error: 'New LO access code is required' };
+  const qRaw = await env.QUOTES.get(`quote:${slug}`);
+  if (!qRaw) return { error: 'Quote not found', status: 404 };
+  let quote;
+  try { quote = JSON.parse(qRaw); } catch { return { error: 'Quote corrupted', status: 500 }; }
+
+  const newRaw = await env.QUOTES.get(`lo:${code}`);
+  if (!newRaw) return { error: 'Target LO not found', status: 404 };
+  let newLo;
+  try { newLo = JSON.parse(newRaw); } catch { return { error: 'Target LO corrupted', status: 500 }; }
+
+  const oldId = quote.lo && quote.lo.id;
+  if (oldId === newLo.id) {
+    return { ok: true, lo: { id: newLo.id, name: newLo.name }, unchanged: true };
+  }
+
+  // Remove slug from old LO's quote list
+  if (oldId) {
+    const oldList = await readJsonKv(env, `lo-quotes:${oldId}`, []);
+    const filtered = oldList.filter(s => s !== slug);
+    if (filtered.length !== oldList.length) {
+      await env.QUOTES.put(`lo-quotes:${oldId}`, JSON.stringify(filtered));
+    }
+  }
+  // Add slug to new LO's quote list (front of list)
+  const newList = await readJsonKv(env, `lo-quotes:${newLo.id}`, []);
+  if (!newList.includes(slug)) {
+    newList.unshift(slug);
+    await env.QUOTES.put(`lo-quotes:${newLo.id}`, JSON.stringify(newList));
+  }
+
+  quote.loAccessCode = code;
+  quote.lo = {
+    id: newLo.id,
+    name: newLo.name,
+    phone: newLo.phone,
+    title: newLo.title,
+    nmls: newLo.nmls,
+  };
+  quote.reassignedAt = new Date().toISOString();
+  await env.QUOTES.put(`quote:${slug}`, JSON.stringify(quote));
+
+  return { ok: true, lo: { id: newLo.id, name: newLo.name } };
 }
 
 async function deleteQuote(env, user, slug) {
@@ -998,7 +1132,9 @@ function selectHtml(field, opts, current) {
 }
 
 function propertyValueLabel(transactionType) {
-  return (transactionType === 'Refinance' || transactionType === 'Cash-Out') ? 'Appraised Value' : 'Purchase Price';
+  return (transactionType === 'Refinance' || transactionType === 'Cash-Out')
+    ? 'Appraised Value'
+    : 'Purchase Price';
 }
 function refreshPropValueLabel() {
   const lbl = propertyValueLabel(state.form.transactionType) + ' (-)';
@@ -1093,21 +1229,70 @@ function renderQuotesList() {
   if (!state.quotes.length) {
     return '<div class="card card-pad" style="text-align:center;color:rgba(255,255,255,0.5);">No quotes yet. Create one from the New Quote tab.</div>';
   }
+  const isAdmin = state.user && state.user.role === 'admin';
   return state.quotes.map(q=>\`
-    <div class="quote-row">
+    <div class="quote-row" id="qrow-\${q.slug}">
       <div class="meta">
         <span class="title">\${escapeHtml(q.clientName)}</span>
         <span class="sub">\${escapeHtml(q.transactionType)} · \${escapeHtml(q.loanProgram)} · \${q.optionCount} option\${q.optionCount===1?'':'s'}</span>
         <span class="sub">\${escapeHtml(q.address)}</span>
-        \${state.user.role==='admin' ? '<span class="sub">LO: '+escapeHtml(q.loName||'—')+'</span>' : ''}
+        \${isAdmin ? '<span class="sub">LO: '+escapeHtml(q.loName||'—')+'</span>' : ''}
         <span class="sub">\${new Date(q.createdAt).toLocaleDateString()} · <a href="\${q.url}" target="_blank">\${escapeHtml(q.url.replace('https://',''))}</a></span>
+        <div class="reassign-row" id="reassign-\${q.slug}" style="display:none;margin-top:8px;gap:8px;align-items:center;flex-wrap:wrap;">
+          <label class="sub" style="margin-right:4px;">Reassign to:</label>
+          <select class="reassign-select" id="reassign-sel-\${q.slug}" style="min-width:200px;max-width:260px;"></select>
+          <button class="btn btn-primary" onclick="confirmReassign('\${q.slug}')">Confirm</button>
+          <button class="btn btn-ghost" onclick="closeReassign('\${q.slug}')">Cancel</button>
+        </div>
       </div>
       <div class="actions">
         <button class="btn btn-outline" onclick="copyLink('\${q.url}')">Copy Link</button>
         <button class="btn btn-outline" onclick="editQuote('\${q.slug}')">Edit</button>
+        \${isAdmin ? '<button class="btn btn-outline" onclick="openReassign(\\''+q.slug+'\\')">Reassign</button>' : ''}
         <button class="btn btn-ghost" onclick="deleteQuote('\${q.slug}')">Delete</button>
       </div>
     </div>\`).join('');
+}
+
+function openReassign(slug) {
+  if (!state.los || !state.los.length) {
+    // LOs might not be loaded yet if admin landed directly on My Quotes
+    loadLOs().then(() => openReassign(slug));
+    return;
+  }
+  const row = document.getElementById('reassign-'+slug);
+  const sel = document.getElementById('reassign-sel-'+slug);
+  if (!row || !sel) return;
+  const quote = state.quotes.find(q => q.slug === slug);
+  const currentLoName = quote ? (quote.loName || '') : '';
+  sel.innerHTML = state.los.map(lo =>
+    '<option value="'+escapeHtml(lo.accessCode)+'"'+(lo.name === currentLoName ? ' selected' : '')+'>'+
+    escapeHtml(lo.name || '(unnamed)')+(lo.accessCode === state.user.accessCode ? ' (you)' : '')+
+    '</option>'
+  ).join('');
+  row.style.display = 'flex';
+}
+
+function closeReassign(slug) {
+  const row = document.getElementById('reassign-'+slug);
+  if (row) row.style.display = 'none';
+}
+
+async function confirmReassign(slug) {
+  const sel = document.getElementById('reassign-sel-'+slug);
+  if (!sel) return;
+  const newCode = sel.value;
+  if (!newCode) return;
+  try {
+    const r = await api('/admin/api/quotes/'+slug+'/reassign', {
+      method: 'POST',
+      body: JSON.stringify({ newLoAccessCode: newCode }),
+    });
+    const name = r.lo && r.lo.name ? r.lo.name : 'new LO';
+    toast('Quote reassigned to ' + name);
+    closeReassign(slug);
+    loadQuotes();
+  } catch (err) { toast(err.message, true); }
 }
 
 async function copyLink(url) {
@@ -1452,8 +1637,20 @@ function renderOptionCard(o, i, total, loanTerm, transactionType) {
   const hasPpp = !!o.hasPpp;
   const noPenalty = !hasPpp;
   const rateAttr = rate === '' ? '' : String(rate);
-  const isRefi = transactionType === 'Refinance' || transactionType === 'Cash-Out';
-  const propertyValueLabel = isRefi ? 'Appraised value' : 'Purchase price';
+  const isCashOut = transactionType === 'Cash-Out';
+  const isRefi = transactionType === 'Refinance';
+  const propertyValueLabel = (isCashOut || isRefi) ? 'Appraised Value' : 'Purchase Price';
+  const sectionTitle = isCashOut ? 'CASH TO BORROWER' : 'CASH FROM / TO BORROWER';
+  const totalLabel = isCashOut ? 'Cash to Borrower' : (isRefi ? 'From' : 'Cash from borrower');
+  // For a cash-out the money is going TO the borrower, so we want to display
+  // the total as a positive amount regardless of how it was entered (Sean may
+  // enter it as a negative reflecting cash-out direction in his spreadsheet).
+  const totalRaw = o.cashFromBorrower;
+  const totalValue = (() => {
+    if (totalRaw === '' || totalRaw === null || totalRaw === undefined || !Number.isFinite(Number(totalRaw))) return '—';
+    const n = Math.abs(Number(totalRaw));
+    return (isCashOut ? '+ ' : '') + '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  })();
 
   const bk = [
     ['Loan amount', o.loanAmount, '+'],
@@ -1493,9 +1690,9 @@ function renderOptionCard(o, i, total, loanTerm, transactionType) {
     </div>
     <button class="breakdown-btn" onclick="toggleBreakdown(this)">See breakdown</button>
     <div class="breakdown">
-      <div class="breakdown-title">CASH FROM / TO BORROWER</div>
+      <div class="breakdown-title">${escapeHtml(sectionTitle)}</div>
       ${bk.map(([label, val, sign]) => `<div class="bk-line"><span>${escapeHtml(label)} (${sign})</span><span class="v">${fmtMoney(val)}</span></div>`).join('')}
-      <div class="bk-total"><span>Cash from borrower</span><span>${fmtMoney(o.cashFromBorrower)}</span></div>
+      <div class="bk-total"><span>${escapeHtml(totalLabel)}</span><span>${totalValue}</span></div>
     </div>
     <div class="cta-row">
       <button class="btn btn-primary" onclick="pickOption(${i})">I'm Interested in This Option</button>
