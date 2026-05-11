@@ -13,11 +13,13 @@
 (function () {
   'use strict';
 
-  // Run once per page
-  if (document.getElementById('rh-mh-style')) return;
+  // Primary desktop guard. Every side effect (fonts, styles, DOM) is gated
+  // behind MOBILE_MQ.matches so a >768px viewport gets a true no-op load.
+  var MOBILE_MQ = window.matchMedia('(max-width: 768px)');
 
   // ---------- 1. FONTS ----------
-  if (!document.querySelector('link[href*="Bebas+Neue"]')) {
+  function injectFonts() {
+    if (document.querySelector('link[href*="Bebas+Neue"]')) return;
     var pc1 = document.createElement('link');
     pc1.rel = 'preconnect';
     pc1.href = 'https://fonts.googleapis.com';
@@ -39,7 +41,13 @@
   // All rules wrapped in @media (max-width: 768px) so DESKTOP IS NEVER TOUCHED.
   // All selectors prefixed with .rh-mh- to avoid collisions with the existing site.
   var css = '\
+/* Belt-and-suspenders desktop hide: even if the JS viewport guard ever\
+   regresses, the injected wrapper stays invisible until the @media rule\
+   below flips it on inside mobile breakpoints. */\
+#rh-mh-root { display: none; }\
 @media (max-width: 768px) {\
+  #rh-mh-root { display: block; }\
+\
   /* Hide existing top-of-page navigation on mobile. Adjust selector list if your\
      current header lives somewhere different. */\
   body > header,\
@@ -49,7 +57,8 @@
   body > .site-header,\
   body > .navbar,\
   body > nav.site-nav,\
-  body > nav[role="navigation"]:first-of-type {\
+  body > nav[role="navigation"]:first-of-type,\
+  nav[aria-label="Main navigation"] {\
     display: none !important;\
   }\
 \
@@ -288,10 +297,13 @@
 }\
 ';
 
-  var style = document.createElement('style');
-  style.id = 'rh-mh-style';
-  style.textContent = css;
-  document.head.appendChild(style);
+  function injectStyles() {
+    if (document.getElementById('rh-mh-style')) return;
+    var style = document.createElement('style');
+    style.id = 'rh-mh-style';
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
 
   // ---------- 3. MARKUP ----------
   var html = ''
@@ -411,8 +423,8 @@
     +   '</div>'
     + '</aside>';
 
-  // ---------- 4. INJECT ----------
-  function inject() {
+  // ---------- 4. INJECT / TEARDOWN ----------
+  function injectDom() {
     if (!document.body) return false;
     if (document.getElementById('rh-mh-burger')) return true;
 
@@ -454,9 +466,33 @@
     return true;
   }
 
+  function teardownDom() {
+    var root = document.getElementById('rh-mh-root');
+    if (root && root.parentNode) root.parentNode.removeChild(root);
+    if (document.body) document.body.classList.remove('rh-mh-locked');
+  }
+
+  // ---------- 5. APPLY (gated on viewport) ----------
+  function apply() {
+    if (MOBILE_MQ.matches) {
+      injectFonts();
+      injectStyles();
+      injectDom();
+    } else {
+      teardownDom();
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inject);
+    document.addEventListener('DOMContentLoaded', apply);
   } else {
-    inject();
+    apply();
+  }
+
+  // Re-apply on viewport crossings (tablet rotation, browser resize).
+  if (MOBILE_MQ.addEventListener) {
+    MOBILE_MQ.addEventListener('change', apply);
+  } else if (MOBILE_MQ.addListener) {
+    MOBILE_MQ.addListener(apply); // legacy Safari
   }
 })();
