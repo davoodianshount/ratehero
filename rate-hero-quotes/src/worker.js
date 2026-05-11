@@ -1174,7 +1174,7 @@ function renderOptionForm(o, idx) {
       </div>
       <div class="field"><label>PPP Details</label><input class="input" data-o="pppDetails" value="\${escapeHtml(o.pppDetails)}" placeholder="5 Year: 6 Mo Interest" /></div>
     </div>
-    <div class="opt-section-title">Cash From / To Borrower Breakdown</div>
+    <div class="opt-section-title breakdownSectionTitle">\${breakdownSectionTitle(state.form.transactionType)}</div>
     <div class="grid-3">
       <div class="field"><label>Loan Amount (+)</label><input class="input" data-o="loanAmount" type="number" value="\${o.loanAmount}" /></div>
       <div class="field"><label class="propValueLabel">\${propertyValueLabel(state.form.transactionType)} (-)</label><input class="input" data-o="purchasePrice" type="number" value="\${o.purchasePrice}" /></div>
@@ -1184,7 +1184,7 @@ function renderOptionForm(o, idx) {
       <div class="field"><label>Taxes &amp; Gov't (-)</label><input class="input" data-o="taxesGov" type="number" value="\${o.taxesGov}" /></div>
       <div class="field"><label>Prepaids &amp; Escrow (-)</label><input class="input" data-o="prepaidsEscrow" type="number" value="\${o.prepaidsEscrow}" /></div>
       <div class="field"><label>Points Cost (-)</label><input class="input" data-o="pointsCost" type="number" value="\${o.pointsCost}" /></div>
-      <div class="field"><label>Cash from Borrower</label><input class="input" data-o="cashFromBorrower" type="number" value="\${o.cashFromBorrower}" /></div>
+      <div class="field"><label class="cashTotalLabel">\${cashTotalLabel(state.form.transactionType)}</label><input class="input" data-o="cashFromBorrower" type="number" value="\${o.cashFromBorrower}" /></div>
     </div>
     \${state.form.options.length > 1 ? '<div style="margin-top:14px;"><button class="btn btn-ghost" onclick="removeOption('+idx+')">Remove Option '+(idx+1)+'</button></div>' : ''}
   \`;
@@ -1199,16 +1199,31 @@ function propertyValueLabel(transactionType) {
     ? 'Appraised Value'
     : 'Purchase Price';
 }
-function refreshPropValueLabel() {
-  const lbl = propertyValueLabel(state.form.transactionType) + ' (-)';
-  document.querySelectorAll('.propValueLabel').forEach(el => { el.textContent = lbl; });
+function cashTotalLabel(transactionType) {
+  if (transactionType === 'Cash-Out') return 'Cash to Borrower';
+  if (transactionType === 'Refinance') return 'From';
+  return 'Cash from Borrower';
+}
+function breakdownSectionTitle(transactionType) {
+  return transactionType === 'Cash-Out'
+    ? 'CASH TO BORROWER BREAKDOWN'
+    : 'CASH FROM / TO BORROWER BREAKDOWN';
+}
+function refreshDynamicLabels() {
+  const t = state.form.transactionType;
+  const propLbl = propertyValueLabel(t) + ' (-)';
+  document.querySelectorAll('.propValueLabel').forEach(el => { el.textContent = propLbl; });
+  const cashLbl = cashTotalLabel(t);
+  document.querySelectorAll('.cashTotalLabel').forEach(el => { el.textContent = cashLbl; });
+  const sectionLbl = breakdownSectionTitle(t);
+  document.querySelectorAll('.breakdownSectionTitle').forEach(el => { el.textContent = sectionLbl; });
 }
 
 function attachFormHandlers() {
   document.querySelectorAll('[data-f]').forEach(el=>{
     const apply = () => {
       state.form[el.dataset.f] = el.value;
-      if (el.dataset.f === 'transactionType') refreshPropValueLabel();
+      if (el.dataset.f === 'transactionType') refreshDynamicLabels();
     };
     el.addEventListener('input', apply);
     el.addEventListener('change', apply);
