@@ -1193,7 +1193,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["FinancialService", "MortgageBroker"],
+  "@type": "FinancialService",
   "name": "Rate Hero, Inc.",
   "alternateName": "Rate Hero",
   "url": "https://goratehero.com",
@@ -1793,7 +1793,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         <div class="program-icon-wrap" style="width:44px;height:44px;background:rgba(37,99,235,0.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg></div>
         <h3>Conventional / FHA / VA</h3>
         <div class="prog-tag">Lowest Rates for Qualifying Borrowers</div>
-        <p>W-2 income, strong credit, or veteran status? We find the best rate across conventional, FHA, and VA programs for your exact situation — period.</p>
+        <p>W-2 income, strong credit, or veteran status? We help identify competitive mortgage options across conventional, FHA, and VA programs based on your scenario.</p>
         <div class="program-link">Learn More <span class="prog-arrow">→</span></div>
       </a>
       <a href="/heloc/" class="program-card">
@@ -1917,8 +1917,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
               <div class="accordion-a"><p>21-day average close time. We move fast because our process is tight — not because we cut corners.</p></div>
             </div>
             <div class="accordion-item" id="acc-2">
-              <div class="accordion-q" onclick="toggleAcc('acc-2')">Strategic Lender Access <span class="accordion-icon">+</span></div>
-              <div class="accordion-a"><p>We leverage our in-house expertise and deep lender relationships to structure your loan for the best rate and terms.</p></div>
+              <div class="accordion-q" onclick="toggleAcc('acc-2')">Strategic Loan Structuring <span class="accordion-icon">+</span></div>
+              <div class="accordion-a"><p>We leverage our in-house expertise and loan program expertise to structure your loan for the best rate and terms.</p></div>
             </div>
             <div class="accordion-item" id="acc-3">
               <div class="accordion-q" onclick="toggleAcc('acc-3')">Complex Borrowers Welcome <span class="accordion-icon">+</span></div>
@@ -2238,7 +2238,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
         <button class="opt" onclick="selOpt('borrower','selfemployed',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></span><span class="opt-title">Self-Employed</span><span class="opt-sub">Business owner / 1099</span></button>
         <button class="opt" onclick="selOpt('borrower','investor_us',this)"><span class="opt-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="opt-title">RE Investor (US)</span><span class="opt-sub">US resident</span></button>
         <button class="opt" onclick="selOpt('borrower','investor_non',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10z"/></svg></span><span class="opt-title">RE Investor (Non-US)</span><span class="opt-sub">Foreign national</span></button>
-        <button class="opt" onclick="selOpt('borrower','broker',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span><span class="opt-title">Broker</span><span class="opt-sub">Submitting for a client</span></button>
+        <button class="opt" onclick="selOpt('borrower','realestate_pro',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span><span class="opt-title">Real Estate Professional</span><span class="opt-sub">Working with a client</span></button>
         <button class="opt" onclick="selOpt('borrower','other',this)"><span class="opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg></span><span class="opt-title">Something Else</span><span class="opt-sub">We'll figure it out</span></button>
       </div>
     </div>
@@ -2590,7 +2590,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
       title: "We're In Your Corner.",
-      body: 'Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve.'
+      body: 'Strategic loan structuring means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve.'
     },
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="23" height="23"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
@@ -2705,7 +2705,7 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       icon: "users",
       title: "We’re In Your Corner.",
-      body: "Strategic lender access means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve."
+      body: "Strategic loan structuring means <b>your loan is structured for the best rate and terms</b> — not just what is easiest to approve."
     },
     {
       icon: "check",
