@@ -58,7 +58,8 @@
   body > .navbar,\
   body > nav.site-nav,\
   body > nav[role="navigation"]:first-of-type,\
-  nav[aria-label="Main navigation"] {\
+  nav[aria-label="Main navigation"],\
+  body > nav {\
     display: none !important;\
   }\
 \
