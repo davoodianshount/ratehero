@@ -23,6 +23,14 @@ const COMPANY_PHONE = '(818) 208-6801';
 const APPLY_URL = 'https://ratehero.my1003app.com/1252107/register';
 const CONSUMER_ACCESS_URL = 'https://www.nmlsconsumeraccess.org/';
 
+// Access codes are case-insensitive — mobile keyboards auto-capitalize and
+// Sean prefers a single canonical form in KV. We uppercase at every
+// boundary (auth, KV reads/writes, route params) and strip non-alphanumerics
+// so trailing whitespace or stray punctuation doesn't break lookups.
+function normCode(c) {
+  return String(c == null ? '' : c).trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+}
+
 // ---------- Entry ----------
 export default {
   async fetch(request, env) {
@@ -145,20 +153,21 @@ async function handleApi(request, env, url) {
     if (result.error) return json({ error: result.error }, 400);
     return json(result);
   }
-  const loMatch = path.match(/^\/admin\/api\/los\/([A-Z0-9]+)$/);
+  const loMatch = path.match(/^\/admin\/api\/los\/([A-Za-z0-9]+)$/);
   if (loMatch && method === 'PUT') {
     if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
     const body = await readJson(request);
-    const result = await updateLO(env, loMatch[1], body);
+    const result = await updateLO(env, normCode(loMatch[1]), body);
     if (result.error) return json({ error: result.error }, 400);
     return json(result);
   }
   if (loMatch && method === 'DELETE') {
     if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
-    if (env.ADMIN_CODE && loMatch[1] === env.ADMIN_CODE) {
+    const target = normCode(loMatch[1]);
+    if (env.ADMIN_CODE && target === normCode(env.ADMIN_CODE)) {
       return json({ error: 'Cannot remove the admin account' }, 400);
     }
-    return json(await deleteLO(env, loMatch[1]));
+    return json(await deleteLO(env, target));
   }
 
   return json({ error: 'Not found' }, 404);
@@ -173,7 +182,10 @@ async function authenticate(request, env) {
 }
 
 async function resolveUser(env, code) {
-  const isAdmin = !!(env.ADMIN_CODE && code === env.ADMIN_CODE);
+  code = normCode(code);
+  if (!code) return null;
+  const adminCodeNorm = normCode(env.ADMIN_CODE || '');
+  const isAdmin = !!(adminCodeNorm && code === adminCodeNorm);
   const raw = await env.QUOTES.get(`lo:${code}`);
   let profile = null;
   if (raw) {
@@ -242,6 +254,7 @@ async function resolveUser(env, code) {
 // — that handles the case where Sean entered his profile but the name field
 // drifted from the original "Sean Davoodian" spelling.
 async function migrateAdminProfile(env, adminCode, preferName = 'sean davoodian') {
+  adminCode = normCode(adminCode);
   const codes = await readJsonKv(env, 'all-los', []);
   const candidates = [];
   for (const c of codes) {
@@ -366,7 +379,7 @@ async function createQuote(env, user, body) {
       nmls: user.nmls,
       email: user.email,
     },
-    loAccessCode: user.accessCode,
+    loAccessCode: normCode(user.accessCode),
     options: options.map(normalizeOption),
     createdAt: new Date().toISOString(),
   };
@@ -506,7 +519,7 @@ async function updateQuote(env, user, slug, body) {
   // Re-snapshot the LO who originally created the quote (their KV profile may
   // have been edited since). Prefer the original creator's record so editing
   // someone else's quote as admin doesn't overwrite the LO attribution.
-  const ownerCode = existing.loAccessCode;
+  const ownerCode = normCode(existing.loAccessCode);
   let ownerProfile = null;
   if (ownerCode) {
     const ownerRaw = await env.QUOTES.get(`lo:${ownerCode}`);
@@ -534,7 +547,7 @@ async function updateQuote(env, user, slug, body) {
 }
 
 async function reassignQuote(env, slug, newCode) {
-  const code = String(newCode || '').trim();
+  const code = normCode(newCode);
   if (!code) return { error: 'New LO access code is required' };
   const qRaw = await env.QUOTES.get(`quote:${slug}`);
   if (!qRaw) return { error: 'Quote not found', status: 404 };
@@ -732,8 +745,9 @@ async function handleClientSubdomain(env, sub) {
   // propagate to every quote they own. Fall back to the snapshot stored on
   // the quote if their account has been removed.
   let liveLo = null;
-  if (quote.loAccessCode) {
-    const loRaw = await env.QUOTES.get(`lo:${quote.loAccessCode}`);
+  const ownerCode = normCode(quote.loAccessCode);
+  if (ownerCode) {
+    const loRaw = await env.QUOTES.get(`lo:${ownerCode}`);
     if (loRaw) {
       try {
         const p = JSON.parse(loRaw);
@@ -938,7 +952,7 @@ const APPLY_URL = ${JSON.stringify(APPLY_URL)};
 
 const state = {
   user: null,
-  token: localStorage.getItem('rh_token') || '',
+  token: (localStorage.getItem('rh_token') || '').toUpperCase().replace(/[^A-Z0-9]/g,''),
   tab: 'new',
   quotes: [],
   los: [],
@@ -1038,7 +1052,7 @@ function renderLogin() {
         </div>
         <p class="text-body" style="margin:0 0 22px;font-size:14px;">Enter your access code to continue.</p>
         <form id="loginForm">
-          <input id="codeInput" class="input" placeholder="ACCESS CODE" autocomplete="off" spellcheck="false" style="text-align:center;letter-spacing:5px;font-weight:700;text-transform:uppercase;font-size:15px;" />
+          <input id="codeInput" class="input" placeholder="ACCESS CODE" autocapitalize="characters" autocorrect="off" autocomplete="off" spellcheck="false" style="text-align:center;letter-spacing:5px;font-weight:700;text-transform:uppercase;font-size:15px;" />
           <button class="btn btn-primary" type="submit" style="width:100%;margin-top:14px;">Sign In</button>
           <div id="loginErr" style="color:#ef5060;font-size:13px;margin-top:10px;min-height:18px;"></div>
         </form>
@@ -1046,7 +1060,7 @@ function renderLogin() {
     </div>\`;
   document.getElementById('loginForm').addEventListener('submit', async (e)=>{
     e.preventDefault();
-    const code = document.getElementById('codeInput').value.trim();
+    const code = document.getElementById('codeInput').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
     document.getElementById('loginErr').textContent = '';
     try {
       const r = await fetch('/admin/api/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({code})});
