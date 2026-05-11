@@ -49,7 +49,8 @@
   body > .site-header,\
   body > .navbar,\
   body > nav.site-nav,\
-  body > nav[role="navigation"]:first-of-type {\
+  body > nav[role="navigation"]:first-of-type,\
+  nav {\
     display: none !important;\
   }\
 \
