@@ -232,6 +232,16 @@ export default {
       }
       return response;
     }
-    return env.ASSETS.fetch(request);
+
+    const response = await env.ASSETS.fetch(request);
+    const ct = response.headers.get('content-type') || '';
+    if (!ct.includes('text/html')) return response;
+    return new HTMLRewriter()
+      .on('body', {
+        element(el) {
+          el.append('<script defer src="/mobile-header.js"></script>', { html: true });
+        }
+      })
+      .transform(response);
   }
 };
