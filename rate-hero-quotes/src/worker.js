@@ -110,6 +110,17 @@ async function handleApi(request, env, url) {
   }
 
   const quoteMatch = path.match(/^\/admin\/api\/quotes\/([a-z0-9]+)$/);
+  if (quoteMatch && method === 'GET') {
+    const result = await getQuote(env, user, quoteMatch[1]);
+    if (result.error) return json({ error: result.error }, result.status || 400);
+    return json(result);
+  }
+  if (quoteMatch && method === 'PUT') {
+    const body = await readJson(request);
+    const result = await updateQuote(env, user, quoteMatch[1], body);
+    if (result.error) return json({ error: result.error }, result.status || 400);
+    return json(result);
+  }
   if (quoteMatch && method === 'DELETE') {
     return json(await deleteQuote(env, user, quoteMatch[1]));
   }
@@ -126,8 +137,18 @@ async function handleApi(request, env, url) {
     return json(result);
   }
   const loMatch = path.match(/^\/admin\/api\/los\/([A-Z0-9]+)$/);
+  if (loMatch && method === 'PUT') {
+    if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
+    const body = await readJson(request);
+    const result = await updateLO(env, loMatch[1], body);
+    if (result.error) return json({ error: result.error }, 400);
+    return json(result);
+  }
   if (loMatch && method === 'DELETE') {
     if (user.role !== 'admin') return json({ error: 'Forbidden' }, 403);
+    if (env.ADMIN_CODE && loMatch[1] === env.ADMIN_CODE) {
+      return json({ error: 'Cannot remove the admin account' }, 400);
+    }
     return json(await deleteLO(env, loMatch[1]));
   }
 
@@ -143,21 +164,41 @@ async function authenticate(request, env) {
 }
 
 async function resolveUser(env, code) {
-  if (env.ADMIN_CODE && code === env.ADMIN_CODE) {
-    return {
-      id: 'admin',
-      accessCode: code,
-      name: 'Sean Davoodian',
-      phone: COMPANY_PHONE,
-      nmls: '',
-      title: 'Founder',
-      email: '',
-      role: 'admin',
-    };
-  }
+  const isAdmin = !!(env.ADMIN_CODE && code === env.ADMIN_CODE);
   const raw = await env.QUOTES.get(`lo:${code}`);
-  if (!raw) return null;
-  try { return JSON.parse(raw); } catch { return null; }
+  let profile = null;
+  if (raw) {
+    try { profile = JSON.parse(raw); } catch {}
+  }
+  if (profile) {
+    // Admin role is determined by the access code matching ADMIN_CODE, not by
+    // what's stored in KV — that way, demoting/promoting only requires
+    // changing the secret. Force-refresh the role flag.
+    if (isAdmin) profile.role = 'admin';
+    return profile;
+  }
+  if (!isAdmin) return null;
+  // First time the admin signs in — seed a placeholder LO record under their
+  // access code so the Team tab can show / edit it like any other LO.
+  const seed = {
+    id: 'admin',
+    accessCode: code,
+    name: 'Admin',
+    phone: '',
+    nmls: '',
+    title: 'Founder',
+    email: '',
+    role: 'admin',
+    needsProfileSetup: true,
+    createdAt: new Date().toISOString(),
+  };
+  await env.QUOTES.put(`lo:${code}`, JSON.stringify(seed));
+  const codes = await readJsonKv(env, 'all-los', []);
+  if (!codes.includes(code)) {
+    codes.unshift(code);
+    await env.QUOTES.put('all-los', JSON.stringify(codes));
+  }
+  return seed;
 }
 
 function publicUser(u) {
@@ -307,6 +348,71 @@ async function listQuotes(env, user) {
   return out;
 }
 
+async function getQuote(env, user, slug) {
+  const raw = await env.QUOTES.get(`quote:${slug}`);
+  if (!raw) return { error: 'Quote not found', status: 404 };
+  let q;
+  try { q = JSON.parse(raw); } catch { return { error: 'Quote corrupted', status: 500 }; }
+  if (user.role !== 'admin' && q.lo && q.lo.id !== user.id) {
+    return { error: 'Forbidden', status: 403 };
+  }
+  return { quote: q };
+}
+
+async function updateQuote(env, user, slug, body) {
+  const raw = await env.QUOTES.get(`quote:${slug}`);
+  if (!raw) return { error: 'Quote not found', status: 404 };
+  let existing;
+  try { existing = JSON.parse(raw); }
+  catch { return { error: 'Quote corrupted', status: 500 }; }
+  if (user.role !== 'admin' && existing.lo && existing.lo.id !== user.id) {
+    return { error: 'Forbidden', status: 403 };
+  }
+
+  const clientName = (body.clientName || '').trim();
+  const address = (body.address || '').trim();
+  const transactionType = (body.transactionType || '').trim();
+  const loanProgram = (body.loanProgram || '').trim();
+  const loanTerm = (body.loanTerm || '30-YR FIXED').trim();
+  const options = Array.isArray(body.options) ? body.options : [];
+
+  if (!clientName) return { error: 'Client name is required' };
+  if (!address) return { error: 'Property address is required' };
+  if (!transactionType) return { error: 'Transaction type is required' };
+  if (!loanProgram) return { error: 'Loan program is required' };
+  if (!options.length) return { error: 'At least one loan option is required' };
+  if (options.length > 4) return { error: 'Maximum 4 options allowed' };
+
+  // Re-snapshot the LO who originally created the quote (their KV profile may
+  // have been edited since). Prefer the original creator's record so editing
+  // someone else's quote as admin doesn't overwrite the LO attribution.
+  const ownerCode = existing.loAccessCode;
+  let ownerProfile = null;
+  if (ownerCode) {
+    const ownerRaw = await env.QUOTES.get(`lo:${ownerCode}`);
+    if (ownerRaw) {
+      try { ownerProfile = JSON.parse(ownerRaw); } catch {}
+    }
+  }
+  const lo = ownerProfile
+    ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls }
+    : existing.lo;
+
+  const updated = {
+    ...existing,
+    clientName,
+    address,
+    transactionType,
+    loanProgram,
+    loanTerm,
+    options: options.map(normalizeOption),
+    lo,
+    updatedAt: new Date().toISOString(),
+  };
+  await env.QUOTES.put(`quote:${slug}`, JSON.stringify(updated));
+  return { slug, url: `https://${slug}.goratehero.com`, updated: true };
+}
+
 async function deleteQuote(env, user, slug) {
   const raw = await env.QUOTES.get(`quote:${slug}`);
   if (!raw) return { ok: true };
@@ -384,6 +490,26 @@ async function createLO(env, body) {
   return { lo };
 }
 
+async function updateLO(env, code, body) {
+  const raw = await env.QUOTES.get(`lo:${code}`);
+  if (!raw) return { error: 'LO not found' };
+  let lo;
+  try { lo = JSON.parse(raw); } catch { return { error: 'LO corrupted' }; }
+  const name = (body.name || '').trim();
+  const phone = (body.phone || '').trim();
+  if (!name) return { error: 'Name is required' };
+  if (!phone) return { error: 'Phone is required' };
+  lo.name = name;
+  lo.phone = phone;
+  lo.nmls = (body.nmls || '').trim();
+  lo.title = (body.title || lo.title || 'Loan Officer').trim();
+  lo.email = (body.email || '').trim();
+  lo.needsProfileSetup = false;
+  lo.updatedAt = new Date().toISOString();
+  await env.QUOTES.put(`lo:${code}`, JSON.stringify(lo));
+  return { lo };
+}
+
 async function deleteLO(env, code) {
   const raw = await env.QUOTES.get(`lo:${code}`);
   if (!raw) return { ok: true };
@@ -419,6 +545,20 @@ async function handleClientSubdomain(env, sub) {
   try { quote = JSON.parse(raw); } catch {
     return Response.redirect('https://goratehero.com/', 302);
   }
+  // Pull the live LO profile from KV so edits to the LO's name/phone/NMLS
+  // propagate to every quote they own. Fall back to the snapshot stored on
+  // the quote if their account has been removed.
+  let liveLo = null;
+  if (quote.loAccessCode) {
+    const loRaw = await env.QUOTES.get(`lo:${quote.loAccessCode}`);
+    if (loRaw) {
+      try {
+        const p = JSON.parse(loRaw);
+        liveLo = { id: p.id, name: p.name, phone: p.phone, title: p.title, nmls: p.nmls };
+      } catch {}
+    }
+  }
+  if (liveLo && liveLo.name) quote.lo = liveLo;
   return html(renderClientPage(quote));
 }
 
@@ -537,11 +677,12 @@ const BRAND_BASE_CSS = `
   .text-fine{color:rgba(255,255,255,0.25);font-size:12px;}
   .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;}
   .divider{height:1px;background:rgba(255,255,255,0.08);margin:14px 0;border:0;}
-  .input,.select,.textarea{
-    width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
-    color:#fff;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;outline:none;
+  .input,.select,.textarea,select{
+    width:100%;background:#0D1526;border:1px solid rgba(255,255,255,0.1);
+    color:#ffffff;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;outline:none;
   }
-  .input:focus,.select:focus,.textarea:focus{border-color:#3B82F6;background:rgba(59,130,246,0.06);}
+  select option{background:#0D1526;color:#ffffff;}
+  .input:focus,.select:focus,.textarea:focus,select:focus{border-color:#3B82F6;background:#101a2f;}
   .field{display:flex;flex-direction:column;gap:6px;}
   .field label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;}
   @media (max-width: 720px){
@@ -619,10 +760,12 @@ const state = {
   quotes: [],
   los: [],
   form: defaultForm(),
+  loForm: defaultLoForm(),
 };
 
 function defaultForm() {
   return {
+    editingSlug: null,
     clientName: '',
     address: '',
     transactionType: 'Purchase',
@@ -631,6 +774,9 @@ function defaultForm() {
     activeOption: 0,
     options: [defaultOption()],
   };
+}
+function defaultLoForm() {
+  return { editingCode: null, name: '', phone: '', nmls: '', title: '', email: '' };
 }
 function defaultOption() {
   return {
@@ -802,8 +948,11 @@ function renderNewQuote() {
     </div>
 
     <div class="row-actions">
-      <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
-      <button class="btn btn-primary" onclick="generateQuote()">Generate Quote Link</button>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-ghost" onclick="resetForm()">\${f.editingSlug ? 'Cancel Edit' : 'Reset'}</button>
+        \${f.editingSlug ? '<span class="text-mute" style="font-size:12px;">Editing <strong style="color:#fff;">'+escapeHtml(f.editingSlug)+'.goratehero.com</strong></span>' : ''}
+      </div>
+      <button class="btn btn-primary" onclick="generateQuote()">\${f.editingSlug ? 'Update Quote' : 'Generate Quote Link'}</button>
     </div>\`;
 }
 
@@ -831,7 +980,7 @@ function renderOptionForm(o, idx) {
     <div class="opt-section-title">Cash From / To Borrower Breakdown</div>
     <div class="grid-3">
       <div class="field"><label>Loan Amount (+)</label><input class="input" data-o="loanAmount" type="number" value="\${o.loanAmount}" /></div>
-      <div class="field"><label>Purchase Price (-)</label><input class="input" data-o="purchasePrice" type="number" value="\${o.purchasePrice}" /></div>
+      <div class="field"><label class="propValueLabel">\${propertyValueLabel(state.form.transactionType)} (-)</label><input class="input" data-o="purchasePrice" type="number" value="\${o.purchasePrice}" /></div>
       <div class="field"><label>Lender Credit (+)</label><input class="input" data-o="breakdownLenderCredit" type="number" value="\${o.breakdownLenderCredit}" /></div>
       <div class="field"><label>Lender Fees (-)</label><input class="input" data-o="lenderFees" type="number" value="\${o.lenderFees}" /></div>
       <div class="field"><label>Third Party Fees (-)</label><input class="input" data-o="thirdPartyFees" type="number" value="\${o.thirdPartyFees}" /></div>
@@ -848,10 +997,22 @@ function selectHtml(field, opts, current) {
   return '<select class="select" data-f="'+field+'">' + opts.map(o=>'<option '+(o===current?'selected':'')+'>'+escapeHtml(o)+'</option>').join('') + '</select>';
 }
 
+function propertyValueLabel(transactionType) {
+  return (transactionType === 'Refinance' || transactionType === 'Cash-Out') ? 'Appraised Value' : 'Purchase Price';
+}
+function refreshPropValueLabel() {
+  const lbl = propertyValueLabel(state.form.transactionType) + ' (-)';
+  document.querySelectorAll('.propValueLabel').forEach(el => { el.textContent = lbl; });
+}
+
 function attachFormHandlers() {
   document.querySelectorAll('[data-f]').forEach(el=>{
-    el.addEventListener('input', ()=>{ state.form[el.dataset.f] = el.value; });
-    el.addEventListener('change', ()=>{ state.form[el.dataset.f] = el.value; });
+    const apply = () => {
+      state.form[el.dataset.f] = el.value;
+      if (el.dataset.f === 'transactionType') refreshPropValueLabel();
+    };
+    el.addEventListener('input', apply);
+    el.addEventListener('change', apply);
   });
   document.querySelectorAll('[data-o]').forEach(el=>{
     el.addEventListener('input', ()=>{
@@ -883,14 +1044,41 @@ function resetForm() { state.form = defaultForm(); renderTab(); }
 
 async function generateQuote() {
   try {
-    const r = await api('/admin/api/quotes', { method:'POST', body: JSON.stringify(state.form) });
-    try { await navigator.clipboard.writeText(r.url); } catch {}
-    toast('Quote link copied: ' + r.url);
-    resetForm();
-    loadQuotes();
+    if (state.form.editingSlug) {
+      const slug = state.form.editingSlug;
+      await api('/admin/api/quotes/'+slug, { method:'PUT', body: JSON.stringify(state.form) });
+      toast('Quote updated!');
+      resetForm();
+      await loadQuotes();
+      setTab('my');
+    } else {
+      const r = await api('/admin/api/quotes', { method:'POST', body: JSON.stringify(state.form) });
+      try { await navigator.clipboard.writeText(r.url); } catch {}
+      toast('Quote link copied: ' + r.url);
+      resetForm();
+      loadQuotes();
+    }
   } catch (err) {
     toast(err.message, true);
   }
+}
+
+async function editQuote(slug) {
+  try {
+    const r = await api('/admin/api/quotes/'+slug);
+    const q = r.quote;
+    state.form = {
+      editingSlug: q.slug,
+      clientName: q.clientName || '',
+      address: q.address || '',
+      transactionType: q.transactionType || 'Purchase',
+      loanProgram: q.loanProgram || 'DSCR',
+      loanTerm: q.loanTerm || '30-YR FIXED',
+      activeOption: 0,
+      options: (q.options && q.options.length ? q.options : [defaultOption()]).map(o => Object.assign(defaultOption(), o)),
+    };
+    setTab('new');
+  } catch (err) { toast(err.message, true); }
 }
 
 async function loadQuotes() {
@@ -916,6 +1104,7 @@ function renderQuotesList() {
       </div>
       <div class="actions">
         <button class="btn btn-outline" onclick="copyLink('\${q.url}')">Copy Link</button>
+        <button class="btn btn-outline" onclick="editQuote('\${q.slug}')">Edit</button>
         <button class="btn btn-ghost" onclick="deleteQuote('\${q.slug}')">Delete</button>
       </div>
     </div>\`).join('');
@@ -944,37 +1133,45 @@ async function loadLOs() {
 }
 
 function renderTeam() {
+  const f = state.loForm;
+  const editing = !!f.editingCode;
+  const adminCode = state.user && state.user.role === 'admin' ? state.user.accessCode : null;
   return \`
     <div class="card card-pad">
-      <h2 class="section-title">ADD LOAN OFFICER</h2>
-      <p class="section-sub">Adds an LO and generates an access code they can use to sign in.</p>
+      <h2 class="section-title">\${editing ? 'EDIT LOAN OFFICER' : 'ADD LOAN OFFICER'}</h2>
+      <p class="section-sub">\${editing ? 'Update this LO\\'s profile. Their access code will not change.' : 'Adds an LO and generates an access code they can use to sign in.'}</p>
       <div class="grid-3">
-        <div class="field"><label>Full Name</label><input class="input" id="loName" placeholder="Zack Kirakosyan"/></div>
-        <div class="field"><label>Phone</label><input class="input" id="loPhone" placeholder="(818) 208-6801"/></div>
-        <div class="field"><label>NMLS</label><input class="input" id="loNmls" placeholder="1234567"/></div>
-        <div class="field"><label>Title</label><input class="input" id="loTitle" placeholder="Loan Officer"/></div>
-        <div class="field"><label>Email</label><input class="input" id="loEmail" placeholder="zack@goratehero.com"/></div>
+        <div class="field"><label>Full Name</label><input class="input" id="loName" value="\${escapeHtml(f.name)}" placeholder="Zack Kirakosyan"/></div>
+        <div class="field"><label>Phone</label><input class="input" id="loPhone" value="\${escapeHtml(f.phone)}" placeholder="(818) 208-6801"/></div>
+        <div class="field"><label>NMLS</label><input class="input" id="loNmls" value="\${escapeHtml(f.nmls)}" placeholder="1234567"/></div>
+        <div class="field"><label>Title</label><input class="input" id="loTitle" value="\${escapeHtml(f.title)}" placeholder="Loan Officer"/></div>
+        <div class="field"><label>Email</label><input class="input" id="loEmail" value="\${escapeHtml(f.email)}" placeholder="zack@goratehero.com"/></div>
       </div>
       <div class="row-actions">
-        <span></span>
-        <button class="btn btn-primary" onclick="createLO()">Add LO &amp; Generate Code</button>
+        <div>\${editing ? '<button class="btn btn-ghost" onclick="cancelEditLO()">Cancel</button>' : ''}</div>
+        <button class="btn btn-primary" onclick="saveLO()">\${editing ? 'Update LO' : 'Add LO &amp; Generate Code'}</button>
       </div>
     </div>
     <div class="card card-pad" style="margin-top:18px;">
       <h2 class="section-title">TEAM</h2>
       <p class="section-sub">All loan officers on this account. Codes are shown so you can share them.</p>
-      \${state.los.length ? state.los.map(lo=>\`
+      \${state.los.length ? state.los.map(lo=>{
+        const isAdminRow = adminCode && lo.accessCode === adminCode;
+        return \`
         <div class="quote-row">
           <div class="meta">
-            <span class="title">\${escapeHtml(lo.name)} <span class="sub">· \${escapeHtml(lo.title||'')}</span></span>
-            <span class="sub">\${escapeHtml(lo.phone)} \${lo.nmls?'· NMLS '+escapeHtml(lo.nmls):''} \${lo.email?'· '+escapeHtml(lo.email):''}</span>
+            <span class="title">\${escapeHtml(lo.name)} <span class="sub">· \${escapeHtml(lo.title||'')}\${isAdminRow ? ' · <span style="color:#3B82F6;font-weight:700;">ADMIN</span>' : ''}</span></span>
+            <span class="sub">\${escapeHtml(lo.phone||'')} \${lo.nmls?'· NMLS '+escapeHtml(lo.nmls):''} \${lo.email?'· '+escapeHtml(lo.email):''}</span>
             <span class="sub">Access code: <span class="code-display">\${escapeHtml(lo.accessCode)}</span></span>
+            \${lo.needsProfileSetup ? '<span class="sub" style="color:#F5B731;">Profile needs setup — click Edit</span>' : ''}
           </div>
           <div class="actions">
+            <button class="btn btn-outline" onclick="editLO('\${lo.accessCode}')">Edit</button>
             <button class="btn btn-ghost" onclick="copyText('\${lo.accessCode}')">Copy Code</button>
-            <button class="btn btn-ghost" onclick="removeLO('\${lo.accessCode}')">Remove</button>
+            \${isAdminRow ? '' : \`<button class="btn btn-ghost" onclick="removeLO('\${lo.accessCode}')">Remove</button>\`}
           </div>
-        </div>\`).join('') : '<div class="text-body">No LOs added yet.</div>'}
+        </div>\`;
+      }).join('') : '<div class="text-body">No LOs added yet.</div>'}
     </div>\`;
 }
 
@@ -983,19 +1180,57 @@ async function copyText(t) {
   catch { toast(t); }
 }
 
-async function createLO() {
-  const body = {
+function readLoForm() {
+  return {
     name: document.getElementById('loName').value.trim(),
     phone: document.getElementById('loPhone').value.trim(),
     nmls: document.getElementById('loNmls').value.trim(),
     title: document.getElementById('loTitle').value.trim() || 'Loan Officer',
     email: document.getElementById('loEmail').value.trim(),
   };
+}
+
+async function saveLO() {
+  const body = readLoForm();
   try {
-    const r = await api('/admin/api/los', { method:'POST', body: JSON.stringify(body) });
-    toast('LO added — code: ' + r.lo.accessCode);
-    loadLOs();
+    if (state.loForm.editingCode) {
+      const code = state.loForm.editingCode;
+      await api('/admin/api/los/'+code, { method:'PUT', body: JSON.stringify(body) });
+      toast('LO updated!');
+      // If the admin is editing their own profile, refresh the cached user record
+      if (state.user && state.user.accessCode === code) {
+        try { const me = await api('/admin/api/me'); state.user = me.user; } catch {}
+      }
+      state.loForm = defaultLoForm();
+      loadLOs();
+      render();
+    } else {
+      const r = await api('/admin/api/los', { method:'POST', body: JSON.stringify(body) });
+      toast('LO added — code: ' + r.lo.accessCode);
+      state.loForm = defaultLoForm();
+      loadLOs();
+    }
   } catch (err) { toast(err.message, true); }
+}
+
+function editLO(code) {
+  const lo = state.los.find(l => l.accessCode === code);
+  if (!lo) return;
+  state.loForm = {
+    editingCode: code,
+    name: lo.name || '',
+    phone: lo.phone || '',
+    nmls: lo.nmls || '',
+    title: lo.title || '',
+    email: lo.email || '',
+  };
+  renderTab();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function cancelEditLO() {
+  state.loForm = defaultLoForm();
+  renderTab();
 }
 
 async function removeLO(code) {
@@ -1164,7 +1399,7 @@ footer a{color:rgba(255,255,255,0.55);}
   </div>
 
   <div class="opt-grid" id="optGrid">
-    ${(q.options || []).map((o,i) => renderOptionCard(o, i, q.options.length, q.loanTerm)).join('')}
+    ${(q.options || []).map((o,i) => renderOptionCard(o, i, q.options.length, q.loanTerm, q.transactionType)).join('')}
   </div>
 
   <div class="more-q">
@@ -1211,16 +1446,18 @@ ${CLIENT_JS}
 </html>`;
 }
 
-function renderOptionCard(o, i, total, loanTerm) {
+function renderOptionCard(o, i, total, loanTerm, transactionType) {
   const recommended = !!o.recommended;
   const rate = numOrEmpty(o.rate);
   const hasPpp = !!o.hasPpp;
   const noPenalty = !hasPpp;
   const rateAttr = rate === '' ? '' : String(rate);
+  const isRefi = transactionType === 'Refinance' || transactionType === 'Cash-Out';
+  const propertyValueLabel = isRefi ? 'Appraised value' : 'Purchase price';
 
   const bk = [
     ['Loan amount', o.loanAmount, '+'],
-    ['Purchase price', o.purchasePrice, '-'],
+    [propertyValueLabel, o.purchasePrice, '-'],
     ['Lender credit', o.breakdownLenderCredit, '+'],
     ['Lender fees', o.lenderFees, '-'],
     ['Third party fees', o.thirdPartyFees, '-'],
