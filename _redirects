@@ -336,3 +336,6 @@
 /va-loan-vs-conventional.html /blog/posts/va-loan-vs-conventional 301
 /wyoming /dscr-loans/wyoming 301
 /wyoming.html /dscr-loans/wyoming 301
+
+# Glossary alias: loan-to-value canonicalizes to existing ltv entry
+/glossary/loan-to-value /glossary/ltv 301
