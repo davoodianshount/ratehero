@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is mortgage underwriting? Definition for real estate investors — DSCR vs. conventional underwriting differences, common conditions, and how to avoid delays.">
+<title>Underwriting: Definition and How It Works | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/underwriting">
+<meta property="og:title" content="Underwriting: Definition and How It Works | Rate Hero Glossary">
+<meta property="og:description" content="The process lenders use to evaluate and approve mortgage applications. Why DSCR underwriting is faster than conventional for investors.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="Underwriting: Definition and How It Works | Rate Hero Glossary">
+<meta name="twitter:description" content="The process lenders use to evaluate and approve mortgage applications. Why DSCR underwriting is faster than conventional for investors.">
+<link rel="canonical" href="https://goratehero.com/glossary/underwriting">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "Underwriting",
+  "description": "The process by which a lender evaluates and approves a mortgage application. The underwriter reviews the borrower's financial profile, the property, and the loan structure to determine whether to issue the loan, deny it, or approve it subject to specific conditions. DSCR underwriting differs significantly from conventional underwriting in what is verified.",
+  "termCode": "UNDERWRITING",
+  "url": "https://goratehero.com/glossary/underwriting",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "Underwriting", "item": "https://goratehero.com/glossary/underwriting"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mortgage Underwriting for Real Estate Investors",
+  "description": "Understanding the underwriting process \u2014 what underwriters check, how DSCR underwriting differs from conventional, and how to navigate conditions and approvals efficiently.",
+  "url": "https://goratehero.com/glossary/underwriting",
+  "datePublished": "2026-05-13",
+  "dateModified": "2026-05-13",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/underwriting"
   }
 }
 </script>
@@ -244,247 +248,104 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      Underwriting
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>Underwriting</h1>
+    <p class="gloss-tagline">The lender's process of evaluating your loan application — verifying income, assets, credit, and the property — to decide whether to approve, deny, or condition the loan.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+        <h2>What is underwriting?</h2>
+        <p>Underwriting is the formal process where a lender evaluates whether to approve your mortgage. After you submit a loan application with supporting documents, an underwriter reviews everything — your finances, the property, the loan terms — and decides whether to issue the loan, deny it, or approve it subject to specific conditions you must meet before closing.</p>
+        <p>For real estate investors, underwriting is often the slowest and most frustrating part of a deal. But understanding what underwriters actually check — and how different loan products approach underwriting differently — turns underwriting from a black box into a manageable process.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>What underwriters evaluate</h2>
+        <p>Every underwriter looks at the same general categories, though the depth varies dramatically by loan type:</p>
+        <p><strong>The borrower.</strong> Credit history, credit score, employment or income source, financial reserves, and prior real estate experience. Conventional loans go deep here. DSCR loans go light.</p>
+        <p><strong>The property.</strong> Appraised value, condition, location, and (for investment properties) rental income potential. All loan types evaluate the property, but DSCR loans put more weight here than on the borrower.</p>
+        <p><strong>The loan structure.</strong> Loan-to-value ratio, down payment source, loan term, and rate type. Some loan structures introduce additional risk requiring more documentation.</p>
+        <p><strong>Title and ownership.</strong> Verifying that the seller actually owns the property and can convey clean title. Handled through the title company but reviewed by the underwriter.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>Conventional underwriting: documentation-heavy</h2>
+        <p>Conventional underwriting (Fannie Mae and Freddie Mac standards) is heavily focused on the borrower's personal income and financial profile. Required documentation typically includes:</p>
+        <p>Two years of tax returns (personal and business). Two years of W-2s. Most recent 30 days of pay stubs. Two months of bank statements for all asset accounts. Verification of employment letter. Explanation letters for any credit issues, large deposits, or employment gaps. Proof of source of down payment funds. Documentation of any other real estate owned (REO schedule).</p>
+        <p>For self-employed investors, this expands dramatically — profit and loss statements, business bank statements, year-to-date P&amp;Ls, and often CPA letters. The documentation burden is one reason conventional underwriting frequently takes 30-45 days.</p>
+        <p>Conventional underwriters use a debt-to-income ratio (DTI) cap, typically 43-45% maximum. They count every monthly obligation against your gross monthly income. For investors with multiple properties, this DTI math gets complex fast — and is often what disqualifies otherwise-qualified investors from conventional financing.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>DSCR underwriting: property-focused</h2>
+        <p>DSCR underwriting flips the model. Instead of qualifying the borrower's personal income, the underwriter qualifies the property's cash flow. The core question: does the property's rental income cover its mortgage payment plus taxes and insurance (<a href="/glossary/pitia">PITIA</a>)?</p>
+        <p>The simplified <a href="/glossary/dscr">DSCR calculation</a>: rent ÷ PITIA. A DSCR of 1.20 means rent covers PITIA with 20% headroom. Most DSCR programs require DSCR of 1.0 minimum (some allow <a href="/glossary/sub-1-dscr">sub-1.0 DSCR</a>, others require 1.25+).</p>
+        <p>What DSCR underwriters typically still check:</p>
+        <p><strong>Credit score.</strong> Minimum 660-680 for most programs. Higher scores unlock better pricing.</p>
+        <p><strong>Reserves.</strong> 3-6 months of PITIA in liquid reserves after closing. See <a href="/glossary/reserves">reserves</a>.</p>
+        <p><strong>Property condition.</strong> Via the appraisal. Properties needing significant rehab don't qualify for standard DSCR loans (you'd need a bridge or hard money loan instead).</p>
+        <p><strong>Title and entity structure.</strong> DSCR loans typically vest in an LLC. The underwriter reviews LLC formation documents to verify ownership.</p>
+        <p>What DSCR underwriters generally DON'T require:</p>
+        <p>Tax returns. W-2s. Pay stubs. Employment verification. Debt-to-income calculations. This is what makes DSCR loans so much faster than conventional — typically 21 days from application to closing vs. 30-45 for conventional.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">1031 Exchange</div>
-        <div class="gloss-desc">Coming soon</div>
+        <h2>The three underwriting outcomes</h2>
+        <p>An underwriter's decision falls into one of three categories:</p>
+        <p><strong>Approved.</strong> Loan is approved as submitted. No additional conditions. Move to closing. This is rare — almost every loan has at least minor conditions.</p>
+        <p><strong>Approved with conditions.</strong> Loan is approved subject to meeting specific conditions before closing. Common conditions include: updated bank statements, explanation letters for specific items, lease agreement copies, hazard insurance binders, signed disclosures, additional documentation of asset source. This is the typical outcome.</p>
+        <p><strong>Denied.</strong> Loan cannot be approved as submitted. Reasons vary — credit issues, insufficient income/DSCR, property condition, title issues, or appraisal coming in too low.</p>
+
+        <h2>Common conditions and how to clear them fast</h2>
+        <p>Conditions are usually clearable in 24-48 hours if you know what's coming. The most common conditions on DSCR loans:</p>
+        <p><strong>Updated bank statements.</strong> If your initial statements are over 60 days old by underwriting, you'll need updated ones. Have your most recent statements ready.</p>
+        <p><strong>Hazard insurance binder.</strong> The lender requires proof of property insurance starting on the closing date. Order your insurance early (most lenders won't approve final docs without it).</p>
+        <p><strong>Lease agreement for existing tenant.</strong> If buying a property with a tenant in place, the underwriter needs the current lease agreement to confirm rental income matches the 1007 estimate.</p>
+        <p><strong>LLC documentation.</strong> Operating agreement, articles of organization, EIN letter from IRS. Have these ready before applying if vesting in an LLC.</p>
+        <p><strong>Source of funds letter.</strong> If your down payment came from a large recent deposit (not from steady savings), the underwriter wants documentation showing where those funds came from. Best practice: avoid large unexplained deposits in the 60 days before applying.</p>
+        <p><strong>HOA documents.</strong> For condo or PUD purchases, the underwriter needs HOA financials, master insurance policy, and bylaws. These come from the HOA management company.</p>
+
+        <h2>What slows down underwriting</h2>
+        <p>The top reasons underwriting drags past expected timelines:</p>
+        <p><strong>Document delays.</strong> The underwriter asks for something, the borrower takes a week to provide it. This is the #1 cause of delays. Stay responsive — turn around requests within 24 hours.</p>
+        <p><strong>Appraisal issues.</strong> A low appraisal or appraisal scheduling delays push everything back. See <a href="/glossary/appraisal">appraisal</a>.</p>
+        <p><strong>Title issues.</strong> Unexpected liens, ownership disputes, or unclear chain of title. The title company handles these but the loan can't close until cleared.</p>
+        <p><strong>Conditions stacking.</strong> Clearing one condition reveals a new question that triggers another condition. Common with complex borrower profiles or LLC structures.</p>
+        <p><strong>Insurance issues.</strong> Some properties are hard to insure (older roofs, flood zones, properties with prior claims). Insurance underwriting runs parallel to mortgage underwriting and can become the bottleneck.</p>
+
+        <h2>Rate Hero's take</h2>
+        <p>For investor clients, underwriting velocity is often the difference between winning and losing a deal. Cash buyers can close in 7-14 days; competitive DSCR financing closes in 21 days. Slower than that, and you're losing offers to faster competition.</p>
+        <p>Three principles that consistently speed up underwriting:</p>
+        <p><strong>Front-load documentation.</strong> Provide everything the underwriter is likely to need on day one — even before they ask. Tax returns ready if needed, asset statements ready, LLC docs ready, prior property leases ready.</p>
+        <p><strong>Stay responsive.</strong> Treat the underwriter like a same-day client. Conditions sent on Monday should be cleared by Tuesday, not by next Monday.</p>
+        <p><strong>Know your loan officer's process.</strong> Some loan officers act as a buffer between borrower and underwriter; others put you in direct contact. Direct contact is usually faster. Ask your loan officer how they handle conditions and respond accordingly.</p>
+        <p>Underwriting feels like a black box from the outside. From the inside, it's a fairly predictable sequence — and predictable sequences can be optimized.</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/dscr">DSCR</a>
+        <a class="related-term" href="/glossary/appraisal">Appraisal</a>
+        <a class="related-term" href="/glossary/reserves">Reserves</a>
+        <a class="related-term" href="/glossary/pitia">PITIA</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Want to learn how Rate Hero structures investor underwriting for 21-day closes?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 

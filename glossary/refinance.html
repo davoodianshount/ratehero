@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is a refinance? Definition for real estate investors — rate-and-term vs. cash-out, when refinancing makes sense, and how DSCR refinances work.">
+<title>Refinance: Definition and How It Works | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/refinance">
+<meta property="og:title" content="Refinance: Definition and How It Works | Rate Hero Glossary">
+<meta property="og:description" content="Replacing an existing mortgage with a new one. Types of refinances (rate-and-term, cash-out, streamline) and the math investors use to evaluate each.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="Refinance: Definition and How It Works | Rate Hero Glossary">
+<meta name="twitter:description" content="Replacing an existing mortgage with a new one. Types of refinances (rate-and-term, cash-out, streamline) and the math investors use to evaluate each.">
+<link rel="canonical" href="https://goratehero.com/glossary/refinance">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "Refinance",
+  "description": "The process of replacing an existing mortgage with a new mortgage on the same property. Refinances typically aim to lower the interest rate, change the loan term, switch from adjustable to fixed (or vice versa), or extract built-up equity as cash. Real estate investors use refinances strategically to optimize portfolio cash flow and fund additional acquisitions.",
+  "termCode": "REFINANCE",
+  "url": "https://goratehero.com/glossary/refinance",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "Refinance", "item": "https://goratehero.com/glossary/refinance"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Refinance: When and How Real Estate Investors Should Refinance",
+  "description": "Understanding refinances for investor properties \u2014 rate-and-term, cash-out, streamline, and bridge-to-permanent. When refinancing makes sense and how the math works.",
+  "url": "https://goratehero.com/glossary/refinance",
+  "datePublished": "2026-05-13",
+  "dateModified": "2026-05-13",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/refinance"
   }
 }
 </script>
@@ -244,247 +248,94 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      Refinance
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>Refinance</h1>
+    <p class="gloss-tagline">Replacing an existing mortgage with a new one — typically to lower the rate, change loan terms, or extract equity from the property.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+        <h2>What is a refinance?</h2>
+        <p>A refinance replaces your existing mortgage with a new one on the same property. The new loan pays off the old loan, and you continue making payments on the new terms. Refinancing isn't about getting "extra" money in the simple case — it's about restructuring your existing debt to better fit your current situation.</p>
+        <p>For real estate investors, refinancing is one of the most powerful portfolio management tools. Done well, it can lower monthly payments, extract equity for new acquisitions, switch loan products (e.g., from hard money to DSCR), or restructure debt across multiple properties. Done poorly, it can reset amortization clocks, trigger prepayment penalties, and cost more than it saves.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>The four main types of refinance</h2>
+        <p>Investors typically deal with four refinance types, each with different goals:</p>
+        <p><strong>Rate-and-term refinance.</strong> Replace your existing mortgage with a new one at a better interest rate, different term length, or different loan type — without taking cash out. Total new loan amount is roughly the same as the existing loan balance. Goal: lower monthly payment or change loan structure. See <a href="/glossary/rate-and-term-refinance">rate-and-term refinance</a>.</p>
+        <p><strong>Cash-out refinance.</strong> Replace your existing mortgage with a larger one and receive the difference in cash. Goal: extract built-up <a href="/glossary/equity">equity</a> for use elsewhere — typically funding the next acquisition or capital improvements. See <a href="/glossary/cash-out-refinance">cash-out refinance</a>.</p>
+        <p><strong>Streamline refinance.</strong> A simplified refinance available on certain government-backed loans (FHA, VA) that reduces documentation requirements. Doesn't apply to most investor properties since DSCR loans are not government-backed. Available for owner-occupied or qualified investment scenarios with existing FHA/VA loans.</p>
+        <p><strong>Bridge-to-permanent refinance.</strong> Replace short-term hard money or bridge financing with long-term DSCR or conventional financing. This is the "R" in <a href="/glossary/brrrr">BRRRR</a> strategy — buy/rehab with hard money, then refinance into permanent financing once the property is stabilized.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>The math: when refinancing makes sense</h2>
+        <p>The classic break-even calculation: total closing costs of the refinance divided by monthly savings equals the break-even period. If closing costs are $6,000 and you save $200/month with the new rate, your break-even is 30 months — you need to hold the property at least 2.5 years to come out ahead.</p>
+        <p>For investors, the math is more complex than just rate savings:</p>
+        <p><strong>1. Prepayment penalty on existing loan.</strong> If you're still within the prepayment penalty period on your DSCR loan, the penalty often eliminates the refinance savings. See <a href="/glossary/prepayment-penalty">prepayment penalty</a>.</p>
+        <p><strong>2. Amortization reset.</strong> Refinancing into a new 30-year loan in year 5 of your current loan means restarting the amortization clock. Your monthly payment includes more interest and less principal than you'd be paying without the refinance. See <a href="/glossary/amortization">amortization</a>.</p>
+        <p><strong>3. New origination and closing costs.</strong> Each refinance carries $4,000-$10,000+ in closing costs depending on loan size — appraisal, title insurance, origination fees, recording fees, attorney fees in some states.</p>
+        <p><strong>4. Cash-out impact on DSCR.</strong> If you're doing a cash-out refinance, the larger loan amount means higher PITIA, which lowers your <a href="/glossary/dscr">DSCR</a>. The new loan must still cover its own debt service from rental income.</p>
+        <p>The "right" refinance moment balances all of these. A simple rate-and-term refinance with no prepayment penalty and a 1%+ rate drop typically breaks even in 12-24 months and is a clear win. A cash-out refinance with a 5-4-3-2-1 prepayment penalty in year 2 might cost more than it generates over the next 3 years.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-    </div>
-  </div>
-</section>
+        <h2>DSCR refinances: what's different</h2>
+        <p>Refinancing into a <a href="/glossary/dscr">DSCR loan</a> follows the same underwriting principles as a purchase DSCR loan — qualifying on rental income rather than personal income, vested in an LLC, no tax returns required. Several specific considerations apply to DSCR refinances:</p>
+        <p><strong>Seasoning requirements.</strong> Most DSCR lenders require 3-6 months of ownership before you can refinance — sometimes longer for cash-out (6-12 months). This prevents the "buy at 60% LTV, immediately refi at 80% LTV to extract value" tactic that lenders consider too risky.</p>
+        <p><strong>The 1007 rent schedule controls.</strong> Your DSCR is calculated using the appraiser's 1007 estimated rent, not your actual lease. If your tenant pays $2,500/month but the 1007 estimates $2,200/month for that area, your DSCR is based on $2,200. This sometimes blocks refinances on properties with strong actual rent but moderate market rent.</p>
+        <p><strong>LLC continuity.</strong> If the property is currently vested in your personal name but the new DSCR loan must vest in an LLC, you'll need to deed it to your LLC first. This can complicate the refinance and may have tax implications.</p>
+        <p><strong>Prepayment penalty on the new loan.</strong> Refinancing into a new DSCR loan typically resets the prepayment penalty clock. New 5-4-3-2-1 starts again. Factor this into refinance timing if you're planning a future cash-out or sale.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">1031 Exchange</div>
-        <div class="gloss-desc">Coming soon</div>
+        <h2>Common investor refinance scenarios</h2>
+        <p><strong>BRRRR refinance (bridge → DSCR).</strong> You bought a property with hard money in cash or with bridge financing, renovated it, and now have it rented at market rate. Refinance into a DSCR loan based on the new appraised value (typically 75-80% LTV). Cash extracted often pays off the original hard money loan AND returns some equity for the next deal. This is the canonical BRRRR exit.</p>
+        <p><strong>Rate reduction refinance (DSCR → DSCR).</strong> Rates dropped 1% since you closed. You're past the prepayment penalty period or willing to pay it. Refinance into a new DSCR at lower rate. Common when rates fall meaningfully.</p>
+        <p><strong>Cash-out for next acquisition.</strong> Property has appreciated 30% since purchase, rents are strong, and you want to fund another acquisition. Cash-out refinance pulls out equity (typically up to 75% LTV) while keeping the property in your portfolio.</p>
+        <p><strong>Switch from DSCR to conventional.</strong> Your personal financial situation has improved (more documented income, lower DTI), and conventional financing now qualifies. Conventional rates are typically lower than DSCR. Refinancing from DSCR to conventional saves money if you can qualify.</p>
+        <p><strong>Switch from conventional to DSCR.</strong> Your personal DTI has hit conventional limits (too many properties to qualify for the next loan). Refinance one or more properties from conventional to DSCR to free up DTI capacity for the next conventional loan.</p>
+
+        <h2>What gets refinanced: the closing process</h2>
+        <p>A refinance closing is similar to a purchase closing but with the existing lender as the "seller" being paid off:</p>
+        <p><strong>Loan application and approval.</strong> Same documentation as a purchase loan. Income/DSCR verification, appraisal, title work, underwriting.</p>
+        <p><strong>Closing costs.</strong> Appraisal, title insurance (new policy required even on refinance), recording fees, origination fees, lender attorney (in some states). Total typically $4,000-$10,000+.</p>
+        <p><strong>Payoff of existing loan.</strong> The closing settlement pays off your existing mortgage in full from the new loan proceeds. Any cash-out amount above the existing payoff goes to you (or the LLC).</p>
+        <p><strong>Recording the new mortgage.</strong> County records the new mortgage, releasing the old one. You now have a new mortgage with new terms, payment schedule, and (usually) new servicer.</p>
+
+        <h2>Rate Hero's take</h2>
+        <p>For investor clients, the question isn't usually "should I refinance" — it's "when, and into what?"</p>
+        <p>Three principles we apply when evaluating refinance opportunities:</p>
+        <p><strong>Calculate the all-in cost, not just rate savings.</strong> Prepayment penalty on existing loan + closing costs on new loan + amortization reset penalty must all be subtracted from gross rate savings to get true net benefit.</p>
+        <p><strong>Don't refinance for the sake of refinancing.</strong> A 0.25% rate drop typically isn't worth a refinance once closing costs are factored in. A 0.5%+ drop, paired with no prepayment penalty, usually is.</p>
+        <p><strong>Bundle strategic moves when possible.</strong> If you're refinancing anyway, ask whether to do cash-out at the same time. A standalone cash-out a year later costs another full round of closing costs. If you have a plan for the cash, do it once.</p>
+        <p>For BRRRR investors specifically, the refinance is the entire strategy. The discipline isn't whether to refinance — it's making sure you bought right, renovated right, and have the rents to support the refinance you planned. We see BRRRR investors fail at the refinance stage when initial purchase price was too high or rents didn't materialize. The refinance reveals every prior mistake.</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/cash-out-refinance">Cash-Out Refinance</a>
+        <a class="related-term" href="/glossary/rate-and-term-refinance">Rate-and-Term Refinance</a>
+        <a class="related-term" href="/glossary/brrrr">BRRRR</a>
+        <a class="related-term" href="/glossary/prepayment-penalty">Prepayment Penalty</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Ready to evaluate a refinance on your investment property?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 
