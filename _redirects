@@ -26,6 +26,14 @@
 /voicemail-followup.html /resources/voicemail-followup 301
 /out-of-state-buying-guide /resources/out-of-state-buying-guide 301
 /out-of-state-buying-guide.html /resources/out-of-state-buying-guide 301
+/privacy-policy /legal/privacy-policy 301
+/privacy-policy.html /legal/privacy-policy 301
+/terms-of-use /legal/terms-of-use 301
+/terms-of-use.html /legal/terms-of-use 301
+/ccpa-privacy-notice /legal/ccpa-privacy-notice 301
+/ccpa-privacy-notice.html /legal/ccpa-privacy-notice 301
+/texas-mortgage-disclosure /legal/texas-mortgage-disclosure 301
+/texas-mortgage-disclosure.html /legal/texas-mortgage-disclosure 301
 
 # === Duplicate cleanup PR #38: root-level files redirected to canonical paths ===
 /1099-mortgage-loans /blog/posts/1099-mortgage-loans 301
