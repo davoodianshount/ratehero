@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is an ARM? Definition for real estate investors — how 5/1, 7/1, and 10/1 ARMs work, when they make sense, and the rate-adjustment math that matters.">
+<title>ARM: Adjustable Rate Mortgage Explained | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/arm">
+<meta property="og:title" content="ARM: Adjustable Rate Mortgage Explained | Rate Hero Glossary">
+<meta property="og:description" content="Adjustable Rate Mortgages start with a fixed period, then adjust periodically based on an index. How investors evaluate ARM vs fixed-rate financing.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="ARM: Adjustable Rate Mortgage Explained | Rate Hero Glossary">
+<meta name="twitter:description" content="Adjustable Rate Mortgages start with a fixed period, then adjust periodically based on an index. How investors evaluate ARM vs fixed-rate financing.">
+<link rel="canonical" href="https://goratehero.com/glossary/arm">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "ARM (Adjustable Rate Mortgage)",
+  "description": "An Adjustable Rate Mortgage with an interest rate that changes over time based on a specified financial index. ARMs typically have an initial fixed-rate period (commonly 5, 7, or 10 years) followed by periodic rate adjustments (usually annually). The rate at adjustment equals the index value plus a fixed margin, subject to caps that limit how much the rate can change per adjustment and over the loan's life.",
+  "termCode": "ARM",
+  "url": "https://goratehero.com/glossary/arm",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "ARM", "item": "https://goratehero.com/glossary/arm"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ARM Loans: How Adjustable Rate Mortgages Work for Investors",
+  "description": "Understanding 5/1, 7/1, and 10/1 ARMs for investor properties — how rate adjustments work, when ARMs beat fixed-rate financing, and the risks to model.",
+  "url": "https://goratehero.com/glossary/arm",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/arm"
   }
 }
 </script>
@@ -244,267 +248,98 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      ARM
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>ARM (Adjustable Rate Mortgage)</h1>
+    <p class="gloss-tagline">A mortgage with an interest rate that starts fixed for an initial period, then adjusts periodically based on a market index plus a margin.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+<h2>What is an ARM?</h2>
+<p>An Adjustable Rate Mortgage (ARM) is a loan whose interest rate changes over time. Unlike a fixed-rate mortgage where your rate stays the same for 30 years, an ARM starts at one rate for a fixed initial period, then adjusts periodically based on market conditions.</p>
+<p>For real estate investors, ARMs are a strategic tool — not a default product. The lower initial rate can dramatically improve cash flow during a defined hold period, but the post-adjustment rate is unknown and potentially much higher. ARMs reward investors with disciplined exit strategies and punish those who get caught holding past the fixed-rate period.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/pmi">
-          <div class="gloss-term">PMI</div>
-          <div class="gloss-desc">Private Mortgage Insurance — required on conventional loans with less than 20% down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/arm">
-          <div class="gloss-term">ARM</div>
-          <div class="gloss-desc">Adjustable Rate Mortgage — fixed initial rate that adjusts periodically based on a market index.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>How ARM structure works: the 5/1, 7/1, 10/1 naming</h2>
+<p>ARM names follow a pattern: the first number is how many years the rate stays fixed, the second number is how often it adjusts after that.</p>
+<p><strong>5/1 ARM:</strong> Rate fixed for the first 5 years, then adjusts annually (every 1 year) for the remaining 25 years of a 30-year loan.</p>
+<p><strong>7/1 ARM:</strong> Rate fixed for the first 7 years, then adjusts annually for the remaining 23 years.</p>
+<p><strong>10/1 ARM:</strong> Rate fixed for the first 10 years, then adjusts annually for the remaining 20 years.</p>
+<p>Some ARMs adjust less frequently after the initial period — a 5/5 ARM adjusts every 5 years, a 7/6 ARM might adjust every 6 months. Always check the specific adjustment frequency in your loan documents.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>How rate adjustments calculate</h2>
+<p>When the initial fixed period ends, your new rate is calculated using a formula:</p>
+<p><strong>New rate = Index + Margin (subject to caps)</strong></p>
+<p><strong>Index:</strong> A published benchmark interest rate, typically SOFR (Secured Overnight Financing Rate) since 2021, replacing the older LIBOR. The index value changes daily and reflects current market conditions.</p>
+<p><strong>Margin:</strong> A fixed percentage added to the index, specified in your loan documents. Common margins range from 2.25% to 3.5% on conventional ARMs.</p>
+<p><strong>Example:</strong> A 5/1 ARM with a 2.75% margin tied to SOFR. If SOFR at adjustment time is 4.5%, your new rate would be 4.5% + 2.75% = 7.25%. If SOFR is 5.5%, your new rate would be 8.25%.</p>
+<p>The index drives uncertainty — it's market-determined and can move significantly between adjustment dates.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/apr">
-          <div class="gloss-term">APR</div>
-          <div class="gloss-desc">Annual Percentage Rate — total annual cost of a loan including interest rate plus fees.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fico">
-          <div class="gloss-term">FICO Score</div>
-          <div class="gloss-desc">Credit score from 300-850 that lenders use to evaluate creditworthiness on mortgage applications.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/mortgage-points">
-          <div class="gloss-term">Mortgage Points</div>
-          <div class="gloss-desc">Upfront fees paid at closing — discount points lower your rate; origination points compensate the lender.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>Rate caps: the safety net</h2>
+<p>ARMs include caps that limit how much your rate can change. Three cap types matter:</p>
+<p><strong>Initial adjustment cap.</strong> The maximum increase at the first adjustment. Commonly 2% — so a 5/1 ARM at 6.5% initial rate can rise to no more than 8.5% at year 6, regardless of where the index sits.</p>
+<p><strong>Periodic adjustment cap.</strong> The maximum change at each subsequent adjustment. Commonly 2%. Year 7 can rise at most 2% from year 6, year 8 at most 2% from year 7, etc.</p>
+<p><strong>Lifetime cap.</strong> The maximum increase over the loan's lifetime. Commonly 5% above the initial rate. A 6.5% starting ARM caps at 11.5% maximum rate regardless of index movements.</p>
+<p>The standard ARM cap structure is written as "2/2/5" meaning 2% initial, 2% periodic, 5% lifetime. This is the worst-case ceiling investors should model against.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/foreclosure">
-          <div class="gloss-term">Foreclosure</div>
-          <div class="gloss-desc">Legal process by which a lender takes possession of a property after borrower default.</div>
-        </a>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+<h2>When ARMs make sense for investors</h2>
+<p>Three scenarios where ARM financing typically beats fixed-rate:</p>
+<p><strong>Defined hold period within the fixed window.</strong> If you're certain you'll sell or refinance within 5-7 years, a 5/1 or 7/1 ARM at a meaningfully lower rate captures the savings without taking adjustment risk. Common for BRRRR investors planning to refinance into permanent DSCR financing once stabilized.</p>
+<p><strong>Bridge to permanent financing.</strong> Some investors use ARMs as the "permanent" financing during the BRRRR hold period before refinancing into longer-term DSCR. The lower rate during the rehab and stabilization months improves cash flow when expenses are highest.</p>
+<p><strong>Maximum leverage on short-term flip projects.</strong> For pure fix-and-flip with 12-18 month timelines, an ARM (if available — most flippers use hard money instead) offers the lowest carrying cost during the project.</p>
+
+<h2>When fixed-rate beats ARM</h2>
+<p>Most investors choose fixed-rate mortgages for these reasons:</p>
+<p><strong>Long-term holds.</strong> If you're buying-and-holding for 10+ years, the certainty of fixed-rate financing usually outweighs ARM savings. The compounding cost of higher rates after adjustment can dwarf early savings.</p>
+<p><strong>Refinance timing uncertainty.</strong> "I'll refinance before adjustment" sounds easy until rates spike, your property appraisal comes in low, or your DSCR has tightened. Counting on a future refinance to escape an ARM is risk you don't control.</p>
+<p><strong>Cash flow stability.</strong> Tenants expect stable rent. Property tax and insurance escalate predictably. An adjustable mortgage payment creates cash flow uncertainty in an otherwise predictable business.</p>
+<p><strong>Most DSCR programs are fixed-rate by default.</strong> The standard 30-year fixed DSCR loan is the most common investor product. ARM options exist in some DSCR programs but aren't the default.</p>
+
+<h2>The math: when does an ARM beat fixed?</h2>
+<p>Compare a hypothetical $400,000 loan two ways:</p>
+<p><strong>Option A: 30-year fixed at 7.5%.</strong> Monthly payment: ~$2,797. Over 5 years, you pay $167,820 total ($144,720 interest, $23,100 principal). Predictable.</p>
+<p><strong>Option B: 7/1 ARM at 6.5% initial rate.</strong> Monthly payment for first 7 years: ~$2,528. Over 5 years, you pay $151,680 total ($129,440 interest, $22,240 principal). Saves ~$16,140 vs fixed over 5 years.</p>
+<p>If you sell or refinance within 5 years, the ARM wins by $16,140.</p>
+<p>If you hold past year 7 and rates have risen to 9% (worst case under typical caps), your monthly payment jumps to ~$3,118. Year 8 alone costs you $7,080 more than the fixed-rate option. Within 3 years post-adjustment, you've given back all your early savings.</p>
+<p>The math says: ARMs reward known short-term exits and punish "wait and see."</p>
+
+<h2>Rate Hero's take</h2>
+<p>For most investor clients, fixed-rate financing is the right default. The cash flow predictability matches the rental business model.</p>
+<p>ARMs make sense in three specific contexts: defined-exit BRRRR strategies, bridge-to-permanent structures, and aggressive short-term flippers. Each of these has a real exit plan that fits within the ARM's fixed period.</p>
+<p>The biggest ARM mistake we see: investors choosing an ARM for the lower payment, then not having a credible exit strategy if rates rise. "I'll refinance" isn't a plan if you haven't confirmed you'll qualify, the property will appraise, and the new rate environment will support the refinance economics.</p>
+<p>If you're considering an ARM, the question to answer first isn't "what's the rate?" — it's "what's my exit, and what happens if that exit isn't available when I need it?"</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/dscr">DSCR</a>
+        <a class="related-term" href="/glossary/refinance">Refinance</a>
+        <a class="related-term" href="/glossary/amortization">Amortization</a>
+        <a class="related-term" href="/glossary/brrrr">BRRRR</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Need help comparing ARM vs fixed-rate for your next deal?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 

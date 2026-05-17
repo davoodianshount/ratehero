@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is APR? Definition for real estate investors — how APR differs from interest rate, why APR is higher, and how to use it for comparing loan offers.">
+<title>APR vs Interest Rate Explained | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/apr">
+<meta property="og:title" content="APR vs Interest Rate Explained | Rate Hero Glossary">
+<meta property="og:description" content="APR includes interest rate plus fees expressed as an annual percentage. How investors use APR to compare apples-to-apples on loan offers.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="APR vs Interest Rate Explained | Rate Hero Glossary">
+<meta name="twitter:description" content="APR includes interest rate plus fees expressed as an annual percentage. How investors use APR to compare apples-to-apples on loan offers.">
+<link rel="canonical" href="https://goratehero.com/glossary/apr">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "APR (Annual Percentage Rate)",
+  "description": "The Annual Percentage Rate, a standardized measurement of the total annual cost of borrowing. APR includes the interest rate plus most loan fees (origination, discount points, mortgage insurance, certain closing costs) expressed as a single percentage. APR is always equal to or higher than the interest rate. Lenders are required by federal law (Truth in Lending Act) to disclose APR on every loan offer, enabling apples-to-apples comparison across lenders.",
+  "termCode": "APR",
+  "url": "https://goratehero.com/glossary/apr",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "APR", "item": "https://goratehero.com/glossary/apr"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "APR vs Interest Rate: What Real Estate Investors Need to Know",
+  "description": "Understanding the difference between APR and interest rate — why APR is higher, what it includes, and how to use APR to compare competing loan offers.",
+  "url": "https://goratehero.com/glossary/apr",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/apr"
   }
 }
 </script>
@@ -244,267 +248,98 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      APR
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>APR (Annual Percentage Rate)</h1>
+    <p class="gloss-tagline">The annual cost of a loan expressed as a percentage — including the interest rate plus origination fees, points, mortgage insurance, and other recurring loan costs.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+<h2>What is APR?</h2>
+<p>APR (Annual Percentage Rate) is the total annual cost of a loan expressed as a percentage. It bundles together the interest rate plus most of the loan's fees and recurring costs into a single number designed to enable easy comparison between competing loan offers.</p>
+<p>If you've ever wondered why your loan estimate shows two different rates — say, 7.25% interest rate and 7.43% APR — the gap is the fees and costs the lender is charging. APR captures both. Interest rate alone captures only the cost of the borrowed money.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/pmi">
-          <div class="gloss-term">PMI</div>
-          <div class="gloss-desc">Private Mortgage Insurance — required on conventional loans with less than 20% down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/arm">
-          <div class="gloss-term">ARM</div>
-          <div class="gloss-desc">Adjustable Rate Mortgage — fixed initial rate that adjusts periodically based on a market index.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>How APR differs from interest rate</h2>
+<p>The interest rate is what you pay annually for borrowing the principal balance. If you borrow $400,000 at 7.5%, you're charged 7.5% of the outstanding balance each year, divided into monthly payments. The interest rate determines your principal-and-interest payment.</p>
+<p>APR includes the interest rate PLUS most other recurring loan costs:</p>
+<p><strong>Origination fees.</strong> Charges the lender bills for processing the loan.</p>
+<p><strong>Discount points.</strong> Upfront fees paid to lower the interest rate.</p>
+<p><strong>Mortgage insurance (PMI/MIP).</strong> Ongoing insurance premiums on high-LTV loans.</p>
+<p><strong>Underwriting fees.</strong> Some lenders include these in APR calculations.</p>
+<p><strong>Mortgage broker compensation.</strong> If you're working with a broker.</p>
+<p>APR does NOT typically include:</p>
+<p><strong>Title insurance.</strong> Separate from the loan itself.</p>
+<p><strong>Appraisal fees.</strong> Typically excluded from APR.</p>
+<p><strong>Recording fees.</strong> Government charges, not lender charges.</p>
+<p><strong>Hazard insurance.</strong> Property insurance, separate from the loan.</p>
+<p>The result: APR is always equal to or higher than the interest rate. A loan with zero fees and no points would have an APR equal to its interest rate. A loan with significant origination fees or discount points will have a noticeably higher APR.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>Why APR exists: the Truth in Lending Act</h2>
+<p>APR is a federal regulatory creation. The Truth in Lending Act (TILA), passed in 1968, requires lenders to disclose APR on every consumer loan offer. The purpose: prevent lenders from hiding fees behind low advertised interest rates.</p>
+<p>Before APR existed, lenders could advertise "5% interest rate" while burying $15,000 in origination fees in the closing costs. Consumers couldn't easily compare offers because the fee structures varied so widely. APR forces all those costs into a single comparable number.</p>
+<p>For investment property loans, including DSCR loans, APR disclosure rules vary. Some commercial-purpose investor loans aren't subject to TILA, so APR may not be required on the disclosure. Always ask for it explicitly when shopping loans — even if not legally required, lenders typically calculate and provide it on request.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/apr">
-          <div class="gloss-term">APR</div>
-          <div class="gloss-desc">Annual Percentage Rate — total annual cost of a loan including interest rate plus fees.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fico">
-          <div class="gloss-term">FICO Score</div>
-          <div class="gloss-desc">Credit score from 300-850 that lenders use to evaluate creditworthiness on mortgage applications.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/mortgage-points">
-          <div class="gloss-term">Mortgage Points</div>
-          <div class="gloss-desc">Upfront fees paid at closing — discount points lower your rate; origination points compensate the lender.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>The APR-to-rate gap: what it tells you</h2>
+<p>The gap between APR and interest rate signals the loan's fee load:</p>
+<p><strong>Small gap (under 0.15%).</strong> Low fees and minimal points. The advertised rate is roughly what you actually pay.</p>
+<p><strong>Medium gap (0.15-0.40%).</strong> Standard fee load. Most market-rate loans land here.</p>
+<p><strong>Large gap (0.40%+).</strong> Heavy fee structure, possibly with discount points buying down the rate. The advertised rate is meaningfully lower than your true cost.</p>
+<p>Example: Two competing offers on the same $400,000 loan:</p>
+<p><strong>Lender A:</strong> 7.25% interest rate, 7.55% APR (0.30% gap). Standard fee load.</p>
+<p><strong>Lender B:</strong> 7.00% interest rate, 7.75% APR (0.75% gap). The lower rate is bought down with heavy points. APR reveals Lender A is actually cheaper despite the higher headline rate.</p>
+<p>This is precisely why APR exists — to prevent the "lowest rate" comparison trap.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/foreclosure">
-          <div class="gloss-term">Foreclosure</div>
-          <div class="gloss-desc">Legal process by which a lender takes possession of a property after borrower default.</div>
-        </a>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+<h2>APR limitations to understand</h2>
+<p>APR is a useful comparison tool but has real limitations:</p>
+<p><strong>APR assumes you hold the loan to term.</strong> Origination fees and discount points are amortized over the full 30 years in APR calculations. If you sell or refinance in year 3, those upfront costs were paid for 27 years of benefit you'll never receive. APR will overstate the actual cost in that scenario.</p>
+<p><strong>APR doesn't capture all loan terms.</strong> Two loans with identical APRs might have wildly different <a href="/glossary/prepayment-penalty">prepayment penalties</a>, rate adjustment caps (on <a href="/glossary/arm">ARMs</a>), or loan covenants. APR is one factor, not the complete picture.</p>
+<p><strong>APR varies by calculation method.</strong> Different lenders may include slightly different fees in their APR calculations. Federal law sets minimum requirements, but interpretations vary. A 0.05% APR difference between lenders may reflect calculation methodology, not actual cost difference.</p>
+<p><strong>Investment property loan APRs may not include all relevant costs.</strong> For non-QM and DSCR loans, some fees specific to investor financing (entity setup costs, asset verification fees, prepayment structures) may sit outside APR calculations.</p>
+
+<h2>How to use APR for investor loan shopping</h2>
+<p>Three practical applications:</p>
+<p><strong>Compare loan offers within the same loan type.</strong> Comparing two DSCR loans on the same property at the same LTV, APR is the right comparison tool. Same product, different lenders, APR cuts through marketing noise.</p>
+<p><strong>Don't compare APR across loan types.</strong> A 30-year fixed DSCR APR doesn't directly compare to a 5/1 ARM APR or a hard money APR. Different products serve different needs. Compare like products.</p>
+<p><strong>Calculate break-even on points.</strong> If a lender offers a lower rate with discount points, the APR helps but doesn't completely answer "should I buy down the rate?" That's a function of your hold timeline — see <a href="/glossary/discount-points">discount points</a>.</p>
+
+<h2>Rate Hero's take</h2>
+<p>For investor clients, APR is a useful starting point for comparing offers but not the final word.</p>
+<p>The most expensive mistake we see: investors comparing only the headline interest rate across competing lenders. The "best rate" often comes with the worst fee structure. APR catches this immediately.</p>
+<p>The second most common mistake: investors over-weighting APR when their actual hold horizon is short. If you're refinancing or selling within 3-5 years, APR (which assumes 30-year hold) overweights upfront fees. In those cases, focus on total dollars paid over your actual hold period — not the 30-year APR.</p>
+<p>Use APR for first-cut comparison. Then look at the specific fee schedule, prepayment terms, and rate adjustment provisions for the final decision. APR is the entry point; the loan estimate is the full picture.</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/discount-points">Discount Points</a>
+        <a class="related-term" href="/glossary/origination-fee">Origination Fee</a>
+        <a class="related-term" href="/glossary/closing-costs">Closing Costs</a>
+        <a class="related-term" href="/glossary/prepayment-penalty">Prepayment Penalty</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Want help comparing loan offers across competing lenders?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 

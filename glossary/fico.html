@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is a FICO score? Definition for real estate investors — score ranges, how scores affect loan pricing, and the difference between FICO and other credit scores.">
+<title>FICO Score: Definition and How It Affects Loan Pricing | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/fico">
+<meta property="og:title" content="FICO Score: Definition and How It Affects Loan Pricing | Rate Hero Glossary">
+<meta property="og:description" content="FICO scores determine loan eligibility and pricing. Score ranges from 300-850. How investors maintain strong FICO across multiple loan applications.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="FICO Score: Definition and How It Affects Loan Pricing | Rate Hero Glossary">
+<meta name="twitter:description" content="FICO scores determine loan eligibility and pricing. Score ranges from 300-850. How investors maintain strong FICO across multiple loan applications.">
+<link rel="canonical" href="https://goratehero.com/glossary/fico">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "FICO Score",
+  "description": "A credit score developed by Fair Isaac Corporation (FICO), ranging from 300 (lowest) to 850 (highest). FICO scores are the most widely used credit scoring model in the United States, with approximately 90% of top lenders using FICO scores in lending decisions. The score reflects payment history, credit utilization, length of credit history, types of credit, and recent credit inquiries.",
+  "termCode": "FICO",
+  "url": "https://goratehero.com/glossary/fico",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "FICO Score", "item": "https://goratehero.com/glossary/fico"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "FICO Scores for Real Estate Investors",
+  "description": "Understanding FICO scores for investor loans — score range tiers, how scores affect DSCR and conventional pricing, and managing credit across multiple property acquisitions.",
+  "url": "https://goratehero.com/glossary/fico",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/fico"
   }
 }
 </script>
@@ -244,267 +248,100 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      FICO Score
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>FICO Score</h1>
+    <p class="gloss-tagline">A credit score ranging from 300 to 850, calculated by Fair Isaac Corporation, that lenders use to evaluate creditworthiness on mortgage applications.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+<h2>What is a FICO score?</h2>
+<p>A FICO score is a three-digit number between 300 and 850 that represents your creditworthiness — a lender's estimate of how likely you are to repay borrowed money on time. Higher numbers mean lower risk to lenders, which translates to better loan terms.</p>
+<p>FICO is one specific brand of credit score, developed by Fair Isaac Corporation. Other credit scores exist (VantageScore is the main competitor), but FICO is the score most mortgage lenders actually use. When someone says "credit score" in a mortgage context, they almost always mean FICO score.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/pmi">
-          <div class="gloss-term">PMI</div>
-          <div class="gloss-desc">Private Mortgage Insurance — required on conventional loans with less than 20% down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/arm">
-          <div class="gloss-term">ARM</div>
-          <div class="gloss-desc">Adjustable Rate Mortgage — fixed initial rate that adjusts periodically based on a market index.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>The FICO score range tiers</h2>
+<p>FICO scores break down into general tiers that affect loan eligibility and pricing:</p>
+<p><strong>800-850: Exceptional.</strong> Top tier. Best loan terms available, lowest rates, easiest approval. Roughly 20% of US consumers fall here.</p>
+<p><strong>740-799: Very Good.</strong> Strong tier. Most loan products are accessible with competitive pricing. Most investor borrowers should target this range.</p>
+<p><strong>670-739: Good.</strong> Acceptable for most loans. Pricing slightly worse than the higher tiers. Still qualifies for conventional and DSCR financing.</p>
+<p><strong>580-669: Fair.</strong> Higher risk to lenders. Conventional loans may be unavailable or carry higher rates. FHA loans typically still accessible (FHA requires 580+ for 3.5% down). DSCR programs vary — some require 660+ minimum.</p>
+<p><strong>300-579: Poor.</strong> Most conventional and investor loan products are unavailable. Hard money or specialty products may be the only options, with significantly higher rates.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>How FICO scores are calculated</h2>
+<p>FICO scores weight five factors with specific percentages:</p>
+<p><strong>Payment history (35%).</strong> The biggest factor. On-time payments build score; missed payments destroy it. A single 30-day-late mortgage payment can drop a FICO score 60-110 points depending on starting score.</p>
+<p><strong>Credit utilization (30%).</strong> The percentage of available credit you're using. Keeping balances under 30% of credit limits is ideal; under 10% is optimal for top-tier scores. This is the fastest lever to improve a FICO score — paying down credit cards before a credit pull can lift scores 20-40 points in 30 days.</p>
+<p><strong>Length of credit history (15%).</strong> How long you've had credit accounts open. Average age of accounts matters. Closing old accounts shortens your history and can hurt your score.</p>
+<p><strong>Credit mix (10%).</strong> Variety of credit types — credit cards, installment loans, mortgages. Having only credit cards weighs less favorably than having a mix.</p>
+<p><strong>New credit inquiries (10%).</strong> Hard inquiries from credit applications. Each hard inquiry typically drops FICO 5-10 points temporarily. Multiple inquiries within 30 days for the same loan type (e.g., mortgage shopping) usually count as one inquiry.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/apr">
-          <div class="gloss-term">APR</div>
-          <div class="gloss-desc">Annual Percentage Rate — total annual cost of a loan including interest rate plus fees.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fico">
-          <div class="gloss-term">FICO Score</div>
-          <div class="gloss-desc">Credit score from 300-850 that lenders use to evaluate creditworthiness on mortgage applications.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/mortgage-points">
-          <div class="gloss-term">Mortgage Points</div>
-          <div class="gloss-desc">Upfront fees paid at closing — discount points lower your rate; origination points compensate the lender.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>How FICO affects investor loan pricing</h2>
+<p>FICO score directly affects what you'll pay on a mortgage. The impact is meaningful:</p>
+<p><strong>DSCR loans.</strong> Most DSCR programs require minimum 660-680 FICO. Pricing tiers typically break at 700, 720, 740, and 760. Moving from 700 to 760 can save 0.25-0.50% on rate — meaningful over 30 years.</p>
+<p><strong>Conventional investment loans.</strong> Minimum 620 typically, with significant pricing breaks at 680, 720, 740, and 760. The spread between 620 and 760 can be 1.0%+ on rate, costing tens of thousands over the loan's life.</p>
+<p><strong>FHA loans.</strong> 580 minimum for 3.5% down, 500-579 with 10% down. Rate pricing relatively flat above 620 (FHA loans are insured by HUD, so credit risk passes to the government).</p>
+<p><strong>Hard money and bridge loans.</strong> Credit-light products. Many lenders accept 600-660 minimum because the loans are secured primarily by the property's after-repair value. Rate impact from credit score is smaller than on conventional/DSCR.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/foreclosure">
-          <div class="gloss-term">Foreclosure</div>
-          <div class="gloss-desc">Legal process by which a lender takes possession of a property after borrower default.</div>
-        </a>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+<h2>The three-bureau model</h2>
+<p>FICO scores come from three credit bureaus: Experian, Equifax, and TransUnion. Each bureau maintains its own credit file and produces its own FICO score. Your three scores are usually close but rarely identical because different creditors report to different bureaus.</p>
+<p>For mortgage applications, lenders typically pull all three scores and use the middle score for qualification. If your scores are 740, 752, and 768, the lender uses 752. This protects against single-bureau errors while not over-rewarding the highest single score.</p>
+<p>Practical implication: improving credit isn't enough to fix one bureau — you need consistent improvement across all three. Disputing errors only with one bureau leaves the same issue affecting your middle score from another bureau.</p>
+
+<h2>Managing FICO across multiple investor acquisitions</h2>
+<p>Investors acquiring multiple properties face a specific challenge: each loan application triggers credit pulls, and each new mortgage affects future applications.</p>
+<p><strong>Mortgage shopping windows.</strong> FICO allows mortgage rate-shopping inquiries within a 14-45 day window to count as one inquiry (varies by FICO model version). Apply with multiple lenders within 30 days to minimize score impact.</p>
+<p><strong>New mortgage debt impact.</strong> Each new mortgage adds to your overall debt burden, affecting credit utilization metrics on the next application. The impact stabilizes after 6-12 months of on-time payments.</p>
+<p><strong>DSCR loans don't affect personal DTI but DO affect personal credit.</strong> While DSCR underwriting doesn't count your other rental debts against your DTI for qualification, the mortgages still appear on your personal credit report and affect FICO calculations.</p>
+<p><strong>Timing strategies.</strong> Investors planning multiple acquisitions often submit applications in batches with cooldown periods between batches, allowing FICO scores to stabilize before the next round.</p>
+
+<h2>How to improve FICO score for upcoming applications</h2>
+<p>Five tactics that move FICO scores meaningfully:</p>
+<p><strong>Pay down credit card balances.</strong> Most impactful short-term move. Reducing utilization from 40% to under 10% can lift scores 20-50 points in 30 days. Pay before statement closing date so lower balance reports to bureaus.</p>
+<p><strong>Dispute credit report errors.</strong> Review reports from all three bureaus annually. Incorrect late payments, accounts you don't own, or duplicate accounts can suppress your score 50+ points. Disputes typically resolve in 30-45 days.</p>
+<p><strong>Don't close old credit cards.</strong> Even unused cards contribute to length of credit history and available credit (which lowers utilization). Closing old cards can drop scores 20-40 points.</p>
+<p><strong>Pay every bill on time, every month.</strong> Even a single late payment harms your score for 24+ months. Set up autopay on minimum payments to prevent accidental misses.</p>
+<p><strong>Limit new credit applications before mortgage shopping.</strong> Don't open new credit cards, car loans, or store accounts within 6 months of a planned mortgage application. Each hard inquiry costs points you can't easily get back.</p>
+
+<h2>Rate Hero's take</h2>
+<p>For investor clients, FICO management is portfolio infrastructure — just like cash reserves or insurance coverage. Treating credit as something you check once before applying is the wrong mental model.</p>
+<p>Three principles we apply with investor clients:</p>
+<p><strong>Monitor monthly, not annually.</strong> Free credit monitoring services flag changes immediately. You can't fix what you don't see.</p>
+<p><strong>Strategic credit decisions need 6-month lead time.</strong> Planning to acquire next quarter? Pay down balances this quarter. Major moves take 60-90 days to fully reflect.</p>
+<p><strong>Don't optimize for a single application — optimize for the next 5 years.</strong> Investors will apply for 5-15 loans over the next decade. Building and maintaining 740+ FICO across that period saves orders of magnitude more than tactical score-pumping before any single application.</p>
+<p>The good news: FICO management is one of the few investor success factors fully under your control. Property markets move. Interest rates move. Tenant quality varies. Your credit score is something you can build and protect through discipline alone.</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/dscr">DSCR</a>
+        <a class="related-term" href="/glossary/dti">DTI</a>
+        <a class="related-term" href="/glossary/down-payment">Down Payment</a>
+        <a class="related-term" href="/glossary/underwriting">Underwriting</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Need help structuring loan applications across your portfolio?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 

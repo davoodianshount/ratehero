@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English definitions for real estate investor and DSCR loan terms. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).">
-<title>Real Estate Investor Glossary | Rate Hero</title>
+<meta name="description" content="What is foreclosure? Definition for real estate investors — judicial vs non-judicial process, timelines by state, and how investors evaluate foreclosure opportunities.">
+<title>Foreclosure: Definition and Process Explained | Rate Hero Glossary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,7 +93,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
   .footer-bottom{padding:14px 20px;flex-direction:column;gap:4px;text-align:center}
 }
 
-/* ─── GLOSSARY GRID ─── */
+/* ─── GLOSSARY GRID (shared with index) ─── */
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
 .gloss-card{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--bdt);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .gloss-card:hover{border-color:var(--blue);transform:translateY(-2px)}
@@ -104,26 +104,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 .gloss-card--soon .gloss-desc{color:rgba(255,255,255,0.4);font-style:italic}
 @media (max-width:760px){.glossary-grid{grid-template-columns:1fr}}
 
+/* ─── GLOSSARY ENTRY ─── */
+.gloss-entry{padding-top:0}
+.gloss-breadcrumb{font-family:var(--fb);font-size:.85rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.gloss-breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none}
+.gloss-breadcrumb a:hover{color:var(--blue);text-decoration:underline}
+.gloss-breadcrumb-sep{color:rgba(255,255,255,0.3);margin:0 8px}
+.gloss-tagline{font-family:var(--fb);font-size:1.18rem;color:rgba(255,255,255,0.78);margin-top:14px;margin-bottom:0;max-width:760px;line-height:1.5}
+.gloss-body{font-family:var(--fb);font-size:1.02rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:760px;margin-top:32px}
+.gloss-body h2{font-family:var(--fd);font-size:1.9rem;color:#fff;letter-spacing:.02em;margin-top:42px;margin-bottom:14px}
+.gloss-body h3{font-family:var(--fd);font-size:1.45rem;color:#fff;letter-spacing:.02em;margin-top:32px;margin-bottom:10px}
+.gloss-body p{margin:0 0 18px}
+.gloss-body ul,.gloss-body ol{margin:0 0 18px;padding-left:24px}
+.gloss-body li{margin-bottom:8px}
+.gloss-body strong{color:#fff}
+.gloss-body code{background:rgba(37,99,235,0.15);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.92em;color:#fff}
+.gloss-body a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(37,99,235,0.4)}
+.gloss-body a:hover{border-bottom-color:var(--blue)}
+.related-terms{margin-top:48px;padding:32px;background:var(--card);border:1px solid var(--bdt);border-radius:14px}
+.related-terms h2{font-family:var(--fd);font-size:1.5rem;color:#fff;margin:0 0 18px}
+.related-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.related-term{display:block;padding:14px 16px;background:rgba(8,15,30,0.5);border:1px solid rgba(37,99,235,0.2);border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.85);font-family:var(--fb);font-size:.95rem;transition:border-color .18s,color .18s}
+.related-term:hover{border-color:var(--blue);color:#fff}
+.draft-notice{background:rgba(245,183,49,0.1);border:1px solid rgba(245,183,49,0.4);border-radius:10px;padding:18px 22px;margin:32px 0;color:rgba(255,255,255,0.85);font-family:var(--fb)}
+.draft-notice strong{color:#F5B731}
+
 </style>
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://goratehero.com/glossary/">
-<meta property="og:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta property="og:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goratehero.com/glossary/foreclosure">
+<meta property="og:title" content="Foreclosure: Definition and Process Explained | Rate Hero Glossary">
+<meta property="og:description" content="The legal process by which a lender takes possession of a property after borrower default. How foreclosures work and what investors should know.">
 <meta property="og:image" content="https://goratehero.com/og-image.jpg">
 <meta property="og:site_name" content="Rate Hero, Inc.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Real Estate Investor Glossary | Rate Hero">
-<meta name="twitter:description" content="Plain-English definitions for real estate investor and DSCR loan terms.">
-<link rel="canonical" href="https://goratehero.com/glossary/">
+<meta name="twitter:title" content="Foreclosure: Definition and Process Explained | Rate Hero Glossary">
+<meta name="twitter:description" content="The legal process by which a lender takes possession of a property after borrower default. How foreclosures work and what investors should know.">
+<link rel="canonical" href="https://goratehero.com/glossary/foreclosure">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  "name": "Rate Hero Real Estate Investor Glossary",
-  "description": "Plain-English definitions for real estate investor and DSCR loan terms.",
-  "url": "https://goratehero.com/glossary/",
+  "@type": "DefinedTerm",
+  "name": "Foreclosure",
+  "description": "The legal process used by mortgage lenders to recover the balance owed on a defaulted loan by forcing the sale of the asset (the property) used as collateral. Foreclosure proceedings vary significantly by state, with two primary frameworks: judicial foreclosure (requiring court involvement, typically taking 12-24 months) and non-judicial foreclosure (handled through trustee sale, typically 4-9 months). The process terminates the borrower's ownership rights and transfers the property to the lender or auction buyer.",
+  "termCode": "FORECLOSURE",
+  "url": "https://goratehero.com/glossary/foreclosure",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Rate Hero Real Estate Investor Glossary",
+    "url": "https://goratehero.com/glossary/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"},
+    {"@type": "ListItem", "position": 3, "name": "Foreclosure", "item": "https://goratehero.com/glossary/foreclosure"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Foreclosure: Process, Timelines, and Investor Considerations",
+  "description": "Understanding foreclosure mechanics — judicial vs non-judicial states, typical timelines, and what investors should know about foreclosure opportunities and risk.",
+  "url": "https://goratehero.com/glossary/foreclosure",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
   "author": {
     "@type": "Person",
     "name": "Sean Davoodian",
@@ -134,67 +187,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
       "identifier": "NMLS #2822806"
     }
   },
-  "hasDefinedTerm": [
-    {"@type": "DefinedTerm", "name": "DSCR", "url": "https://goratehero.com/glossary/dscr"},
-    {"@type": "DefinedTerm", "name": "No-Ratio DSCR", "url": "https://goratehero.com/glossary/no-ratio-dscr"},
-    {"@type": "DefinedTerm", "name": "LTV", "url": "https://goratehero.com/glossary/ltv"},
-    {"@type": "DefinedTerm", "name": "ARV", "url": "https://goratehero.com/glossary/arv"},
-    {"@type": "DefinedTerm", "name": "BRRRR", "url": "https://goratehero.com/glossary/brrrr"},
-    {"@type": "DefinedTerm", "name": "PITIA", "url": "https://goratehero.com/glossary/pitia"},
-    {"@type": "DefinedTerm", "name": "NOI", "url": "https://goratehero.com/glossary/noi"},
-    {"@type": "DefinedTerm", "name": "Cap Rate", "url": "https://goratehero.com/glossary/cap-rate"},
-    {"@type": "DefinedTerm", "name": "Cash-on-Cash Return", "url": "https://goratehero.com/glossary/cash-on-cash-return"},
-    {"@type": "DefinedTerm", "name": "Non-QM", "url": "https://goratehero.com/glossary/non-qm"},
-    {"@type": "DefinedTerm", "name": "HELOC", "url": "https://goratehero.com/glossary/heloc"},
-    {"@type": "DefinedTerm", "name": "Bridge Loan", "url": "https://goratehero.com/glossary/bridge-loan"},
-    {"@type": "DefinedTerm", "name": "Hard Money", "url": "https://goratehero.com/glossary/hard-money"},
-    {"@type": "DefinedTerm", "name": "Cash-Out Refinance", "url": "https://goratehero.com/glossary/cash-out-refinance"},
-    {"@type": "DefinedTerm", "name": "Sub-1.0 DSCR", "url": "https://goratehero.com/glossary/sub-1-dscr"},
-    {"@type": "DefinedTerm", "name": "DTI", "url": "https://goratehero.com/glossary/dti"},
-    {"@type": "DefinedTerm", "name": "Reserves", "url": "https://goratehero.com/glossary/reserves"},
-    {"@type": "DefinedTerm", "name": "LTC", "url": "https://goratehero.com/glossary/ltc"},
-    {"@type": "DefinedTerm", "name": "IRR", "url": "https://goratehero.com/glossary/irr"},
-    {"@type": "DefinedTerm", "name": "Owner-Occupied", "url": "https://goratehero.com/glossary/owner-occupied"},
-    {"@type": "DefinedTerm", "name": "Conventional Loan", "url": "https://goratehero.com/glossary/conventional-loan"},
-    {"@type": "DefinedTerm", "name": "FHA Loan", "url": "https://goratehero.com/glossary/fha-loan"},
-    {"@type": "DefinedTerm", "name": "VA Loan", "url": "https://goratehero.com/glossary/va-loan"},
-    {"@type": "DefinedTerm", "name": "Jumbo Loan", "url": "https://goratehero.com/glossary/jumbo-loan"},
-    {"@type": "DefinedTerm", "name": "Rate-and-Term Refinance", "url": "https://goratehero.com/glossary/rate-and-term-refinance"},
-    {"@type": "DefinedTerm", "name": "Origination Fee", "url": "https://goratehero.com/glossary/origination-fee"},
-    {"@type": "DefinedTerm", "name": "Discount Points", "url": "https://goratehero.com/glossary/discount-points"},
-    {"@type": "DefinedTerm", "name": "Closing Costs", "url": "https://goratehero.com/glossary/closing-costs"},
-    {"@type": "DefinedTerm", "name": "Title Insurance", "url": "https://goratehero.com/glossary/title-insurance"},
-    {"@type": "DefinedTerm", "name": "Multi-family", "url": "https://goratehero.com/glossary/multi-family"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goratehero.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://goratehero.com/glossary/"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Real Estate Investor Glossary",
-  "url": "https://goratehero.com/glossary/",
-  "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
-  "author": {
-    "@type": "Person",
-    "name": "Sean Davoodian",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Rate Hero, Inc.",
-      "identifier": "NMLS #2822806"
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rate Hero, Inc.",
+    "url": "https://goratehero.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://goratehero.com/Rate_Hero___LOGO.png"
     }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://goratehero.com/glossary/foreclosure"
   }
 }
 </script>
@@ -244,267 +248,102 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06)}
 
 <main id="main-content">
 
-<section class="phero">
+<section class="phero gloss-entry">
   <div class="phero-bg"></div>
   <div class="phero-grid"></div>
   <div class="phero-inner">
-    <div class="phero-tag">Real Estate Investor Glossary</div>
-    <h1>Plain English. <em>Real Definitions.</em></h1>
-    <p class="phero-sub">Definitions for the loan and investment terms that matter to investors. Written by Sean Davoodian of Rate Hero, Inc., a licensed mortgage company (NMLS #2822806).</p>
+    <div class="gloss-breadcrumb">
+      <a href="/">Home</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      <a href="/glossary/">Glossary</a>
+      <span class="gloss-breadcrumb-sep">›</span>
+      Foreclosure
+    </div>
+    <div class="phero-tag">Glossary</div>
+    <h1>Foreclosure</h1>
+    <p class="gloss-tagline">The legal process by which a lender takes ownership of a property after the borrower has defaulted on the mortgage and failed to cure the default.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="stag"><span class="dot"></span> DSCR Programs</div>
-    <h2 class="sh2">DSCR <em>Programs</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/dscr">
-        <div class="gloss-term">DSCR</div>
-        <div class="gloss-desc">The ratio of property income to debt service — qualifies your loan.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/no-ratio-dscr">
-        <div class="gloss-term">No-Ratio DSCR</div>
-        <div class="gloss-desc">Qualifies on credit, reserves, and LTV — no rental coverage required.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltv">
-        <div class="gloss-term">LTV</div>
-        <div class="gloss-desc">How much you're borrowing relative to property value.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/brrrr">
-        <div class="gloss-term">BRRRR</div>
-        <div class="gloss-desc">Buy, Rehab, Rent, Refinance, Repeat — the investor scaling strategy.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/ltc">
-          <div class="gloss-term">LTC</div>
-          <div class="gloss-desc">Loan amount as a percentage of total project cost.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/sub-1-dscr">
-          <div class="gloss-term">Sub-1.0 DSCR</div>
-          <div class="gloss-desc">DSCR programs that qualify properties below 1.0 ratio.</div>
-        </a>
-    </div>
-  </div>
-</section>
+    <div class="gloss-body">
+<h2>What is foreclosure?</h2>
+<p>Foreclosure is the legal process by which a mortgage lender takes possession of a property when the borrower defaults on the loan. The process exists because mortgages are secured loans — the property itself serves as collateral. If the borrower stops paying, the lender can force the sale of the property to recover what they're owed.</p>
+<p>For real estate investors, foreclosure shows up in three distinct contexts: as a risk to manage on your own properties, as an acquisition opportunity (buying foreclosed properties at auction or as bank-owned REO), and as a knowledge requirement for due diligence on properties with complicated title histories.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Loan Products</div>
-    <h2 class="sh2">Loan <em>Products</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/non-qm">
-        <div class="gloss-term">Non-QM</div>
-        <div class="gloss-desc">Loans that don't meet QM rules — alternative income docs accepted.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/bridge-loan">
-          <div class="gloss-term">Bridge Loan</div>
-          <div class="gloss-desc">Short-term loan that bridges to permanent financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/heloc">
-          <div class="gloss-term">HELOC</div>
-          <div class="gloss-desc">Revolving credit secured by your home's equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/hard-money">
-          <div class="gloss-term">Hard Money</div>
-          <div class="gloss-desc">Short-term, asset-based real estate financing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/conventional-loan">
-          <div class="gloss-term">Conventional Loan</div>
-          <div class="gloss-desc">Mortgage conforming to Fannie/Freddie standards.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fha-loan">
-          <div class="gloss-term">FHA Loan</div>
-          <div class="gloss-desc">Federal-insured loan with low down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/va-loan">
-          <div class="gloss-term">VA Loan</div>
-          <div class="gloss-desc">Veterans Affairs guaranteed mortgage with $0 down.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/jumbo-loan">
-          <div class="gloss-term">Jumbo Loan</div>
-          <div class="gloss-desc">Mortgage exceeding conforming loan limits.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/appraisal">
-          <div class="gloss-term">Appraisal</div>
-          <div class="gloss-desc">Independent property valuation that caps how much a lender will lend.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/underwriting">
-          <div class="gloss-term">Underwriting</div>
-          <div class="gloss-desc">The lender's process for approving, denying, or conditioning your loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/prepayment-penalty">
-          <div class="gloss-term">Prepayment Penalty</div>
-          <div class="gloss-desc">Fee for paying off your loan early — common on DSCR loans.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/pmi">
-          <div class="gloss-term">PMI</div>
-          <div class="gloss-desc">Private Mortgage Insurance — required on conventional loans with less than 20% down payment.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/arm">
-          <div class="gloss-term">ARM</div>
-          <div class="gloss-desc">Adjustable Rate Mortgage — fixed initial rate that adjusts periodically based on a market index.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>The two main foreclosure frameworks</h2>
+<p>State law determines the foreclosure process. Two major frameworks exist, with significant variation within each:</p>
+<p><strong>Judicial foreclosure.</strong> The lender files a lawsuit against the borrower in state court. A judge oversees the proceedings, and the borrower has formal opportunities to respond, contest, or negotiate. The court ultimately orders the foreclosure sale if the lender prevails. This process is longer and more expensive for lenders.</p>
+<p>Used in: Florida, Illinois, New York, New Jersey, Pennsylvania, Ohio, and roughly 20 other states. Typical timeline: 12-24+ months from initial default to completed foreclosure sale, sometimes longer in heavily contested cases.</p>
+<p><strong>Non-judicial foreclosure.</strong> The lender pursues foreclosure through a trustee sale process outlined in the deed of trust, without court involvement. The trustee (a neutral third party named in the original loan documents) handles the legal notices and conducts the auction. Faster and cheaper for lenders.</p>
+<p>Used in: California, Texas, Arizona, Georgia, Nevada, Tennessee, and roughly 25 other states. Typical timeline: 4-9 months from default to trustee sale.</p>
+<p>A handful of states allow either method depending on the loan documents. Some states have hybrid processes that include elements of both.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Investment Strategy</div>
-    <h2 class="sh2">Investment <em>Strategy</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/arv">
-        <div class="gloss-term">ARV</div>
-        <div class="gloss-desc">After Repair Value — what the property is worth post-rehab.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cap-rate">
-        <div class="gloss-term">Cap Rate</div>
-        <div class="gloss-desc">Annual NOI divided by property value — yield without leverage.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/cash-on-cash-return">
-        <div class="gloss-term">Cash-on-Cash Return</div>
-        <div class="gloss-desc">Annual cash flow divided by cash invested — leveraged yield.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/noi">
-        <div class="gloss-term">NOI</div>
-        <div class="gloss-desc">Net Operating Income — what the property earns after operating costs.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/irr">
-          <div class="gloss-term">IRR</div>
-          <div class="gloss-desc">Annualized total return on investment including sale.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/cash-out-refinance">
-          <div class="gloss-term">Cash-Out Refinance</div>
-          <div class="gloss-desc">Replace your mortgage with a larger one — pocket the equity.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/rate-and-term-refinance">
-          <div class="gloss-term">Rate-and-Term Refinance</div>
-          <div class="gloss-desc">Refinance to optimize rate or term — no cash extracted.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/refinance">
-          <div class="gloss-term">Refinance</div>
-          <div class="gloss-desc">Replace your existing mortgage with a new one on better terms.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>The typical foreclosure timeline</h2>
+<p>While specifics vary significantly by state and lender, foreclosures generally follow a predictable sequence:</p>
+<p><strong>Missed payments (days 1-90).</strong> Borrower misses one, then multiple, mortgage payments. The lender's servicer attempts collection through calls, letters, and late fees. Most lenders won't initiate foreclosure proceedings until at least 90-120 days of missed payments.</p>
+<p><strong>Notice of Default (NOD) or Lis Pendens (days 90-180).</strong> The lender formally files notice that foreclosure proceedings are starting. In non-judicial states, this is a Notice of Default recorded with the county. In judicial states, it's a Lis Pendens (lawsuit notice). This is the first public record that triggers foreclosure tracking services.</p>
+<p><strong>Reinstatement period (varies).</strong> The borrower can typically "cure" the default during a defined window by paying all missed payments plus fees. Most loans allow reinstatement up to 5 business days before the foreclosure sale. After that window, the borrower can only stop foreclosure by paying the full loan balance.</p>
+<p><strong>Notice of Sale (typically 21-90 days before sale).</strong> The lender announces the foreclosure auction date. This is published in legal notices, recorded with the county, and posted on the property in some states. Sale dates are public information accessible to investors tracking opportunities.</p>
+<p><strong>Foreclosure sale.</strong> The property is sold at public auction, typically held at the county courthouse or by the trustee. The opening bid is usually the unpaid loan balance plus fees. If bidders exceed that amount, excess proceeds may go to the borrower. If no bidders meet the opening price, the property reverts to the lender as REO (Real Estate Owned).</p>
+<p><strong>REO disposition (months to years).</strong> If the lender retains the property, they typically list it for sale through real estate agents. REO properties are often sold below market value to clear bank balance sheets but require cash or specialized financing.</p>
 
-<section class="sec alt">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Financial Terms</div>
-    <h2 class="sh2">Financial <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/pitia">
-        <div class="gloss-term">PITIA</div>
-        <div class="gloss-desc">All-in monthly housing cost: principal, interest, taxes, insurance, association.</div>
-      </a>
-      <a class="gloss-card" href="/glossary/dti">
-          <div class="gloss-term">DTI</div>
-          <div class="gloss-desc">Percentage of monthly income going to debt payments.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/reserves">
-          <div class="gloss-term">Reserves</div>
-          <div class="gloss-desc">Liquid funds the lender requires after closing.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/origination-fee">
-          <div class="gloss-term">Origination Fee</div>
-          <div class="gloss-desc">One-time fee for processing the loan.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/discount-points">
-          <div class="gloss-term">Discount Points</div>
-          <div class="gloss-desc">Optional fee at closing to buy down your rate.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/closing-costs">
-          <div class="gloss-term">Closing Costs</div>
-          <div class="gloss-desc">Fees and expenses paid at the closing of a transaction.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/title-insurance">
-          <div class="gloss-term">Title Insurance</div>
-          <div class="gloss-desc">One-time policy protecting against title defects.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/principal">
-          <div class="gloss-term">Principal</div>
-          <div class="gloss-desc">The portion of your payment that reduces what you owe.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/down-payment">
-          <div class="gloss-term">Down Payment</div>
-          <div class="gloss-desc">Cash paid upfront — determines your LTV and loan size.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/equity">
-          <div class="gloss-term">Equity</div>
-          <div class="gloss-desc">What you own outright — value minus debt secured against the property.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/amortization">
-          <div class="gloss-term">Amortization</div>
-          <div class="gloss-desc">The schedule that splits payments between principal and interest.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/escrow">
-          <div class="gloss-term">Escrow</div>
-          <div class="gloss-desc">Neutral third party at closing — and the ongoing tax/insurance reserve.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/apr">
-          <div class="gloss-term">APR</div>
-          <div class="gloss-desc">Annual Percentage Rate — total annual cost of a loan including interest rate plus fees.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/fico">
-          <div class="gloss-term">FICO Score</div>
-          <div class="gloss-desc">Credit score from 300-850 that lenders use to evaluate creditworthiness on mortgage applications.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/mortgage-points">
-          <div class="gloss-term">Mortgage Points</div>
-          <div class="gloss-desc">Upfront fees paid at closing — discount points lower your rate; origination points compensate the lender.</div>
-        </a>
-    </div>
-  </div>
-</section>
+<h2>Pre-foreclosure: the borrower's options</h2>
+<p>Once foreclosure proceedings begin, the borrower has several options before losing the property:</p>
+<p><strong>Reinstatement.</strong> Pay all past-due payments plus fees to bring the loan current. The mortgage continues as before. Available throughout most of the foreclosure timeline until the formal cutoff (typically 5 business days before sale).</p>
+<p><strong>Loan modification.</strong> Negotiate with the lender to change the loan terms (lower rate, extended term, deferred balance) to make payments affordable. Lenders often prefer modification over foreclosure because foreclosure is expensive and properties often sell below balance owed.</p>
+<p><strong>Short sale.</strong> Sell the property for less than the loan balance owed, with lender approval. The lender accepts the proceeds and typically forgives (or pursues) the deficiency. Faster than foreclosure but credit impact remains significant for the borrower.</p>
+<p><strong>Deed in lieu of foreclosure.</strong> The borrower voluntarily transfers the property to the lender to avoid the foreclosure process. Less damaging to credit than completed foreclosure, but lenders only accept this when the property has clear title and minimal liens.</p>
+<p><strong>Bankruptcy filing.</strong> Filing Chapter 7 or Chapter 13 bankruptcy triggers an automatic stay that halts foreclosure proceedings. Whether this provides a long-term solution depends on the specific bankruptcy chapter and individual financial situation. This is a legal decision requiring qualified counsel.</p>
+<p>Note: This article is informational only. Borrowers facing potential foreclosure should consult a licensed attorney and HUD-approved housing counselor for guidance specific to their situation.</p>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="stag"><span class="dot"></span> Industry Terms</div>
-    <h2 class="sh2">Industry <em>Terms</em></h2>
-    <div class="glossary-grid">
-      <a class="gloss-card" href="/glossary/foreclosure">
-          <div class="gloss-term">Foreclosure</div>
-          <div class="gloss-desc">Legal process by which a lender takes possession of a property after borrower default.</div>
-        </a>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Cost Segregation</div>
-        <div class="gloss-desc">Coming soon</div>
+<h2>Foreclosures as investor acquisition opportunity</h2>
+<p>Foreclosed properties enter the market through multiple channels, each with different acquisition mechanics:</p>
+<p><strong>Pre-foreclosure (short sales).</strong> Properties listed for sale by owners trying to avoid foreclosure. Available through normal real estate listings, but lender approval requirement extends timelines from typical 30 days to 60-180 days. Properties often available below market value but require patience.</p>
+<p><strong>Foreclosure auction.</strong> Properties sold at courthouse or trustee auctions. Requires cash or hard money at purchase (typically full payment within 24-72 hours). No financing contingencies, no inspection period — buyer takes the property as-is, sight unseen in many cases. Highest risk, highest potential reward strategy.</p>
+<p><strong>REO (Bank-owned).</strong> Properties that reverted to lender after failed auction. Listed through real estate agents like normal listings. Lenders motivated to sell to clear balance sheets, often below market value. Cleaner title than auction purchases. Most accessible foreclosure category for typical investors.</p>
+<p><strong>HUD homes.</strong> Properties foreclosed on FHA loans, sold through HUD's listing system. Owner-occupants get priority bid windows; investors can bid after that window closes.</p>
+
+<h2>Risks of foreclosure investing</h2>
+<p>Foreclosure properties carry specific risks investors must evaluate:</p>
+<p><strong>Title issues.</strong> Foreclosed properties may have liens, judgments, or claims that weren't extinguished by the foreclosure process. Title insurance and thorough title work are essential.</p>
+<p><strong>Property condition.</strong> Owners facing foreclosure often defer maintenance, strip valuables, or actively damage property before vacating. Most foreclosure purchases require significant repair budgets.</p>
+<p><strong>Limited or no inspection.</strong> Auction properties typically can't be inspected before purchase. Even REO properties often sold "as-is" with limited disclosures.</p>
+<p><strong>Tenant occupancy.</strong> Foreclosed properties may still be occupied by the former owner or by tenants. Eviction laws vary by state and can take months. Some states give tenants specific rights that extend through the foreclosure transition.</p>
+<p><strong>Redemption periods.</strong> Some states grant the former owner a "redemption period" after the foreclosure sale during which they can buy the property back. Investors must factor this into hold timelines.</p>
+
+<h2>Foreclosure timelines that matter for investors</h2>
+<p>State-by-state foreclosure timelines significantly affect investor strategy in two ways:</p>
+<p><strong>Speed of acquisition.</strong> Non-judicial states (Texas, Arizona, Georgia) see foreclosure opportunities move through to sale in 4-9 months. Judicial states (Florida, New York, Illinois) take 12-24+ months. Inventory turnover and competitive dynamics differ accordingly.</p>
+<p><strong>Speed of risk recovery.</strong> If you ever face foreclosure on your own investment property, non-judicial states recover faster (lender takes the loss and moves on) while judicial states involve protracted court proceedings. This affects how DSCR lenders price loans in different states — states with faster foreclosure timelines often see slightly better pricing because lender risk is lower.</p>
+
+<h2>Rate Hero's take</h2>
+<p>For investor clients, foreclosure knowledge falls into two categories: defensive and offensive.</p>
+<p><strong>Defensive (protecting your portfolio).</strong> Understanding how foreclosure works in your investment property's state matters when planning for worst-case scenarios. Maintaining 3-6 months of reserves per <a href="/glossary/reserves">reserve requirements</a> isn't paranoia — it's the buffer that prevents a temporary vacancy or major repair from cascading into foreclosure proceedings.</p>
+<p><strong>Offensive (acquisition strategy).</strong> Foreclosure properties can deliver acquisition prices 20-40% below comparable retail properties — but only for investors with the cash position, repair budget, and risk tolerance to handle them. Most successful foreclosure investors specialize, building expertise in a specific local market and acquisition channel over years.</p>
+<p>For most investor clients building rental portfolios, foreclosure acquisition isn't the primary strategy — but understanding the process protects your existing holdings and opens opportunistic acquisition windows when the right deal surfaces.</p>
+<p>If foreclosure becomes a real risk on a property you own, the most important advice is: contact your lender's loss mitigation department immediately. Lenders almost universally prefer modification over foreclosure. Engagement early often produces options that don't exist later in the process.</p>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">Depreciation</div>
-        <div class="gloss-desc">Coming soon</div>
+
+    <div class="related-terms">
+      <h2>Related Terms</h2>
+      <div class="related-terms-grid">
+        <a class="related-term" href="/glossary/dscr">DSCR</a>
+        <a class="related-term" href="/glossary/reserves">Reserves</a>
+        <a class="related-term" href="/glossary/hard-money">Hard Money</a>
+        <a class="related-term" href="/glossary/bridge-loan">Bridge Loan</a>
       </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">K-1</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">REI</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <div class="gloss-card gloss-card--soon">
-        <div class="gloss-term">SFR</div>
-        <div class="gloss-desc">Coming soon</div>
-      </div>
-      <a class="gloss-card" href="/glossary/multi-family">
-          <div class="gloss-term">Multi-family</div>
-          <div class="gloss-desc">Residential property with 2 or more units.</div>
-        </a>
-      <a class="gloss-card" href="/glossary/owner-occupied">
-          <div class="gloss-term">Owner-Occupied</div>
-          <div class="gloss-desc">Property where the owner lives as primary residence.</div>
-        </a>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2>Don't see the term <em>you're looking for?</em></h2>
-    <p>Talk to us — we'll explain anything in plain English.</p>
-    <a href="/?funnel=glossary" class="btn-primary">Get a Quote &rarr;</a>
-    <p class="cta-secondary">Or call: <a href="tel:8182086801">(818) 208-6801</a></p>
+    <h2>Need financing for a foreclosure or REO acquisition?</h2>
+    <p>Get a quote in 2 minutes. No SSN, no credit pull.</p>
+    <a href="/?funnel=glossary" class="btn-primary">Get My Quote &rarr;</a>
+    <p class="cta-secondary">Or talk to us: <a href="tel:8182086801">(818) 208-6801</a></p>
   </div>
 </section>
 
