@@ -310,6 +310,7 @@ async function migrateAdminProfile(env, adminCode, preferName = 'sean davoodian'
         title: newProfile.title,
         nmls: newProfile.nmls,
         email: newProfile.email,
+        applyLink: loApplyLink(newProfile),
       };
       await env.QUOTES.put(`quote:${slug}`, JSON.stringify(q));
     } catch {}
@@ -341,6 +342,7 @@ function publicUser(u) {
     nmls: u.nmls,
     title: u.title,
     email: u.email,
+    applyLink: loApplyLink(u),
     role: u.role,
     accessCode: u.accessCode,
   };
@@ -355,6 +357,7 @@ async function createQuote(env, user, body) {
   const loanTerm = (body.loanTerm || '30-YR FIXED').trim();
   const creditScore = (body.creditScore || '').toString().trim();
   const dscrRatio = (body.dscrRatio || '').toString().trim();
+  const internal = normalizeInternal(body.internal);
   const options = Array.isArray(body.options) ? body.options : [];
 
   if (!clientName) return { error: 'Client name is required' };
@@ -375,6 +378,7 @@ async function createQuote(env, user, body) {
     loanTerm,
     creditScore,
     dscrRatio: loanProgram === 'DSCR' ? dscrRatio : '',
+    internal,
     lo: {
       id: user.id,
       name: user.name,
@@ -382,6 +386,7 @@ async function createQuote(env, user, body) {
       title: user.title,
       nmls: user.nmls,
       email: user.email,
+      applyLink: loApplyLink(user),
     },
     loAccessCode: normCode(user.accessCode),
     options: options.map(normalizeOption),
@@ -401,6 +406,17 @@ async function createQuote(env, user, body) {
   await env.QUOTES.put('all-quotes', JSON.stringify(allList));
 
   return { slug, url: `https://${slug}.goratehero.com` };
+}
+
+// Internal notes stored on each quote — visible ONLY in the admin panel.
+// Never rendered on the client-facing page.
+function normalizeInternal(i) {
+  const src = i && typeof i === 'object' ? i : {};
+  return {
+    wholesaleLender: String(src.wholesaleLender || '').trim(),
+    lenderProgramName: String(src.lenderProgramName || '').trim(),
+    notes: String(src.notes || '').trim(),
+  };
 }
 
 function normalizeOption(o) {
@@ -478,6 +494,7 @@ async function listQuotes(env, user) {
         createdAt: q.createdAt,
         optionCount: (q.options || []).length,
         loName: q.lo && q.lo.name,
+        wholesaleLender: (q.internal && q.internal.wholesaleLender) || '',
         url: `https://${q.slug}.goratehero.com`,
       });
     } catch {}
@@ -513,6 +530,7 @@ async function updateQuote(env, user, slug, body) {
   const loanTerm = (body.loanTerm || '30-YR FIXED').trim();
   const creditScore = (body.creditScore || '').toString().trim();
   const dscrRatio = (body.dscrRatio || '').toString().trim();
+  const internal = normalizeInternal(body.internal);
   const options = Array.isArray(body.options) ? body.options : [];
 
   if (!clientName) return { error: 'Client name is required' };
@@ -534,7 +552,7 @@ async function updateQuote(env, user, slug, body) {
     }
   }
   const lo = ownerProfile
-    ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls, email: ownerProfile.email }
+    ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls, email: ownerProfile.email, applyLink: loApplyLink(ownerProfile) }
     : existing.lo;
 
   const updated = {
@@ -546,6 +564,7 @@ async function updateQuote(env, user, slug, body) {
     loanTerm,
     creditScore,
     dscrRatio: loanProgram === 'DSCR' ? dscrRatio : '',
+    internal,
     options: options.map(normalizeOption),
     lo,
     updatedAt: new Date().toISOString(),
@@ -595,6 +614,7 @@ async function reassignQuote(env, slug, newCode) {
     title: newLo.title,
     nmls: newLo.nmls,
     email: newLo.email,
+    applyLink: loApplyLink(newLo),
   };
   quote.reassignedAt = new Date().toISOString();
   await env.QUOTES.put(`quote:${slug}`, JSON.stringify(quote));
@@ -657,6 +677,7 @@ async function listLOs(env) {
       nmls: lo.nmls,
       title: lo.title,
       email: lo.email,
+      applyLink: loApplyLink(lo),
       role: lo.role,
       createdAt: lo.createdAt,
       needsProfileSetup: !!lo.needsProfileSetup,
@@ -665,12 +686,27 @@ async function listLOs(env) {
   return out;
 }
 
+// Each LO has their own 1003 application URL. If the LO record doesn't
+// carry an explicit applyLink, we derive one from their NMLS so they don't
+// have to paste anything for the default case. Used by createLO/updateLO
+// and as a server-side fallback whenever we project an LO snapshot.
+function defaultApplyLink(nmls) {
+  const n = String(nmls || '').trim();
+  if (!n) return '';
+  return `https://ratehero.my1003app.com/${encodeURIComponent(n)}/register`;
+}
+function loApplyLink(lo) {
+  if (!lo) return '';
+  return (lo.applyLink && String(lo.applyLink).trim()) || defaultApplyLink(lo.nmls);
+}
+
 async function createLO(env, body) {
   const name = (body.name || '').trim();
   const phone = (body.phone || '').trim();
   const nmls = (body.nmls || '').trim();
   const title = (body.title || 'Loan Officer').trim();
   const email = (body.email || '').trim();
+  const applyLinkRaw = (body.applyLink || '').trim();
   if (!name) return { error: 'Name is required' };
   if (!phone) return { error: 'Phone is required' };
 
@@ -684,6 +720,7 @@ async function createLO(env, body) {
     nmls,
     title,
     email,
+    applyLink: applyLinkRaw || defaultApplyLink(nmls),
     role: 'lo',
     createdAt: new Date().toISOString(),
   };
@@ -708,6 +745,14 @@ async function updateLO(env, code, body) {
   lo.nmls = (body.nmls || '').trim();
   lo.title = (body.title || lo.title || 'Loan Officer').trim();
   lo.email = (body.email || '').trim();
+  // applyLink: prefer what the admin typed; if empty, fall back to whatever
+  // they had before; if that's also empty, derive from the (possibly new) NMLS.
+  const submittedApply = body.applyLink !== undefined ? String(body.applyLink).trim() : undefined;
+  if (submittedApply !== undefined) {
+    lo.applyLink = submittedApply || lo.applyLink || defaultApplyLink(lo.nmls);
+  } else if (!lo.applyLink) {
+    lo.applyLink = defaultApplyLink(lo.nmls);
+  }
   lo.needsProfileSetup = false;
   lo.updatedAt = new Date().toISOString();
   await env.QUOTES.put(`lo:${code}`, JSON.stringify(lo));
@@ -759,7 +804,7 @@ async function handleClientSubdomain(env, sub) {
     if (loRaw) {
       try {
         const p = JSON.parse(loRaw);
-        liveLo = { id: p.id, name: p.name, phone: p.phone, title: p.title, nmls: p.nmls, email: p.email };
+        liveLo = { id: p.id, name: p.name, phone: p.phone, title: p.title, nmls: p.nmls, email: p.email, applyLink: loApplyLink(p) };
       } catch {}
     }
   }
@@ -944,6 +989,11 @@ ${FONT_LINK}
 .user-chip{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.7);}
 .user-chip strong{color:#fff;font-weight:700;}
 .bolt-circle{width:28px;height:28px;border-radius:50%;background:rgba(245,183,49,0.12);border:1px solid rgba(245,183,49,0.3);display:inline-flex;align-items:center;justify-content:center;}
+.internal-card{border-left:4px solid #F5B731;background:rgba(245,183,49,0.04);}
+.internal-card .section-title{color:#F5B731;}
+.internal-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#F5B731;font-weight:700;margin-left:8px;vertical-align:middle;background:rgba(245,183,49,0.12);padding:3px 8px;border-radius:6px;}
+.textarea{width:100%;background:#0D1526;border:1px solid rgba(255,255,255,0.1);color:#ffffff;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;outline:none;resize:vertical;min-height:78px;}
+.textarea:focus{border-color:#3B82F6;background:#101a2f;}
 </style>
 </head>
 <body>
@@ -978,12 +1028,16 @@ function defaultForm() {
     loanTerm: '30-YR FIXED',
     creditScore: '',
     dscrRatio: '',
+    internal: defaultInternal(),
     activeOption: 0,
     options: [defaultOption()],
   };
 }
+function defaultInternal() {
+  return { wholesaleLender: '', lenderProgramName: '', notes: '' };
+}
 function defaultLoForm() {
-  return { editingCode: null, name: '', phone: '', nmls: '', title: '', email: '' };
+  return { editingCode: null, name: '', phone: '', nmls: '', title: '', email: '', applyLink: '' };
 }
 function defaultOption() {
   return {
@@ -1012,6 +1066,7 @@ function defaultOption() {
 const TRANSACTION_TYPES = ['Purchase','Refinance','Cash-Out'];
 const LOAN_PROGRAMS = ['DSCR','Bank Statement','Non-QM','HELOC','Hard Money Exit','BRRRR','Conventional','FHA','VA','P&L Only','Asset Utilization','1099'];
 const LOAN_TERMS = ['30-YR FIXED','15-YR FIXED','ARM 5/1','ARM 7/1','40-YR FIXED'];
+const WHOLESALE_LENDERS = ['','UWM (United Wholesale Mortgage)','Kiavi','A&D Mortgage','Deephaven','Angel Oak','Newfi','Carrington','RCNC Capital','Verus Mortgage','Luxury Mortgage','NQM Funding','Other'];
 
 function toast(msg, isErr=false) {
   const t = document.getElementById('toast');
@@ -1131,8 +1186,26 @@ function renderTab() {
 
 function renderNewQuote() {
   const f = state.form;
+  const i = f.internal || defaultInternal();
   return \`
-    <div class="card card-pad">
+    <div class="card card-pad internal-card">
+      <h2 class="section-title">INTERNAL NOTES <span class="internal-tag">Not Visible to Clients</span></h2>
+      <p class="section-sub">Used by the Rate Hero team to track wholesale lender and program. These fields never appear on the client-facing page.</p>
+      <div class="grid-2">
+        <div class="field"><label>Wholesale Lender</label>
+          <select class="select" data-i="wholesaleLender">
+            \${WHOLESALE_LENDERS.map(o => '<option value="'+escapeHtml(o)+'"'+(o===i.wholesaleLender?' selected':'')+'>'+escapeHtml(o || '— None —')+'</option>').join('')}
+          </select>
+        </div>
+        <div class="field"><label>Lender Program Name</label><input class="input" data-i="lenderProgramName" value="\${escapeHtml(i.lenderProgramName)}" placeholder="e.g. Prime Jumbo, DSCR 30yr Fixed" /></div>
+      </div>
+      <div class="field" style="margin-top:14px;">
+        <label>Internal Notes</label>
+        <textarea class="textarea" data-i="notes" rows="3" placeholder="Internal notes about this deal...">\${escapeHtml(i.notes)}</textarea>
+      </div>
+    </div>
+
+    <div class="card card-pad" style="margin-top:18px;">
       <h2 class="section-title">CLIENT INFORMATION</h2>
       <p class="section-sub">Who is this quote for and what are they looking at?</p>
       <div class="grid-2">
@@ -1257,6 +1330,14 @@ function attachFormHandlers() {
       o[k] = el.type === 'checkbox' ? el.checked : el.value;
     });
   });
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const apply = () => {
+      if (!state.form.internal) state.form.internal = defaultInternal();
+      state.form.internal[el.dataset.i] = el.value;
+    };
+    el.addEventListener('input', apply);
+    el.addEventListener('change', apply);
+  });
 }
 
 function setActiveOption(i) { state.form.activeOption = i; renderTab(); }
@@ -1307,6 +1388,7 @@ async function editQuote(slug) {
       loanTerm: q.loanTerm || '30-YR FIXED',
       creditScore: q.creditScore || '',
       dscrRatio: q.dscrRatio || '',
+      internal: Object.assign(defaultInternal(), q.internal || {}),
       activeOption: 0,
       options: (q.options && q.options.length ? q.options : [defaultOption()]).map(o => Object.assign(defaultOption(), o)),
     };
@@ -1331,7 +1413,7 @@ function renderQuotesList() {
     <div class="quote-row" id="qrow-\${q.slug}">
       <div class="meta">
         <span class="title">\${escapeHtml(q.clientName)}</span>
-        <span class="sub">\${escapeHtml(q.transactionType)} · \${escapeHtml(q.loanProgram)} · \${q.optionCount} option\${q.optionCount===1?'':'s'}</span>
+        <span class="sub">\${escapeHtml(q.transactionType)} · \${escapeHtml(q.loanProgram)}\${q.wholesaleLender ? ' · <span style="color:#F5B731;font-weight:600;">'+escapeHtml(q.wholesaleLender)+'</span>' : ''} · \${q.optionCount} option\${q.optionCount===1?'':'s'}</span>
         <span class="sub">\${escapeHtml(q.address)}</span>
         \${isAdmin ? '<span class="sub">LO: '+escapeHtml(q.loName||'—')+'</span>' : ''}
         <span class="sub">\${new Date(q.createdAt).toLocaleDateString()} · <a href="\${q.url}" target="_blank">\${escapeHtml(q.url.replace('https://',''))}</a></span>
@@ -1429,6 +1511,11 @@ function renderTeam() {
         <div class="field"><label>Title</label><input class="input" id="loTitle" value="\${escapeHtml(f.title)}" placeholder="Loan Officer"/></div>
         <div class="field"><label>Email</label><input class="input" id="loEmail" value="\${escapeHtml(f.email)}" placeholder="zack@goratehero.com"/></div>
       </div>
+      <div class="field" style="margin-top:14px;">
+        <label>Apply Link (1003 App URL)</label>
+        <input class="input" id="loApplyLink" value="\${escapeHtml(f.applyLink)}" placeholder="https://ratehero.my1003app.com/NMLS/register" autocomplete="off" spellcheck="false" />
+        <span class="text-mute" style="font-size:11px;margin-top:4px;">Leave blank to auto-generate from NMLS.</span>
+      </div>
       <div class="row-actions">
         <div>\${editing ? '<button class="btn btn-ghost" onclick="cancelEditLO()">Cancel</button>' : ''}</div>
         <button class="btn btn-primary" onclick="saveLO()">\${editing ? 'Update LO' : 'Add LO &amp; Generate Code'}</button>
@@ -1469,6 +1556,7 @@ function readLoForm() {
     nmls: document.getElementById('loNmls').value.trim(),
     title: document.getElementById('loTitle').value.trim() || 'Loan Officer',
     email: document.getElementById('loEmail').value.trim(),
+    applyLink: document.getElementById('loApplyLink').value.trim(),
   };
 }
 
@@ -1505,6 +1593,7 @@ function editLO(code) {
     nmls: lo.nmls || '',
     title: lo.title || '',
     email: lo.email || '',
+    applyLink: lo.applyLink || '',
   };
   renderTab();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1537,6 +1626,7 @@ function renderClientPage(q) {
   const loPhoneHref = telHref(lo.phone || COMPANY_PHONE);
   const heroPhoneHref = telHref(COMPANY_PHONE);
   const loFirstName = lo.name ? String(lo.name).trim().split(/\s+/)[0] : '';
+  const applyHref = (lo.applyLink && String(lo.applyLink).trim()) || APPLY_URL;
 
   return `<!doctype html>
 <html lang="en">
@@ -1700,7 +1790,7 @@ footer a{color:rgba(255,255,255,0.55);}
     <p>${escapeHtml(loFirstName || 'Your loan officer')} can walk you through every line and help you pick the right option. Call ${escapeHtml(lo.phone || COMPANY_PHONE)}.</p>
     <div class="btns">
       <a class="btn btn-dark" href="${loPhoneHref}">Call ${escapeHtml(loFirstName || 'Now')}</a>
-      <a class="btn btn-primary" href="${APPLY_URL}" target="_blank" rel="noopener">Apply Now</a>
+      <a class="btn btn-primary" href="${applyHref}" target="_blank" rel="noopener">Apply Now</a>
     </div>
   </div>
 
@@ -1722,7 +1812,7 @@ footer a{color:rgba(255,255,255,0.55);}
     <div class="modal-bolt">${BOLT_SVG}</div>
     <h2 class="modal-title">GREAT CHOICE</h2>
     <div class="modal-btns">
-      <a class="btn btn-primary" id="applyBtn" href="${APPLY_URL}" target="_blank" rel="noopener">Apply Now</a>
+      <a class="btn btn-primary" id="applyBtn" href="${applyHref}" target="_blank" rel="noopener">Apply Now</a>
       <a class="btn btn-dark" id="callBtn" href="${loPhoneHref}">Call Now</a>
     </div>
     <div class="modal-foot">
