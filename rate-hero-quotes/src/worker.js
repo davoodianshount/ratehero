@@ -357,7 +357,6 @@ async function createQuote(env, user, body) {
   const loanTerm = (body.loanTerm || '30-YR FIXED').trim();
   const creditScore = (body.creditScore || '').toString().trim();
   const dscrRatio = (body.dscrRatio || '').toString().trim();
-  const internal = normalizeInternal(body.internal);
   const options = Array.isArray(body.options) ? body.options : [];
 
   if (!clientName) return { error: 'Client name is required' };
@@ -378,7 +377,6 @@ async function createQuote(env, user, body) {
     loanTerm,
     creditScore,
     dscrRatio: loanProgram === 'DSCR' ? dscrRatio : '',
-    internal,
     lo: {
       id: user.id,
       name: user.name,
@@ -408,15 +406,6 @@ async function createQuote(env, user, body) {
   return { slug, url: `https://${slug}.goratehero.com` };
 }
 
-// Internal notes stored on each quote — visible ONLY in the admin panel.
-// Never rendered on the client-facing page.
-function normalizeInternal(i) {
-  const src = i && typeof i === 'object' ? i : {};
-  return {
-    notes: String(src.notes || '').trim(),
-  };
-}
-
 function normalizeOption(o) {
   return {
     name: (o.name || '').trim(),
@@ -441,6 +430,7 @@ function normalizeOption(o) {
     // Admin-only per-option fields. Never rendered on the client page.
     wholesaleLender: String(o.wholesaleLender || '').trim(),
     lenderProgram: String(o.lenderProgram || '').trim(),
+    internalNotes: String(o.internalNotes || '').trim(),
   };
 }
 
@@ -534,7 +524,6 @@ async function updateQuote(env, user, slug, body) {
   const loanTerm = (body.loanTerm || '30-YR FIXED').trim();
   const creditScore = (body.creditScore || '').toString().trim();
   const dscrRatio = (body.dscrRatio || '').toString().trim();
-  const internal = normalizeInternal(body.internal);
   const options = Array.isArray(body.options) ? body.options : [];
 
   if (!clientName) return { error: 'Client name is required' };
@@ -559,8 +548,11 @@ async function updateQuote(env, user, slug, body) {
     ? { id: ownerProfile.id, name: ownerProfile.name, phone: ownerProfile.phone, title: ownerProfile.title, nmls: ownerProfile.nmls, email: ownerProfile.email, applyLink: loApplyLink(ownerProfile) }
     : existing.lo;
 
+  // Drop the legacy quote-level `internal` block on save so old records
+  // shed the no-longer-used field; notes now live on each option.
+  const { internal: _legacyInternal, ...existingWithoutInternal } = existing;
   const updated = {
-    ...existing,
+    ...existingWithoutInternal,
     clientName,
     address,
     transactionType,
@@ -568,7 +560,6 @@ async function updateQuote(env, user, slug, body) {
     loanTerm,
     creditScore,
     dscrRatio: loanProgram === 'DSCR' ? dscrRatio : '',
-    internal,
     options: options.map(normalizeOption),
     lo,
     updatedAt: new Date().toISOString(),
@@ -1034,13 +1025,9 @@ function defaultForm() {
     loanTerm: '30-YR FIXED',
     creditScore: '',
     dscrRatio: '',
-    internal: defaultInternal(),
     activeOption: 0,
     options: [defaultOption()],
   };
-}
-function defaultInternal() {
-  return { notes: '' };
 }
 function defaultLoForm() {
   return { editingCode: null, name: '', phone: '', nmls: '', title: '', email: '', applyLink: '' };
@@ -1068,6 +1055,7 @@ function defaultOption() {
     cashFromBorrower: '',
     wholesaleLender: '',
     lenderProgram: '',
+    internalNotes: '',
   };
 }
 
@@ -1193,18 +1181,8 @@ function renderTab() {
 
 function renderNewQuote() {
   const f = state.form;
-  const i = f.internal || defaultInternal();
   return \`
-    <div class="card card-pad internal-card">
-      <h2 class="section-title">INTERNAL NOTES (NOT VISIBLE TO CLIENTS)</h2>
-      <p class="section-sub">Free-form notes about this deal. Wholesale lender and program are now captured per option.</p>
-      <div class="field">
-        <label>Internal Notes</label>
-        <textarea class="textarea" data-i="notes" rows="3" placeholder="Internal notes about this deal...">\${escapeHtml(i.notes)}</textarea>
-      </div>
-    </div>
-
-    <div class="card card-pad" style="margin-top:18px;">
+    <div class="card card-pad">
       <h2 class="section-title">CLIENT INFORMATION</h2>
       <p class="section-sub">Who is this quote for and what are they looking at?</p>
       <div class="grid-2">
@@ -1276,6 +1254,10 @@ function renderOptionForm(o, idx) {
         <div class="field"><label>Wholesale Lender</label><input class="input" data-o="wholesaleLender" value="\${escapeHtml(o.wholesaleLender || '')}" placeholder="e.g. UWM, Kiavi, A&amp;D Mortgage" /></div>
         <div class="field"><label>Lender Program</label><input class="input" data-o="lenderProgram" value="\${escapeHtml(o.lenderProgram || '')}" placeholder="e.g. Prime Jumbo, DSCR 30yr Fixed" /></div>
       </div>
+      <div class="field" style="margin-top:10px;">
+        <label>Notes</label>
+        <textarea class="textarea" data-o="internalNotes" rows="2" placeholder="Internal notes about this option...">\${escapeHtml(o.internalNotes || '')}</textarea>
+      </div>
     </div>
     \${state.form.options.length > 1 ? '<div style="margin-top:14px;"><button class="btn btn-ghost" onclick="removeOption('+idx+')">Remove Option '+(idx+1)+'</button></div>' : ''}
   \`;
@@ -1336,14 +1318,6 @@ function attachFormHandlers() {
       o[k] = el.type === 'checkbox' ? el.checked : el.value;
     });
   });
-  document.querySelectorAll('[data-i]').forEach(el=>{
-    const apply = () => {
-      if (!state.form.internal) state.form.internal = defaultInternal();
-      state.form.internal[el.dataset.i] = el.value;
-    };
-    el.addEventListener('input', apply);
-    el.addEventListener('change', apply);
-  });
 }
 
 function setActiveOption(i) { state.form.activeOption = i; renderTab(); }
@@ -1394,7 +1368,6 @@ async function editQuote(slug) {
       loanTerm: q.loanTerm || '30-YR FIXED',
       creditScore: q.creditScore || '',
       dscrRatio: q.dscrRatio || '',
-      internal: Object.assign(defaultInternal(), q.internal || {}),
       activeOption: 0,
       options: (q.options && q.options.length ? q.options : [defaultOption()]).map(o => Object.assign(defaultOption(), o)),
     };
