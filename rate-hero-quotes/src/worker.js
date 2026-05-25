@@ -413,8 +413,6 @@ async function createQuote(env, user, body) {
 function normalizeInternal(i) {
   const src = i && typeof i === 'object' ? i : {};
   return {
-    wholesaleLender: String(src.wholesaleLender || '').trim(),
-    lenderProgramName: String(src.lenderProgramName || '').trim(),
     notes: String(src.notes || '').trim(),
   };
 }
@@ -440,6 +438,9 @@ function normalizeOption(o) {
     prepaidsEscrow: numOrEmpty(o.prepaidsEscrow),
     pointsCost: numOrEmpty(o.pointsCost),
     cashFromBorrower: numOrEmpty(o.cashFromBorrower),
+    // Admin-only per-option fields. Never rendered on the client page.
+    wholesaleLender: String(o.wholesaleLender || '').trim(),
+    lenderProgram: String(o.lenderProgram || '').trim(),
   };
 }
 
@@ -494,7 +495,10 @@ async function listQuotes(env, user) {
         createdAt: q.createdAt,
         optionCount: (q.options || []).length,
         loName: q.lo && q.lo.name,
-        wholesaleLender: (q.internal && q.internal.wholesaleLender) || '',
+        wholesaleLender: (() => {
+          const opt = (q.options || []).find(o => o && String(o.wholesaleLender || '').trim());
+          return opt ? String(opt.wholesaleLender).trim() : '';
+        })(),
         url: `https://${q.slug}.goratehero.com`,
       });
     } catch {}
@@ -992,6 +996,8 @@ ${FONT_LINK}
 .internal-card{border-left:4px solid #F5B731;background:rgba(245,183,49,0.04);}
 .internal-card .section-title{color:#F5B731;}
 .internal-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#F5B731;font-weight:700;margin-left:8px;vertical-align:middle;background:rgba(245,183,49,0.12);padding:3px 8px;border-radius:6px;}
+.opt-internal{margin-top:18px;padding:14px;border:1px dashed rgba(245,183,49,0.35);border-radius:10px;background:rgba(245,183,49,0.04);}
+.opt-internal-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#F5B731;font-weight:700;margin-bottom:10px;}
 .textarea{width:100%;background:#0D1526;border:1px solid rgba(255,255,255,0.1);color:#ffffff;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;outline:none;resize:vertical;min-height:78px;}
 .textarea:focus{border-color:#3B82F6;background:#101a2f;}
 </style>
@@ -1034,7 +1040,7 @@ function defaultForm() {
   };
 }
 function defaultInternal() {
-  return { wholesaleLender: '', lenderProgramName: '', notes: '' };
+  return { notes: '' };
 }
 function defaultLoForm() {
   return { editingCode: null, name: '', phone: '', nmls: '', title: '', email: '', applyLink: '' };
@@ -1060,13 +1066,14 @@ function defaultOption() {
     prepaidsEscrow: '',
     pointsCost: '',
     cashFromBorrower: '',
+    wholesaleLender: '',
+    lenderProgram: '',
   };
 }
 
 const TRANSACTION_TYPES = ['Purchase','Refinance','Cash-Out'];
 const LOAN_PROGRAMS = ['DSCR','Bank Statement','Non-QM','HELOC','Hard Money Exit','BRRRR','Conventional','FHA','VA','P&L Only','Asset Utilization','1099'];
 const LOAN_TERMS = ['30-YR FIXED','15-YR FIXED','ARM 5/1','ARM 7/1','40-YR FIXED'];
-const WHOLESALE_LENDERS = ['','UWM (United Wholesale Mortgage)','Kiavi','A&D Mortgage','Deephaven','Angel Oak','Newfi','Carrington','RCNC Capital','Verus Mortgage','Luxury Mortgage','NQM Funding','Other'];
 
 function toast(msg, isErr=false) {
   const t = document.getElementById('toast');
@@ -1189,17 +1196,9 @@ function renderNewQuote() {
   const i = f.internal || defaultInternal();
   return \`
     <div class="card card-pad internal-card">
-      <h2 class="section-title">INTERNAL NOTES <span class="internal-tag">Not Visible to Clients</span></h2>
-      <p class="section-sub">Used by the Rate Hero team to track wholesale lender and program. These fields never appear on the client-facing page.</p>
-      <div class="grid-2">
-        <div class="field"><label>Wholesale Lender</label>
-          <select class="select" data-i="wholesaleLender">
-            \${WHOLESALE_LENDERS.map(o => '<option value="'+escapeHtml(o)+'"'+(o===i.wholesaleLender?' selected':'')+'>'+escapeHtml(o || '— None —')+'</option>').join('')}
-          </select>
-        </div>
-        <div class="field"><label>Lender Program Name</label><input class="input" data-i="lenderProgramName" value="\${escapeHtml(i.lenderProgramName)}" placeholder="e.g. Prime Jumbo, DSCR 30yr Fixed" /></div>
-      </div>
-      <div class="field" style="margin-top:14px;">
+      <h2 class="section-title">INTERNAL NOTES (NOT VISIBLE TO CLIENTS)</h2>
+      <p class="section-sub">Free-form notes about this deal. Wholesale lender and program are now captured per option.</p>
+      <div class="field">
         <label>Internal Notes</label>
         <textarea class="textarea" data-i="notes" rows="3" placeholder="Internal notes about this deal...">\${escapeHtml(i.notes)}</textarea>
       </div>
@@ -1270,6 +1269,13 @@ function renderOptionForm(o, idx) {
       <div class="field"><label>Prepaids &amp; Escrow (-)</label><input class="input" data-o="prepaidsEscrow" type="number" value="\${o.prepaidsEscrow}" /></div>
       <div class="field"><label>Points Cost (-)</label><input class="input" data-o="pointsCost" type="number" value="\${o.pointsCost}" /></div>
       <div class="field"><label class="cashTotalLabel">\${cashTotalLabel(state.form.transactionType)}</label><input class="input" data-o="cashFromBorrower" type="number" value="\${o.cashFromBorrower}" /></div>
+    </div>
+    <div class="opt-internal">
+      <div class="opt-internal-title">INTERNAL (NOT VISIBLE TO CLIENTS)</div>
+      <div class="grid-2">
+        <div class="field"><label>Wholesale Lender</label><input class="input" data-o="wholesaleLender" value="\${escapeHtml(o.wholesaleLender || '')}" placeholder="e.g. UWM, Kiavi, A&amp;D Mortgage" /></div>
+        <div class="field"><label>Lender Program</label><input class="input" data-o="lenderProgram" value="\${escapeHtml(o.lenderProgram || '')}" placeholder="e.g. Prime Jumbo, DSCR 30yr Fixed" /></div>
+      </div>
     </div>
     \${state.form.options.length > 1 ? '<div style="margin-top:14px;"><button class="btn btn-ghost" onclick="removeOption('+idx+')">Remove Option '+(idx+1)+'</button></div>' : ''}
   \`;
